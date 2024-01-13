@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { parse } from 'node-html-parser';
 
+const NYRR_URL = 'https://www.nyrr.org/api/feature/volunteer/FilterVolunteerOpportunities?available_only=true&itemId=3EB6F0CC-0D76-4BAF-A894-E2AB244CEB44&limit=100&offset=0&opportunity_type=9%2B1%20Qualifier&totalItemLoaded=100';
+const SCRAPING_BEE_API_URL = 'https://app.scrapingbee.com/api/v1?';
+
 export default async function GET(
   _: NextApiRequest,
   res: NextApiResponse,
@@ -11,12 +14,10 @@ export default async function GET(
     })
   }
 
-  const url = 'https://www.nyrr.org/api/feature/volunteer/FilterVolunteerOpportunities?available_only=true&itemId=3EB6F0CC-0D76-4BAF-A894-E2AB244CEB44&limit=100&offset=0&opportunity_type=9%2B1%20Qualifier&totalItemLoaded=100';
-
   const request = await fetch(
-    'https://app.scrapingbee.com/api/v1?' + new URLSearchParams({
+    SCRAPING_BEE_API_URL + new URLSearchParams({
       api_key: process.env.SCRAPING_BEE_API_KEY as string,
-      url,
+      url: NYRR_URL,
     }),
   );
 
