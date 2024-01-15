@@ -18,6 +18,7 @@ export default async function GET(
     SCRAPING_BEE_API_URL + new URLSearchParams({
       api_key: process.env.SCRAPING_BEE_API_KEY as string,
       url: NYRR_URL,
+      render_js: 'False',
     }),
   );
 
