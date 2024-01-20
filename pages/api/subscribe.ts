@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { createClient } from '@supabase/supabase-js'
+import { createSupabaseClient } from "../../app/utils/cient";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,22 +9,15 @@ export default async function handler(
 ) {
   const body = req.body
 
-  if (!body.email) {
-    return res.status(400).json({ message: 'Email not found' })
-  }
+  if (!body.email) return res.status(400).json({
+    message: 'Email is missing'
+  });
 
-  console.info(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  const client = createSupabaseClient();
 
-  const client = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-
-  const { data } = await client.from('emails').insert({
+  const { status } = await client.from('emails').insert({
     email: body.email,
   });
 
-  console.info(data);
-
-  return res.status(200).json({ message: body.email })
+  return res.status(status);
 }

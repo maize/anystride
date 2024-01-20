@@ -33,7 +33,11 @@ export const SubscribeForm = () => {
   };
 
   return subscribed ? (
-    <p className="text font-bold text-white">Subscribed</p>
+    <div className="mt-6 flex max-w-md gap-x-4">
+    <div className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm sm:text-sm sm:leading-6">
+      <p className="text font-bold text-white">✅ Subscribed</p>
+    </div>
+    </div>
   ) : (
     <form className="mt-6 flex max-w-md gap-x-4" onSubmit={handleSubmit}>
       <label htmlFor="email-address" className="sr-only">

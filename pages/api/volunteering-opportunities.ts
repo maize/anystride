@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { parse } from 'node-html-parser';
+import { createSupabaseClient } from "../../app/utils/cient";
+import { ServerClient } from 'postmark';
 
 const NYRR_URL = 'https://www.nyrr.org/api/feature/volunteer/FilterVolunteerOpportunities?available_only=true&itemId=3EB6F0CC-0D76-4BAF-A894-E2AB244CEB44&limit=100&offset=0&opportunity_type=9%2B1%20Qualifier&totalItemLoaded=100';
 const SCRAPING_BEE_API_URL = 'https://app.scrapingbee.com/api/v1?';
@@ -28,7 +30,10 @@ export default async function GET(
     const root = parse(json.html);
     const roles = root.querySelectorAll('section.role_listing');
 
-    const availableRoles = [];
+    const availableRoles: {
+      title?: string,
+      event?: string,
+    }[] = [];
 
     for (const role of roles) {
       const isMedical = role.querySelector('.medical_icon');
@@ -45,13 +50,29 @@ export default async function GET(
     }
 
     if (availableRoles.length > 0) {
+      const client = createSupabaseClient();
+      const { data: emails } = await client.from('emails').select();
+
+      var postMarkClient = new ServerClient(
+        process.env.POSTMARK_SERVER_API_TOKEN!
+      );
+
+      emails?.map(({ email }) => {
+        postMarkClient.sendEmail({
+          "From": "info@mlink.co",
+          "To": email,
+          "Subject": "NYRR Volunteering Opportunities Available",
+          "TextBody": JSON.stringify(availableRoles),
+        });
+      });
+
       return res.json({
         roles: availableRoles,
       });
     } else {
       return res.json({
         message: "No volunteering roles available",
-      });   
+      });
     }
   }
 
