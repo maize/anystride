@@ -15,9 +15,13 @@ export default async function handler(
 
   const client = createSupabaseClient();
 
-  const { status } = await client.from('emails').insert({
+  const { error, status } = await client.from('emails').insert({
     email: body.email,
   });
 
-  return res.status(status);
+  if (error) return res.status(status).json({
+    message: error.message,
+  });
+
+  return res.status(200);
 }
