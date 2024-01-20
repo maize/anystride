@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/volunteering-opportunities",
+      "schedule": "0 * * * *"
+    }
+  ]
+}

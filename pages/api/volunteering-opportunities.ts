@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { parse } from 'node-html-parser';
 import { createSupabaseClient } from "../../app/utils/cient";
-import { ServerClient } from 'postmark';
+import { ServerClient, TemplatedMessage } from 'postmark';
 
 const NYRR_URL = 'https://www.nyrr.org/api/feature/volunteer/FilterVolunteerOpportunities?available_only=true&itemId=3EB6F0CC-0D76-4BAF-A894-E2AB244CEB44&limit=100&offset=0&opportunity_type=9%2B1%20Qualifier&totalItemLoaded=100';
 const SCRAPING_BEE_API_URL = 'https://app.scrapingbee.com/api/v1?';
@@ -53,18 +53,25 @@ export default async function GET(
       const client = createSupabaseClient();
       const { data: emails } = await client.from('emails').select();
 
-      var postMarkClient = new ServerClient(
-        process.env.POSTMARK_SERVER_API_TOKEN!
-      );
-
-      emails?.map(({ email }) => {
-        postMarkClient.sendEmail({
-          "From": "info@mlink.co",
-          "To": email,
-          "Subject": "NYRR Volunteering Opportunities Available",
-          "TextBody": JSON.stringify(availableRoles),
+      if (emails) {
+        var postMarkClient = new ServerClient(
+          process.env.POSTMARK_SERVER_API_TOKEN!
+        );
+  
+        const emailTemplates: TemplatedMessage[] = emails?.map(({ email }) => {
+          return {
+            "From": "info@mlink.co",
+            "To": email,
+            "TemplateAlias": "new-volunteering-opportunities",
+            "TemplateModel": {
+              count: availableRoles.length,
+              roles: availableRoles,
+            }
+          }
         });
-      });
+  
+        postMarkClient.sendEmailBatchWithTemplates(emailTemplates);
+      }
 
       return res.json({
         roles: availableRoles,
