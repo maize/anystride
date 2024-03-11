@@ -3,11 +3,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'NYRR Volunteering Notifier',
+  title: 'anystride',
   description: 'Get notified about new NYRR volunteering opportunities for the 9+1 program',
 }
 

@@ -16,72 +16,87 @@ export default async function GET(
     })
   }
 
-  const request = await fetch(
+  await fetch(
     SCRAPING_BEE_API_URL + new URLSearchParams({
       api_key: process.env.SCRAPING_BEE_API_KEY as string,
       url: NYRR_URL,
       render_js: 'False',
     }),
-  );
-
-  const json = await request.json();
-
-  if (json.html) {
-    const root = parse(json.html);
-    const roles = root.querySelectorAll('section.role_listing');
-
-    const availableRoles: {
-      title?: string,
-      event?: string,
-    }[] = [];
-
-    for (const role of roles) {
-      const isMedical = role.querySelector('.medical_icon');
-      const isFreeRun = role.querySelector('.tag.tag--no');
-      if (!isMedical && !isFreeRun) {
-        const title = role.querySelector('.role_listing__title')?.textContent.trim();
-        const event = role.querySelector('.role_listing__event')?.textContent.trim();
-
-        availableRoles.push({
-          title,
-          event,
-        });
-      };
+  )
+  .then((resp) => {
+    try {
+      return resp.json()
+    } catch (error) {
+      return res.status(500).json({
+        message: 'Error parsing response',
+      });
     }
-
-    if (availableRoles.length > 0) {
-      const client = createSupabaseClient();
-      const { data: emails } = await client.from('emails').select();
-
-      if (emails) {
-        var postMarkClient = new ServerClient(
-          process.env.POSTMARK_SERVER_API_TOKEN!
-        );
+  })
+  .then(async (json) => {
+    if (json.html) {
+      const root = parse(json.html);
+      const roles = root.querySelectorAll('section.role_listing');
   
-        const emailTemplates: TemplatedMessage[] = emails?.map(({ email }) => {
-          return {
-            "From": "info@mlink.co",
-            "To": email,
-            "TemplateAlias": "new-volunteering-opportunities",
-            "TemplateModel": {
-              count: availableRoles.length,
-              roles: availableRoles,
-            }
-          }
-        });
+      const availableRoles: {
+        title?: string,
+        event?: string,
+      }[] = [];
   
-        postMarkClient.sendEmailBatchWithTemplates(emailTemplates);
+      for (const role of roles) {
+        const isMedical = role.querySelector('.medical_icon');
+        const isFreeRun = role.querySelector('.tag.tag--no');
+        if (!isMedical && !isFreeRun) {
+          const title = role.querySelector('.role_listing__title')?.textContent.trim();
+          const event = role.querySelector('.role_listing__event')?.textContent.trim();
+  
+          availableRoles.push({
+            title,
+            event,
+          });
+        };
       }
-
-      return res.json({
-        roles: availableRoles,
-      });
-    } else {
-      return res.json({
-        message: "No volunteering roles available",
-      });
+  
+      if (availableRoles.length > 0) {
+        const client = createSupabaseClient();
+        const { data: emails } = await client.from('emails').select();
+  
+        if (emails) {
+          var postMarkClient = new ServerClient(
+            process.env.POSTMARK_SERVER_API_TOKEN!
+          );
+    
+          const emailTemplates: TemplatedMessage[] = emails?.map(({ email }) => {
+            return {
+              "From": "info@mlink.co",
+              "To": email,
+              "TemplateAlias": "new-volunteering-opportunities",
+              "TemplateModel": {
+                count: availableRoles.length,
+                roles: availableRoles,
+              }
+            }
+          });
+    
+          postMarkClient.sendEmailBatchWithTemplates(emailTemplates);
+        }
+  
+        return res.status(200).json({
+          roles: availableRoles,
+        });
+      } else {
+        return res.status(200).json({
+          message: "No volunteering roles available",
+        });
+      }
     }
-  }
+  })
+  .catch((error) => {
+    return res.status(500).json({
+      message: error.message,
+    });
+  });
 
-  return res.status(404);
+  return res.status(404).json({
+    message: 'Not found',
+  });
 }

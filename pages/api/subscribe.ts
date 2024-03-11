@@ -23,5 +23,7 @@ export default async function handler(
     message: error.message,
   });
 
-  return res.status(200);
+  return res.status(status).json({
+    message: 'Email added to list'
+  });
 }
