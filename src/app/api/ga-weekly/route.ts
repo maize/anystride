@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
   }
   if (!isGaConfigured()) {
     return NextResponse.json(
-      { error: "GA_SA_KEY is not set." },
+      { error: "GA credentials are not configured." },
       { status: 503 },
     );
   }

@@ -1,19 +1,37 @@
-import { JWT } from "google-auth-library";
+import { JWT, OAuth2Client } from "google-auth-library";
 
 /**
  * Google Analytics 4 Data API access for the weekly review.
  *
- * Credentials (set in Vercel env):
- *   - GA_SA_KEY      : the service-account JSON (inline). Required.
+ * Two auth methods are supported (OAuth preferred when present):
+ *
+ *   OAuth as your own Google account (which already has GA access):
+ *     - GOOGLE_OAUTH_CLIENT_ID
+ *     - GOOGLE_OAUTH_CLIENT_SECRET
+ *     - GOOGLE_OAUTH_REFRESH_TOKEN
+ *
+ *   …or a service account granted Viewer on the property:
+ *     - GA_SA_KEY  (the service-account JSON, inline)
+ *
  *   - GA_PROPERTY_ID : numeric GA4 property id. Defaults to the anystride property.
  */
+
+const SCOPE = "https://www.googleapis.com/auth/analytics.readonly";
 
 // GA4 *property* id (the `p…` part of the admin URL a396316665p539727341),
 // not the account id. Env var overrides if needed.
 const PROPERTY_ID = process.env.GA_PROPERTY_ID ?? "539727341";
 
+function hasOAuth(): boolean {
+  return Boolean(
+    process.env.GOOGLE_OAUTH_REFRESH_TOKEN &&
+      process.env.GOOGLE_OAUTH_CLIENT_ID &&
+      process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+  );
+}
+
 export function isGaConfigured(): boolean {
-  return Boolean(process.env.GA_SA_KEY);
+  return hasOAuth() || Boolean(process.env.GA_SA_KEY);
 }
 
 interface SaKey {
@@ -22,14 +40,29 @@ interface SaKey {
 }
 
 async function getAccessToken(): Promise<string> {
+  // Prefer OAuth (your own Google account) when configured.
+  if (hasOAuth()) {
+    const client = new OAuth2Client(
+      process.env.GOOGLE_OAUTH_CLIENT_ID,
+      process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+    );
+    client.setCredentials({
+      refresh_token: process.env.GOOGLE_OAUTH_REFRESH_TOKEN,
+    });
+    const { token } = await client.getAccessToken();
+    if (!token) throw new Error("Failed to obtain GA access token via OAuth");
+    return token;
+  }
+
+  // Otherwise fall back to a service account.
   const raw = process.env.GA_SA_KEY;
-  if (!raw) throw new Error("GA_SA_KEY is not set");
+  if (!raw) throw new Error("No GA credentials configured");
   const creds = JSON.parse(raw) as SaKey;
   const client = new JWT({
     email: creds.client_email,
     // Env-stored keys often have escaped newlines; normalize them.
     key: creds.private_key.replace(/\\n/g, "\n"),
-    scopes: ["https://www.googleapis.com/auth/analytics.readonly"],
+    scopes: [SCOPE],
   });
   const { access_token } = await client.authorize();
   if (!access_token) throw new Error("Failed to obtain GA access token");

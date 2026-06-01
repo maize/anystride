@@ -30,16 +30,29 @@ GA4 is loaded site-wide (`NEXT_PUBLIC_GA_ID`, default `G-QHBHKRHCZJ`). The coach
 form fires a `generate_lead` event on signup. In GA4 → Admin → Events, mark
 `generate_lead` as a **Key Event** so it counts as a conversion.
 
-### 2. Service account (lets the site read GA)
-1. Google Cloud → create a **service account** → create a **JSON key**.
-2. GA4 → Admin → Property Access Management → add the service account's email as
-   **Viewer**.
-3. In Vercel → Project → Settings → Environment Variables, add:
-   - `GA_SA_KEY` = the full service-account JSON (paste it inline)
-   - `GA_PROPERTY_ID` = `539727341`  *(optional — this is the default; it's the
-     `p…` property id from the admin URL, not the `a…` account id)*
+### 2. Let the site read GA (OAuth as your own account — recommended)
+GA wouldn't accept a service account here (org restriction), so authenticate as
+your own Google account, which already has GA access.
+
+1. Google Cloud → APIs & Services → **enable "Google Analytics Data API"**.
+2. Configure the **OAuth consent screen**, scope `.../auth/analytics.readonly`.
+   To get a **non-expiring** refresh token: set User type **Internal** (Workspace)
+   **or** **Publish** the app to Production (personal accounts) — apps left in
+   "Testing" expire refresh tokens after 7 days.
+3. Create an **OAuth client ID → Desktop app**; copy its client id + secret.
+4. Get a refresh token:
+   ```bash
+   GOOGLE_OAUTH_CLIENT_ID=… GOOGLE_OAUTH_CLIENT_SECRET=… node scripts/oauth-setup.mjs
+   ```
+   Approve in the browser; the refresh token prints in your terminal.
+5. In Vercel → Settings → Environment Variables, add and redeploy:
+   - `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`,
+     `GOOGLE_OAUTH_REFRESH_TOKEN`
    - `GA_REPORT_TOKEN` = a long random string
-   Then redeploy.
+   - `GA_PROPERTY_ID` = `539727341` *(optional — already the default)*
+
+*(Alternative: a service account with Viewer on the property, set as `GA_SA_KEY`.
+The code supports both; OAuth is used when present.)*
 
 ### 3. Verify
 ```bash
