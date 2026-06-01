@@ -1,65 +1,136 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getAllPlans, availableDistances } from "@/lib/plans";
+import { PlanCard } from "@/components/PlanCard";
+import { DISTANCE_LABELS, DISTANCE_ORDER } from "@/data/types";
 
 export default function Home() {
+  const plans = getAllPlans();
+  const available = new Set(availableDistances());
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="mx-auto max-w-5xl px-5">
+      {/* Hero */}
+      <section className="py-16 sm:py-24">
+        <p className="mb-3 text-sm font-medium text-brand">
+          Free · No login · Community-sourced
+        </p>
+        <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+          Training plans for any distance, any runner.
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+          AnyStride turns the running community&apos;s most-trusted training
+          methodologies into clear, week-by-week plans. Pick your goal and your
+          level — and just run.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link
+            href="/plans"
+            className="rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Browse all plans
+          </Link>
+          <Link
+            href="#distances"
+            className="rounded-full border border-border px-6 py-2.5 font-medium hover:border-brand"
           >
-            Documentation
-          </a>
+            Pick a distance
+          </Link>
         </div>
-      </main>
+      </section>
+
+      {/* Distance chooser */}
+      <section id="distances" className="border-t border-border py-12">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Choose your distance
+        </h2>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {DISTANCE_ORDER.map((d) => {
+            const has = available.has(d);
+            return has ? (
+              <Link
+                key={d}
+                href={`/plans?distance=${d}`}
+                className="rounded-lg border border-border px-5 py-3 font-medium hover:border-brand hover:text-brand"
+              >
+                {DISTANCE_LABELS[d]}
+              </Link>
+            ) : (
+              <span
+                key={d}
+                className="cursor-not-allowed rounded-lg border border-dashed border-border px-5 py-3 font-medium text-muted-foreground"
+                title="Plans coming soon"
+              >
+                {DISTANCE_LABELS[d]}
+                <span className="ml-2 text-xs">soon</span>
+              </span>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Featured plans */}
+      <section className="border-t border-border py-12">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight">Featured plans</h2>
+          <Link href="/plans" className="text-sm font-medium text-brand hover:underline">
+            View all →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {plans.map((plan) => (
+            <PlanCard key={plan.slug} plan={plan} />
+          ))}
+        </div>
+      </section>
+
+      {/* Why */}
+      <section className="border-t border-border py-12">
+        <div className="grid gap-8 sm:grid-cols-3">
+          <div>
+            <h3 className="font-semibold">Community-trusted</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Plans grounded in the methodologies r/running, r/AdvancedRunning and
+              r/C25K actually recommend — each one cites its source.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold">Genuinely free</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              No account, no paywall, no upsell to view or follow a plan. Open the
+              page and start training.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold">Clear and printable</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Every plan is laid out week-by-week, day-by-day, so you always know
+              what today&apos;s run is.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Coaching teaser */}
+      <section className="border-t border-border py-12">
+        <div className="flex flex-col items-start gap-4 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-medium text-brand">Coming soon</p>
+            <h2 className="mt-1 text-xl font-semibold tracking-tight">
+              Want a real coach, not just a plan?
+            </h2>
+            <p className="mt-1 max-w-xl text-sm text-muted-foreground">
+              We&apos;re building a better way to find vetted running coaches — and
+              actually know if they&apos;re any good. Register your interest.
+            </p>
+          </div>
+          <Link
+            href="/coaching"
+            className="shrink-0 rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90"
+          >
+            Get notified
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

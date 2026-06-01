@@ -2,25 +2,40 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #14181f;
+  /* AnyStride brand: an energetic "stride" orange + deep slate. */
+  --brand: #ff5a1f;
+  --brand-foreground: #ffffff;
+  --muted: #f4f5f7;
+  --muted-foreground: #5b6470;
+  --border: #e4e7ec;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0d10;
+    --foreground: #eef1f5;
+    --brand: #ff6a33;
+    --muted: #161a20;
+    --muted-foreground: #9aa4b2;
+    --border: #232a33;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
