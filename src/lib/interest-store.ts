@@ -1,12 +1,35 @@
-import { sql } from "@vercel/postgres";
+import { Pool } from "pg";
 
 /**
- * Durable storage for coaching-interest signups, backed by Vercel Postgres.
+ * Durable storage for coaching-interest signups, backed by Postgres via the
+ * standard `pg` driver (TCP). Works with any Postgres provider (Neon, Supabase,
+ * etc.); this route runs in the Node.js runtime so TCP connections are fine.
  *
- * Configured automatically once a Vercel Postgres database is attached to the
- * project (it injects `POSTGRES_URL`). When no database is configured we report
- * `isDbConfigured() === false` so the API route can fall back gracefully.
+ * Configured once a Postgres database is attached to the project (it injects
+ * `POSTGRES_URL` / `DATABASE_URL`). When neither is set, `isDbConfigured()`
+ * returns false and the API route falls back gracefully.
  */
+
+const CONNECTION_STRING =
+  process.env.POSTGRES_URL ?? process.env.DATABASE_URL ?? "";
+
+export function isDbConfigured(): boolean {
+  return CONNECTION_STRING.length > 0;
+}
+
+// Reuse a single pool across warm invocations. Pointed at the pooled endpoint
+// (POSTGRES_URL), so a small max is plenty per instance.
+let pool: Pool | undefined;
+function getPool(): Pool {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: CONNECTION_STRING,
+      max: 3,
+      ssl: { rejectUnauthorized: false },
+    });
+  }
+  return pool;
+}
 
 export interface Interest {
   email: string;
@@ -14,15 +37,10 @@ export interface Interest {
   role: "runner" | "coach";
 }
 
-export function isDbConfigured(): boolean {
-  return Boolean(process.env.POSTGRES_URL);
-}
-
 let tableReady = false;
-
 async function ensureTable(): Promise<void> {
   if (tableReady) return;
-  await sql`
+  await getPool().query(`
     CREATE TABLE IF NOT EXISTS coach_interest (
       id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
       email       TEXT NOT NULL UNIQUE,
@@ -31,7 +49,7 @@ async function ensureTable(): Promise<void> {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
       updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
-  `;
+  `);
   tableReady = true;
 }
 
@@ -41,15 +59,13 @@ async function ensureTable(): Promise<void> {
  */
 export async function saveInterest(interest: Interest): Promise<void> {
   await ensureTable();
-  await sql`
-    INSERT INTO coach_interest (email, goal, role)
-    VALUES (${interest.email}, ${interest.goal}, ${interest.role})
-    ON CONFLICT (email)
-    DO UPDATE SET
-      goal = EXCLUDED.goal,
-      role = EXCLUDED.role,
-      updated_at = now()
-  `;
+  await getPool().query(
+    `INSERT INTO coach_interest (email, goal, role)
+     VALUES ($1, $2, $3)
+     ON CONFLICT (email)
+     DO UPDATE SET goal = EXCLUDED.goal, role = EXCLUDED.role, updated_at = now()`,
+    [interest.email, interest.goal, interest.role],
+  );
 }
 
 export interface InterestRow extends Interest {
@@ -61,10 +77,10 @@ export interface InterestRow extends Interest {
 /** List signups, newest first. */
 export async function listInterest(): Promise<InterestRow[]> {
   await ensureTable();
-  const { rows } = await sql<InterestRow>`
-    SELECT id, email, goal, role, created_at, updated_at
-    FROM coach_interest
-    ORDER BY created_at DESC
-  `;
+  const { rows } = await getPool().query<InterestRow>(
+    `SELECT id, email, goal, role, created_at, updated_at
+     FROM coach_interest
+     ORDER BY created_at DESC`,
+  );
   return rows;
 }

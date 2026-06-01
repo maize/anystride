@@ -1,6 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isDbConfigured, listInterest, saveInterest } from "@/lib/interest-store";
 
+// pg uses TCP sockets — requires the Node.js runtime (not Edge).
+export const runtime = "nodejs";
+
 /**
  * Captures interest in the (not-yet-built) coaching marketplace.
  *
