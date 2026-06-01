@@ -222,7 +222,7 @@ export function PaceCalculator() {
               Your training paces
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Use these for the workouts in any AnyStride plan.
+              Use these for the workouts in any anystride plan.
             </p>
             <div className="mt-3 overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">

@@ -204,7 +204,7 @@ export default async function PlanPage({ params }: PageProps<"/plans/[slug]">) {
 
       {/* Disclaimer */}
       <p className="mt-10 text-xs text-muted-foreground">
-        AnyStride plans are educational summaries of community-trusted training
+        anystride plans are educational summaries of community-trusted training
         methodologies, not medical or individualized coaching advice. Listen to
         your body, and consult a doctor before starting a new program.
       </p>

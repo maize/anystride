@@ -18,7 +18,7 @@ export default function Home() {
           Training plans for any distance, any runner.
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          AnyStride turns the running community&apos;s most-trusted training
+          anystride turns the running community&apos;s most-trusted training
           methodologies into clear, week-by-week plans. Pick your goal and your
           level — and just run.
         </p>

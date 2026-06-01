@@ -4,7 +4,7 @@ import { CoachInterestForm } from "@/components/CoachInterestForm";
 export const metadata: Metadata = {
   title: "Personalized coaching — coming soon",
   description:
-    "AnyStride is building a way to connect runners with vetted human coaches — and finally know how good a coach really is. Register your interest.",
+    "anystride is building a way to connect runners with vetted human coaches — and finally know how good a coach really is. Register your interest.",
 };
 
 export default function CoachingPage() {

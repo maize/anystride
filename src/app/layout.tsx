@@ -17,17 +17,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anystride.com"),
   title: {
-    default: "AnyStride — Free running training plans for every distance",
-    template: "%s · AnyStride",
+    default: "anystride — Free running training plans for every distance",
+    template: "%s · anystride",
   },
   description:
     "Free, community-sourced running training plans for any distance and any runner. Pick your goal and level, get a complete week-by-week plan. No login, no paywall.",
   openGraph: {
-    title: "AnyStride — Free running training plans",
+    title: "anystride — Free running training plans",
     description:
       "Free, community-sourced training plans for any distance and any runner.",
     url: "https://anystride.com",
-    siteName: "AnyStride",
+    siteName: "anystride",
     type: "website",
   },
 };
@@ -37,7 +37,7 @@ function Header() {
     <header className="border-b border-border">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
         <Link href="/" className="flex items-baseline gap-1 font-semibold">
-          <span className="text-lg tracking-tight">AnyStride</span>
+          <span className="text-lg tracking-tight">anystride</span>
           <span className="h-2 w-2 translate-y-[-1px] rounded-full bg-brand" />
         </Link>
         <nav className="flex items-center gap-5 text-sm">
@@ -70,7 +70,7 @@ function Footer() {
     <footer className="mt-auto border-t border-border">
       <div className="mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
-          AnyStride — free training plans, sourced from the running community.
+          anystride — free training plans, sourced from the running community.
         </p>
         <p>
           Always consult a doctor before starting a new training program.
