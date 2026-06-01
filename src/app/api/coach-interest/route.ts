@@ -63,12 +63,8 @@ export async function POST(request: NextRequest) {
     }
   } catch (err) {
     console.error("coach-interest: failed to record submission", err);
-    const debug = request.headers.get("x-debug") === "anystride";
     return NextResponse.json(
-      {
-        error: "Could not record your interest. Please try again.",
-        ...(debug ? { detail: err instanceof Error ? err.message : String(err) } : {}),
-      },
+      { error: "Could not record your interest. Please try again." },
       { status: 502 },
     );
   }
