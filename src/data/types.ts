@@ -48,11 +48,28 @@ export interface TrainingPlan {
   peakWorkout: string;
   /** Short bullets: who this plan is a great fit for. */
   bestFor: string[];
+  /**
+   * Weekly running volume in MILES, used by the recommender to match a plan to a
+   * runner's current mileage. `start` = first week, `peak` = biggest week.
+   */
+  weeklyVolume: { start: number; peak: number };
   /** Attribution + link to the community source / methodology. */
   source: { name: string; url: string };
   /** Why the running community recommends this plan. */
   communityNote?: string;
-  weeks: PlanWeek[];
+  /**
+   * "full" plans ship the complete week-by-week schedule in `weeks`.
+   * "explainer" plans are popular copyrighted plans we describe (philosophy,
+   * structure, pros/cons) and link out to, rather than reproduce verbatim.
+   */
+  kind: "full" | "explainer";
+  /** Present on "full" plans. */
+  weeks?: PlanWeek[];
+  /** Present on "explainer" plans: a few lines describing the weekly structure. */
+  outline?: string[];
+  /** Explainer plans: strengths and trade-offs the community debates. */
+  pros?: string[];
+  cons?: string[];
 }
 
 export const INTENSITY_LABELS: Record<Intensity, string> = {

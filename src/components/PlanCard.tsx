@@ -19,6 +19,11 @@ export function PlanCard({ plan }: { plan: TrainingPlan }) {
       <p className="mt-4 text-xs font-medium text-muted-foreground">
         {plan.durationWeeks} weeks · {plan.daysPerWeek} days/week
       </p>
+      <p className="mt-1 text-xs text-muted-foreground">
+        {plan.kind === "full"
+          ? "✓ Full schedule included"
+          : "↗ Guide + link to official plan"}
+      </p>
     </Link>
   );
 }

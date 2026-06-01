@@ -1,4 +1,5 @@
 import type { TrainingPlan, Workout } from "./types";
+import { EXPLAINER_PLANS } from "./explainer-plans";
 
 // Reusable cells
 const rest: Workout = { type: "rest", label: "Rest" };
@@ -38,6 +39,8 @@ const c25k: TrainingPlan = {
   timePerWeek: "1.5–2 hrs",
   intensity: "low",
   peakWorkout: "30-min continuous run (≈5K)",
+  kind: "full",
+  weeklyVolume: { start: 5, peak: 10 },
   bestFor: [
     "Brand-new runners starting from scratch",
     "Returning after a long break",
@@ -184,6 +187,8 @@ const baseBuilding: TrainingPlan = {
   timePerWeek: "2–3 hrs",
   intensity: "low",
   peakWorkout: "40-min easy run",
+  kind: "full",
+  weeklyVolume: { start: 8, peak: 12 },
   bestFor: [
     "Runners between programs who want to hold fitness",
     "Building a base before a 5K/10K plan",
@@ -279,6 +284,8 @@ const bridgeTo10k: TrainingPlan = {
   timePerWeek: "2.5–3.5 hrs",
   intensity: "moderate",
   peakWorkout: "6-mile long run",
+  kind: "full",
+  weeklyVolume: { start: 12, peak: 18 },
   bestFor: [
     "5K runners ready for their next distance",
     "Runners who want a first taste of tempo work",
@@ -369,4 +376,9 @@ const bridgeTo10k: TrainingPlan = {
   ],
 };
 
-export const PLANS: TrainingPlan[] = [c25k, baseBuilding, bridgeTo10k];
+export const PLANS: TrainingPlan[] = [
+  c25k,
+  baseBuilding,
+  bridgeTo10k,
+  ...EXPLAINER_PLANS,
+];

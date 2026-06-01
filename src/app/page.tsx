@@ -30,10 +30,10 @@ export default function Home() {
             Browse all plans
           </Link>
           <Link
-            href="#distances"
+            href="/calculator"
             className="rounded-full border border-border px-6 py-2.5 font-medium hover:border-brand"
           >
-            Pick a distance
+            Find my paces →
           </Link>
         </div>
       </section>
@@ -101,10 +101,13 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Clear and printable</h3>
+            <h3 className="font-semibold">Personalized to you</h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Every plan is laid out week-by-week, day-by-day, so you always know
-              what today&apos;s run is.
+              Enter a recent time or goal and get your training paces, predicted
+              race times, and the plans that fit your current mileage.{" "}
+              <Link href="/calculator" className="text-brand hover:underline">
+                Try it →
+              </Link>
             </p>
           </div>
         </div>

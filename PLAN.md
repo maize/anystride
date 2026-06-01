@@ -128,7 +128,14 @@ freely-publishable methodology or summarize + link (not reproduce paid content).
 - [x] Plan-detail "at a glance" panel (time/week, intensity, prerequisite, peak, best-for)
 - [x] **Coaching "coming soon"** page (`/coaching`) + interest form → `/api/coach-interest`
       (forwards to `COACH_INTEREST_WEBHOOK_URL` if set, else logs). Demand-gauging before build.
-- [ ] Add analytics (Vercel Web Analytics / Plausible) to count page views & form conversion
-- [ ] Source & encode half / marathon / advanced plans
+- [x] Analytics (Vercel Web Analytics) wired in
+- [x] Deployed to Vercel + connected anystride.com (live)
+- [x] **Popular Reddit plans** added as explainer entries across 5K–marathon
+      (Higdon 5K/10K/half/marathon, Pfitzinger 18/55, Hansons) — described + linked,
+      not reproduced verbatim
+- [x] **Pace calculator + plan finder** (`/calculator`): Riegel race prediction +
+      Daniels–Gilbert VDOT paces (validated vs. published tables) + volume-based
+      plan recommender
+- [ ] Add Jack Daniels & more half/ultra explainer plans
 - [ ] Brand/identity pass
-- [ ] Deploy to Vercel + connect anystride.com
+- [ ] Save-as-PDF / calendar export
