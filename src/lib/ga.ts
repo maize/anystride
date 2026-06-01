@@ -8,7 +8,9 @@ import { JWT } from "google-auth-library";
  *   - GA_PROPERTY_ID : numeric GA4 property id. Defaults to the anystride property.
  */
 
-const PROPERTY_ID = process.env.GA_PROPERTY_ID ?? "396316665";
+// GA4 *property* id (the `p…` part of the admin URL a396316665p539727341),
+// not the account id. Env var overrides if needed.
+const PROPERTY_ID = process.env.GA_PROPERTY_ID ?? "539727341";
 
 export function isGaConfigured(): boolean {
   return Boolean(process.env.GA_SA_KEY);

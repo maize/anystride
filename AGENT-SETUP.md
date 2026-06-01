@@ -36,7 +36,8 @@ form fires a `generate_lead` event on signup. In GA4 → Admin → Events, mark
    **Viewer**.
 3. In Vercel → Project → Settings → Environment Variables, add:
    - `GA_SA_KEY` = the full service-account JSON (paste it inline)
-   - `GA_PROPERTY_ID` = `396316665`  *(optional — this is the default)*
+   - `GA_PROPERTY_ID` = `539727341`  *(optional — this is the default; it's the
+     `p…` property id from the admin URL, not the `a…` account id)*
    - `GA_REPORT_TOKEN` = a long random string
    Then redeploy.
 
