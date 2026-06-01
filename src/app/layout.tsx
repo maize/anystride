@@ -5,7 +5,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
+// commit as the default; an env var can still override it per-environment.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-QHBHKRHCZJ";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
