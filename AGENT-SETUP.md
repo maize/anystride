@@ -80,5 +80,7 @@ agent prompt (roughly):
   directional.
 - The agent suggests; a human reviews and merges. Keep it on a branch + PR so
   nothing ships unreviewed.
-- We add a GA `form_submit`-style event later to measure /coaching conversion
-  precisely; until then conversion is inferred from pageviews.
+- The coaching form fires a GA4 `generate_lead` event on successful signup, so
+  /coaching conversion is measured precisely (the weekly pull reports `leads`).
+  Mark `generate_lead` as a Key Event in GA4 → Admin → Events to track it as a
+  conversion in the dashboard too.

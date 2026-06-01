@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type Status = "idle" | "submitting" | "done" | "error";
+
+/** Fire a GA4 lead event — silently no-ops when GA isn't loaded. */
+function trackLead(role: "runner" | "coach") {
+  if (typeof window !== "undefined" && window.dataLayer) {
+    sendGAEvent("event", "generate_lead", { role, source: "coaching" });
+  }
+}
 
 export function CoachInterestForm() {
   const [email, setEmail] = useState("");
@@ -25,6 +33,7 @@ export function CoachInterestForm() {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
         throw new Error(data?.error ?? "Something went wrong.");
       }
+      trackLead(role);
       setStatus("done");
     } catch (err) {
       setStatus("error");

@@ -97,6 +97,19 @@ const totals = await runReport(token, {
   ],
 });
 
+// Coaching-form conversions (the `generate_lead` event fired on signup).
+const leads = await runReport(token, {
+  dateRanges,
+  dimensions: [{ name: "eventName" }],
+  metrics: [{ name: "eventCount" }],
+  dimensionFilter: {
+    filter: {
+      fieldName: "eventName",
+      stringFilter: { value: "generate_lead" },
+    },
+  },
+});
+
 // Where users land first (good signal for which pages do acquisition work).
 const landing = await runReport(token, {
   dateRanges,
@@ -112,6 +125,7 @@ console.log(
       windowDays: days,
       generatedAt: new Date().toISOString(),
       totals: rows(totals)[0] ?? {},
+      leads: rows(leads)[0]?.eventCount ?? 0,
       pages: rows(byPage),
       landingPages: rows(landing),
     },
