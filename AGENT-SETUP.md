@@ -1,86 +1,69 @@
 # Weekly analytics review agent
 
 A scheduled agent that, **every week**, pulls Google Analytics stats for
-anystride.com, finds what's under-performing, and proposes concrete page changes.
+anystride.com, finds what's under-performing, and opens a GitHub issue proposing
+concrete page changes.
 
-## How the pieces fit
+## Architecture
+
+All Google credentials live in **Vercel env** (like the database). The site
+exposes a token-protected endpoint that returns weekly stats; the scheduled agent
+just fetches that one URL — it never holds Google credentials.
 
 ```
-GA4 (collection)  ──gtag on the site──►  Google Analytics
-        ▲                                      │
-        │ NEXT_PUBLIC_GA_ID                     │ GA4 Data API (read)
-        │                                       ▼
-   src/app/layout.tsx                  scripts/ga-weekly.mjs
-                                               │ JSON: top pages, engagement, landing
-                                               ▼
-                              Weekly Claude agent (cron via /schedule)
-                                               │
-                                               ▼
-                          GitHub issue with prioritized suggestions
-                                  (optionally: a draft PR)
+GA4 (gtag, NEXT_PUBLIC_GA_ID)  ──►  Google Analytics
+                                          │ GA4 Data API
+                                          ▼
+              /api/ga-weekly  ◄── GA_SA_KEY + GA_PROPERTY_ID (Vercel env)
+                    │  (token-protected by GA_REPORT_TOKEN)
+                    ▼
+        Weekly Claude agent (cron via /schedule)
+                    │  fetch stats → analyze → suggest
+                    ▼
+        GitHub issue: "Weekly anystride review (wk N)"
 ```
 
-## One-time setup (what you provide)
+## One-time setup
 
-### 1. Collection — start the data flowing
-1. Create a **GA4 property** for anystride.com → Admin → Data Streams → Web.
-2. Copy the **Measurement ID** (`G-XXXXXXXXXX`).
-3. In Vercel → Project → Settings → Environment Variables, add
-   `NEXT_PUBLIC_GA_ID = G-XXXXXXXXXX`, then redeploy.
-   (The site already conditionally loads GA when this is set — see
-   `src/app/layout.tsx`.)
+### 1. Collection (already live)
+GA4 is loaded site-wide (`NEXT_PUBLIC_GA_ID`, default `G-QHBHKRHCZJ`). The coaching
+form fires a `generate_lead` event on signup. In GA4 → Admin → Events, mark
+`generate_lead` as a **Key Event** so it counts as a conversion.
 
-Let data collect for at least a few days before the first useful report.
+### 2. Service account (lets the site read GA)
+1. Google Cloud → create a **service account** → create a **JSON key**.
+2. GA4 → Admin → Property Access Management → add the service account's email as
+   **Viewer**.
+3. In Vercel → Project → Settings → Environment Variables, add:
+   - `GA_SA_KEY` = the full service-account JSON (paste it inline)
+   - `GA_PROPERTY_ID` = `396316665`  *(optional — this is the default)*
+   - `GA_REPORT_TOKEN` = a long random string
+   Then redeploy.
 
-### 2. Reading — let the agent query GA
-1. In Google Cloud, create a **service account**; create a JSON key.
-2. In GA4 → Admin → Property Access Management, add the service account's email
-   with the **Viewer** role.
-3. Note the numeric **GA4 property id** (Admin → Property Settings).
-
-### 3. Secrets for the routine
-The scheduled agent needs:
-- `GA_PROPERTY_ID` — numeric property id
-- `GA_SA_KEY` — the service-account JSON (inline), **or**
-  `GOOGLE_APPLICATION_CREDENTIALS` — path to the key file
-- A GitHub token with repo access (to open the issue/PR) — already available if
-  the routine runs with `gh` authenticated.
-
-## The data pull
-
-`scripts/ga-weekly.mjs` returns last-7-days JSON: site totals, per-page views /
-users / engagement / avg session duration, and top landing pages.
-
+### 3. Verify
 ```bash
-GA_PROPERTY_ID=123456789 GA_SA_KEY="$(cat sa.json)" node scripts/ga-weekly.mjs
+curl "https://anystride.com/api/ga-weekly?token=GA_REPORT_TOKEN"
 ```
+Returns JSON: site totals, per-page views/users/engagement, `leads` (coaching
+conversions), and top landing pages for the last 7 days.
 
 ## The weekly routine
 
-Create it with the `/schedule` skill. Suggested cadence: **Mondays 8am**. The
-agent prompt (roughly):
+Create it with the `/schedule` skill (cadence: **Mondays 8am**). The agent prompt:
 
-> Every Monday: run `node scripts/ga-weekly.mjs` to pull last week's GA stats for
-> anystride.com. Compare against the prior week if available. Identify the 3–5
-> highest-leverage opportunities — high-traffic pages with weak engagement, pages
-> that get no traffic, the /coaching conversion trend, and internal-linking gaps.
-> For each, propose a specific, concrete page change (which file, what edit, why).
-> Open a GitHub issue titled "Weekly anystride review (wk N)" with the stats
-> summary and the prioritized suggestions. Keep suggestions small and testable.
+> Every Monday, GET `https://anystride.com/api/ga-weekly?token=<GA_REPORT_TOKEN>`
+> for last week's anystride.com stats. Compare with the previous week if you have
+> it. Identify the 3–5 highest-leverage opportunities — high-traffic pages with
+> weak engagement, pages getting no traffic, the `leads` (coaching) conversion
+> trend, and internal-linking gaps. For each, propose a specific, concrete page
+> change (which file in the repo, what edit, and why). Open a GitHub issue in
+> maize/anystride titled "Weekly anystride review (wk N)" with a short stats
+> summary and the prioritized, testable suggestions. Suggest only — do not push
+> changes.
 
-### Output mode (choose one)
-- **GitHub issue (default):** a weekly issue with stats + prioritized suggestions
-  you can act on. Safe, reviewable, no surprise changes.
-- **Issue + draft PR:** additionally open a *draft* PR implementing the top 1–2
-  safe changes (copy tweaks, internal links) for review.
-- **Email digest:** send the summary to you; make no repo changes.
+The routine needs the `GA_REPORT_TOKEN` value and `gh` authenticated for
+maize/anystride (to open the issue).
 
-## Notes / honesty
-- GA4 numbers are sampled/approximate at low volume; treat early reports as
-  directional.
-- The agent suggests; a human reviews and merges. Keep it on a branch + PR so
-  nothing ships unreviewed.
-- The coaching form fires a GA4 `generate_lead` event on successful signup, so
-  /coaching conversion is measured precisely (the weekly pull reports `leads`).
-  Mark `generate_lead` as a Key Event in GA4 → Admin → Events to track it as a
-  conversion in the dashboard too.
+## Notes
+- GA4 needs a few days of traffic before the first report is meaningful.
+- The agent suggests; a human reviews and acts. Nothing ships unreviewed.
