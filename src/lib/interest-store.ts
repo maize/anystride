@@ -10,8 +10,17 @@ import { Pool } from "pg";
  * returns false and the API route falls back gracefully.
  */
 
-const CONNECTION_STRING =
-  process.env.POSTGRES_URL ?? process.env.DATABASE_URL ?? "";
+// Strip any `sslmode=...` from the URL so our explicit `ssl` config below
+// governs TLS (managed Postgres often presents a cert outside the public CA
+// chain, which `sslmode=require` would reject).
+const CONNECTION_STRING = (
+  process.env.POSTGRES_URL ??
+  process.env.DATABASE_URL ??
+  ""
+)
+  .replace(/([?&])sslmode=[^&]*/gi, "$1")
+  .replace(/[?&]+$/, "")
+  .replace(/\?&/, "?");
 
 export function isDbConfigured(): boolean {
   return CONNECTION_STRING.length > 0;
