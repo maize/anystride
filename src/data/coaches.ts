@@ -31,7 +31,7 @@ export interface Coach {
   source: { name: string; url: string };
   /**
    * false = a public listing compiled from the web, not yet claimed or vetted by
-   * AnyStride. true = the coach has claimed/verified their profile.
+   * anystride. true = the coach has claimed/verified their profile.
    */
   verified: boolean;
 }

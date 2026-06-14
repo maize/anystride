@@ -1,6 +1,6 @@
-# AnyStride → Coach Marketplace: Competitive Analysis
+# anystride → Coach Marketplace: Competitive Analysis
 
-> Extending AnyStride from free training plans into a two-sided marketplace that
+> Extending anystride from free training plans into a two-sided marketplace that
 > connects runners with coaches — and, crucially, helps runners judge **how good
 > a coach actually is** before they pay.
 
@@ -58,7 +58,7 @@ serves it well. That's the wedge.
 
 ### E. Adjacent / social
 - **Reddit (r/running, r/AdvancedRunning), Instagram, local run clubs** — where
-  trust *actually* gets built today, informally. This is also AnyStride's source
+  trust *actually* gets built today, informally. This is also anystride's source
   of authority and audience.
 
 ## 3. Where the gap is
@@ -69,7 +69,7 @@ Map the players against the two axes that matter — **human relationship** and
 ```
  high human relationship
         │
-        │   Independent coaches        ◀── AnyStride's
+        │   Independent coaches        ◀── anystride's
         │   (great coaching,               target zone:
         │    invisible quality)            real coaches +
         │                                  a trustworthy
@@ -88,7 +88,7 @@ defensible position is a running-specific marketplace whose **core product is th
 quality signal**: vetting + transparent outcomes + structured reviews + good
 matching.
 
-## 4. AnyStride's wedge ("right to win")
+## 4. anystride's wedge ("right to win")
 
 The free-plans product isn't a side project — it's the **top of the funnel and the
 trust engine** for the marketplace:
@@ -98,7 +98,7 @@ trust engine** for the marketplace:
    training for a first marathon). Cheap acquisition vs. competitors buying ads.
 2. **Built-in intent signal.** A runner finishing "Bridge to 10K" or browsing
    marathon plans is a warm lead for "want a coach for your next goal?"
-3. **Trust transfer.** AnyStride already positions as *community-sourced and
+3. **Trust transfer.** anystride already positions as *community-sourced and
    honest*. Extend that into the thing runners can't get elsewhere: an honest read
    on coach quality.
 
@@ -119,7 +119,7 @@ Concrete mechanisms competitors don't combine:
 ## 5. Risks & realities
 
 - **Two-sided cold-start.** Need coaches *and* runners. Mitigant: seed the supply
-  side from the same Reddit/coach community AnyStride sources plans from; demand
+  side from the same Reddit/coach community anystride sources plans from; demand
   comes free from the plans funnel.
 - **Disintermediation.** Once matched, runner + coach can take it off-platform.
   Mitigant: be the delivery + payments + accountability layer (recurring value),
@@ -130,7 +130,7 @@ Concrete mechanisms competitors don't combine:
 - **Vetting doesn't scale for free.** Quality signal is expensive to maintain
   (that's exactly why it's defensible). Start narrow: one distance/region, hand-vet.
 - **RunDoyen already tried and stalled.** The model is validated *and* hard;
-  execution on funnel + signal is everything. AnyStride's free-plan funnel is the
+  execution on funnel + signal is everything. anystride's free-plan funnel is the
   asset RunDoyen lacked.
 
 ## 6. Monetization options
@@ -151,6 +151,6 @@ Concrete mechanisms competitors don't combine:
   delivery — only after the directory proves demand and the quality signal earns
   trust.
 
-The free plans give AnyStride the one thing every failed coach-marketplace lacked:
+The free plans give anystride the one thing every failed coach-marketplace lacked:
 a cheap, trusted, high-intent funnel. The wedge isn't "another place to list
 coaches" — it's **"the place that finally tells you if a coach is any good."**

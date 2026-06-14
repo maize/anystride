@@ -5,7 +5,7 @@ import { CoachApplicationForm } from "@/components/CoachApplicationForm";
 export const metadata: Metadata = {
   title: "List your coaching",
   description:
-    "Are you a running coach? Apply to be listed on AnyStride and reach runners who've outgrown a training plan.",
+    "Are you a running coach? Apply to be listed on anystride and reach runners who've outgrown a training plan.",
   alternates: { canonical: "/coaching/apply" },
 };
 
@@ -25,7 +25,7 @@ export default async function CoachApplyPage({
       </Link>
 
       <h1 className="mt-4 text-3xl font-bold tracking-tight">
-        {claimSlug ? "Claim your profile" : "List your coaching on AnyStride"}
+        {claimSlug ? "Claim your profile" : "List your coaching on anystride"}
       </h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         {claimSlug

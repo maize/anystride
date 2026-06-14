@@ -82,7 +82,7 @@ export default async function CoachingPage({
       {/* Honest listing disclosure */}
       <div className="mt-6 rounded-xl border border-border bg-muted p-4 text-sm text-muted-foreground">
         These are public listings we compiled to get the directory started — they
-        link to each coach&apos;s own site and aren&apos;t yet AnyStride-verified.{" "}
+        link to each coach&apos;s own site and aren&apos;t yet anystride-verified.{" "}
         <Link href="/coaching/apply" className="font-medium text-brand hover:underline">
           Are you a coach? Claim or add your profile →
         </Link>
@@ -159,7 +159,7 @@ export default async function CoachingPage({
             Are you a running coach?
           </h2>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            List your coaching on AnyStride and reach runners who&apos;ve outgrown a
+            List your coaching on anystride and reach runners who&apos;ve outgrown a
             plan. Free while we build out the directory.
           </p>
         </div>

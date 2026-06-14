@@ -127,7 +127,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
           Visit {coach.name.split(" —")[0]}&apos;s site →
         </a>
         <p className="mt-3 text-xs text-muted-foreground">
-          You&apos;ll connect with the coach directly on their own site. AnyStride
+          You&apos;ll connect with the coach directly on their own site. anystride
           doesn&apos;t take a cut or handle payment.
         </p>
       </div>

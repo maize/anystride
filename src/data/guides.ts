@@ -36,7 +36,7 @@ export const GUIDES: Guide[] = [
     updated: "2026-06-14",
     intro: [
       "The honest answer is: it depends on where you're starting from. A complete beginner needs longer than someone with a running base, and the marathon asks far more than the 5K. But there are well-established ranges that work for most runners, and picking the right length keeps you fit and injury-free instead of rushed and hurt.",
-      "Here's roughly how long each distance takes, who each timeline is for, and which AnyStride plan fits.",
+      "Here's roughly how long each distance takes, who each timeline is for, and which anystride plan fits.",
     ],
     sections: [
       {
@@ -103,7 +103,7 @@ export const GUIDES: Guide[] = [
     updated: "2026-06-14",
     intro: [
       "Most runners do all their runs at the same medium effort — too hard to build endurance, too easy to build speed. Training by pace zones fixes that. Each zone trains a different system, and running them at the right effort is what turns consistent training into a faster race.",
-      "Here's what each pace is for. To get your own numbers, use the AnyStride pace calculator — enter a recent time and it returns all of these.",
+      "Here's what each pace is for. To get your own numbers, use the anystride pace calculator — enter a recent time and it returns all of these.",
     ],
     sections: [
       {
@@ -139,7 +139,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "How to find your paces",
         body: [
-          "Your paces come from your current fitness. Enter a recent race time (or a goal) into the AnyStride pace calculator and it computes your easy, marathon, threshold, interval, and rep paces, plus equivalent times at every distance. Re-check every few weeks as you get fitter.",
+          "Your paces come from your current fitness. Enter a recent race time (or a goal) into the anystride pace calculator and it computes your easy, marathon, threshold, interval, and rep paces, plus equivalent times at every distance. Re-check every few weeks as you get fitter.",
         ],
       },
     ],
@@ -154,7 +154,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: "How do I calculate my training paces?",
-        a: "Use a recent race result. The AnyStride pace calculator applies the same methodology coaches use (VDOT) to turn one time into all your training paces and predicted race times.",
+        a: "Use a recent race result. The anystride pace calculator applies the same methodology coaches use (VDOT) to turn one time into all your training paces and predicted race times.",
       },
     ],
     relatedPlans: ["bridge-to-10k", "higdon-half-intermediate-1"],
@@ -202,7 +202,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Compare side by side",
         body: [
-          "Once you've narrowed it down, the AnyStride comparison view lines plans up by length, weekly time, intensity, and what each builds up to — so the trade-offs are easy to see.",
+          "Once you've narrowed it down, the anystride comparison view lines plans up by length, weekly time, intensity, and what each builds up to — so the trade-offs are easy to see.",
         ],
       },
     ],
@@ -264,7 +264,7 @@ export const GUIDES: Guide[] = [
     faq: [
       {
         q: "Is Couch to 5K really free?",
-        a: "Yes. The methodology is freely published, and the full 9-week AnyStride version is free to follow with no login or app — just open the plan.",
+        a: "Yes. The methodology is freely published, and the full 9-week anystride version is free to follow with no login or app — just open the plan.",
       },
       {
         q: "How many days a week is Couch to 5K?",

@@ -18,7 +18,7 @@ export async function notifyCoachApplication(
   if (!key) return;
 
   const to = process.env.NOTIFY_EMAIL ?? "matthias.e.link@gmail.com";
-  const from = process.env.NOTIFY_FROM ?? "AnyStride <onboarding@resend.dev>";
+  const from = process.env.NOTIFY_FROM ?? "anystride <onboarding@resend.dev>";
   const subject = app.claimSlug
     ? `Coach profile claim: ${app.name}`
     : `New coach application: ${app.name}`;

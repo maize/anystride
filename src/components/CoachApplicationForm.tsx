@@ -56,7 +56,7 @@ export function CoachApplicationForm({ claimSlug = "" }: { claimSlug?: string })
         <p className="font-semibold">Thanks — we&apos;ve got your details. 🎉</p>
         <p className="mt-1 text-sm text-muted-foreground">
           We review every coach personally and will be in touch about listing you
-          on AnyStride.
+          on anystride.
         </p>
       </div>
     );

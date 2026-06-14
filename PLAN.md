@@ -1,4 +1,4 @@
-# AnyStride — Project Plan
+# anystride — Project Plan
 
 > Free, community-sourced running training plans for any distance and any runner.
 > Domain: **anystride.com**
@@ -116,7 +116,7 @@ freely-publishable methodology or summarize + link (not reproduce paid content).
 ## Open decisions
 
 - Exact list of v1 plans and their sourcing/attribution approach.
-- Visual brand/identity (logo, color, typography) for AnyStride.
+- Visual brand/identity (logo, color, typography) for anystride.
 - Analytics (privacy-friendly, e.g. Plausible) — yes/no for v1.
 
 ## Status
