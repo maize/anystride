@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { getAllPlans, availableDistances } from "@/lib/plans";
+import { getAllGuides } from "@/lib/guides";
 import { PlanCard } from "@/components/PlanCard";
 import { DISTANCE_LABELS, DISTANCE_ORDER } from "@/data/types";
 
 export default function Home() {
   const plans = getAllPlans();
   const available = new Set(availableDistances());
+  const guides = getAllGuides().slice(0, 4);
 
   return (
     <div className="mx-auto max-w-5xl px-5">
@@ -110,6 +112,30 @@ export default function Home() {
               </Link>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="border-t border-border py-12">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight">Running guides</h2>
+          <Link href="/guides" className="text-sm font-medium text-brand hover:underline">
+            All guides →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {guides.map((guide) => (
+            <Link
+              key={guide.slug}
+              href={`/guides/${guide.slug}`}
+              className="group rounded-xl border border-border p-5 transition hover:border-brand"
+            >
+              <h3 className="font-semibold group-hover:text-brand">{guide.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {guide.description}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 
