@@ -143,20 +143,20 @@ export default function Home() {
       <section className="border-t border-border py-12">
         <div className="flex flex-col items-start gap-4 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-medium text-brand">Coming soon</p>
+            <p className="text-sm font-medium text-brand">New · NYC</p>
             <h2 className="mt-1 text-xl font-semibold tracking-tight">
               Want a real coach, not just a plan?
             </h2>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              We&apos;re building a better way to find vetted running coaches — and
-              actually know if they&apos;re any good. Register your interest.
+              Browse running coaches in New York City by focus and format, then
+              connect with them directly.
             </p>
           </div>
           <Link
             href="/coaching"
             className="shrink-0 rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90"
           >
-            Get notified
+            Find a coach
           </Link>
         </div>
       </section>

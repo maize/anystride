@@ -83,6 +83,57 @@ export interface InterestRow extends Interest {
   updated_at: string;
 }
 
+export interface CoachApplication {
+  name: string;
+  email: string;
+  location: string;
+  website: string;
+  focus: string;
+  experience: string;
+  message: string;
+  /** Slug of an existing listing the coach is claiming, if any. */
+  claimSlug: string;
+}
+
+let coachTableReady = false;
+async function ensureCoachTable(): Promise<void> {
+  if (coachTableReady) return;
+  await getPool().query(`
+    CREATE TABLE IF NOT EXISTS coach_applications (
+      id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      name        TEXT NOT NULL,
+      email       TEXT NOT NULL,
+      location    TEXT NOT NULL DEFAULT '',
+      website     TEXT NOT NULL DEFAULT '',
+      focus       TEXT NOT NULL DEFAULT '',
+      experience  TEXT NOT NULL DEFAULT '',
+      message     TEXT NOT NULL DEFAULT '',
+      claim_slug  TEXT NOT NULL DEFAULT '',
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `);
+  coachTableReady = true;
+}
+
+export async function saveCoachApplication(app: CoachApplication): Promise<void> {
+  await ensureCoachTable();
+  await getPool().query(
+    `INSERT INTO coach_applications
+       (name, email, location, website, focus, experience, message, claim_slug)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [
+      app.name,
+      app.email,
+      app.location,
+      app.website,
+      app.focus,
+      app.experience,
+      app.message,
+      app.claimSlug,
+    ],
+  );
+}
+
 /** List signups, newest first. */
 export async function listInterest(): Promise<InterestRow[]> {
   await ensureTable();
