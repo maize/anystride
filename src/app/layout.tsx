@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 // GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
@@ -96,6 +97,21 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "anystride",
+            url: "https://anystride.com",
+            description:
+              "Free, community-sourced running training plans for any distance and any runner.",
+            publisher: {
+              "@type": "Organization",
+              name: "anystride",
+              url: "https://anystride.com",
+            },
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

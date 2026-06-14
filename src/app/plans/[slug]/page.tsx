@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllPlans, getPlanBySlug } from "@/lib/plans";
 import { DistanceBadge, LevelBadge, IntensityMeter } from "@/components/Badge";
 import { WeekTable } from "@/components/WeekTable";
+import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return getAllPlans().map((plan) => ({ slug: plan.slug }));
@@ -18,6 +19,7 @@ export async function generateMetadata({
   return {
     title: plan.name,
     description: plan.summary,
+    alternates: { canonical: `/plans/${plan.slug}` },
   };
 }
 
@@ -28,6 +30,26 @@ export default async function PlanPage({ params }: PageProps<"/plans/[slug]">) {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Plans",
+              item: "https://anystride.com/plans",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: plan.name,
+              item: `https://anystride.com/plans/${plan.slug}`,
+            },
+          ],
+        }}
+      />
       <Link
         href="/plans"
         className="text-sm font-medium text-muted-foreground hover:text-brand"
