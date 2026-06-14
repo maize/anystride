@@ -1,4 +1,11 @@
-import { COACHES, FOCUS_ORDER, type Coach, type CoachFocus, type CoachFormat } from "@/data/coaches";
+import {
+  COACHES,
+  CITY_ORDER,
+  FOCUS_ORDER,
+  type Coach,
+  type CoachFocus,
+  type CoachFormat,
+} from "@/data/coaches";
 
 export function getAllCoaches(): Coach[] {
   // Verified coaches first, then by name.
@@ -12,11 +19,13 @@ export function getCoachBySlug(slug: string): Coach | undefined {
 }
 
 export function filterCoaches(opts: {
+  city?: string;
   focus?: CoachFocus;
   format?: CoachFormat;
 }): Coach[] {
   return getAllCoaches().filter(
     (c) =>
+      (!opts.city || c.city === opts.city) &&
       (!opts.focus || c.focus.includes(opts.focus)) &&
       (!opts.format || c.format === opts.format),
   );
@@ -26,4 +35,12 @@ export function filterCoaches(opts: {
 export function availableFocuses(): CoachFocus[] {
   const present = new Set(COACHES.flatMap((c) => c.focus));
   return FOCUS_ORDER.filter((f) => present.has(f));
+}
+
+/** Cities with at least one coach, preferred order first then any extras. */
+export function availableCities(): string[] {
+  const present = new Set(COACHES.map((c) => c.city));
+  const ordered = CITY_ORDER.filter((c) => present.has(c));
+  const extras = [...present].filter((c) => !CITY_ORDER.includes(c)).sort();
+  return [...ordered, ...extras];
 }

@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isDbConfigured, saveCoachApplication } from "@/lib/interest-store";
+import { notifyCoachApplication } from "@/lib/notify";
 
 // pg uses TCP sockets — requires the Node.js runtime.
 export const runtime = "nodejs";
@@ -53,6 +54,13 @@ export async function POST(request: NextRequest) {
       { error: "Could not submit. Please try again." },
       { status: 502 },
     );
+  }
+
+  // Best-effort email notification — never block the submission on it.
+  try {
+    await notifyCoachApplication(application);
+  } catch (err) {
+    console.error("coach-application: notify failed", err);
   }
 
   return NextResponse.json({ ok: true });

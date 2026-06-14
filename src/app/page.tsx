@@ -143,12 +143,12 @@ export default function Home() {
       <section className="border-t border-border py-12">
         <div className="flex flex-col items-start gap-4 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-medium text-brand">New · NYC</p>
+            <p className="text-sm font-medium text-brand">New</p>
             <h2 className="mt-1 text-xl font-semibold tracking-tight">
               Want a real coach, not just a plan?
             </h2>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              Browse running coaches in New York City by focus and format, then
+              Browse running coaches across US cities by focus and format, then
               connect with them directly.
             </p>
           </div>

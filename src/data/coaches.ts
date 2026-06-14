@@ -12,7 +12,9 @@ export type CoachFocus =
 export interface Coach {
   slug: string;
   name: string;
-  /** City / metro. */
+  /** City bucket used for the directory filter (e.g. "New York", "Online"). */
+  city: string;
+  /** Full display location, e.g. "New York, NY". */
   location: string;
   format: CoachFormat;
   focus: CoachFocus[];
@@ -60,6 +62,16 @@ export const FOCUS_ORDER: CoachFocus[] = [
   "triathlon",
 ];
 
+/** Preferred display order for the city filter; unknown cities sort after these. */
+export const CITY_ORDER: string[] = [
+  "New York",
+  "Boston",
+  "Chicago",
+  "Los Angeles",
+  "San Francisco",
+  "Online",
+];
+
 /**
  * NYC running coaches, compiled from public listings to seed the directory.
  * `verified: false` — these are public listings, not yet claimed by the coaches.
@@ -69,6 +81,7 @@ export const COACHES: Coach[] = [
   {
     slug: "city-coach-nyc",
     name: "City Coach",
+    city: "New York",
     location: "New York, NY",
     format: "hybrid",
     focus: ["first-timers", "marathon", "triathlon"],
@@ -86,6 +99,7 @@ export const COACHES: Coach[] = [
   {
     slug: "central-park-coaching",
     name: "Central Park Coaching — Sean Fortune",
+    city: "New York",
     location: "New York, NY",
     format: "hybrid",
     focus: ["first-timers", "marathon", "performance"],
@@ -107,6 +121,7 @@ export const COACHES: Coach[] = [
   {
     slug: "john-henwood-coaching",
     name: "John Henwood",
+    city: "New York",
     location: "New York, NY",
     format: "hybrid",
     focus: ["marathon", "performance", "first-timers"],
@@ -125,6 +140,7 @@ export const COACHES: Coach[] = [
   {
     slug: "coach-corky-runs",
     name: "Coach Corky — Elizabeth Corkum",
+    city: "New York",
     location: "New York, NY",
     format: "hybrid",
     focus: ["first-timers", "marathon", "injury-aware"],
@@ -142,6 +158,7 @@ export const COACHES: Coach[] = [
   {
     slug: "gb-running",
     name: "GB Running",
+    city: "New York",
     location: "New York, NY",
     format: "online",
     focus: ["marathon", "performance"],
@@ -158,6 +175,7 @@ export const COACHES: Coach[] = [
   {
     slug: "sam-renikoff",
     name: "Sam Renikoff",
+    city: "New York",
     location: "New York, NY",
     format: "online",
     focus: ["5k-10k", "marathon", "first-timers"],
@@ -178,6 +196,7 @@ export const COACHES: Coach[] = [
   {
     slug: "motivny",
     name: "MOTIVNY",
+    city: "New York",
     location: "New York, NY",
     format: "in-person",
     focus: ["injury-aware", "performance"],
@@ -193,6 +212,208 @@ export const COACHES: Coach[] = [
       name: "motivny.com",
       url: "https://www.motivny.com/services/run-coaching-and-gait-analysis",
     },
+    verified: false,
+  },
+
+  // ---- Boston ----
+  {
+    slug: "boston-run-coaching",
+    name: "Boston Run Coaching",
+    city: "Boston",
+    location: "Boston, MA",
+    format: "hybrid",
+    focus: ["5k-10k", "marathon", "performance"],
+    specialties: ["800m–marathon", "One-on-one", "All levels"],
+    blurb:
+      "One-on-one Boston coaching from 800m to the marathon, for runners of all levels.",
+    bio: [
+      "Boston Run Coaching offers one-on-one, personalized coaching for athletes of all levels, across distances from 800m to the marathon.",
+    ],
+    link: "https://bostonruncoaching.com/",
+    source: { name: "bostonruncoaching.com", url: "https://bostonruncoaching.com/" },
+    verified: false,
+  },
+
+  // ---- Chicago ----
+  {
+    slug: "dwrunning",
+    name: "DWRunning",
+    city: "Chicago",
+    location: "Chicago, IL",
+    format: "hybrid",
+    focus: ["5k-10k", "marathon", "performance"],
+    specialties: ["Distance team", "Personal coaching", "Beginner to elite"],
+    blurb:
+      "Chicago distance-running team and personal coaching for everyone from beginners to elites.",
+    bio: [
+      "DWRunning is a Chicago-based distance running team and personal coaching service dedicated to helping everyone from elite athletes to beginners.",
+    ],
+    link: "https://www.dwrunning.com/",
+    source: { name: "dwrunning.com", url: "https://www.dwrunning.com/" },
+    verified: false,
+  },
+  {
+    slug: "mary-namestnik",
+    name: "Mary Namestnik",
+    city: "Chicago",
+    location: "Chicago, IL",
+    format: "in-person",
+    focus: ["5k-10k", "half", "marathon"],
+    specialties: ["5K to marathon", "In-person (Chicago)"],
+    blurb:
+      "Chicago coach for the 5K through the marathon, with in-person sessions in the western suburbs.",
+    bio: [
+      "Mary Namestnik is a Chicago running coach for the 5K, 10K, half, and full marathon, offering in-person sessions within about 15 miles of the western suburbs.",
+    ],
+    link: "https://teamrunrun.com/coach/mary-namestnik-chicago-running-coach/",
+    source: {
+      name: "Team RunRun",
+      url: "https://teamrunrun.com/coach/mary-namestnik-chicago-running-coach/",
+    },
+    verified: false,
+  },
+
+  // ---- Los Angeles ----
+  {
+    slug: "coach-kim-silverstein",
+    name: "Coach Kim Silverstein",
+    city: "Los Angeles",
+    location: "Los Angeles, CA",
+    format: "hybrid",
+    focus: ["first-timers", "marathon"],
+    specialties: ["Virtual & in-person", "Marathon", "Private & group"],
+    blurb: "LA-based virtual and in-person marathon coaching, private or group.",
+    bio: [
+      "Kim Silverstein is a Los Angeles running coach providing virtual and in-person marathon training, private coaching, and group coaching.",
+    ],
+    link: "https://www.coachkim.la/",
+    source: { name: "coachkim.la", url: "https://www.coachkim.la/" },
+    verified: false,
+  },
+  {
+    slug: "la-running-coach",
+    name: "LA Running Coach — Mike Hamberger",
+    city: "Los Angeles",
+    location: "Los Angeles, CA",
+    format: "hybrid",
+    focus: ["performance", "5k-10k"],
+    specialties: ["Custom programs", "Running mechanics"],
+    blurb:
+      "Custom training and running-mechanics coaching for all abilities, led by Mike Hamberger.",
+    bio: [
+      "LA Running Coach offers custom-designed training programs and technical instruction in running mechanics for runners of all abilities, owned and operated by Mike Hamberger.",
+    ],
+    link: "https://www.larunningcoach.com/",
+    source: { name: "larunningcoach.com", url: "https://www.larunningcoach.com/" },
+    verified: false,
+  },
+  {
+    slug: "greenrunner-la",
+    name: "GreenRunner",
+    city: "Los Angeles",
+    location: "Los Angeles, CA",
+    format: "in-person",
+    focus: ["performance", "5k-10k"],
+    specialties: ["Speed & form", "Track to ultra"],
+    blurb:
+      "LA speed and running-form coaching, from track and 5K up to marathon and ultra.",
+    bio: [
+      "GreenRunner specializes in efficient running form, speed, endurance, and injury prevention, with clients setting PRs from the 5K through marathons and ultras.",
+    ],
+    link: "https://greenrunnerla.com/",
+    source: { name: "greenrunnerla.com", url: "https://greenrunnerla.com/" },
+    verified: false,
+  },
+
+  // ---- San Francisco Bay Area ----
+  {
+    slug: "running-fit-lab",
+    name: "Running Fit Lab",
+    city: "San Francisco",
+    location: "SF Bay Area, CA",
+    format: "hybrid",
+    focus: ["marathon", "injury-aware", "performance"],
+    specialties: ["Gait analysis", "Race-specific pacing", "Online US-wide"],
+    blurb:
+      "East Bay & Tri-Valley in person plus online across the US, with gait analysis and race-pace work.",
+    bio: [
+      "Running Fit Lab offers in-person coaching across the East Bay and Tri-Valley, plus online coaching anywhere in the US, building strategic marathon plans backed by gait analysis and race-specific pacing.",
+    ],
+    link: "https://www.runningfitlab.com/",
+    source: { name: "runningfitlab.com", url: "https://www.runningfitlab.com/" },
+    verified: false,
+  },
+  {
+    slug: "coach-eve",
+    name: "Running with Coach Eve",
+    city: "San Francisco",
+    location: "Marin & SF, CA",
+    format: "hybrid",
+    focus: ["first-timers", "marathon"],
+    specialties: ["All levels", "Major marathons"],
+    blurb:
+      "Marin and San Francisco coaching for all levels, including the Boston, Big Sur, and SF marathons.",
+    bio: [
+      "Coach Eve and Coach Toby offer Bay Area coaching for runners of all levels, with training for the Napa, Boston, Big Sur, and San Francisco marathons.",
+    ],
+    link: "http://www.coacheve.com/",
+    source: { name: "coacheve.com", url: "http://www.coacheve.com/" },
+    verified: false,
+  },
+  {
+    slug: "miles-bennett-smith",
+    name: "Miles Bennett-Smith",
+    city: "San Francisco",
+    location: "San Francisco, CA",
+    format: "online",
+    focus: ["5k-10k", "marathon", "performance"],
+    specialties: ["Competitive runners", "5K to marathon"],
+    blurb:
+      "San Francisco coach for competitive runners looking to improve from the 5K to the marathon.",
+    bio: [
+      "Miles Bennett-Smith is a San Francisco running coach who specializes in working with competitive runners looking to improve across the 5K up to the marathon.",
+    ],
+    link: "https://teamrunrun.com/coach/miles-bennett-smith-san-francisco-running-coach/",
+    source: {
+      name: "Team RunRun",
+      url: "https://teamrunrun.com/coach/miles-bennett-smith-san-francisco-running-coach/",
+    },
+    verified: false,
+  },
+
+  // ---- Online (US) ----
+  {
+    slug: "running-joyfully",
+    name: "Running Joyfully — Kaitlin Gregg Goodman",
+    city: "Online",
+    location: "Online (US)",
+    format: "online",
+    focus: ["first-timers", "half", "marathon", "performance"],
+    specialties: ["Olympic Trials qualifier", "Custom programs"],
+    blurb:
+      "Online coaching from 4× Olympic Trials qualifier Kaitlin Gregg Goodman, with in-person race support.",
+    bio: [
+      "Running Joyfully provides custom run-training programs led by 4-time Olympic Trials qualifier and 2:32 marathoner Kaitlin Gregg Goodman, with online coaching and in-person support at major marathons.",
+    ],
+    link: "http://www.runningjoyfully.com/runcoach",
+    source: { name: "runningjoyfully.com", url: "http://www.runningjoyfully.com/runcoach" },
+    verified: false,
+  },
+  {
+    slug: "trainwithmarc",
+    name: "TrainwithMarc — Marc Pelerin",
+    city: "Online",
+    location: "Online (US)",
+    format: "online",
+    focus: ["5k-10k", "half", "marathon", "performance"],
+    specialties: ["Online coaching", "5K to marathon"],
+    blurb:
+      "Online running coaching from the 5K to the marathon, with custom plans built around your schedule.",
+    bio: [
+      "TrainwithMarc offers online running coaching across distances from the 5K to the marathon, building custom plans that adapt to your schedule.",
+    ],
+    link: "https://trainwithmarc.com/online-coaching",
+    source: { name: "trainwithmarc.com", url: "https://trainwithmarc.com/online-coaching" },
     verified: false,
   },
 ];

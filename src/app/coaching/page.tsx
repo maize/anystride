@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { filterCoaches, availableFocuses } from "@/lib/coaches";
+import { filterCoaches, availableFocuses, availableCities } from "@/lib/coaches";
 import { CoachCard } from "@/components/CoachCard";
 import {
   COACH_FOCUS_LABELS,
@@ -11,9 +11,9 @@ import {
 } from "@/data/coaches";
 
 export const metadata: Metadata = {
-  title: "Find a running coach in NYC",
+  title: "Find a running coach",
   description:
-    "Browse running coaches in New York City — marathon, first-timers, 5K–10K, and more. Filter by focus and format, then connect directly with the coach.",
+    "Browse running coaches across US cities — New York, Boston, Chicago, LA, San Francisco, and online. Filter by city, focus, and format, then connect directly.",
   alternates: { canonical: "/coaching" },
 };
 
@@ -25,8 +25,9 @@ function isFocus(v: string | undefined): v is CoachFocus {
 function isFormat(v: string | undefined): v is CoachFormat {
   return !!v && FORMATS.includes(v as CoachFormat);
 }
-function buildHref(next: { focus?: string; format?: string }): string {
+function buildHref(next: { city?: string; focus?: string; format?: string }): string {
   const p = new URLSearchParams();
+  if (next.city) p.set("city", next.city);
   if (next.focus) p.set("focus", next.focus);
   if (next.format) p.set("format", next.format);
   const qs = p.toString();
@@ -52,23 +53,30 @@ export default async function CoachingPage({
   searchParams,
 }: PageProps<"/coaching">) {
   const sp = await searchParams;
-  const rawFocus = Array.isArray(sp.focus) ? sp.focus[0] : sp.focus;
-  const rawFormat = Array.isArray(sp.format) ? sp.format[0] : sp.format;
-  const focus = isFocus(rawFocus) ? rawFocus : undefined;
-  const format = isFormat(rawFormat) ? rawFormat : undefined;
+  const pick = (v: string | string[] | undefined) =>
+    Array.isArray(v) ? v[0] : v;
 
-  const coaches = filterCoaches({ focus, format });
+  const cities = availableCities();
+  const rawCity = pick(sp.city);
+  const city = rawCity && cities.includes(rawCity) ? rawCity : undefined;
+  const focus = isFocus(pick(sp.focus)) ? (pick(sp.focus) as CoachFocus) : undefined;
+  const format = isFormat(pick(sp.format))
+    ? (pick(sp.format) as CoachFormat)
+    : undefined;
+
+  const coaches = filterCoaches({ city, focus, format });
   const focuses = availableFocuses();
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <p className="mb-2 text-sm font-medium text-brand">New York City · Beta</p>
+      <p className="mb-2 text-sm font-medium text-brand">US cities · Beta</p>
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-        Find a running coach in NYC
+        Find a running coach
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        Sometimes a plan isn&apos;t enough and you want a real person. Browse NYC
-        running coaches by focus and format, then connect with them directly.
+        Sometimes a plan isn&apos;t enough and you want a real person. Browse
+        running coaches by city, focus, and format, then connect with them
+        directly.
       </p>
 
       {/* Honest listing disclosure */}
@@ -83,29 +91,43 @@ export default async function CoachingPage({
       {/* Filters */}
       <div className="mt-8 space-y-3">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="mr-1 w-14 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            City
+          </span>
+          <Chip label="All" href={buildHref({ focus, format })} active={!city} />
+          {cities.map((c) => (
+            <Chip
+              key={c}
+              label={c}
+              href={buildHref({ city: c, focus, format })}
+              active={city === c}
+            />
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="mr-1 w-14 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Focus
           </span>
-          <Chip label="All" href={buildHref({ format })} active={!focus} />
+          <Chip label="All" href={buildHref({ city, format })} active={!focus} />
           {focuses.map((f) => (
             <Chip
               key={f}
               label={COACH_FOCUS_LABELS[f]}
-              href={buildHref({ focus: f, format })}
+              href={buildHref({ city, focus: f, format })}
               active={focus === f}
             />
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="mr-1 w-14 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Format
           </span>
-          <Chip label="All" href={buildHref({ focus })} active={!format} />
+          <Chip label="All" href={buildHref({ city, focus })} active={!format} />
           {FORMATS.map((f) => (
             <Chip
               key={f}
               label={COACH_FORMAT_LABELS[f]}
-              href={buildHref({ focus, format: f })}
+              href={buildHref({ city, focus, format: f })}
               active={format === f}
             />
           ))}
