@@ -51,7 +51,7 @@ export default function Home() {
             return has ? (
               <Link
                 key={d}
-                href={`/plans?distance=${d}`}
+                href={`/training-plans/${d}`}
                 className="rounded-lg border border-border px-5 py-3 font-medium hover:border-brand hover:text-brand"
               >
                 {DISTANCE_LABELS[d]}

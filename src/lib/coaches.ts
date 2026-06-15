@@ -6,6 +6,7 @@ import {
   type CoachFocus,
   type CoachFormat,
 } from "@/data/coaches";
+import { citySlug } from "./slug";
 
 export function getAllCoaches(): Coach[] {
   // Verified coaches first, then by name.
@@ -35,6 +36,11 @@ export function filterCoaches(opts: {
 export function availableFocuses(): CoachFocus[] {
   const present = new Set(COACHES.flatMap((c) => c.focus));
   return FOCUS_ORDER.filter((f) => present.has(f));
+}
+
+/** Resolve a city URL slug (e.g. "new-york") back to its city name. */
+export function getCityBySlug(slug: string): string | undefined {
+  return availableCities().find((c) => citySlug(c) === slug);
 }
 
 /** Cities with at least one coach, preferred order first then any extras. */

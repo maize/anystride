@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { filterCoaches, availableFocuses, availableCities } from "@/lib/coaches";
+import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import {
   COACH_FOCUS_LABELS,
@@ -152,8 +153,26 @@ export default async function CoachingPage({
         )}
       </div>
 
+      {/* City pages (internal links for SEO) */}
+      <div className="mt-12 border-t border-border pt-6">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          Browse coaches by city
+        </h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {cities.map((c) => (
+            <Link
+              key={c}
+              href={`/running-coaches/${citySlug(c)}`}
+              className="rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:border-brand hover:text-brand"
+            >
+              {c === "Online" ? "Online coaches" : `${c} coaches`}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Coach CTA */}
-      <section className="mt-12 flex flex-col gap-3 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
+      <section className="mt-10 flex flex-col gap-3 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-xl font-semibold tracking-tight">
             Are you a running coach?
