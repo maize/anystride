@@ -281,4 +281,102 @@ export const GUIDES: Guide[] = [
     ],
     relatedPlans: ["couch-to-5k", "bridge-to-10k"],
   },
+  {
+    slug: "marathon-taper",
+    title: "Marathon Taper: How to Reduce Training Before Race Day",
+    description:
+      "How to taper for a marathon — when to cut mileage, what to keep, how to beat taper madness, and why the final three weeks define your race.",
+    targetQuery: "marathon taper / how to taper for a marathon",
+    updated: "2026-06-15",
+    intro: [
+      "Three weeks before your marathon, the hard work is done. What you do now — or more precisely, what you stop doing — determines how much of that training shows up on race day. The taper is not a sign that you're slacking; it's the final phase of your preparation, and it's every bit as important as your peak long run.",
+      "Here's how to taper well, why your body might feel terrible even while it's recovering, and what to focus on in those final weeks.",
+    ],
+    sections: [
+      {
+        heading: "What is a marathon taper?",
+        body: [
+          "A taper is the deliberate reduction of training load — mileage, intensity, or both — in the weeks before your race. It gives your body time to repair the accumulated micro-damage of months of training, top off glycogen stores, and arrive at the start line fresh rather than depleted.",
+          "Almost every marathon plan includes one. Higdon Novice 1 drops mileage steadily over three weeks with a 12-mile long run two weeks out. Pfitzinger cuts volume sharply in the final two weeks while preserving some quality work. Hansons, which uses cumulative fatigue as a training tool, also tapers — but keeps frequency high right up to the end. The structure differs; the principle is the same.",
+        ],
+      },
+      {
+        heading: "How long should the taper be?",
+        body: [
+          "For most marathon runners, two to three weeks is the standard. Here's how those weeks typically break down:",
+        ],
+        bullets: [
+          "Three weeks out: reduce total mileage by about 20-25%. Keep one quality session at marathon pace or slightly faster.",
+          "Two weeks out: drop to roughly 60% of peak mileage. Runs are shorter but still purposeful — don't slow down just because the distances are easier.",
+          "Race week: mostly short easy runs of 20-30 minutes to stay loose. A few brief pickups at goal race pace keep the legs feeling sharp without digging into recovery.",
+        ],
+      },
+      {
+        heading: "What to keep doing during the taper",
+        body: [
+          "The most common taper mistake is stopping everything. You trained your body to run — a total shutdown leaves you flat and stiff on race day. Keep these things in place:",
+        ],
+        bullets: [
+          "Frequency: keep running most days, even if the runs are very short. Stopping entirely makes race morning feel like a shock.",
+          "Some intensity: one session at goal marathon pace in the penultimate week maintains the neuromuscular feel of racing effort.",
+          "Sleep: this is when your body does most of its repair. Prioritize it more than any workout.",
+          "Nutrition: in the final two or three days, shift calories toward carbohydrates to top off glycogen. Familiar foods only.",
+        ],
+      },
+      {
+        heading: "Taper madness: what it is and why it happens",
+        body: [
+          "Taper madness is the unofficial name for the anxiety, restlessness, phantom soreness, and creeping self-doubt that hits most runners in the taper. Your legs ache for no obvious reason. You feel slow. You convince yourself you've forgotten how to run or that you're coming down with something.",
+          "This is completely normal and has a physiological explanation: your body is doing significant repair work, your adrenaline has nowhere productive to go, and the drop in training volume leaves more mental space to worry. The feelings are not evidence that something is wrong — they're a sign that training worked and your body is finishing the job.",
+          "The fix is discipline: trust the taper, resist the urge to add miles to reassure yourself, and find ways to occupy the extra time that don't involve running.",
+        ],
+      },
+      {
+        heading: "What not to do in the final weeks",
+        body: [
+          "A few common mistakes that cost runners on race day:",
+        ],
+        bullets: [
+          "Don't add a last big long run to reassure yourself. You can't meaningfully build fitness in the final two weeks, but you can dig a recovery hole you won't climb out of in time.",
+          "Don't try new gear, new nutrition, or new routes. Anything unfamiliar is an uncontrolled variable with no upside.",
+          "Don't stand on your feet sightseeing in your race city the day before. Your legs are your race-day asset.",
+          "Don't panic if the scale moves up a pound or two. Glycogen storage brings water weight with it. That extra weight is fuel, not fat.",
+        ],
+      },
+      {
+        heading: "Race week specifics",
+        body: [
+          "Keep runs easy and short — 20 to 30 minutes at most. A gentle shakeout the day before the race or two days out helps prevent stiff legs without adding fatigue. Focus on sleep, hydration, and foods you know agree with your stomach.",
+          "Use the anystride pace calculator before race week to lock in your goal pace per mile. Know exactly how the first few miles should feel — going out 15 seconds per mile too fast in the opening 10K is the most reliable path to hitting the wall near mile 20. The taper builds the engine; smart pacing drives it home.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much should I cut mileage during the marathon taper?",
+        a: "A common structure: down to about 75-80% of peak in the third week out, 60% in the second week, and 30-40% in race week. Follow what your specific plan prescribes rather than improvising — the taper is built into the plan's logic.",
+      },
+      {
+        q: "Should I still do speedwork during the taper?",
+        a: "Yes, but scaled back. One session at marathon pace or slightly faster in the penultimate week keeps the legs sharp. In race week, a few short pickups — 4 to 6 times 30 seconds at race pace during an easy run — is plenty.",
+      },
+      {
+        q: "Why do I feel terrible and slow during the taper?",
+        a: "Taper madness is nearly universal. Phantom soreness, low energy, and anxiety are all normal because your body is repairing itself and your nervous system misses its routine. The feelings are a sign training worked, not that something is wrong.",
+      },
+      {
+        q: "What should I eat during the marathon taper?",
+        a: "Eat normally for most of the taper. In the final two or three days, shift toward carbohydrate-heavy meals — rice, pasta, bread, potatoes — to fill glycogen stores. Avoid anything new or unusual that might upset your stomach on race day.",
+      },
+      {
+        q: "Can I ruin my marathon with a bad taper?",
+        a: "A genuinely bad taper — a long hard run 10 days out, or two complete weeks of doing nothing — can cost you significantly. But a slightly imperfect taper rarely does much damage. The biggest risk is overthinking it: follow the plan, trust the process, and show up rested.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
