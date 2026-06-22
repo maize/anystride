@@ -56,6 +56,9 @@ function Header() {
           <Link href="/guides" className="hover:text-brand">
             Guides
           </Link>
+          <Link href="/races" className="hover:text-brand">
+            Races
+          </Link>
           <Link href="/calculator" className="hover:text-brand">
             Paces
           </Link>
