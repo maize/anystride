@@ -379,4 +379,93 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "hitting-the-wall-marathon",
+    title: "How to Avoid Hitting the Wall in a Marathon",
+    description:
+      "What hitting the wall means, why it happens near mile 20, and how to prevent it with smarter pacing, carb-loading, and race-day fueling.",
+    targetQuery: "how to avoid hitting the wall in a marathon / bonking",
+    updated: "2026-06-22",
+    intro: [
+      "Hitting the wall — the sudden, crushing loss of energy that stops runners cold near mile 18 to 22 — is not bad luck. It's a predictable physiological event with a predictable set of causes. The good news is that those causes are almost entirely within your control.",
+      "Here's what's actually happening in your body, why the pacing and fueling decisions you make hours before mile 20 determine whether you hit the wall, and the specific steps to make sure you don't.",
+    ],
+    sections: [
+      {
+        heading: "What is hitting the wall?",
+        body: [
+          "The wall is glycogen depletion. Your muscles and liver store carbohydrate as glycogen — roughly 1,500 to 2,000 calories' worth. At marathon effort, you burn through glycogen at a rate that exhausts those stores somewhere between mile 18 and 22 for most runners. When glycogen runs out, your body shifts to burning fat almost exclusively, and fat metabolism can't keep up with the demands of race pace. The result is a dramatic, involuntary slowdown — often 2 to 3 minutes per mile — accompanied by leaden legs, mental fog, and sometimes a complete inability to continue running.",
+          "The wall isn't the same as ordinary tiredness. It has a distinct, sudden quality that experienced marathoners recognize immediately. It's also distinct from muscle fatigue from hard effort — you can be well-trained and still hit the wall if pacing and fueling are wrong.",
+        ],
+      },
+      {
+        heading: "The #1 cause: going out too fast",
+        body: [
+          "The biggest predictor of hitting the wall is running the first half of the race too fast. At a higher effort level, you burn carbohydrate at a faster rate and deplete glycogen earlier. A runner who goes out 30 seconds per mile too fast in the first half doesn't just 'spend' those 30 seconds — they exhaust glycogen reserves miles sooner than a runner who started at goal pace.",
+          "The fix is disciplined early pacing. Use the anystride pace calculator at /calculator to set a goal pace, then treat the first 10 miles as the careful half of a two-part race. What feels easy in mile 5 is correct. What feels comfortable in mile 5 is probably too fast. Negative splits — running the second half slightly faster than the first — are how most successful marathoners structure their race.",
+        ],
+      },
+      {
+        heading: "Carb-loading: top off the tank before the start",
+        body: [
+          "Your glycogen stores at the start line determine how long you can sustain marathon pace before depletion. Carb-loading in the two to three days before the race meaningfully increases those stores.",
+          "Practical carb-loading isn't one enormous pasta dinner — it's a gradual shift in your diet over two to three days toward carbohydrate-heavy foods: rice, bread, pasta, potatoes, oats. Reduce fiber and fat slightly to make room. Portion sizes may stay similar; the ratio changes. Arrive at the start line well-hydrated and with full glycogen stores, and you've extended how far into the race your own fuel carries you.",
+        ],
+      },
+      {
+        heading: "Race-day fueling: you must eat during the marathon",
+        body: [
+          "Even a well-loaded runner can't carry enough glycogen to run 26.2 miles at marathon effort without supplementing. You need to take in carbohydrate during the race. Most experienced runners consume 30 to 60 grams of carbohydrate per hour — roughly one energy gel every 30 to 45 minutes — starting around mile 5 or 6, long before you feel tired or hungry.",
+          "Waiting until you feel depleted is too late. Glycogen depletion happens faster than hunger signals, and once you're truly bonking, no amount of mid-race gels can rescue you quickly enough to matter. Fueling has to be a scheduled plan executed by the clock, not a reaction to how you feel.",
+        ],
+        bullets: [
+          "Start fueling early — around miles 5 to 7, not mile 15.",
+          "Take gels with water, not a sports drink, to avoid an overload of sugar at once.",
+          "Aim for 30 to 60 grams of carbohydrate per hour throughout the race.",
+          "Stick to products you've tested in training — never introduce anything new on race day.",
+        ],
+      },
+      {
+        heading: "Train your gut on long runs",
+        body: [
+          "Many runners skip fueling in training, then find their stomach rebels against gels on race day. The gut is trainable: practice taking in fuel on your long runs exactly as you plan to race. This does two things — it teaches your digestive system to process fuel at pace, and it reveals any products that don't agree with you while there's still time to switch.",
+          "Most marathon plans include long runs of 16 to 20 miles. Use every run over 12 miles as a dress rehearsal for race-day fueling. By the time you line up, the gel-every-30-minutes routine should feel automatic.",
+        ],
+      },
+      {
+        heading: "What to do if you hit the wall anyway",
+        body: [
+          "Even with good pacing and fueling, the late miles of a marathon are hard. There's a difference between the genuine crash of glycogen depletion and the normal discomfort of running 20-plus miles. If you started conservative and fueled consistently, what you're feeling in mile 22 is probably normal late-race fatigue, not the wall. Keep the effort steady and focus on short segments.",
+          "If you did hit the wall, slow down to a pace you can sustain, take in carbohydrate at the next aid station, and walk if you need to. The wall isn't the end of the race — just a slower final third. Most runners who hit it still finish; they just finish much slower than they trained for, which is exactly the outcome good pacing and fueling are there to prevent.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What does hitting the wall feel like?",
+        a: "A sudden, heavy loss of energy in the legs — often described as running through wet concrete. It typically comes with mental fog, loss of motivation, and an involuntary drop in pace. Unlike normal fatigue, it arrives quickly and is very hard to push through without slowing down significantly.",
+      },
+      {
+        q: "Can you recover from hitting the wall mid-race?",
+        a: "Partially. Slowing to a walk and taking in carbohydrate at aid stations lets your body absorb some fuel and shift more fully to fat-burning. You can usually finish — just slower. Prevention is far more effective than in-race rescue, which is why pacing and early fueling matter so much.",
+      },
+      {
+        q: "How many gels should I take in a marathon?",
+        a: "For most runners, four to six gels spread over the race — one every 30 to 45 minutes starting around mile 5 or 6. The exact number depends on gel size and your pace. Always practice in training; don't rely on a number you read online without testing it on a long run.",
+      },
+      {
+        q: "Is hitting the wall the same as bonking?",
+        a: "'Bonking' comes from cycling; 'hitting the wall' comes from running. They describe the same event: glycogen depletion causing a dramatic, involuntary slowdown. The terms are interchangeable.",
+      },
+      {
+        q: "Does hitting the wall only happen in marathons?",
+        a: "The wall is most associated with the marathon because it's the most common distance long enough to exhaust glycogen stores at race effort. It can happen in any event lasting two or more hours — a long trail race, a long bike ride — but it's rare in distances shorter than the marathon.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
