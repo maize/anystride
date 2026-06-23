@@ -11,11 +11,12 @@
   "dependencies": {
     "@next/third-parties": "^16.2.6",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "google-auth-library": "^10.6.2",
     "next": "16.2.6",
     "pg": "^8.21.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "google-auth-library": "^10.6.2"
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

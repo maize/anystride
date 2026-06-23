@@ -1,6 +1,7 @@
 import { getAllPlans } from "./plans";
 import { getAllGuides } from "./guides";
 import { getAllCoaches, availableCities } from "./coaches";
+import { getAllRaces, getAllRacers } from "./races";
 import { DISTANCE_ORDER } from "@/data/types";
 import { citySlug } from "./slug";
 
@@ -21,6 +22,7 @@ export function getAllSitePaths(): string[] {
     "/",
     "/plans",
     "/guides",
+    "/races",
     "/compare",
     "/calculator",
     "/coaching",
@@ -31,6 +33,8 @@ export function getAllSitePaths(): string[] {
   const coaches = getAllCoaches().map((c) => `/coaching/${c.slug}`);
   const cityPages = availableCities().map((c) => `/running-coaches/${citySlug(c)}`);
   const distancePages = distancesWithPlans().map((d) => `/training-plans/${d}`);
+  const races = getAllRaces().map((r) => `/races/${r.slug}`);
+  const racers = getAllRacers().map((r) => `/racers/${r.slug}`);
 
   return [
     ...staticPaths,
@@ -39,6 +43,8 @@ export function getAllSitePaths(): string[] {
     ...coaches,
     ...cityPages,
     ...distancePages,
+    ...races,
+    ...racers,
   ];
 }
 
