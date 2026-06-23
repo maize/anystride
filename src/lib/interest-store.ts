@@ -26,6 +26,16 @@ export function isDbConfigured(): boolean {
   return CONNECTION_STRING.length > 0;
 }
 
+/**
+ * Lightweight query to keep the (Supabase free-tier) database from auto-pausing
+ * after ~7 days of inactivity. Run on a schedule. Returns true on success.
+ */
+export async function pingDb(): Promise<boolean> {
+  if (!isDbConfigured()) return false;
+  await getPool().query("SELECT 1");
+  return true;
+}
+
 // Reuse a single pool across warm invocations. Pointed at the pooled endpoint
 // (POSTGRES_URL), so a small max is plenty per instance.
 let pool: Pool | undefined;
