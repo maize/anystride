@@ -19,20 +19,24 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-06-21";
+export const RACERS_AS_OF = "2026-06-24";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
-  Kenya: "🇰🇪",
+  Australia: "🇦🇺",
   Ethiopia: "🇪🇹",
-  Uganda: "🇺🇬",
-  Netherlands: "🇳🇱",
-  "United States": "🇺🇸",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
+  Japan: "🇯🇵",
+  Kenya: "🇰🇪",
+  Netherlands: "🇳🇱",
+  Tanzania: "🇹🇿",
+  Uganda: "🇺🇬",
+  "United States": "🇺🇸",
 };
 
 export const RACERS: Racer[] = [
+  // ── Men ─────────────────────────────────────────────────────────────────────
   {
     slug: "sabastian-sawe",
     name: "Sabastian Sawe",
@@ -95,6 +99,74 @@ export const RACERS: Racer[] = [
     ],
   },
   {
+    slug: "tadese-takele",
+    name: "Tadese Takele",
+    gender: "M",
+    country: "Ethiopia",
+    born: "2003-02-06",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:03:37" }],
+    honors: [
+      "Tokyo Marathon champion (2025, 2026)",
+      "First man to win consecutive Tokyo Marathon titles",
+    ],
+  },
+  {
+    slug: "geoffrey-toroitich",
+    name: "Geoffrey Toroitich",
+    gender: "M",
+    country: "Uganda",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:03:37" }],
+    honors: ["Tokyo Marathon runner-up (2026)"],
+  },
+  {
+    slug: "alexander-mutiso",
+    name: "Alexander Mutiso",
+    gender: "M",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:03:38" }],
+    honors: ["Tokyo Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "john-korir",
+    name: "John Korir",
+    gender: "M",
+    country: "Kenya",
+    born: "1993-01-11",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:01:52" }],
+    honors: [
+      "Boston Marathon champion (2022, 2024, 2026)",
+      "Boston Marathon course record — 2:01:52 (2026)",
+    ],
+  },
+  {
+    slug: "alphonce-simbu",
+    name: "Alphonce Felix Simbu",
+    gender: "M",
+    country: "Tanzania",
+    born: "1992-08-27",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:02:47" }],
+    honors: ["Boston Marathon runner-up (2026)"],
+  },
+  {
+    slug: "benson-kipruto",
+    name: "Benson Kipruto",
+    gender: "M",
+    country: "Kenya",
+    born: "1988-07-08",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:02:50" }],
+    honors: [
+      "Boston Marathon champion (2021)",
+      "Multiple World Marathon Major podiums",
+    ],
+  },
+  // ── Women ────────────────────────────────────────────────────────────────────
+  {
     slug: "tigst-assefa",
     name: "Tigst Assefa",
     gender: "F",
@@ -152,5 +224,69 @@ export const RACERS: Racer[] = [
       "New York City Marathon champion (2019)",
       "Former half marathon world record holder",
     ],
+  },
+  {
+    slug: "brigid-kosgei",
+    name: "Brigid Kosgei",
+    gender: "F",
+    country: "Kenya",
+    born: "1994-02-20",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:14:04" }],
+    honors: [
+      "Former marathon world record holder (2:14:04, Chicago 2019)",
+      "London Marathon champion (2018, 2019)",
+      "Chicago Marathon champion (2018, 2019)",
+      "Tokyo Marathon champion (2026)",
+    ],
+  },
+  {
+    slug: "sharon-lokedi",
+    name: "Sharon Lokedi",
+    gender: "F",
+    country: "Kenya",
+    born: "1996-09-28",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:18:51" }],
+    honors: [
+      "Boston Marathon champion (2023, 2026)",
+      "New York City Marathon champion (2022, 2023)",
+    ],
+  },
+  {
+    slug: "loice-chemnung",
+    name: "Loice Chemnung",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:19:37" }],
+    honors: ["Boston Marathon runner-up (2026)"],
+  },
+  {
+    slug: "mary-ngugi-cooper",
+    name: "Mary Ngugi-Cooper",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:20:07" }],
+    honors: ["Boston Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "bertukan-welde",
+    name: "Bertukan Welde",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:16:36" }],
+    honors: ["Tokyo Marathon runner-up (2026)"],
+  },
+  {
+    slug: "hawi-feysa",
+    name: "Hawi Feysa",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:17:39" }],
+    honors: ["Tokyo Marathon 3rd place (2026)"],
   },
 ];

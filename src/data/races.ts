@@ -29,9 +29,53 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-06-21";
+export const RACES_AS_OF = "2026-06-24";
 
 export const RACES: Race[] = [
+  {
+    slug: "tokyo-marathon-2026",
+    name: "Tokyo Marathon 2026",
+    date: "2026-03-01",
+    city: "Tokyo",
+    country: "Japan",
+    distance: "Marathon",
+    series: "World Marathon Majors",
+    why: "Asia's only World Marathon Major produced a photo-finish for the ages: Tadese Takele defended his title in 2:03:37, matching runner-up Geoffrey Toroitich to the second on a crisp March morning. Brigid Kosgei's 2:14:29 erased the course record and reasserted her place among the all-time marathon greats.",
+    watchUrl: "https://www.marathon.tokyo/en/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "tadese-takele", place: 1, time: "2:03:37" },
+      { racer: "geoffrey-toroitich", place: 2, time: "2:03:37" },
+      { racer: "alexander-mutiso", place: 3, time: "2:03:38" },
+    ],
+    women: [
+      { racer: "brigid-kosgei", place: 1, time: "2:14:29" },
+      { racer: "bertukan-welde", place: 2, time: "2:16:36" },
+      { racer: "hawi-feysa", place: 3, time: "2:17:39" },
+    ],
+  },
+  {
+    slug: "boston-marathon-2026",
+    name: "Boston Marathon 2026",
+    date: "2026-04-20",
+    city: "Boston",
+    country: "United States",
+    distance: "Marathon",
+    series: "World Marathon Majors",
+    why: "The 130th edition was the fastest Boston ever: John Korir shattered Geoffrey Mutai's 15-year-old course record with 2:01:52, and 13 men broke 2:06 in the deepest major-marathon field in history — six days before the sub-2 barrier fell in London.",
+    watchUrl: "https://www.baa.org/races/boston-marathon",
+    fieldConfirmed: true,
+    men: [
+      { racer: "john-korir", place: 1, time: "2:01:52" },
+      { racer: "alphonce-simbu", place: 2, time: "2:02:47" },
+      { racer: "benson-kipruto", place: 3, time: "2:02:50" },
+    ],
+    women: [
+      { racer: "sharon-lokedi", place: 1, time: "2:18:51" },
+      { racer: "loice-chemnung", place: 2, time: "2:19:37" },
+      { racer: "mary-ngugi-cooper", place: 3, time: "2:20:07" },
+    ],
+  },
   {
     slug: "london-marathon-2026",
     name: "London Marathon 2026",
@@ -53,6 +97,29 @@ export const RACES: Race[] = [
       { racer: "hellen-obiri", place: 2, time: "2:15:53" },
       { racer: "joyciline-jepkosgei", place: 3, time: "2:15:55" },
     ],
+  },
+  {
+    slug: "european-athletics-championships-2026",
+    name: "European Athletics Championships 2026",
+    date: "2026-08-10",
+    city: "Birmingham",
+    country: "Great Britain",
+    distance: "Track & Road",
+    why: "The first European Athletics Championships on British soil since London 2012, with distance titles at stake across the 1500m, 5000m, 10,000m, 3000m steeplechase, and marathon — a showcase for the next generation of European distance talent.",
+    watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
+    fieldConfirmed: false,
+  },
+  {
+    slug: "sydney-marathon-2026",
+    name: "Sydney Marathon 2026",
+    date: "2026-08-30",
+    city: "Sydney",
+    country: "Australia",
+    distance: "Marathon",
+    series: "World Marathon Majors",
+    why: "The newest Abbott World Marathon Major — Asia-Pacific's first — enters its third year with a rapidly maturing elite field and a spectacular course that finishes beneath the Sydney Harbour Bridge.",
+    watchUrl: "https://www.sydneymarathon.com.au/",
+    fieldConfirmed: false,
   },
   {
     slug: "berlin-marathon-2026",
