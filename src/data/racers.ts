@@ -19,17 +19,20 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-06-24";
+export const RACERS_AS_OF = "2026-07-01";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
+  Denmark: "🇩🇰",
   Ethiopia: "🇪🇹",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
+  Hungary: "🇭🇺",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
+  Norway: "🇳🇴",
   Tanzania: "🇹🇿",
   Uganda: "🇺🇬",
   "United States": "🇺🇸",
@@ -165,6 +168,38 @@ export const RACERS: Racer[] = [
       "Multiple World Marathon Major podiums",
     ],
   },
+  {
+    slug: "cole-hocker",
+    name: "Cole Hocker",
+    gender: "M",
+    country: "United States",
+    hometown: "Indianapolis, Indiana",
+    born: "2001-06-06",
+    events: ["1500m", "Mile", "5000m"],
+    prs: [{ event: "1500m", time: "3:27.65" }],
+    honors: [
+      "Olympic 1500m champion (Paris 2024), Olympic record holder (3:27.65)",
+      "World 5000m champion (Tokyo 2025)",
+    ],
+  },
+  {
+    slug: "jakob-ingebrigtsen",
+    name: "Jakob Ingebrigtsen",
+    gender: "M",
+    country: "Norway",
+    born: "2000-09-19",
+    events: ["1500m", "Mile", "3000m", "5000m"],
+    prs: [
+      { event: "1500m", time: "3:27.95" },
+      { event: "5000m", time: "12:48.45" },
+    ],
+    honors: [
+      "Olympic 5000m champion (Paris 2024)",
+      "Olympic 1500m champion (Tokyo 2020)",
+      "Multiple World Championship titles (1500m, 5000m)",
+      "World records: short track 1500m, short track mile, 2000m, 3000m, two miles",
+    ],
+  },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
     slug: "tigst-assefa",
@@ -288,5 +323,39 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:17:39" }],
     honors: ["Tokyo Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "faith-kipyegon",
+    name: "Faith Kipyegon",
+    gender: "F",
+    country: "Kenya",
+    born: "1994-01-10",
+    events: ["1500m", "Mile", "5000m"],
+    prs: [{ event: "1500m", time: "3:48.68" }],
+    honors: [
+      "1500m world record holder (3:48.68)",
+      "Three-time Olympic 1500m champion (2016, 2020, 2024)",
+      "World 1500m champion (2017, 2022, 2023, 2025)",
+      "World 5000m champion (2023)",
+    ],
+  },
+  {
+    slug: "beatrice-chebet",
+    name: "Beatrice Chebet",
+    gender: "F",
+    country: "Kenya",
+    born: "2000-03-05",
+    events: ["5000m", "10,000m", "Cross country"],
+    prs: [
+      { event: "5000m", time: "13:58.06" },
+      { event: "10,000m", time: "28:54.14" },
+    ],
+    honors: [
+      "5000m world record holder (13:58.06) — first woman under 14 minutes on track",
+      "10,000m world record holder (28:54.14)",
+      "Paris 2024 Olympic double gold (5000m, 10,000m)",
+      "2025 World Athletics Championships double gold (5000m, 10,000m)",
+      "Three-time World Cross Country champion",
+    ],
   },
 ];
