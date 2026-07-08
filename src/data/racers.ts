@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-01";
+export const RACERS_AS_OF = "2026-07-08";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -78,10 +78,10 @@ export const RACERS: Racer[] = [
     events: ["Marathon", "Half Marathon", "10,000m", "Cross country"],
     prs: [
       { event: "Marathon", time: "2:00:28" },
-      { event: "Half Marathon", time: "56:42" },
+      { event: "Half Marathon", time: "57:20" },
     ],
     honors: [
-      "Half marathon world record holder (56:42)",
+      "Half marathon world record holder (57:20, Lisbon 2026)",
       "World Cross Country champion",
       "Olympic 10,000m bronze medalist (Tokyo 2020)",
     ],
@@ -153,7 +153,10 @@ export const RACERS: Racer[] = [
     born: "1992-08-27",
     events: ["Marathon", "Half Marathon"],
     prs: [{ event: "Marathon", time: "2:02:47" }],
-    honors: ["Boston Marathon runner-up (2026)"],
+    honors: [
+      "2025 World Athletics Championships marathon gold medalist",
+      "Boston Marathon runner-up (2026)",
+    ],
   },
   {
     slug: "benson-kipruto",
@@ -200,6 +203,38 @@ export const RACERS: Racer[] = [
       "World records: short track 1500m, short track mile, 2000m, 3000m, two miles",
     ],
   },
+  {
+    slug: "cameron-myers",
+    name: "Cameron Myers",
+    gender: "M",
+    country: "Australia",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "3:46.06" }],
+    honors: [
+      "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
+    ],
+  },
+  {
+    slug: "yared-nuguse",
+    name: "Yared Nuguse",
+    gender: "M",
+    country: "United States",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Prefontaine Classic Bowerman Mile runner-up (2026)",
+      "Former indoor mile world record holder",
+    ],
+  },
+  {
+    slug: "ethan-strand",
+    name: "Ethan Strand",
+    gender: "M",
+    country: "United States",
+    events: ["Mile"],
+    prs: [{ event: "Mile", time: "3:46.97" }],
+    honors: ["Prefontaine Classic Bowerman Mile 3rd place (2026, 3:46.97 PB)"],
+  },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
     slug: "tigst-assefa",
@@ -239,6 +274,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Marathon", time: "2:13:44" }],
     honors: [
       "Olympic marathon champion (Paris 2024)",
+      "Sydney Marathon champion (2025)",
       "Olympic 5000m & 10,000m champion (Tokyo 2020)",
       "Multiple world champion on the track",
     ],
@@ -338,6 +374,45 @@ export const RACERS: Racer[] = [
       "World 1500m champion (2017, 2022, 2023, 2025)",
       "World 5000m champion (2023)",
     ],
+  },
+  {
+    slug: "nikki-hiltz",
+    name: "Nikki Hiltz",
+    gender: "F",
+    country: "United States",
+    born: "1997-02-09",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "4:17.49" }],
+    honors: [
+      "Prefontaine Classic women's mile champion (2026, 4:17.49 meeting record & world lead)",
+    ],
+  },
+  {
+    slug: "dorcus-ewoi",
+    name: "Dorcus Ewoi",
+    gender: "F",
+    country: "Kenya",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "4:17.62" }],
+    honors: ["Prefontaine Classic women's mile runner-up (2026, 4:17.62 PB)"],
+  },
+  {
+    slug: "rosemary-wanjiru",
+    name: "Rosemary Wanjiru",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:21:05" }],
+    honors: ["Berlin Marathon champion (2025)"],
+  },
+  {
+    slug: "amane-beriso",
+    name: "Amane Beriso",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [],
+    honors: ["Berlin Marathon 2026 elite entry"],
   },
   {
     slug: "beatrice-chebet",

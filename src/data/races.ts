@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-01";
+export const RACES_AS_OF = "2026-07-08";
 
 export const RACES: Race[] = [
   {
@@ -106,9 +106,19 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Track",
     series: "Diamond League",
-    why: "America's most storied track meet — two nights at Hayward Field in Eugene, Oregon's self-styled Track Town USA — annually draws world-record chasers across every distance event. With the World Athletics Ultimate Championship looming in September, summer campaigns are made at the Pre Classic.",
+    why: "Two nights at Hayward Field in Eugene delivered the Pre Classic's signature drama: Nikki Hiltz stunned three-time world champion Faith Kipyegon to win the women's mile in a meeting-record 4:17.49, and Australia's Cameron Myers set an Australian record 3:46.06 to win the Bowerman Mile, with Yared Nuguse and Ethan Strand both breaking 3:47.",
     watchUrl: "https://www.preclassic.com/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "cameron-myers", place: 1, time: "3:46.06" },
+      { racer: "yared-nuguse", place: 2, time: "3:46.61" },
+      { racer: "ethan-strand", place: 3, time: "3:46.97" },
+    ],
+    women: [
+      { racer: "nikki-hiltz", place: 1, time: "4:17.49" },
+      { racer: "dorcus-ewoi", place: 2, time: "4:17.62" },
+      { racer: "faith-kipyegon", place: 3, time: "4:17.80" },
+    ],
   },
   {
     slug: "european-athletics-championships-2026",
@@ -129,9 +139,16 @@ export const RACES: Race[] = [
     country: "Australia",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The newest Abbott World Marathon Major — Asia-Pacific's first — enters its third year with a rapidly maturing elite field and a spectacular course that finishes beneath the Sydney Harbour Bridge.",
+    why: "The newest Abbott World Marathon Major — Asia-Pacific's first — enters its third year with a stellar elite field: defending champion Sifan Hassan returns alongside Tokyo 2026 champion Brigid Kosgei in the women's race, and 2025 World Athletics Championships marathon gold medalist Alphonce Simbu headlines the men's.",
     watchUrl: "https://www.sydneymarathon.com.au/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "alphonce-simbu" },
+    ],
+    women: [
+      { racer: "sifan-hassan" },
+      { racer: "brigid-kosgei" },
+    ],
   },
   {
     slug: "world-athletics-ultimate-championship-2026",
@@ -171,9 +188,17 @@ export const RACES: Race[] = [
     country: "Germany",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The fastest course in the world and the traditional home of marathon world records. After the sub-2 in London, every eye is on whether the barrier falls again on Berlin's flat streets.",
+    why: "The fastest marathon course in the world welcomes back its record-breakers: marathon world-record holder Sabastian Sawe defends his Berlin title, and Tigst Assefa headlines a loaded women's field alongside Rosemary Wanjiru and Amane Beriso. The question on every lip: can Sawe better his own 1:59:30 on these flat streets?",
     watchUrl: "https://www.bmw-berlin-marathon.com/en/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "sabastian-sawe" },
+    ],
+    women: [
+      { racer: "tigst-assefa" },
+      { racer: "rosemary-wanjiru" },
+      { racer: "amane-beriso" },
+    ],
   },
   {
     slug: "chicago-marathon-2026",
