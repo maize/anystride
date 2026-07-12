@@ -638,7 +638,6 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
-<<<<<<< HEAD
     slug: "running-in-heat",
     title: "How to Run in the Heat: Summer Running Tips That Actually Work",
     description:
@@ -708,7 +707,38 @@ export const GUIDES: Guide[] = [
           "Heat stroke (emergency): high body temperature above 103 degrees Fahrenheit, hot and red skin, rapid or strong pulse, confusion or loss of consciousness. Call emergency services immediately.",
           "Also stop if you stop sweating while still feeling hot — this is a sign of impending heat stroke, not of having adapted.",
           "When in doubt on a very hot and humid day, shorten the run, slow down, or skip it. No single training run is worth a medical emergency.",
-=======
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much slower should I run in the heat?",
+        a: "A practical starting point: add 30 seconds per mile for easy runs on days above 70 degrees Fahrenheit, more as temperature rises. On very hot or humid days, let heart rate or perceived effort guide you rather than pace. The goal is the same aerobic stimulus, not the same number on the watch.",
+      },
+      {
+        q: "Is it safe to do speedwork in hot weather?",
+        a: "Hard workouts in heat stress the body much more than easy runs. If the temperature is above 80 degrees Fahrenheit, consider moving intervals to a treadmill, to very early morning, or replacing them with an easy run at a reduced pace. Forcing interval paces in extreme heat is a fast path to overtraining or heat illness.",
+      },
+      {
+        q: "Should I run on a treadmill in summer?",
+        a: "A treadmill is a legitimate option on the hottest days — it lets you hit quality paces in a controlled environment without heat risk. That said, running outside in reasonable heat at adjusted effort builds heat acclimatization that a climate-controlled gym cannot provide. A mix of both is often the smartest approach across a summer training block.",
+      },
+      {
+        q: "How do I stay hydrated for an early morning long run?",
+        a: "Drink 12 to 16 ounces of water in the 30 to 60 minutes before you head out, on top of normal daily hydration the day before. For long runs over 75 minutes in summer heat, carry fluids or plan a route with reliable water sources every 30 to 45 minutes. Bring electrolytes as well, especially if you are a heavy sweater.",
+      },
+      {
+        q: "Will my summer runs in the heat make me fitter for fall races?",
+        a: "Yes — two ways. First, heat acclimatization over 10 to 14 days of consistent training produces cardiovascular adaptations (increased plasma volume, improved thermoregulation) that carry over to cooler conditions. Second, running at effort rather than pace in summer typically keeps the aerobic base intact. Runners who train consistently through summer, even at slower paces, generally arrive at fall races fresher and fitter than runners who took the season off.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "higdon-half-novice-1",
+    ],
+  },
+  {
     slug: "strength-training-for-runners",
     title: "Strength Training for Runners: What to Do and When",
     description:
@@ -770,32 +800,11 @@ export const GUIDES: Guide[] = [
           "If you haven't lifted before, start with bodyweight only for the first two to three weeks. Delayed-onset muscle soreness (DOMS) from new strength work can make easy runs uncomfortable for a day or two, and the last thing a runner needs is legs that feel like lead during a key session.",
           "Build slowly: add one set or a small amount of resistance each week, the same way you'd build weekly mileage. Your tendons and connective tissue adapt more slowly than your muscles, so patience early pays off over the full season.",
           "The anystride plans that include a base-building phase — or the explicit base-building-4-week plan — are the natural entry point for adding strength. Use that lower-intensity window to establish the habit before the hard training begins.",
->>>>>>> origin/main
         ],
       },
     ],
     faq: [
       {
-<<<<<<< HEAD
-        q: "How much slower should I run in the heat?",
-        a: "A practical starting point: add 30 seconds per mile for easy runs on days above 70 degrees Fahrenheit, more as temperature rises. On very hot or humid days, let heart rate or perceived effort guide you rather than pace. The goal is the same aerobic stimulus, not the same number on the watch.",
-      },
-      {
-        q: "Is it safe to do speedwork in hot weather?",
-        a: "Hard workouts in heat stress the body much more than easy runs. If the temperature is above 80 degrees Fahrenheit, consider moving intervals to a treadmill, to very early morning, or replacing them with an easy run at a reduced pace. Forcing interval paces in extreme heat is a fast path to overtraining or heat illness.",
-      },
-      {
-        q: "Should I run on a treadmill in summer?",
-        a: "A treadmill is a legitimate option on the hottest days — it lets you hit quality paces in a controlled environment without heat risk. That said, running outside in reasonable heat at adjusted effort builds heat acclimatization that a climate-controlled gym cannot provide. A mix of both is often the smartest approach across a summer training block.",
-      },
-      {
-        q: "How do I stay hydrated for an early morning long run?",
-        a: "Drink 12 to 16 ounces of water in the 30 to 60 minutes before you head out, on top of normal daily hydration the day before. For long runs over 75 minutes in summer heat, carry fluids or plan a route with reliable water sources every 30 to 45 minutes. Bring electrolytes as well, especially if you are a heavy sweater.",
-      },
-      {
-        q: "Will my summer runs in the heat make me fitter for fall races?",
-        a: "Yes — two ways. First, heat acclimatization over 10 to 14 days of consistent training produces cardiovascular adaptations (increased plasma volume, improved thermoregulation) that carry over to cooler conditions. Second, running at effort rather than pace in summer typically keeps the aerobic base intact. Runners who train consistently through summer, even at slower paces, generally arrive at fall races fresher and fitter than runners who took the season off.",
-=======
         q: "Will strength training make me heavier and slower?",
         a: "Unlikely if you're running consistently and following a runner-appropriate program. The movements that help runners most — single-leg squats, hip thrusts, deadlifts — build functional strength and durability without significant muscle mass gain. Most runners who add strength work find they run more efficiently, not slower.",
       },
@@ -814,18 +823,12 @@ export const GUIDES: Guide[] = [
       {
         q: "Do I need gym equipment?",
         a: "Not to start. The most valuable movements for runners — single-leg squats, glute bridges, calf raises, planks, clamshells — require no equipment at all or a single resistance band. A pair of dumbbells expands options significantly, but a full gym membership is not a prerequisite for useful runner strength work.",
->>>>>>> origin/main
       },
     ],
     relatedPlans: [
       "base-building-4-week",
-<<<<<<< HEAD
-      "higdon-marathon-novice-1",
-      "higdon-half-novice-1",
-=======
       "pfitzinger-18-55",
       "hansons-marathon-method",
->>>>>>> origin/main
     ],
   },
 ];
