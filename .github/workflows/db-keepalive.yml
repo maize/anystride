@@ -13,6 +13,14 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
+      - name: Ping Supabase project API directly (best-effort activity signal)
+        continue-on-error: true
+        run: |
+          # A request straight to the Supabase project registers activity even if
+          # pooler DB queries somehow don't. Non-fatal.
+          curl -sS -o /dev/null -w "supabase rest: %{http_code}\n" \
+            --max-time 30 "https://gwwsxrtmlcnisnbphrfq.supabase.co/rest/v1/" || true
+
       - name: Ping keepalive endpoint (with retries)
         run: |
           set -e
