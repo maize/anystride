@@ -638,6 +638,7 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+<<<<<<< HEAD
     slug: "running-in-heat",
     title: "How to Run in the Heat: Summer Running Tips That Actually Work",
     description:
@@ -707,11 +708,75 @@ export const GUIDES: Guide[] = [
           "Heat stroke (emergency): high body temperature above 103 degrees Fahrenheit, hot and red skin, rapid or strong pulse, confusion or loss of consciousness. Call emergency services immediately.",
           "Also stop if you stop sweating while still feeling hot — this is a sign of impending heat stroke, not of having adapted.",
           "When in doubt on a very hot and humid day, shorten the run, slow down, or skip it. No single training run is worth a medical emergency.",
+=======
+    slug: "strength-training-for-runners",
+    title: "Strength Training for Runners: What to Do and When",
+    description:
+      "How to add strength training to your running plan — which exercises matter most, how often to lift, and when to schedule it so it helps rather than hurts.",
+    targetQuery: "strength training for runners",
+    updated: "2026-06-29",
+    intro: [
+      "Running makes you a better runner, but strength work makes you a more durable one. Strong hips, glutes, and core reduce injury risk, improve running economy, and help you hold form when you're tired in the late miles of a long race.",
+      "The good news: you don't need to spend hours in the gym. A focused 20 to 30 minutes, two or three times per week, captures most of the benefit. Here is what to do, when to fit it in, and how to scale it to the phase of your training cycle.",
+    ],
+    sections: [
+      {
+        heading: "Why strength training makes you a faster, healthier runner",
+        body: [
+          "Running is a single-leg sport performed hundreds of thousands of times per run. Weakness in the hips, glutes, or core forces other structures — usually the knees, IT band, or shins — to compensate, and that compensation eventually becomes an overuse injury. Strength work addresses those weaknesses before they show up as pain.",
+          "Beyond injury prevention, stronger muscles improve running economy: you use less energy to hold the same pace, which means you can run faster for the same effort, or hold the same pace while conserving more for the final miles of a race. Studies consistently show that well-timed strength training improves performance in distance runners, even when running volume stays the same.",
+        ],
+      },
+      {
+        heading: "The exercises that matter most",
+        body: [
+          "You don't need a full gym program. These movements target the muscles most commonly undertrained in runners:",
+        ],
+        bullets: [
+          "Single-leg squats or Bulgarian split squats — builds hip stability and single-leg strength that transfers directly to running mechanics.",
+          "Hip thrusts or glute bridges — activates and strengthens the glutes, the primary propulsive muscle in running.",
+          "Romanian deadlifts — builds hamstring and posterior-chain strength that supports the push-off phase of each stride.",
+          "Calf raises (single-leg) — strengthens the calf and Achilles complex, especially important for runners logging high mileage.",
+          "Lateral band walks or side-lying clamshells — targets the hip abductors, protecting the IT band and knee.",
+          "Plank and dead bug variations — builds the core stability needed to hold form when fatigued.",
+        ],
+      },
+      {
+        heading: "How many days per week",
+        body: [
+          "Two sessions per week is the practical sweet spot for most runners. That's enough to build meaningful strength without accumulating fatigue that bleeds into your running quality. Three sessions per week works well in base-building phases when running volume is lower and your body has more capacity to absorb additional stress.",
+          "In peak training blocks — weeks of high mileage leading into a goal race — trim to one maintenance session. The goal shifts from building strength to retaining what you built earlier in the cycle. One session is far better than stopping entirely, which leads to losing ground and having to rebuild from scratch after the race.",
+        ],
+      },
+      {
+        heading: "When to schedule strength sessions in your week",
+        body: [
+          "Stack strength sessions on the same day as a running session, not on recovery days. Running creates fatigue; strength work adds more. Combining both on the same day concentrates that stress into fewer days, leaving recovery days genuinely clear.",
+          "Run first, then lift — or separate the sessions by several hours. Lifting immediately before a run impairs the neuromuscular coordination needed for clean running form and makes the run feel harder than it should. Lifting after an easy run is the most common and practical approach.",
+          "Avoid heavy leg sessions the day before a quality workout or long run. A hard strength session 12 to 18 hours before marathon-pace intervals or a 16-mile long run will show up in your legs, reducing the training value of the session you actually cared about.",
+        ],
+      },
+      {
+        heading: "Scaling strength to your training phase",
+        body: [
+          "Base building is the best time to invest seriously in strength. Running intensity is low, mileage is building gradually, and your body has the adaptive capacity for more stimulus. Two or three sessions per week with moderate loads and full exercise variety is appropriate here. Plans like base-building-4-week are designed exactly for this window.",
+          "Peak training means backing off. One or two sessions per week with lighter loads and fewer sets preserves strength without interfering with the run workouts that matter most. Pfitzinger 18/55 and the Hansons method both build to heavy weekly volume — protect that investment by keeping the gym work modest during peak weeks.",
+          "Taper: one easy maintenance session in the first taper week, then stop lifting in the final 10 to 14 days before your race. Arrive at the start line with fresh legs, not lingering DOMS.",
+        ],
+      },
+      {
+        heading: "Getting started without derailing your running",
+        body: [
+          "If you haven't lifted before, start with bodyweight only for the first two to three weeks. Delayed-onset muscle soreness (DOMS) from new strength work can make easy runs uncomfortable for a day or two, and the last thing a runner needs is legs that feel like lead during a key session.",
+          "Build slowly: add one set or a small amount of resistance each week, the same way you'd build weekly mileage. Your tendons and connective tissue adapt more slowly than your muscles, so patience early pays off over the full season.",
+          "The anystride plans that include a base-building phase — or the explicit base-building-4-week plan — are the natural entry point for adding strength. Use that lower-intensity window to establish the habit before the hard training begins.",
+>>>>>>> origin/main
         ],
       },
     ],
     faq: [
       {
+<<<<<<< HEAD
         q: "How much slower should I run in the heat?",
         a: "A practical starting point: add 30 seconds per mile for easy runs on days above 70 degrees Fahrenheit, more as temperature rises. On very hot or humid days, let heart rate or perceived effort guide you rather than pace. The goal is the same aerobic stimulus, not the same number on the watch.",
       },
@@ -730,12 +795,37 @@ export const GUIDES: Guide[] = [
       {
         q: "Will my summer runs in the heat make me fitter for fall races?",
         a: "Yes — two ways. First, heat acclimatization over 10 to 14 days of consistent training produces cardiovascular adaptations (increased plasma volume, improved thermoregulation) that carry over to cooler conditions. Second, running at effort rather than pace in summer typically keeps the aerobic base intact. Runners who train consistently through summer, even at slower paces, generally arrive at fall races fresher and fitter than runners who took the season off.",
+=======
+        q: "Will strength training make me heavier and slower?",
+        a: "Unlikely if you're running consistently and following a runner-appropriate program. The movements that help runners most — single-leg squats, hip thrusts, deadlifts — build functional strength and durability without significant muscle mass gain. Most runners who add strength work find they run more efficiently, not slower.",
+      },
+      {
+        q: "Can I strength train every day?",
+        a: "Not productively. Muscles need roughly 48 hours to recover from a strength session. Training the same muscle groups every day accumulates fatigue faster than your body can adapt. Two to three sessions per week with at least one rest day between each is the effective range for most runners.",
+      },
+      {
+        q: "What if I only have 20 minutes?",
+        a: "Twenty minutes is enough. Four or five exercises, two or three sets each, done with focus, covers most of what runners need. A circuit of single-leg squats, hip thrusts, Romanian deadlifts, calf raises, and a plank variation hits all the key areas without a long gym commitment.",
+      },
+      {
+        q: "Should I lift in the morning or evening?",
+        a: "Whenever you can be consistent. If you run in the morning, a lunch or evening lift works well — it creates separation from the run and avoids pre-run fatigue. If you run in the evening, a morning lift followed by an evening run is a common arrangement. Consistency matters more than timing.",
+      },
+      {
+        q: "Do I need gym equipment?",
+        a: "Not to start. The most valuable movements for runners — single-leg squats, glute bridges, calf raises, planks, clamshells — require no equipment at all or a single resistance band. A pair of dumbbells expands options significantly, but a full gym membership is not a prerequisite for useful runner strength work.",
+>>>>>>> origin/main
       },
     ],
     relatedPlans: [
       "base-building-4-week",
+<<<<<<< HEAD
       "higdon-marathon-novice-1",
       "higdon-half-novice-1",
+=======
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+>>>>>>> origin/main
     ],
   },
 ];

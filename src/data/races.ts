@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-06-24";
+export const RACES_AS_OF = "2026-07-01";
 
 export const RACES: Race[] = [
   {
@@ -99,6 +99,18 @@ export const RACES: Race[] = [
     ],
   },
   {
+    slug: "prefontaine-classic-2026",
+    name: "Prefontaine Classic 2026",
+    date: "2026-07-03",
+    city: "Eugene",
+    country: "United States",
+    distance: "Track",
+    series: "Diamond League",
+    why: "America's most storied track meet — two nights at Hayward Field in Eugene, Oregon's self-styled Track Town USA — annually draws world-record chasers across every distance event. With the World Athletics Ultimate Championship looming in September, summer campaigns are made at the Pre Classic.",
+    watchUrl: "https://www.preclassic.com/",
+    fieldConfirmed: false,
+  },
+  {
     slug: "european-athletics-championships-2026",
     name: "European Athletics Championships 2026",
     date: "2026-08-10",
@@ -119,6 +131,36 @@ export const RACES: Race[] = [
     series: "World Marathon Majors",
     why: "The newest Abbott World Marathon Major — Asia-Pacific's first — enters its third year with a rapidly maturing elite field and a spectacular course that finishes beneath the Sydney Harbour Bridge.",
     watchUrl: "https://www.sydneymarathon.com.au/",
+    fieldConfirmed: false,
+  },
+  {
+    slug: "world-athletics-ultimate-championship-2026",
+    name: "World Athletics Ultimate Championship 2026",
+    date: "2026-09-11",
+    city: "Budapest",
+    country: "Hungary",
+    distance: "Track",
+    why: "The inaugural World Athletics Ultimate Championship invites only defending Olympic and world champions — 26 events across three evenings at the National Athletics Centre in Budapest, with a $10 million prize purse on the line. Distance highlights: Faith Kipyegon in the women's 1500m, Cole Hocker in the men's 1500m, Beatrice Chebet in the women's 5000m, and Jakob Ingebrigtsen in the men's 5000m.",
+    watchUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026",
+    fieldConfirmed: true,
+    men: [
+      { racer: "cole-hocker" },
+      { racer: "jakob-ingebrigtsen" },
+    ],
+    women: [
+      { racer: "faith-kipyegon" },
+      { racer: "beatrice-chebet" },
+    ],
+  },
+  {
+    slug: "world-road-running-championships-2026",
+    name: "World Athletics Road Running Championships 2026",
+    date: "2026-09-20",
+    city: "Copenhagen",
+    country: "Denmark",
+    distance: "Half Marathon",
+    why: "The World Athletics Road Running Championships returns to Copenhagen for world title races at the half marathon, 5K, and one mile — the only championship occasion where every nation's top road runners converge on a single start line. The half marathon crowns official world champions, making it the road runner's answer to the track World Championships.",
+    watchUrl: "https://worldathletics.org/en/competitions/world-athletics-road-running-championships/copenhagen26",
     fieldConfirmed: false,
   },
   {
