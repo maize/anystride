@@ -638,6 +638,107 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+    slug: "running-in-heat",
+    title: "How to Run in the Heat: Summer Running Tips That Actually Work",
+    description:
+      "How heat and humidity slow you down, when to adjust your pace, how to stay safe, and the practical changes that keep training on track through summer.",
+    targetQuery: "running in heat / summer running tips / how to run in hot weather",
+    updated: "2026-07-06",
+    intro: [
+      "Heat does not just make running uncomfortable — it physically slows you down in ways that are predictable and well-understood. Your heart works harder, core temperature rises faster, and the pace that felt easy in April feels like a tempo effort in July. That is not weakness; it is physiology.",
+      "The good news is that the adjustments are simple once you understand what is happening. Here is what heat does to your running, how to pace correctly, and how to train through summer without burning out or getting hurt.",
+    ],
+    sections: [
+      {
+        heading: "What heat actually does to your body",
+        body: [
+          "When you run, your muscles generate heat as a byproduct of the energy they burn. In cool weather, that heat dissipates easily. In hot or humid conditions, your body has to work much harder to keep core temperature in a safe range — mostly by sweating and routing extra blood to the skin for cooling.",
+          "That rerouted blood is blood that would otherwise be delivering oxygen to your muscles. The result is a higher heart rate at any given pace, faster glycogen depletion, and a lower ceiling on how hard you can sustain effort before the body overrides you. Humidity compounds this: sweat evaporation is the primary cooling mechanism, and humid air slows evaporation, so the same temperature feels harder when the humidity is high.",
+          "Research consistently finds that performance slows by about 1 to 3 percent for every 10 degrees Fahrenheit above approximately 55 degrees Fahrenheit. A runner who normally runs easy miles at 9:00 pace might find 9:30 to 9:45 is the equivalent effort on a 85-degree day. That is not a fitness regression; it is an appropriate physiological response.",
+        ],
+      },
+      {
+        heading: "Adjust your pace, not your effort",
+        body: [
+          "The most important rule of summer running: train by effort, not by pace. Run easy days at an easy effort — conversational, relaxed breathing — regardless of what the number on your watch says. Trying to hit the same pace times you ran in spring puts excessive stress on your cardiovascular system and raises injury risk.",
+          "A rough guide: on days above 60 degrees Fahrenheit, add 30 seconds per mile to your easy pace target for every 10 degrees of temperature above that baseline. On very hot or humid days, slow even more. The anystride pace calculator gives you your training paces based on current fitness — treat those as good-weather targets and use effort on hard days.",
+        ],
+        bullets: [
+          "60 to 70 degrees: add roughly 20 to 30 seconds per mile.",
+          "70 to 80 degrees: add roughly 30 to 60 seconds per mile.",
+          "80+ degrees or high humidity: add 60 to 90 seconds or more; shorten the run if needed.",
+          "Above 90 degrees with high humidity: consider moving the run indoors or to early morning.",
+        ],
+      },
+      {
+        heading: "Hydration before, during, and after",
+        body: [
+          "Dehydration accelerates every problem heat causes. Even mild dehydration of 2 percent of body weight measurably reduces performance and increases perceived effort. The goal is to arrive at the run well-hydrated and replace enough fluid during the run to avoid significant deficit — not to drink a fixed volume regardless of thirst.",
+          "For runs under 45 minutes in moderate heat, drinking to thirst is usually sufficient. For longer efforts, carry fluids or plan a route with fountains, and drink before you feel thirsty. On long runs or very hot days, include electrolytes — sodium in particular — to replace what you lose in sweat. Drinking large volumes of plain water without sodium can dilute blood sodium levels and cause hyponatremia, which is rare but serious.",
+        ],
+        bullets: [
+          "Drink to thirst, not to a rigid schedule — but proactively, not reactively.",
+          "Include sodium on long or very hot efforts: sports drinks, electrolyte tabs, or salty snacks.",
+          "Check your urine color after the run: pale yellow is good; dark yellow signals dehydration.",
+          "Weigh yourself before and after very long summer runs to understand your sweat rate.",
+        ],
+      },
+      {
+        heading: "Timing and route choices",
+        body: [
+          "The single most effective change most runners can make is shifting the time of day they run. The coolest periods are before sunrise and in the evening after sundown. Running at 6 a.m. instead of noon on an 88-degree day is not just more comfortable — it is meaningfully safer and produces better training stimulus because you can actually hit your target effort.",
+          "Route choices matter too. Shaded trails are significantly cooler than exposed roads under direct sun. Running near water — rivers, lakes, parks — often means noticeably lower temperatures. When the only option is a hot road, go out and back so the wind is in your face on the return, or run in loops near your car so you can access water frequently.",
+        ],
+      },
+      {
+        heading: "Heat acclimatization: your body adapts",
+        body: [
+          "Here is an underappreciated upside: your body adapts to heat with consistent exposure. Over 10 to 14 days of running in warm conditions, plasma volume increases, sweating starts earlier and at lower core temperature, and sweat rate rises — all of which improve heat dissipation and reduce cardiovascular strain at a given pace. Runners who build this acclimatization over summer often perform better in fall races than runners who moved all their training indoors.",
+          "The practical implication: do not avoid running outside in summer entirely. Run in the heat at appropriate effort, protect yourself with hydration and timing choices, and let acclimatization build naturally. By late summer, effort that felt crushing in June will feel manageable.",
+        ],
+      },
+      {
+        heading: "When to stop and warning signs",
+        body: [
+          "Heat exhaustion and heat stroke are real risks. Know the warning signs and stop running immediately if they appear.",
+        ],
+        bullets: [
+          "Heat exhaustion: heavy sweating, weakness, cold or pale or clammy skin, nausea, dizziness, headache. Stop, get to shade, drink fluids, and cool down with wet cloths.",
+          "Heat stroke (emergency): high body temperature above 103 degrees Fahrenheit, hot and red skin, rapid or strong pulse, confusion or loss of consciousness. Call emergency services immediately.",
+          "Also stop if you stop sweating while still feeling hot — this is a sign of impending heat stroke, not of having adapted.",
+          "When in doubt on a very hot and humid day, shorten the run, slow down, or skip it. No single training run is worth a medical emergency.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much slower should I run in the heat?",
+        a: "A practical starting point: add 30 seconds per mile for easy runs on days above 70 degrees Fahrenheit, more as temperature rises. On very hot or humid days, let heart rate or perceived effort guide you rather than pace. The goal is the same aerobic stimulus, not the same number on the watch.",
+      },
+      {
+        q: "Is it safe to do speedwork in hot weather?",
+        a: "Hard workouts in heat stress the body much more than easy runs. If the temperature is above 80 degrees Fahrenheit, consider moving intervals to a treadmill, to very early morning, or replacing them with an easy run at a reduced pace. Forcing interval paces in extreme heat is a fast path to overtraining or heat illness.",
+      },
+      {
+        q: "Should I run on a treadmill in summer?",
+        a: "A treadmill is a legitimate option on the hottest days — it lets you hit quality paces in a controlled environment without heat risk. That said, running outside in reasonable heat at adjusted effort builds heat acclimatization that a climate-controlled gym cannot provide. A mix of both is often the smartest approach across a summer training block.",
+      },
+      {
+        q: "How do I stay hydrated for an early morning long run?",
+        a: "Drink 12 to 16 ounces of water in the 30 to 60 minutes before you head out, on top of normal daily hydration the day before. For long runs over 75 minutes in summer heat, carry fluids or plan a route with reliable water sources every 30 to 45 minutes. Bring electrolytes as well, especially if you are a heavy sweater.",
+      },
+      {
+        q: "Will my summer runs in the heat make me fitter for fall races?",
+        a: "Yes — two ways. First, heat acclimatization over 10 to 14 days of consistent training produces cardiovascular adaptations (increased plasma volume, improved thermoregulation) that carry over to cooler conditions. Second, running at effort rather than pace in summer typically keeps the aerobic base intact. Runners who train consistently through summer, even at slower paces, generally arrive at fall races fresher and fitter than runners who took the season off.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "higdon-half-novice-1",
+    ],
+  },
+  {
     slug: "strength-training-for-runners",
     title: "Strength Training for Runners: What to Do and When",
     description:
