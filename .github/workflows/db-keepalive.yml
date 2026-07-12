@@ -1,0 +1,30 @@
+name: DB keepalive
+
+# Keeps the free-tier Supabase project awake by hitting an endpoint that runs a
+# real `SELECT 1` every few hours. More reliable than Vercel Hobby cron, and the
+# job fails (emailing us) if the ping ever doesn't succeed.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours
+  workflow_dispatch: {} # allow manual runs
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping keepalive endpoint (with retries)
+        run: |
+          set -e
+          for attempt in 1 2 3; do
+            echo "Attempt $attempt..."
+            resp=$(curl -sS --max-time 30 "https://anystride.com/api/db-keepalive" || true)
+            echo "Response: $resp"
+            if echo "$resp" | grep -q '"ok":true'; then
+              echo "Keepalive succeeded."
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "Keepalive failed after 3 attempts."
+          exit 1

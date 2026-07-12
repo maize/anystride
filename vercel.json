@@ -4,10 +4,6 @@
     {
       "path": "/api/indexnow",
       "schedule": "0 6 * * *"
-    },
-    {
-      "path": "/api/db-keepalive",
-      "schedule": "0 7 * * *"
     }
   ]
 }
