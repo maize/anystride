@@ -831,5 +831,97 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "running-cadence",
+    title: "Running Cadence: What It Is and How to Improve It",
+    description:
+      "What running cadence means, why 180 steps per minute is a guideline not a rule, and simple drills to improve stride efficiency without overthinking it.",
+    targetQuery: "running cadence / steps per minute running / how to improve running cadence",
+    updated: "2026-07-13",
+    intro: [
+      "Cadence -- the number of steps you take per minute -- is one of the most talked-about metrics in running. Getting it right reduces injury risk and improves efficiency, but the popular '180 steps per minute' figure is a reference point, not a prescription for every runner.",
+      "Improving cadence is more straightforward than most runners expect. A small, consistent upward nudge over several weeks is all it takes -- no drastic overhaul of your form required.",
+    ],
+    sections: [
+      {
+        heading: "What is running cadence?",
+        body: [
+          "Cadence, also called stride rate, is the total number of steps you take per minute while running. Some GPS watches count each foot separately and report in single-leg steps; others count pairs and report total steps per minute. Check which convention your device uses -- the same runner will show either 90 (per foot) or 180 (total) depending on the counting method. Either is fine as long as you're consistent when tracking progress.",
+        ],
+      },
+      {
+        heading: "Why 180 steps per minute is a guideline, not a rule",
+        body: [
+          "The 180 figure comes from coach Jack Daniels, who observed that elite runners at the 1984 Olympics were clustering around that number. It's a useful reference point, not a mandate for every runner at every pace. Elite runners race at high speeds, which naturally produces higher cadences; a recreational runner at 10:00 pace has different biomechanics and will naturally run closer to 160 to 170 steps per minute.",
+          "What matters is your cadence relative to your own baseline -- not matching an absolute number. A 5 to 10 percent improvement over where you currently are produces real benefits regardless of where you start.",
+        ],
+      },
+      {
+        heading: "Why cadence matters: efficiency and injury",
+        body: [
+          "Running at a lower cadence usually means longer strides, and longer strides usually mean overstriding -- landing with your foot too far ahead of your center of mass. Overstriding creates a braking force on every step that wastes energy and loads the knee and shin far more than a landing under your hips would. Research consistently links overstriding to higher rates of shin splints, IT band syndrome, and patellofemoral pain.",
+          "A slightly higher cadence naturally brings the foot strike closer to underneath the body, reducing that braking force and lowering impact on the knee and hip. It also reduces vertical oscillation -- the up-and-down bounce -- which is energy going nowhere useful.",
+        ],
+        bullets: [
+          "Reduces overstriding and the braking force at each foot strike",
+          "Lowers impact load on the knee and shin with every step",
+          "Reduces vertical oscillation so more effort goes forward",
+          "Improves overall running economy -- the same effort goes further",
+        ],
+      },
+      {
+        heading: "How to measure your cadence",
+        body: [
+          "Most GPS watches and running apps report cadence automatically, either live or in post-run analysis. If yours doesn't, count it manually: count one foot's strikes for 30 seconds and multiply by four to get total steps per minute.",
+          "Measure on an easy, flat section of a run after you've settled into your normal rhythm. Cadence shifts with pace, terrain, and fatigue, so consistent measurement conditions matter when you're tracking change over weeks.",
+        ],
+      },
+      {
+        heading: "How to increase your cadence",
+        body: [
+          "The most effective approach is gradual: increase your cadence by roughly 5 percent, hold that new rate for three to four weeks, then nudge it up again if needed. Jumping from 162 to 180 overnight disrupts your mechanics, shrinks your stride length faster than your muscles can compensate, and just feels wrong. A 5 percent increase is manageable and produces real change.",
+          "Use easy runs for cadence practice -- not hard workouts or long runs where you need to focus on effort. Run to a metronome app or a music playlist matched to your target beats per minute for 10-minute segments during easy efforts. After a few weeks, the new rate starts to feel natural without requiring active attention.",
+          "Strides are also excellent cadence teachers. Adding four to six 20-second accelerations -- running smoothly and quickly but not all-out -- after easy runs trains the neuromuscular patterns needed for quicker turnover. Think 'light and quick' rather than 'fast and hard.' Use the base-building phase of your training cycle for this kind of focused work; the lower intensity leaves room for the motor learning that cadence change requires.",
+        ],
+        bullets: [
+          "Find your current cadence on an easy, flat section of a run.",
+          "Calculate your first target: current cadence x 1.05.",
+          "Use a metronome app or BPM-matched playlist for 10-minute segments on easy days.",
+          "Add four to six strides after easy runs to train quicker turnover.",
+          "Hold each new cadence target for three to four weeks before nudging higher.",
+        ],
+      },
+      {
+        heading: "How much improvement to aim for",
+        body: [
+          "Most recreational runners benefit from moving their easy-run cadence up by 5 to 10 percent. If your current cadence is below 155 steps per minute, you're very likely overstriding significantly and a meaningful improvement will make an obvious difference -- both in how your legs feel after long runs and in your injury history over the following months.",
+          "If you're already running at 170 to 175, the marginal gain from chasing 180 is small. At that point, consistent aerobic training and dialing in your training paces with the anystride pace calculator at /calculator will return more than further tinkering with form.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What is a good running cadence?",
+        a: "For most recreational runners, 160 to 175 steps per minute on easy runs is a reasonable range. The right target depends on your height, natural stride, and pace. What matters more than hitting a specific number is avoiding significant overstriding -- if your easy-run cadence is consistently below 155, a gradual increase will likely help both your efficiency and your injury resilience.",
+      },
+      {
+        q: "Does a higher cadence make you faster?",
+        a: "Not directly, but it often removes inefficiencies that were holding you back. Reducing overstriding and braking force means more of your effort goes forward rather than being absorbed on impact. Most runners who improve cadence don't speed up immediately -- they hold the same pace with less effort, and that translates over time to better fitness and faster race times.",
+      },
+      {
+        q: "How long does it take to change your running cadence?",
+        a: "Expect four to eight weeks of consistent practice before a new cadence starts to feel natural. The neuromuscular patterns governing stride rate take time to rewire. Make changes gradually -- 5 percent at a time -- and practice on easy runs so you're not fighting the adaptation while also working hard.",
+      },
+      {
+        q: "Should I think about cadence on every run?",
+        a: "No. Use easy runs as the practice environment -- check it for 10-minute stretches and return your attention to it when you notice yourself drifting back toward old habits. Hard workouts and long runs should be effort-focused, not form-focused. Once your improved cadence becomes habitual, it takes care of itself without conscious attention.",
+      },
+      {
+        q: "Can I use my phone to track cadence?",
+        a: "Yes. Many free running apps -- including those built into most smartphones -- estimate cadence from the accelerometer in your pocket or on your wrist. Accuracy varies, but it's more than sufficient for tracking gradual improvement over weeks. A GPS watch with optical heart rate typically gives more reliable cadence data, but a phone app is a perfectly good starting point.",
+      },
+    ],
+    relatedPlans: ["base-building-4-week", "couch-to-5k", "bridge-to-10k"],
+  },
 ];
 
