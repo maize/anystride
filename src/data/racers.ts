@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-08";
+export const RACERS_AS_OF = "2026-07-15";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -209,9 +209,10 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Australia",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "3:46.06" }],
+    prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
+      "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
   },
   {
@@ -234,6 +235,40 @@ export const RACERS: Racer[] = [
     events: ["Mile"],
     prs: [{ event: "Mile", time: "3:46.97" }],
     honors: ["Prefontaine Classic Bowerman Mile 3rd place (2026, 3:46.97 PB)"],
+  },
+  {
+    slug: "josh-kerr",
+    name: "Josh Kerr",
+    gender: "M",
+    country: "Great Britain",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "3:47.17" }],
+    honors: [
+      "World 1500m champion (2023)",
+      "World indoor mile record holder (3:47.17, 2023)",
+    ],
+  },
+  {
+    slug: "sisay-lemma",
+    name: "Sisay Lemma",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:01:48" }],
+    honors: [
+      "London Marathon champion (2021)",
+    ],
+  },
+  {
+    slug: "hailemaryam-kiros",
+    name: "Hailemaryam Kiros",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:06:06" }],
+    honors: [
+      "Sydney Marathon champion (2025, 2:06:06 Australian all-comers record)",
+    ],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -413,6 +448,19 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Berlin Marathon 2026 elite entry"],
+  },
+  {
+    slug: "peres-jepchirchir",
+    name: "Peres Jepchirchir",
+    gender: "F",
+    country: "Kenya",
+    born: "1993-10-22",
+    events: ["Marathon", "Half Marathon"],
+    prs: [],
+    honors: [
+      "Olympic marathon champion (Tokyo 2020)",
+      "2025 World Athletics Championships marathon champion",
+    ],
   },
   {
     slug: "beatrice-chebet",

@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-08";
+export const RACES_AS_OF = "2026-07-15";
 
 export const RACES: Race[] = [
   {
@@ -121,6 +121,22 @@ export const RACES: Race[] = [
     ],
   },
   {
+    slug: "london-diamond-league-2026",
+    name: "London Diamond League 2026",
+    date: "2026-07-18",
+    city: "London",
+    country: "Great Britain",
+    distance: "Track",
+    series: "Diamond League",
+    why: "Josh Kerr’s “Project 222” targets Hicham El Guerrouj’s 27-year-old mile world record of 3:43.13, aiming to break 3:42 (222 seconds) at the Novuna London Athletics Meet. Kerr’s hand-picked invitational field includes Olympic 1500m bronze medallist Yared Nuguse; ideal forecast conditions make this one of the most anticipated track races in years.",
+    watchUrl: "https://londonathletics.net/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "josh-kerr" },
+      { racer: "yared-nuguse" },
+    ],
+  },
+  {
     slug: "european-athletics-championships-2026",
     name: "European Athletics Championships 2026",
     date: "2026-08-10",
@@ -139,16 +155,31 @@ export const RACES: Race[] = [
     country: "Australia",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The newest Abbott World Marathon Major — Asia-Pacific's first — enters its third year with a stellar elite field: defending champion Sifan Hassan returns alongside Tokyo 2026 champion Brigid Kosgei in the women's race, and 2025 World Athletics Championships marathon gold medalist Alphonce Simbu headlines the men's.",
+    why: "The newest Abbott World Marathon Major delivers its deepest field yet. The women's race is a world championship rematch between Olympic champion Sifan Hassan, reigning marathon world champion Peres Jepchirchir, and Tokyo 2026 winner Brigid Kosgei. On the men's side, world-champs gold medalist Alphonce Simbu and 2:01:48 man Sisay Lemma take on defending Sydney champion Hailemaryam Kiros.",
     watchUrl: "https://www.sydneymarathon.com.au/",
     fieldConfirmed: true,
     men: [
       { racer: "alphonce-simbu" },
+      { racer: "sisay-lemma" },
+      { racer: "hailemaryam-kiros" },
     ],
     women: [
       { racer: "sifan-hassan" },
+      { racer: "peres-jepchirchir" },
       { racer: "brigid-kosgei" },
     ],
+  },
+  {
+    slug: "diamond-league-final-brussels-2026",
+    name: "Diamond League Final Brussels 2026",
+    date: "2026-09-04",
+    city: "Brussels",
+    country: "Belgium",
+    distance: "Track",
+    series: "Diamond League",
+    why: "The Memorial Van Damme — one of track's oldest and most prestigious meetings — hosts the 2026 Diamond League Final, crowning season champions and awarding the Diamond Trophy across all events. With world-record holders and Olympic champions competing over two evenings, the Brussels finale routinely closes the outdoor season in style.",
+    watchUrl: "https://www.memorialvandamme.be/",
+    fieldConfirmed: false,
   },
   {
     slug: "world-athletics-ultimate-championship-2026",
