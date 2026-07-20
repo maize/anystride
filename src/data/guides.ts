@@ -923,5 +923,89 @@ export const GUIDES: Guide[] = [
     ],
     relatedPlans: ["base-building-4-week", "couch-to-5k", "bridge-to-10k"],
   },
+  {
+    slug: "negative-splits",
+    title: "Negative Splits: How to Run the Second Half of a Race Faster",
+    description:
+      "What negative splits are, why running the second half faster leads to better times, and how to pace a race so you finish strong instead of fading.",
+    targetQuery: "negative splits running / how to run negative splits in a race",
+    updated: "2026-07-20",
+    intro: [
+      "Most runners cross the finish line slower than they hoped because they ran the first half too fast. Negative splits — running the second half of a race faster than the first — is the pacing strategy that fixes this, and it is how the majority of race PRs are set.",
+      "The concept is simple. The execution requires discipline, especially in the early miles when you feel good and the crowd is pulling you forward. Here is why it works, what it feels like, and how to build it into your race plan.",
+    ],
+    sections: [
+      {
+        heading: "What are negative splits?",
+        body: [
+          "A negative split means your second half time is faster than your first half time. In a marathon, that means miles 14 through 26.2 are covered more quickly than miles 1 through 13.1. In a 5K it might mean the final kilometer is your fastest. The principle scales to every distance.",
+          "The opposite — running a faster first half and fading in the second — is called a positive split. Even splits means both halves are equal. Of the three, negative or even splits almost always produce the best finishing time for a given fitness level, because they match effort to what your body can actually sustain.",
+        ],
+      },
+      {
+        heading: "Why negative splits produce faster times",
+        body: [
+          "Going out too fast has a physiological cost that is disproportionate to the time you gain. At higher efforts, you burn glycogen more rapidly and accumulate lactate faster than your body can clear it. The result is that going 20 seconds per mile too fast in the opening miles does not just cost you those 20 seconds — it accelerates glycogen depletion so you slow much more dramatically in the later miles than the early surplus justified.",
+          "Running conservatively in the first half keeps glycogen stores intact longer, keeps lactate at manageable levels, and means your muscles arrive at the later miles with more to give. When you feel strong at mile 18 of a marathon rather than broken, you can actually run faster — and the emotional momentum of passing other runners in the final third is a real performance boost.",
+        ],
+      },
+      {
+        heading: "What a negative split feels like in a race",
+        body: [
+          "The uncomfortable truth is that the first miles of a well-paced race should feel almost too easy. If mile 3 of a 10K feels relaxed and controlled, you are probably on pace. If it feels like you are racing, you are almost certainly too fast.",
+          "At the halfway point of a negative-split race, you should feel like you have something left. In a marathon, that point is mile 13.1 — you want to feel like you are in the race, not in survival mode. The second half is where the real racing begins, and starting it with reserves is what makes running it faster possible.",
+          "Use the anystride pace calculator at /calculator to set your per-mile target for the first half, then aim to beat that time by 10 to 30 seconds per mile in the second half. Most successful negative splits are modest — a difference of 1 to 3 minutes across a full marathon half is entirely normal.",
+        ],
+      },
+      {
+        heading: "How to pace a negative split race",
+        body: [
+          "The most practical tool is a per-mile pace card or a GPS watch with a pace alert. Know your goal first-half pace and commit to staying at or slightly below it for the first third of the race, regardless of how easy it feels. The crowd, the adrenaline, and the downhills at the start of many courses will tempt you to bank time. Resist.",
+        ],
+        bullets: [
+          "First 20 to 25 percent of the race: slightly slower than goal pace — let your body warm up.",
+          "Middle miles: settle into goal pace, effort should feel controlled but purposeful.",
+          "Final 20 to 25 percent: if you still have something left, let yourself run a little faster.",
+          "Last mile: effort-based; this is where the reserve you built pays off.",
+        ],
+      },
+      {
+        heading: "Practicing negative splits in training",
+        body: [
+          "Long runs are the best place to build negative-split discipline. On your weekly long run, run the first half at easy pace and try to make the second half feel slightly more purposeful — not faster by the clock necessarily, but with a sense of finishing strong rather than limping in.",
+          "Tempo runs and marathon-pace workouts can also be structured as negative splits: start the first few miles slightly below threshold, then build to full effort in the second half. This trains both the physical pacing strategy and the mental habit of holding back before unleashing.",
+          "Plans that include marathon-pace work — like Pfitzinger 18/55, Hansons Marathon Method, or Higdon Intermediate — naturally create opportunities to rehearse this in training. Use them. Arriving at race day having already practiced running the final miles faster is far more valuable than knowing the theory.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What is a negative split in running?",
+        a: "Running the second half of a race faster than the first. A runner who runs the first 13.1 miles of a marathon in 2:10 and the second 13.1 in 2:07 has run a negative split. It is widely considered the most efficient and reliable race pacing strategy.",
+      },
+      {
+        q: "Is it better to run negative splits or even splits?",
+        a: "Both are significantly better than positive splits. For most recreational runners, even splits produce good results and are easier to execute. Negative splits tend to produce slightly better times when done well because they preserve glycogen and keep effort sustainable — but a slight positive split is not a disaster. Going out too fast by more than 5 to 10 percent is where things fall apart.",
+      },
+      {
+        q: "How much faster should the second half be?",
+        a: "In a well-run marathon or half marathon, 1 to 3 minutes faster across the second half is a realistic and meaningful negative split. Do not aim for a dramatic difference — a 5-minute negative split usually means the first half was too slow, not that the second half was exceptional. Small, steady gains are what you're after.",
+      },
+      {
+        q: "How do I avoid going out too fast?",
+        a: "Use pace alerts on your GPS watch and check the first mile against your planned pace — not your hoped-for pace. If the first mile is faster than plan, slow down immediately; the compounding cost of going out too fast shows up at mile 20, not mile 3. Run with a pace group if your race has one at your goal time.",
+      },
+      {
+        q: "Can beginners run negative splits?",
+        a: "Yes, and they benefit from the strategy more than most. Beginners are most likely to go out too fast because everything feels easy in the first mile. The single biggest improvement a beginner can make on race day is to slow the first mile down and let the race come to them. A conservative start almost always results in a stronger and more enjoyable finish.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-half-novice-1",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
 
