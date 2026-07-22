@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-15";
+export const RACES_AS_OF = "2026-07-22";
 
 export const RACES: Race[] = [
   {
@@ -128,12 +128,28 @@ export const RACES: Race[] = [
     country: "Great Britain",
     distance: "Track",
     series: "Diamond League",
-    why: "Josh Kerr’s “Project 222” targets Hicham El Guerrouj’s 27-year-old mile world record of 3:43.13, aiming to break 3:42 (222 seconds) at the Novuna London Athletics Meet. Kerr’s hand-picked invitational field includes Olympic 1500m bronze medallist Yared Nuguse; ideal forecast conditions make this one of the most anticipated track races in years.",
+    why: "Josh Kerr delivered on every promise of “Project 222”: the Scot shattered Hicham El Guerrouj’s 27-year-old mile world record with a stunning 3:42.66 at London Stadium, becoming the first man in history to break 3:43. Yared Nuguse ran 3:45.69 in second, with Jake Hayward completing a British podium in 3:46.73.",
     watchUrl: "https://londonathletics.net/",
     fieldConfirmed: true,
     men: [
+      { racer: "josh-kerr", place: 1, time: "3:42.66" },
+      { racer: "yared-nuguse", place: 2, time: "3:45.69" },
+      { racer: "jake-hayward", place: 3, time: "3:46.73" },
+    ],
+  },
+  {
+    slug: "commonwealth-games-athletics-2026",
+    name: "Commonwealth Games Athletics 2026",
+    date: "2026-07-27",
+    city: "Glasgow",
+    country: "Great Britain",
+    distance: "Track & Road",
+    why: "The Commonwealth Games return to Scotland for the first time since 1970, and the headline distance event is the reinstated Commonwealth Mile on August 1 — Josh Kerr, the newly crowned mile world-record holder (3:42.66), takes centre stage on home soil against Cameron Myers (AUS) and a stacked field of Commonwealth distance talent.",
+    watchUrl: "https://www.glasgow2026.com/",
+    fieldConfirmed: true,
+    men: [
       { racer: "josh-kerr" },
-      { racer: "yared-nuguse" },
+      { racer: "cameron-myers" },
     ],
   },
   {
@@ -155,7 +171,7 @@ export const RACES: Race[] = [
     country: "Australia",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The newest Abbott World Marathon Major delivers its deepest field yet. The women's race is a world championship rematch between Olympic champion Sifan Hassan, reigning marathon world champion Peres Jepchirchir, and Tokyo 2026 winner Brigid Kosgei. On the men's side, world-champs gold medalist Alphonce Simbu and 2:01:48 man Sisay Lemma take on defending Sydney champion Hailemaryam Kiros.",
+    why: "The newest Abbott World Marathon Major fields its deepest elite roster yet. Both races are led by reigning world champions: 2025 World Athletics Championships gold medalist Stella Chesang heads the women's field alongside Ruti Aga and Haven Hailu, while 2025 world champion Alphonce Simbu and 2:01:48 man Sisay Lemma take on defending Sydney champion Hailemaryam Kiros in the men's race.",
     watchUrl: "https://www.sydneymarathon.com.au/",
     fieldConfirmed: true,
     men: [
@@ -164,9 +180,9 @@ export const RACES: Race[] = [
       { racer: "hailemaryam-kiros" },
     ],
     women: [
-      { racer: "sifan-hassan" },
-      { racer: "peres-jepchirchir" },
-      { racer: "brigid-kosgei" },
+      { racer: "stella-chesang" },
+      { racer: "ruti-aga" },
+      { racer: "haven-hailu" },
     ],
   },
   {
@@ -224,6 +240,7 @@ export const RACES: Race[] = [
     fieldConfirmed: true,
     men: [
       { racer: "sabastian-sawe" },
+      { racer: "gabriel-geay" },
     ],
     women: [
       { racer: "tigst-assefa" },
@@ -242,6 +259,20 @@ export const RACES: Race[] = [
     why: "Flat, fast, and a magnet for American records and global stars — Chicago routinely produces some of the year's quickest times.",
     watchUrl: "https://www.chicagomarathon.com/",
     fieldConfirmed: false,
+  },
+  {
+    slug: "melbourne-marathon-2026",
+    name: "Melbourne Marathon 2026",
+    date: "2026-10-11",
+    city: "Melbourne",
+    country: "Australia",
+    distance: "Marathon",
+    why: "Eliud Kipchoge brings his seven-continent world marathon tour to Australia, headlining a redesigned, faster Melbourne course as the city targets its first sub-2:05 finish on home soil. Kipchoge is joined by Vincent Ngetich (KEN, PB 2:03:13) on what could be one of the great final-chapter chapters in marathon history.",
+    watchUrl: "https://melbournemarathon.com.au/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "eliud-kipchoge" },
+    ],
   },
   {
     slug: "new-york-city-marathon-2026",

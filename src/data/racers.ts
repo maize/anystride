@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-15";
+export const RACERS_AS_OF = "2026-07-22";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -221,8 +221,9 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "United States",
     events: ["1500m", "Mile"],
-    prs: [],
+    prs: [{ event: "Mile", time: "3:45.69" }],
     honors: [
+      "London Diamond League mile runner-up (2026, 3:45.69)",
       "Prefontaine Classic Bowerman Mile runner-up (2026)",
       "Former indoor mile world record holder",
     ],
@@ -237,13 +238,23 @@ export const RACERS: Racer[] = [
     honors: ["Prefontaine Classic Bowerman Mile 3rd place (2026, 3:46.97 PB)"],
   },
   {
+    slug: "jake-hayward",
+    name: "Jake Hayward",
+    gender: "M",
+    country: "Great Britain",
+    events: ["Mile", "1500m"],
+    prs: [{ event: "Mile", time: "3:46.73" }],
+    honors: ["London Diamond League mile 3rd place (2026, 3:46.73)"],
+  },
+  {
     slug: "josh-kerr",
     name: "Josh Kerr",
     gender: "M",
     country: "Great Britain",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "3:47.17" }],
+    prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
+      "Mile world record — 3:42.66 (London 2026), first man under 3:43",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -269,6 +280,15 @@ export const RACERS: Racer[] = [
     honors: [
       "Sydney Marathon champion (2025, 2:06:06 Australian all-comers record)",
     ],
+  },
+  {
+    slug: "gabriel-geay",
+    name: "Gabriel Geay",
+    gender: "M",
+    country: "Tanzania",
+    events: ["Marathon"],
+    prs: [],
+    honors: ["BMW Berlin Marathon 2026 elite entry"],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -459,8 +479,37 @@ export const RACERS: Racer[] = [
     prs: [],
     honors: [
       "Olympic marathon champion (Tokyo 2020)",
-      "2025 World Athletics Championships marathon champion",
     ],
+  },
+  {
+    slug: "stella-chesang",
+    name: "Stella Chesang",
+    gender: "F",
+    country: "Uganda",
+    events: ["Marathon"],
+    prs: [],
+    honors: [
+      "2025 World Athletics Championships marathon gold medalist",
+      "Osaka Women's Marathon champion (2026)",
+    ],
+  },
+  {
+    slug: "ruti-aga",
+    name: "Ruti Aga",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [],
+    honors: ["Xiamen Marathon champion (2025, 2026)"],
+  },
+  {
+    slug: "haven-hailu",
+    name: "Haven Hailu",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [],
+    honors: ["Seoul Marathon champion (2026)"],
   },
   {
     slug: "beatrice-chebet",
