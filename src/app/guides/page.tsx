@@ -14,7 +14,7 @@ export default function GuidesPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">Running guides</h1>
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Running guides</h1>
       <p className="mt-2 max-w-2xl text-muted-foreground">
         Practical, no-nonsense answers to the questions runners actually ask —
         then the free plans and tools to act on them.
@@ -25,9 +25,9 @@ export default function GuidesPage() {
           <Link
             key={guide.slug}
             href={`/guides/${guide.slug}`}
-            className="group flex flex-col rounded-xl border border-border p-5 transition hover:border-brand hover:shadow-sm"
+            className="group flex flex-col rounded-xl border border-border p-5 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
           >
-            <h2 className="text-lg font-semibold tracking-tight group-hover:text-brand">
+            <h2 className="text-lg font-semibold tracking-tight transition-colors duration-300 ease-stride group-hover:text-brand">
               {guide.title}
             </h2>
             <p className="mt-1 flex-1 text-sm text-muted-foreground">

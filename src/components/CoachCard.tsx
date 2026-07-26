@@ -7,12 +7,12 @@ export function CoachCard({ coach }: { coach: Coach }) {
   return (
     <Link
       href={`/coaching/${coach.slug}`}
-      className="group flex flex-col rounded-xl border border-border p-5 transition hover:border-brand hover:shadow-sm"
+      className="group flex h-full flex-col rounded-xl border border-border p-5 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
     >
       <div className="flex items-center gap-3">
         <Avatar name={coach.name} />
         <div className="min-w-0">
-          <h3 className="truncate font-semibold group-hover:text-brand">
+          <h3 className="truncate font-semibold transition-colors duration-300 ease-stride group-hover:text-brand">
             {coach.name}
           </h3>
           <p className="truncate text-xs text-muted-foreground">
@@ -25,7 +25,7 @@ export function CoachCard({ coach }: { coach: Coach }) {
         {coach.specialties.slice(0, 3).map((s) => (
           <span
             key={s}
-            className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
+            className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground"
           >
             {s}
           </span>

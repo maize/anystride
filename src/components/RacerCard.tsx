@@ -8,11 +8,11 @@ export function RacerCard({ racer }: { racer: Racer }) {
   return (
     <Link
       href={`/racers/${racer.slug}`}
-      className="group flex items-center gap-3 rounded-xl border border-border p-4 transition hover:border-brand hover:shadow-sm"
+      className="group flex items-center gap-3 rounded-xl border border-border p-4 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
     >
       <Avatar name={racer.name} />
       <div className="min-w-0">
-        <h3 className="truncate font-semibold group-hover:text-brand">
+        <h3 className="truncate font-semibold transition-colors duration-300 ease-stride group-hover:text-brand">
           {racer.name}
         </h3>
         <p className="truncate text-xs text-muted-foreground">

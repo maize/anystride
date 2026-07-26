@@ -35,10 +35,10 @@ export function WeekTable({ week }: { week: PlanWeek }) {
             className="flex flex-col gap-1 bg-background p-3"
             title={workout.note}
           >
-            <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
               {DAY_NAMES[i]}
             </span>
-            <span className="flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground">
+            <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <span className={`h-2 w-2 rounded-full ${TYPE_DOT[workout.type]}`} />
               {WORKOUT_LABELS[workout.type]}
             </span>

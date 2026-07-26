@@ -112,8 +112,8 @@ export function PaceCalculator() {
               onClick={() => setBasis("recent")}
               className={
                 basis === "recent"
-                  ? "rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-brand-foreground"
-                  : "rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:border-brand"
+                  ? "rounded-full bg-brand px-4 py-1 text-sm font-medium text-brand-foreground"
+                  : "rounded-full border border-border px-4 py-1 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
               }
             >
               Recent result
@@ -123,8 +123,8 @@ export function PaceCalculator() {
               onClick={() => setBasis("goal")}
               className={
                 basis === "goal"
-                  ? "rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-brand-foreground"
-                  : "rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:border-brand"
+                  ? "rounded-full bg-brand px-4 py-1 text-sm font-medium text-brand-foreground"
+                  : "rounded-full border border-border px-4 py-1 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
               }
             >
               Goal time
@@ -174,9 +174,9 @@ export function PaceCalculator() {
 
         <button
           type="submit"
-          className="mt-6 w-full rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90 sm:w-auto sm:px-10"
+          className="mt-6 w-full rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98] sm:w-auto sm:px-10"
         >
-          Calculate
+          Get my paces
         </button>
       </form>
 
@@ -278,12 +278,12 @@ export function PaceCalculator() {
                     <Link
                       key={r.plan.slug}
                       href={`/plans/${r.plan.slug}`}
-                      className="flex flex-col gap-1 rounded-xl border border-border p-4 transition hover:border-brand"
+                      className="flex flex-col gap-1 rounded-xl border border-border p-4 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
                     >
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="font-semibold">{r.plan.name}</span>
                         <span
-                          className={`rounded-full px-2 py-0.5 text-xs font-medium ${FIT_STYLES[r.fit]}`}
+                          className={`rounded-md px-2 py-0.5 text-xs font-medium ${FIT_STYLES[r.fit]}`}
                         >
                           {FIT_LABEL[r.fit]}
                         </span>

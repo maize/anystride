@@ -142,7 +142,7 @@ export default async function RacerPage({ params }: PageProps<"/racers/[slug]">)
               <Link
                 key={race.slug}
                 href={`/races/${race.slug}`}
-                className="block rounded-xl border border-border p-4 text-sm transition hover:border-brand"
+                className="block rounded-xl border border-border p-4 text-sm transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
               >
                 <span className="font-medium">{race.name}</span>
               </Link>

@@ -64,7 +64,7 @@ export default async function DistanceHubPage({
         }}
       />
 
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight sm:text-4xl">
         Free {label} training plans
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
@@ -76,13 +76,13 @@ export default async function DistanceHubPage({
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/compare"
-          className="rounded-full border border-border px-5 py-2 text-sm font-medium hover:border-brand"
+          className="rounded-full border border-border px-5 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
         >
           Compare plans
         </Link>
         <Link
           href="/calculator"
-          className="rounded-full border border-border px-5 py-2 text-sm font-medium hover:border-brand"
+          className="rounded-full border border-border px-5 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
         >
           Find my paces
         </Link>
@@ -104,9 +104,9 @@ export default async function DistanceHubPage({
               <Link
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}
-                className="group rounded-xl border border-border p-5 transition hover:border-brand"
+                className="group rounded-xl border border-border p-5 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
               >
-                <h3 className="font-semibold group-hover:text-brand">
+                <h3 className="font-semibold transition-colors duration-300 ease-stride group-hover:text-brand">
                   {guide.title}
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">

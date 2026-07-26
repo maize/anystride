@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">
         Paces &amp; plan finder
       </h1>
       <p className="mt-2 text-muted-foreground">

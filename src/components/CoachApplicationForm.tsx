@@ -53,7 +53,7 @@ export function CoachApplicationForm({ claimSlug = "" }: { claimSlug?: string })
   if (status === "done") {
     return (
       <div className="rounded-xl border border-border bg-muted p-6">
-        <p className="font-semibold">Thanks — we&apos;ve got your details. 🎉</p>
+        <p className="font-semibold">Thanks — we&apos;ve got your details.</p>
         <p className="mt-1 text-sm text-muted-foreground">
           We review every coach personally and will be in touch about listing you
           on anystride.
@@ -113,7 +113,7 @@ export function CoachApplicationForm({ claimSlug = "" }: { claimSlug?: string })
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-5 w-full rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-10"
+        className="mt-5 w-full rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98] disabled:opacity-60 sm:w-auto sm:px-10"
       >
         {status === "submitting" ? "Submitting…" : claimSlug ? "Claim my profile" : "Apply to be listed"}
       </button>

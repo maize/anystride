@@ -8,14 +8,14 @@ import {
 } from "@/data/types";
 
 const LEVEL_STYLES: Record<Level, string> = {
-  beginner: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
-  intermediate: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300",
-  advanced: "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300",
+  beginner: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400",
+  intermediate: "bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-400",
+  advanced: "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-400",
 };
 
 export function DistanceBadge({ distance }: { distance: Distance }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+    <span className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
       {DISTANCE_LABELS[distance]}
     </span>
   );
@@ -24,7 +24,7 @@ export function DistanceBadge({ distance }: { distance: Distance }) {
 export function LevelBadge({ level }: { level: Level }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${LEVEL_STYLES[level]}`}
+      className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${LEVEL_STYLES[level]}`}
     >
       {LEVEL_LABELS[level]}
     </span>

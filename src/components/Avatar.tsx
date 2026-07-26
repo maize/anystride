@@ -1,11 +1,9 @@
-/** Initials avatar with a deterministic brand-tinted color — no photos needed. */
+/** Initials avatar with a deterministic muted color — no photos needed. */
 const COLORS = [
-  "bg-orange-500",
-  "bg-emerald-600",
-  "bg-sky-600",
-  "bg-violet-600",
-  "bg-rose-500",
-  "bg-amber-600",
+  "bg-orange-700",
+  "bg-emerald-800",
+  "bg-sky-800",
+  "bg-stone-600",
 ];
 
 function initials(name: string): string {
@@ -23,7 +21,7 @@ export function Avatar({
   const color = COLORS[name.length % COLORS.length];
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white ${color}`}
+      className={`inline-flex shrink-0 items-center justify-center rounded-xl font-semibold text-white ${color}`}
       style={{ width: size, height: size, fontSize: size * 0.4 }}
       aria-hidden
     >

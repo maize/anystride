@@ -70,14 +70,14 @@ export default async function PlansPage({
     <div className="mx-auto max-w-5xl px-5 py-12">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Training plans</h1>
+          <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Training plans</h1>
           <p className="mt-2 text-muted-foreground">
             Free, community-sourced plans. Filter by distance and level.
           </p>
         </div>
         <Link
           href="/compare"
-          className="rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:border-brand hover:text-brand"
+          className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand hover:text-brand active:scale-[0.98]"
         >
           Compare side by side →
         </Link>

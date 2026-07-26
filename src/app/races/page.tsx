@@ -29,10 +29,10 @@ function RaceRow({ race, past }: { race: Race; past?: boolean }) {
   return (
     <Link
       href={`/races/${race.slug}`}
-      className="group flex flex-col gap-1 rounded-xl border border-border p-5 transition hover:border-brand hover:shadow-sm sm:flex-row sm:items-center sm:justify-between"
+      className="group flex flex-col gap-1 rounded-xl border border-border p-5 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand sm:flex-row sm:items-center sm:justify-between"
     >
       <div>
-        <h3 className="font-semibold group-hover:text-brand">{race.name}</h3>
+        <h3 className="font-semibold transition-colors duration-300 ease-stride group-hover:text-brand">{race.name}</h3>
         <p className="mt-0.5 text-sm text-muted-foreground">
           {fmtDate(race.date)} · {race.city}, {race.country} · {race.distance}
         </p>
@@ -53,7 +53,7 @@ export default function RacesPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight sm:text-4xl">
         Races to watch
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
@@ -66,7 +66,7 @@ export default function RacesPage() {
       {next && (
         <Link
           href={`/races/${next.slug}`}
-          className="mt-8 block rounded-2xl border border-border bg-muted p-6 transition hover:border-brand"
+          className="mt-8 block rounded-2xl border border-border bg-muted p-6 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
         >
           <p className="text-sm font-medium text-brand">
             Next up · in {daysUntil(next.date)} days

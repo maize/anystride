@@ -14,7 +14,7 @@ export default function ComparePage() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">Compare plans</h1>
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Compare plans</h1>
       <p className="mt-2 max-w-2xl text-muted-foreground">
         The hardest part of choosing a plan is seeing how they actually differ.
         Here&apos;s every plan side by side — time commitment, intensity, what you

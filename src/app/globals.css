@@ -2,13 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #14181f;
-  /* anystride brand: an energetic "stride" orange + deep slate. */
+  --foreground: #171717;
+  /* anystride brand: an energetic "stride" orange on a neutral gray base. */
   --brand: #ff5a1f;
   --brand-foreground: #ffffff;
-  --muted: #f4f5f7;
-  --muted-foreground: #5b6470;
-  --border: #e4e7ec;
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --border: #e5e5e5;
+  --heading-from: #000000;
+  --heading-to: #666666;
 }
 
 @theme inline {
@@ -21,21 +23,85 @@
   --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --ease-stride: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b0d10;
-    --foreground: #eef1f5;
+    --background: #181818;
+    --foreground: #f5f5f5;
     --brand: #ff6a33;
-    --muted: #161a20;
-    --muted-foreground: #9aa4b2;
-    --border: #232a33;
+    --muted: #1f1f1f;
+    --muted-foreground: #9b9b9b;
+    --border: #313131;
+    --heading-from: #ffffff;
+    --heading-to: #9b9b9b;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Visible keyboard focus everywhere; form fields keep their border treatment. */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Hero headings: flat surfaces, gradient type. */
+.text-hero-gradient {
+  background-image: linear-gradient(
+    to right,
+    var(--heading-from),
+    var(--heading-to)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Faint grain so large flat surfaces don't read as dead pixels. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scroll-entry reveal, driven by IntersectionObserver in <Reveal>. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+    transition:
+      opacity 0.8s var(--ease-stride),
+      transform 0.8s var(--ease-stride),
+      filter 0.8s var(--ease-stride);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }

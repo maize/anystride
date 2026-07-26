@@ -71,7 +71,7 @@ export default async function CoachingPage({
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
       <p className="mb-2 text-sm font-medium text-brand">US cities · Beta</p>
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h1 className="text-hero-gradient text-3xl font-bold tracking-tight sm:text-4xl">
         Find a running coach
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">

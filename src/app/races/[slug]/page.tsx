@@ -55,7 +55,7 @@ function FieldList({ entries, title }: { entries: FieldEntry[]; title: string })
             <li key={entry.racer}>
               <Link
                 href={`/racers/${racer.slug}`}
-                className="group flex items-center gap-3 rounded-xl border border-border p-3 transition hover:border-brand"
+                className="group flex items-center gap-3 rounded-xl border border-border p-3 transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand"
               >
                 {entry.place != null && (
                   <span className="w-6 shrink-0 text-center text-sm font-bold text-muted-foreground">

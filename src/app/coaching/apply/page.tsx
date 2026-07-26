@@ -24,7 +24,7 @@ export default async function CoachApplyPage({
         ← Back to coaches
       </Link>
 
-      <h1 className="mt-4 text-3xl font-bold tracking-tight">
+      <h1 className="text-hero-gradient mt-4 text-3xl font-bold tracking-tight">
         {claimSlug ? "Claim your profile" : "List your coaching on anystride"}
       </h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
