@@ -924,6 +924,100 @@ export const GUIDES: Guide[] = [
     relatedPlans: ["base-building-4-week", "couch-to-5k", "bridge-to-10k"],
   },
   {
+    slug: "run-walk-method",
+    title: "The Run/Walk Method: How to Use Walk Breaks to Run Farther and Faster",
+    description:
+      "What the run/walk method is, which ratios to use, how walk breaks let beginners and veterans cover more distance — and whether they slow you down.",
+    targetQuery: "run walk method / Jeff Galloway run walk intervals / walk breaks running",
+    updated: "2026-07-27",
+    intro: [
+      "The run/walk method is exactly what it sounds like: you alternate running and walking throughout a workout or race, following a set ratio rather than walking only when you're forced to. It sounds simple because it is — and that simplicity is why it works for such a wide range of runners, from first-timers who can barely jog five minutes to marathoners targeting personal bests.",
+      "Walk breaks are not a sign of weakness or poor fitness. Used deliberately, they manage fatigue, protect your joints, and let you cover distances you couldn't otherwise reach. Here is how to use them well.",
+    ],
+    sections: [
+      {
+        heading: "What is the run/walk method?",
+        body: [
+          "The run/walk method, popularized by coach Jeff Galloway in the 1970s, replaces continuous running with planned intervals of running and walking. You set a ratio — say, run 3 minutes, walk 1 minute — and stick to it from the start, before fatigue sets in. The walk intervals are taken on a schedule, not as a rescue when your legs give out.",
+          "This distinction matters enormously. A scheduled walk break at minute 5 is recovery. A forced walk at minute 25 because you ran too hard is damage control. The run/walk method is about the former: structured rest that keeps you running longer, further, and more comfortably than you would manage straight through.",
+        ],
+      },
+      {
+        heading: "Who benefits most",
+        body: [
+          "The run/walk method is genuinely useful across a wide range of runners, not just beginners. The groups who benefit most:",
+        ],
+        bullets: [
+          "Complete beginners — walk breaks make the initial weeks of running manageable without the injury risk of running continuously too soon. The Couch to 5K plan is built on this exact principle.",
+          "Runners returning from injury — walk intervals let the body ease back into impact-loading without overloading healing tissue on the first day back.",
+          "Long-distance runners — walk breaks during a marathon or ultra allow muscles to recover briefly, reducing the glycogen burn rate and helping you hold form deeper into the race.",
+          "Runners in hot weather — a brief walk every few minutes gives your cardiovascular system a moment to shed heat, which matters a lot on summer long runs.",
+          "Older runners — reduced continuous impact load means less cumulative stress on joints and connective tissue, which tend to recover more slowly with age.",
+        ],
+      },
+      {
+        heading: "Choosing your run/walk ratio",
+        body: [
+          "The right ratio depends entirely on your current fitness and your goal. There is no single correct answer — what works is the ratio that lets you finish each run feeling like you could do a little more, not the ratio that grinds you down by mile 4.",
+          "A practical starting framework:",
+        ],
+        bullets: [
+          "Very new to running: run 1 minute, walk 2 minutes. Shift the balance toward running every week or two as it gets easier.",
+          "Can run 20 to 30 minutes straight: run 4 to 5 minutes, walk 1 minute. Walk breaks are now about managing fatigue over longer distances, not survival.",
+          "Experienced runner using walk breaks in a race: run 9 minutes, walk 1 minute, or run 4 minutes, walk 30 seconds. Short, frequent breaks rather than long, infrequent ones.",
+          "Training for your first half-marathon or marathon: a 4:1 or 8:1 ratio on your long runs will get you to the finish line even if it's farther than you've ever gone.",
+        ],
+      },
+      {
+        heading: "Using run/walk in races",
+        body: [
+          "Walk breaks in a race are not a compromise — they are a strategy, and one that works. Many runners who race with a consistent run/walk ratio finish ahead of runners who went out too fast and were forced to walk anyway. Planned walking is efficient; unplanned walking from exhaustion is not.",
+          "The key is committing to the ratio from the first mile, not waiting until you need the break. Walk breaks taken early are genuine recovery; walk breaks taken at mile 18 because you're hitting the wall are too late to help much. Use the anystride pace calculator at /calculator to set a goal pace and then build your run/walk ratio around it.",
+          "If your race uses time-based intervals, a GPS watch with an interval timer makes this easy: set it to beep at the end of each run and walk segment and you never have to think about it during the race.",
+        ],
+      },
+      {
+        heading: "Does run/walk make you slower?",
+        body: [
+          "For new runners, no — run/walk typically makes you faster over a given distance than continuous running would, because you arrive at the later miles with more energy. The walk intervals are short enough that they do not lose significant time, but long enough to lower heart rate, reduce muscle fatigue, and keep your form from falling apart.",
+          "For experienced runners, the answer is nuanced. On short distances — 5K and 10K — continuous running at race effort is almost always faster than a run/walk ratio. On the marathon, a well-chosen run/walk ratio can produce a better finishing time than going out at continuous pace and fading badly. Galloway's research suggests many recreational marathoners finish within minutes of their straight-running time while experiencing far less post-race soreness.",
+          "The honest test is your own data. If you run a long run continuous and a similar-effort long run with 4:1 intervals and compare how you feel in the final miles and the next two days, you'll know which approach suits you.",
+        ],
+      },
+      {
+        heading: "Transitioning away from walk breaks",
+        body: [
+          "Run/walk is a tool, not a permanent identity. Many runners use it for a training cycle, build their aerobic base, and then shift to continuous running as their fitness improves. The Couch to 5K plan does this systematically over nine weeks: the walk segments get shorter each week until the whole run is continuous.",
+          "If your goal is continuous running, reduce the walk interval first (from 2 minutes to 1 minute to 30 seconds) before cutting it out entirely. Keep the run segments the same length until the shorter walk feels comfortable, then lengthen the run segment. Done gradually, the transition happens almost without noticing.",
+          "If run/walk simply suits you — if you enjoy it, recover better from it, and have no interest in ditching it — that is a legitimate long-term approach. Plenty of experienced marathoners run every race with walk breaks and have been doing so for years. Finishing well beats finishing continuously but broken.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is the run/walk method real running?",
+        a: "Yes. There is no rule that running has to be continuous. If you cover a marathon distance with planned walk breaks and finish in under six hours, you ran a marathon. The method is widely used, well-researched, and produces genuine fitness results. The only thing that matters is whether it helps you reach your goal.",
+      },
+      {
+        q: "What run/walk ratio should I start with?",
+        a: "If you are new to running, start with something that feels manageable on day one: run 1 to 2 minutes, walk 2 to 3 minutes. You can always increase the run segments as you get fitter. If you can already run 20 minutes straight and are adding walk breaks for longer distances, a 4:1 or 5:1 ratio is a practical starting point.",
+      },
+      {
+        q: "Can I run a marathon using the run/walk method?",
+        a: "Absolutely. Many runners use run/walk for their first marathon and find they finish more comfortably and recover more quickly than runners who went out too hard. A consistent 4:1 or 8:1 ratio applied from mile 1 is far more effective than running continuous until mile 18 and walking the rest in exhaustion.",
+      },
+      {
+        q: "Will I get slower if I keep using walk breaks?",
+        a: "Not necessarily. Your aerobic fitness improves whether you are running continuously or using run/walk intervals — the cardiovascular system does not distinguish. Over time, as fitness improves, you can extend the run segments and shorten the walk intervals if you choose, or simply enjoy covering longer distances with less wear. The goal determines the method.",
+      },
+      {
+        q: "Should I use run/walk on every run or just long ones?",
+        a: "Most runners who use the method apply it to their longer or harder-effort runs and do shorter easy runs continuously as their fitness allows. There is no rule against using it on every run, especially in the early weeks. Use it wherever it helps you finish the session without injury or excessive fatigue.",
+      },
+    ],
+    relatedPlans: ["couch-to-5k", "higdon-half-novice-1", "higdon-marathon-novice-1"],
+  },
+  {
     slug: "negative-splits",
     title: "Negative Splits: How to Run the Second Half of a Race Faster",
     description:

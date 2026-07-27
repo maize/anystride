@@ -26,12 +26,10 @@ function isActive(pathname: string, href: string): boolean {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  // Close the overlay whenever navigation happens.
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  // Stores the pathname at which the menu was opened.
+  // Comparing against current pathname automatically closes on navigation.
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
+  const open = openedAt === pathname;
 
   // Lock body scroll while the mobile menu is open.
   useEffect(() => {
@@ -77,7 +75,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => setOpenedAt((p) => (p === null ? pathname : null))}
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
