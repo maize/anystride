@@ -19,20 +19,24 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-07-29";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
+  Belgium: "🇧🇪",
   Denmark: "🇩🇰",
   Ethiopia: "🇪🇹",
+  France: "🇫🇷",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
+  Monaco: "🇲🇨",
   Netherlands: "🇳🇱",
   Norway: "🇳🇴",
+  Switzerland: "🇨🇭",
   Tanzania: "🇹🇿",
   Uganda: "🇺🇬",
   "United States": "🇺🇸",
@@ -84,6 +88,7 @@ export const RACERS: Racer[] = [
       "Half marathon world record holder (57:20, Lisbon 2026)",
       "World Cross Country champion",
       "Olympic 10,000m bronze medalist (Tokyo 2020)",
+      "Chicago Marathon champion (2025, 2:02:23)",
     ],
   },
   {
@@ -211,6 +216,7 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
+      "1500m Commonwealth record — 3:28.00 (Paris Diamond League 2026, world lead)",
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
@@ -289,6 +295,85 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["BMW Berlin Marathon 2026 elite entry"],
+  },
+  {
+    slug: "emmanuel-wanyonyi",
+    name: "Emmanuel Wanyonyi",
+    gender: "M",
+    country: "Kenya",
+    born: "2004-08-01",
+    events: ["800m", "1000m"],
+    prs: [{ event: "1000m", time: "2:11.83" }],
+    honors: [
+      "1000m world record — 2:11.83 (Monaco 2026), breaking Noah Ngeny's 27-year-old mark",
+      "Olympic 800m champion (Paris 2024)",
+      "World 800m champion (2025)",
+    ],
+  },
+  {
+    slug: "azeddine-habz",
+    name: "Azeddine Habz",
+    gender: "M",
+    country: "France",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:29.80" }],
+    honors: [
+      "Paris Diamond League 1500m runner-up (2026, 3:29.80 PB)",
+    ],
+  },
+  {
+    slug: "jake-wightman",
+    name: "Jake Wightman",
+    gender: "M",
+    country: "Great Britain",
+    born: "1994-07-11",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:29.23" }],
+    honors: [
+      "2022 World Athletics Championships 1500m champion (Eugene)",
+      "Paris Diamond League 1500m 3rd place (2026, 3:29.95)",
+      "Monaco Diamond League 1000m runner-up (2026, 2:12.77)",
+    ],
+  },
+  {
+    slug: "grant-fisher",
+    name: "Grant Fisher",
+    gender: "M",
+    country: "United States",
+    born: "1997-04-22",
+    events: ["5000m", "10,000m"],
+    prs: [{ event: "5000m", time: "12:44.09" }],
+    honors: [
+      "Indoor 5000m world record — 12:44.09 (2025, US all-conditions record)",
+      "2024 Paris Olympics 5000m bronze medalist",
+      "2024 Paris Olympics 10,000m bronze medalist",
+      "Paris Diamond League 5000m champion (2026, first DL victory)",
+    ],
+  },
+  {
+    slug: "amos-kipruto",
+    name: "Amos Kipruto",
+    gender: "M",
+    country: "Kenya",
+    born: "1992-09-16",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:01:39" }],
+    honors: [
+      "London Marathon champion (2022)",
+      "2019 World Athletics Championships marathon bronze medalist",
+    ],
+  },
+  {
+    slug: "alex-masai",
+    name: "Alex Masai",
+    gender: "M",
+    country: "Kenya",
+    born: "1997-02-05",
+    events: ["Marathon", "Half Marathon", "5000m"],
+    prs: [{ event: "Marathon", time: "2:04:37" }],
+    honors: [
+      "2025 Chicago Marathon 3rd place",
+    ],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -413,7 +498,10 @@ export const RACERS: Racer[] = [
     country: "Ethiopia",
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:17:39" }],
-    honors: ["Tokyo Marathon 3rd place (2026)"],
+    honors: [
+      "Chicago Marathon champion (2025)",
+      "Tokyo Marathon 3rd place (2026)",
+    ],
   },
   {
     slug: "faith-kipyegon",
@@ -528,6 +616,17 @@ export const RACERS: Racer[] = [
       "Paris 2024 Olympic double gold (5000m, 10,000m)",
       "2025 World Athletics Championships double gold (5000m, 10,000m)",
       "Three-time World Cross Country champion",
+    ],
+  },
+  {
+    slug: "agnes-ngetich",
+    name: "Agnes Jebet Ngetich",
+    gender: "F",
+    country: "Kenya",
+    events: ["3000m", "5000m"],
+    prs: [{ event: "3000m", time: "8:08.95" }],
+    honors: [
+      "Monaco Diamond League women's 3000m champion (2026, 8:08.95 — world lead & among the all-time fastest)",
     ],
   },
 ];

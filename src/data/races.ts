@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-22";
+export const RACES_AS_OF = "2026-07-29";
 
 export const RACES: Race[] = [
   {
@@ -99,6 +99,26 @@ export const RACES: Race[] = [
     ],
   },
   {
+    slug: "paris-diamond-league-2026",
+    name: "Paris Diamond League 2026",
+    date: "2026-06-28",
+    city: "Paris",
+    country: "France",
+    distance: "Track",
+    series: "Diamond League",
+    why: "Cameron Myers announced himself as the world's best 1500m runner at Stade Charléty: the 20-year-old Australian destroyed the Commonwealth record with 3:28.00 for a world lead and Australian record, beating Azeddine Habz (3:29.80) and 2022 world champion Jake Wightman (3:29.95). Grant Fisher claimed a landmark first Diamond League 5000m victory in 12:54.80, while Faith Kipyegon's 14:05.20 5000m win underlined her continued dominance on Parisian soil.",
+    watchUrl: "https://paris.diamondleague.com/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "cameron-myers", place: 1, time: "3:28.00" },
+      { racer: "azeddine-habz", place: 2, time: "3:29.80" },
+      { racer: "jake-wightman", place: 3, time: "3:29.95" },
+    ],
+    women: [
+      { racer: "faith-kipyegon", place: 1, time: "14:05.20" },
+    ],
+  },
+  {
     slug: "prefontaine-classic-2026",
     name: "Prefontaine Classic 2026",
     date: "2026-07-03",
@@ -121,6 +141,25 @@ export const RACES: Race[] = [
     ],
   },
   {
+    slug: "monaco-diamond-league-2026",
+    name: "Monaco Diamond League 2026",
+    date: "2026-07-10",
+    city: "Monaco",
+    country: "Monaco",
+    distance: "Track",
+    series: "Diamond League",
+    why: "A night of records at Stade Louis II: Emmanuel Wanyonyi, the reigning Olympic and world 800m champion, shattered Noah Ngeny's 27-year-old men's 1000m world record with 2:11.83 — taking 0.13 off the previous mark set in Rieti in 1999 — with Jake Wightman hard on his heels in 2:12.77. Agnes Ngetich posted one of the fastest women's 3000m runs in history, 8:08.95 for a world lead, as Monaco delivered its trademark record-breaking theatre.",
+    watchUrl: "https://monaco.diamondleague.com/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "emmanuel-wanyonyi", place: 1, time: "2:11.83" },
+      { racer: "jake-wightman", place: 2, time: "2:12.77" },
+    ],
+    women: [
+      { racer: "agnes-ngetich", place: 1, time: "8:08.95" },
+    ],
+  },
+  {
     slug: "london-diamond-league-2026",
     name: "London Diamond League 2026",
     date: "2026-07-18",
@@ -128,7 +167,7 @@ export const RACES: Race[] = [
     country: "Great Britain",
     distance: "Track",
     series: "Diamond League",
-    why: "Josh Kerr delivered on every promise of “Project 222”: the Scot shattered Hicham El Guerrouj’s 27-year-old mile world record with a stunning 3:42.66 at London Stadium, becoming the first man in history to break 3:43. Yared Nuguse ran 3:45.69 in second, with Jake Hayward completing a British podium in 3:46.73.",
+    why: "Josh Kerr delivered on every promise of \"Project 222\": the Scot shattered Hicham El Guerrouj's 27-year-old mile world record with a stunning 3:42.66 at London Stadium, becoming the first man in history to break 3:43. Yared Nuguse ran 3:45.69 in second, with Jake Hayward completing a British podium in 3:46.73.",
     watchUrl: "https://londonathletics.net/",
     fieldConfirmed: true,
     men: [
@@ -162,6 +201,33 @@ export const RACES: Race[] = [
     why: "The first European Athletics Championships on British soil since London 2012, with distance titles at stake across the 1500m, 5000m, 10,000m, 3000m steeplechase, and marathon — a showcase for the next generation of European distance talent.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
     fieldConfirmed: false,
+  },
+  {
+    slug: "lausanne-diamond-league-2026",
+    name: "Lausanne Diamond League 2026",
+    date: "2026-08-21",
+    city: "Lausanne",
+    country: "Switzerland",
+    distance: "Track",
+    series: "Diamond League",
+    why: "The 51st Athletissima at Stade de la Pontaise is the penultimate Diamond League stop on European soil before Brussels, featuring a men's 5000m and women's 3000m steeplechase among 17 events as the season's stars sharpen up for the final.",
+    watchUrl: "https://lausanne.diamondleague.com/",
+    fieldConfirmed: false,
+  },
+  {
+    slug: "zurich-diamond-league-2026",
+    name: "Weltklasse Zürich 2026",
+    date: "2026-08-27",
+    city: "Zurich",
+    country: "Switzerland",
+    distance: "Track",
+    series: "Diamond League",
+    why: "Weltklasse Zürich — founded in 1928 and one of the oldest and most prestigious athletics meetings on the planet — hosts the penultimate Diamond League meeting of 2026. Yared Nuguse headlines the distance programme at Letzigrund Stadium as the world's best gather for one last showcase before the Brussels season finale.",
+    watchUrl: "https://www.weltklassezuerich.ch/",
+    fieldConfirmed: true,
+    men: [
+      { racer: "yared-nuguse" },
+    ],
   },
   {
     slug: "sydney-marathon-2026",
@@ -256,9 +322,19 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "Flat, fast, and a magnet for American records and global stars — Chicago routinely produces some of the year's quickest times.",
+    why: "The 48th Bank of America Chicago Marathon features one of the deepest fields in race history. Jacob Kiplimo, whose 2:00:28 at London 2026 ranks as the third-fastest marathon ever run, returns to defend his 2025 Chicago title against Kenya's Amos Kipruto (2:01:39 PB) and rising HOKA NAZ Elite standout Alex Masai. In the women's race, defending champion Hawi Feysa faces former marathon world record holder Brigid Kosgei and two-time Boston champion Sharon Lokedi.",
     watchUrl: "https://www.chicagomarathon.com/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "jacob-kiplimo" },
+      { racer: "amos-kipruto" },
+      { racer: "alex-masai" },
+    ],
+    women: [
+      { racer: "hawi-feysa" },
+      { racer: "brigid-kosgei" },
+      { racer: "sharon-lokedi" },
+    ],
   },
   {
     slug: "melbourne-marathon-2026",
