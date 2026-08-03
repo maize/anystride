@@ -30,6 +30,7 @@ export function SiteHeader() {
 
   // Close the overlay whenever navigation happens.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false);
   }, [pathname]);
 
