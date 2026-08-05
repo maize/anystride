@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-08-05";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -213,6 +213,7 @@ export const RACERS: Racer[] = [
     honors: [
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
+      "Commonwealth Games mile silver (Glasgow 2026, 3:55.26)",
     ],
   },
   {
@@ -255,8 +256,25 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "Commonwealth Games mile champion (Glasgow 2026, 3:54.12)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
+    ],
+  },
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    hometown: "Singorwet, Bomet County",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:28.28" }],
+    honors: [
+      "World 1500m champion (2019)",
+      "Olympic 1500m silver medalist (Tokyo 2020)",
+      "Four-time Diamond League 1500m champion (2017, 2018, 2019, 2021)",
+      "Commonwealth Games mile bronze (Glasgow 2026, 3:55.41)",
     ],
   },
   {
@@ -510,6 +528,56 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
+  },
+  {
+    slug: "abbey-caldwell",
+    name: "Abbey Caldwell",
+    gender: "F",
+    country: "Australia",
+    hometown: "Mitcham, Victoria",
+    born: "2001-07-03",
+    events: ["1500m", "Mile", "800m"],
+    prs: [
+      { event: "1500m", time: "3:56.12" },
+      { event: "Mile", time: "4:20.51" },
+    ],
+    honors: [
+      "Commonwealth Games women's mile champion (Glasgow 2026, 4:39.31) — first winner in event history",
+      "Commonwealth Games 1500m bronze medalist (Birmingham 2022)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/australia/abbey-caldwell-14636659" },
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    born: "1996-10-22",
+    events: ["1500m", "Mile", "5000m"],
+    prs: [{ event: "1500m", time: "3:50.83" }],
+    honors: [
+      "Olympic 1500m silver medalist (Paris 2024)",
+      "2025 World Athletics Championships 1500m bronze medalist",
+      "2000m world record holder",
+      "Commonwealth Games women's mile silver (Glasgow 2026, 4:39.86)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/australia/jessica-hull-14464506" },
+  },
+  {
+    slug: "claudia-hollingsworth",
+    name: "Claudia Hollingsworth",
+    gender: "F",
+    country: "Australia",
+    hometown: "East Melbourne, Victoria",
+    born: "2005-04-12",
+    events: ["1500m", "800m"],
+    prs: [{ event: "1500m", time: "3:58.09" }],
+    honors: [
+      "Commonwealth Games women's mile bronze (Glasgow 2026, 4:40.20)",
+      "2024 World U20 Championships 800m silver medalist",
+      "Australian 1500m champion (2026)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/australia/claudia-hollingsworth-14922448" },
   },
   {
     slug: "beatrice-chebet",
