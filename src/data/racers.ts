@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-08-12";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -29,6 +29,7 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
+  Italy: "🇮🇹",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
@@ -282,6 +283,23 @@ export const RACERS: Racer[] = [
     ],
   },
   {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:28.28" },
+      { event: "Mile", time: "3:47.71" },
+    ],
+    honors: [
+      "World 1500m champion (Doha 2019)",
+      "Olympic 1500m silver medalist (Tokyo 2020)",
+      "Commonwealth Games mile bronze (Glasgow 2026, 3:55.41)",
+    ],
+  },
+  {
     slug: "gabriel-geay",
     name: "Gabriel Geay",
     gender: "M",
@@ -291,6 +309,70 @@ export const RACERS: Racer[] = [
     honors: ["BMW Berlin Marathon 2026 elite entry"],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
+  {
+    slug: "nadia-battocletti",
+    name: "Nadia Battocletti",
+    gender: "F",
+    country: "Italy",
+    born: "2000-04-12",
+    events: ["3000m", "5000m", "10,000m", "Cross country"],
+    prs: [
+      { event: "5000m", time: "14:23.15" },
+      { event: "10,000m", time: "30:38.23" },
+    ],
+    honors: [
+      "European Athletics Championships 5000m gold (Rome 2024, Birmingham 2026)",
+      "European Athletics Championships 10,000m gold (Rome 2024)",
+      "Paris 2024 Olympic 10,000m silver",
+      "World Athletics Championships 10,000m silver (Tokyo 2025)",
+      "World Indoor 3000m champion (2026)",
+    ],
+  },
+  {
+    slug: "abbey-caldwell",
+    name: "Abbey Caldwell",
+    gender: "F",
+    country: "Australia",
+    born: "2001-07-03",
+    events: ["800m", "1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:56.12" },
+      { event: "Mile", time: "4:20.51" },
+    ],
+    honors: [
+      "Commonwealth Games women's mile gold (Glasgow 2026, 4:39.31)",
+      "Commonwealth Games 1500m bronze (Birmingham 2022)",
+    ],
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    born: "1996-10-22",
+    events: ["1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:55.16" },
+      { event: "Mile", time: "4:15.34" },
+    ],
+    honors: [
+      "Olympic 1500m silver medalist (Paris 2024)",
+      "World Athletics Championships 1500m bronze (Tokyo 2025)",
+      "Commonwealth Games women's mile silver (Glasgow 2026, 4:39.86)",
+    ],
+  },
+  {
+    slug: "claudia-hollingsworth",
+    name: "Claudia Hollingsworth",
+    gender: "F",
+    country: "Australia",
+    born: "2005-04-12",
+    events: ["800m", "1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games women's mile bronze (Glasgow 2026, 4:40.20)",
+    ],
+  },
   {
     slug: "tigst-assefa",
     name: "Tigst Assefa",
