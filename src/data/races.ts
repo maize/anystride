@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-22";
+export const RACES_AS_OF = "2026-08-12";
 
 export const RACES: Race[] = [
   {
@@ -144,12 +144,18 @@ export const RACES: Race[] = [
     city: "Glasgow",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The Commonwealth Games return to Scotland for the first time since 1970, and the headline distance event is the reinstated Commonwealth Mile on August 1 — Josh Kerr, the newly crowned mile world-record holder (3:42.66), takes centre stage on home soil against Cameron Myers (AUS) and a stacked field of Commonwealth distance talent.",
+    why: "Scotland’s Josh Kerr delivered the ‘Scottish Miracle’ on home soil: the world-record holder broke the 60-year-old Commonwealth mile record with 3:54.12, edging Cameron Myers (3:55.26) and Timothy Cheruiyot (3:55.41). Australia swept the inaugural women’s Commonwealth mile podium — Abbey Caldwell gold (4:39.31), Jessica Hull silver (4:39.86), Claudia Hollingsworth bronze (4:40.20) — the first time the mile has featured at the Games since 1966.",
     watchUrl: "https://www.glasgow2026.com/",
     fieldConfirmed: true,
     men: [
-      { racer: "josh-kerr" },
-      { racer: "cameron-myers" },
+      { racer: "josh-kerr", place: 1, time: "3:54.12" },
+      { racer: "cameron-myers", place: 2, time: "3:55.26" },
+      { racer: "timothy-cheruiyot", place: 3, time: "3:55.41" },
+    ],
+    women: [
+      { racer: "abbey-caldwell", place: 1, time: "4:39.31" },
+      { racer: "jessica-hull", place: 2, time: "4:39.86" },
+      { racer: "claudia-hollingsworth", place: 3, time: "4:40.20" },
     ],
   },
   {
@@ -159,9 +165,15 @@ export const RACES: Race[] = [
     city: "Birmingham",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The first European Athletics Championships on British soil since London 2012, with distance titles at stake across the 1500m, 5000m, 10,000m, 3000m steeplechase, and marathon — a showcase for the next generation of European distance talent.",
+    why: "The first European Athletics Championships on British soil since London 2012 opened with fireworks in the distance events: Jakob Ingebrigtsen stormed back from winter achilles surgery to win the men's 5000m in 13:15.29 (Aug 10), and Nadia Battocletti retained her European crown in the women's 5000m with a decisive sprint finish in 15:37.84 (Aug 11). The 1500m and 10,000m finals run through August 16.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "jakob-ingebrigtsen", place: 1, time: "13:15.29" },
+    ],
+    women: [
+      { racer: "nadia-battocletti", place: 1, time: "15:37.84" },
+    ],
   },
   {
     slug: "sydney-marathon-2026",
