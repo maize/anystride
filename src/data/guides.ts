@@ -1007,5 +1007,96 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "base-building-for-runners",
+    title: "Base Building for Runners: How to Build Your Aerobic Foundation",
+    description:
+      "What aerobic base building means for runners, how long to do it, what to include, and why it makes every race training plan work better.",
+    targetQuery: "base building running / how to build a running base / aerobic base for runners",
+    updated: "2026-08-17",
+    intro: [
+      "Almost every structured marathon and half-marathon plan assumes you arrive at week 1 already running. The weeks before those plans begin -- building your aerobic foundation at moderate volume and mostly easy effort -- is called base building. It is the phase that makes everything else work.",
+      "Whether you are returning from an off-season, coming back from an injury, or preparing to tackle a new race distance, a well-run base phase determines how much training you can absorb when things get harder.",
+    ],
+    sections: [
+      {
+        heading: "What base building actually is",
+        body: [
+          "Base building is a deliberate period of consistent, mostly easy running at progressively increasing volume. The goal is not to get fast -- it is to build the aerobic capacity, connective-tissue resilience, and consistent running habits that support harder training later. Think of it as building the engine before you start tuning it.",
+          "The vast majority of base-phase miles happen at easy, conversational effort -- the pace you could sustain while holding a full sentence of conversation. A small amount of faster running -- short strides after easy runs -- keeps the legs feeling sharp without adding meaningful fatigue. Structured intervals and tempo work belong in the next phase, once the aerobic foundation is established.",
+        ],
+      },
+      {
+        heading: "How long base building takes",
+        body: [
+          "The right length depends on where you are starting from.",
+        ],
+        bullets: [
+          "Complete beginners: Couch to 5K is your base phase. Nine weeks of walk/run builds the foundation from scratch.",
+          "Returning after a long break (8+ weeks off): four to six weeks to re-establish the habit and restore injury tolerance before picking up any structured plan.",
+          "Fit but transitioning to a longer race: six to eight weeks of building before starting a half-marathon or marathon plan makes the early weeks of the plan feel manageable.",
+          "Experienced runners targeting a PR: eight to twelve weeks of focused base work before a high-mileage cycle like Pfitzinger 18/55 or Hansons is what allows those plans to do what they promise.",
+          "The anystride base-building-4-week plan is a compact version for runners who have some fitness already and want to consolidate it before a race cycle.",
+        ],
+      },
+      {
+        heading: "What to do during base building",
+        body: [
+          "Keep 80 to 90 percent of your miles at genuinely easy effort. If you finish easy runs feeling like you could have gone faster and longer, the pace is probably right. If you finish with heavy legs or a heart rate that stays elevated, you're running too hard.",
+          "Build weekly mileage gradually -- a common guideline is no more than 10 percent per week, with a cut-back week every third or fourth week where mileage drops by 20 to 30 percent before continuing upward. Connective tissue -- tendons, ligaments, bones -- adapts more slowly than cardiovascular fitness, and the 10 percent guideline is really about protecting those structures, not your lungs.",
+        ],
+        bullets: [
+          "Run four to five days per week for the aerobic stimulus consistency requires.",
+          "Add four to six strides after one or two easy runs each week -- 20-second accelerations to a fast but controlled effort -- to maintain neuromuscular sharpness.",
+          "Include cross-training (cycling, swimming, elliptical) on off days if you want more aerobic volume without more running impact.",
+          "Base phase is the ideal time to start or continue strength training -- lower running intensity leaves the capacity for gym work that a peak training block does not.",
+        ],
+      },
+      {
+        heading: "What to avoid during base building",
+        body: [
+          "The most common base-building mistake is turning easy runs into moderate runs because easy feels too slow. Running at genuine easy effort feels almost embarrassingly slow for fit runners -- that is correct. The aerobic adaptations you are chasing -- capillary density, mitochondrial development, improved fat utilization -- happen precisely at that easy effort level.",
+          "Avoid structured speed sessions during a base phase. Intervals and threshold runs belong after the base is established. Adding hard workouts before the aerobic foundation is solid tends to produce fitness that peaks quickly and is difficult to sustain.",
+          "Also avoid jumping straight into a race plan that begins above your current weekly mileage. If a plan starts at 30 miles per week and you are running 15, spend four to six weeks closing that gap first. Beginning a plan overmatched leads to injury, not adaptation.",
+        ],
+      },
+      {
+        heading: "How to know the base is ready",
+        body: [
+          "You don't need a test or a time trial to know the base phase is working. Look for these practical signals:",
+        ],
+        bullets: [
+          "Easy runs feel genuinely easy -- your breathing is relaxed and you could sustain the effort much longer than the run asks.",
+          "Your long run has reached 8 to 10 miles at comfortable effort without excessive fatigue the following day.",
+          "Resting heart rate has settled or dropped from your starting point.",
+          "You are running consistently -- four or five days most weeks -- without accumulated soreness or minor injuries.",
+          "Use the anystride pace calculator at /calculator to set your easy pace correctly; running easy miles at the right effort is what builds the base, not just logging the miles.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How long should I build a base before marathon training?",
+        a: "Aim for at least eight to twelve weeks of consistent running with a comfortable long run of eight to ten miles before starting an 18- to 20-week marathon plan. Runners who begin a marathon plan without this base are typically the ones who get injured in weeks 10 to 14, right when training peaks.",
+      },
+      {
+        q: "Can I do any speed work during base building?",
+        a: "Short strides -- 20-second accelerations to a fast but controlled effort, done after easy runs -- are fine and beneficial. Structured intervals and tempo runs belong in the next phase. A rule of thumb: if a workout has a name (tempo, fartlek, VO2max repeats), save it for after the base phase.",
+      },
+      {
+        q: "How many miles per week is a good base?",
+        a: "It depends on your goal race and target plan. For a first half-marathon plan, 20 to 25 miles per week is a solid starting base. For a competitive marathon plan like Pfitzinger 18/55 or Hansons, 35 to 45 miles is a more appropriate foundation. The key question is: does my current mileage comfortably cover the first week of the plan I want to follow?",
+      },
+      {
+        q: "What if I don't have time for base building?",
+        a: "Start your plan anyway, but choose one that begins conservatively. Pick a longer plan with a gradual early build and treat the first four weeks as your de facto base phase. The risk of skipping base work is injury in the middle of the plan, not on week 1 -- so pace yourself early even if the plan does not explicitly ask you to.",
+      },
+      {
+        q: "Is base building just running slowly?",
+        a: "Mostly, but with structure. Volume builds progressively each week, the long run extends gradually, and strides add neuromuscular stimulus without hard training stress. Easy effort is the mode -- patient, progressive accumulation is the method. A month of honest easy running consistently surprises runners with how much fitness it quietly builds.",
+      },
+    ],
+    relatedPlans: ["base-building-4-week", "higdon-marathon-novice-1", "higdon-half-novice-1"],
+  },
 ];
 
