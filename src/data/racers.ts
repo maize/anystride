@@ -19,16 +19,18 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-08-19";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
   Denmark: "🇩🇰",
   Ethiopia: "🇪🇹",
+  Finland: "🇫🇮",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
+  Italy: "🇮🇹",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
@@ -213,6 +215,7 @@ export const RACERS: Racer[] = [
     honors: [
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
+      "Commonwealth Games mile silver (Glasgow 2026)",
     ],
   },
   {
@@ -255,6 +258,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "Commonwealth Games mile gold (Glasgow 2026)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -510,6 +514,113 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
+  },
+  // ── Commonwealth Games & European Championships additions (2026-08-19) ────────
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:28.77" }],
+    honors: [
+      "World 1500m champion (Doha 2019)",
+      "Diamond League 1500m champion (2018, 2019)",
+      "Commonwealth Games mile bronze (Glasgow 2026)",
+    ],
+  },
+  {
+    slug: "stefan-nillessen",
+    name: "Stefan Nillessen",
+    gender: "M",
+    country: "Netherlands",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:35.70" }],
+    honors: [
+      "European Athletics Championships 1500m gold (Birmingham 2026, 3:35.70)",
+    ],
+  },
+  {
+    slug: "amanal-petros",
+    name: "Amanal Petros",
+    gender: "M",
+    country: "Germany",
+    born: "1995-02-05",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:09:11" }],
+    honors: [
+      "European Athletics Championships marathon gold (Birmingham 2026, 2:09:11 championship record)",
+    ],
+  },
+  {
+    slug: "abbey-caldwell",
+    name: "Abbey Caldwell",
+    gender: "F",
+    country: "Australia",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "4:39.31" }],
+    honors: [
+      "Commonwealth Games women’s mile gold (Glasgow 2026, 4:39.31 — inaugural champion)",
+    ],
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    born: "1996-09-16",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games women’s mile silver (Glasgow 2026)",
+    ],
+  },
+  {
+    slug: "claudia-hollingsworth",
+    name: "Claudia Hollingsworth",
+    gender: "F",
+    country: "Australia",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "Mile", time: "4:40.20" }],
+    honors: [
+      "Commonwealth Games women’s mile bronze (Glasgow 2026)",
+    ],
+  },
+  {
+    slug: "georgia-hunter-bell",
+    name: "Georgia Hunter Bell",
+    gender: "F",
+    country: "Great Britain",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "European Athletics Championships women’s 1500m gold (Birmingham 2026)",
+    ],
+  },
+  {
+    slug: "nadia-battocletti",
+    name: "Nadia Battocletti",
+    gender: "F",
+    country: "Italy",
+    born: "2000-06-12",
+    events: ["5000m", "10,000m", "Cross country"],
+    prs: [],
+    honors: [
+      "European Athletics Championships women’s 5000m gold (Birmingham 2026) — sixth European title",
+      "Multiple European cross-country and track champion",
+    ],
+  },
+  {
+    slug: "alisa-vainio",
+    name: "Alisa Vainio",
+    gender: "F",
+    country: "Finland",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:22:26" }],
+    honors: [
+      "European Athletics Championships women’s marathon gold (Birmingham 2026, 2:22:26)",
+    ],
   },
   {
     slug: "beatrice-chebet",
