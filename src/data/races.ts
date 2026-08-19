@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-22";
+export const RACES_AS_OF = "2026-08-19";
 
 export const RACES: Race[] = [
   {
@@ -144,12 +144,18 @@ export const RACES: Race[] = [
     city: "Glasgow",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The Commonwealth Games return to Scotland for the first time since 1970, and the headline distance event is the reinstated Commonwealth Mile on August 1 — Josh Kerr, the newly crowned mile world-record holder (3:42.66), takes centre stage on home soil against Cameron Myers (AUS) and a stacked field of Commonwealth distance talent.",
+    why: "Josh Kerr delivered a moment for Scottish sport on home soil at Scotstoun Stadium on 1 August, winning Commonwealth gold in the mile in 3:54.12 — the first men’s mile at the Games since 1966 — with Cameron Myers taking silver in 3:55.26 and Kenyan great Timothy Cheruiyot bronze in 3:55.41. Australia swept the podium in the inaugural women’s Commonwealth mile, Abbey Caldwell leading Jessica Hull and Claudia Hollingsworth home in a historic 1-2-3.",
     watchUrl: "https://www.glasgow2026.com/",
     fieldConfirmed: true,
     men: [
-      { racer: "josh-kerr" },
-      { racer: "cameron-myers" },
+      { racer: "josh-kerr", place: 1, time: "3:54.12" },
+      { racer: "cameron-myers", place: 2, time: "3:55.26" },
+      { racer: "timothy-cheruiyot", place: 3, time: "3:55.41" },
+    ],
+    women: [
+      { racer: "abbey-caldwell", place: 1, time: "4:39.31" },
+      { racer: "jessica-hull", place: 2, time: "4:39.86" },
+      { racer: "claudia-hollingsworth", place: 3, time: "4:40.20" },
     ],
   },
   {
@@ -159,9 +165,19 @@ export const RACES: Race[] = [
     city: "Birmingham",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The first European Athletics Championships on British soil since London 2012, with distance titles at stake across the 1500m, 5000m, 10,000m, 3000m steeplechase, and marathon — a showcase for the next generation of European distance talent.",
+    why: "Birmingham delivered a week of European excellence (10–16 August): Stefan Nillessen (NED) kicked to 1500m gold in 3:35.70; Georgia Hunter Bell gave Great Britain a rapturous home win in the women's 1500m; Jakob Ingebrigtsen reclaimed the 5000m title; Nadia Battocletti won her sixth European gold in the women's 5000m; and Amanal Petros set a championship record of 2:09:11 in the men's marathon, with Finland's Alisa Vainio dominant in the women's race.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "stefan-nillessen", place: 1, time: "3:35.70" },
+      { racer: "jakob-ingebrigtsen", place: 1 },
+      { racer: "amanal-petros", place: 1, time: "2:09:11" },
+    ],
+    women: [
+      { racer: "georgia-hunter-bell", place: 1 },
+      { racer: "nadia-battocletti", place: 1 },
+      { racer: "alisa-vainio", place: 1, time: "2:22:26" },
+    ],
   },
   {
     slug: "sydney-marathon-2026",
