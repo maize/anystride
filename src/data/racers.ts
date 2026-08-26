@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-08-26";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -81,6 +81,7 @@ export const RACERS: Racer[] = [
       { event: "Half Marathon", time: "57:20" },
     ],
     honors: [
+      "Chicago Marathon champion (2025)",
       "Half marathon world record holder (57:20, Lisbon 2026)",
       "World Cross Country champion",
       "Olympic 10,000m bronze medalist (Tokyo 2020)",
@@ -200,6 +201,7 @@ export const RACERS: Racer[] = [
       "Olympic 5000m champion (Paris 2024)",
       "Olympic 1500m champion (Tokyo 2020)",
       "Multiple World Championship titles (1500m, 5000m)",
+      "European Athletics Championships 5000m champion (2026)",
       "World records: short track 1500m, short track mile, 2000m, 3000m, two miles",
     ],
   },
@@ -212,6 +214,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
+      "Commonwealth Games mile silver medalist (2026, 3:55.26)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
   },
@@ -255,6 +258,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "Commonwealth Games mile champion (2026)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -289,6 +293,19 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["BMW Berlin Marathon 2026 elite entry"],
+  },
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    born: "1999-01-24",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:28.77" }],
+    honors: [
+      "World Athletics Championships 1500m champion (2019)",
+      "Commonwealth Games mile bronze medalist (2026, 3:55.41)",
+    ],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -413,7 +430,7 @@ export const RACERS: Racer[] = [
     country: "Ethiopia",
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:17:39" }],
-    honors: ["Tokyo Marathon 3rd place (2026)"],
+    honors: ["Chicago Marathon champion (2025)", "Tokyo Marathon 3rd place (2026)"],
   },
   {
     slug: "faith-kipyegon",
@@ -528,6 +545,51 @@ export const RACERS: Racer[] = [
       "Paris 2024 Olympic double gold (5000m, 10,000m)",
       "2025 World Athletics Championships double gold (5000m, 10,000m)",
       "Three-time World Cross Country champion",
+    ],
+  },
+  {
+    slug: "abbey-caldwell",
+    name: "Abbey Caldwell",
+    gender: "F",
+    country: "Australia",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games mile champion (2026, 4:39.31 — first women’s Commonwealth Mile gold medallist)",
+    ],
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    born: "1996-02-15",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games mile silver medalist (2026, 4:39.86)",
+    ],
+  },
+  {
+    slug: "claudia-hollingsworth",
+    name: "Claudia Hollingsworth",
+    gender: "F",
+    country: "Australia",
+    events: ["1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games mile bronze medalist (2026, 4:40.20)",
+    ],
+  },
+  {
+    slug: "georgia-hunter-bell",
+    name: "Georgia Hunter Bell",
+    gender: "F",
+    country: "Great Britain",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "4:07.78" }],
+    honors: [
+      "European Athletics Championships 1500m champion (2026, 4:07.78)",
     ],
   },
 ];
