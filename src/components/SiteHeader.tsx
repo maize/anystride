@@ -27,11 +27,13 @@ function isActive(pathname: string, href: string): boolean {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Close the overlay whenever navigation happens.
-  useEffect(() => {
+  // Close the overlay whenever navigation happens (update during render, not effect).
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   // Lock body scroll while the mobile menu is open.
   useEffect(() => {
