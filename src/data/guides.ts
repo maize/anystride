@@ -1007,5 +1007,93 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "base-building",
+    title: "Base Building for Runners: How to Build Your Aerobic Foundation",
+    description:
+      "What base building is, why every runner needs it, how many weeks to spend, and how to structure a base phase before starting a race-specific plan.",
+    targetQuery: "base building running / how to build a running base",
+    updated: "2026-08-31",
+    intro: [
+      "Every successful race performance is built on top of a solid aerobic base. Base building is the training phase that creates it -- weeks of consistent, mostly easy mileage designed to develop the cardiovascular system, strengthen connective tissue, and prepare your body to handle harder training without breaking down.",
+      "It is not glamorous and it is not fast. But runners who skip it and jump straight into race-specific training tend to get injured, stagnate, or run out of steam in the final weeks of a plan. Building the base first is what makes everything else work.",
+    ],
+    sections: [
+      {
+        heading: "What base building actually is",
+        body: [
+          "A base phase is a block of training with three defining characteristics: high volume of easy running, minimal high-intensity work, and progressive load. You are accumulating aerobic miles at a conversational pace -- the kind that builds the heart, the mitochondria in your muscle cells, and the tendons and bones that hold you together over a long training cycle.",
+          "During this phase, most of your running should fall in the easy to moderate effort range. Tempo runs and intervals are not the focus. A short set of strides a few times a week is appropriate; a full interval session is not. The goal is to arrive at the start of a race-specific plan fitter, healthier, and ready to handle the prescribed workload from week one.",
+        ],
+      },
+      {
+        heading: "Why runners skip it -- and why that is a mistake",
+        body: [
+          "Base building feels unproductive because the results are not immediate. Easy miles at conversational pace do not feel like hard work, and there is no exciting workout to report. Runners who skip ahead to an 18-week marathon plan with no prior base often feel fine for the first few weeks, then find that the accumulated stress of increasing mileage plus quality sessions is more than their connective tissue can absorb. Stress fractures, IT band problems, and plantar fasciitis are common outcomes.",
+          "The cardiovascular system also adapts faster than tendons and ligaments. You can become aerobically capable of running a new level of mileage before your structural tissues have caught up. A base phase deliberately builds both at the same time by keeping intensity low enough that structural stress stays manageable.",
+        ],
+      },
+      {
+        heading: "How long should a base phase be?",
+        body: [
+          "For most runners, four to eight weeks is the practical range. If you are coming off a long break or have never run more than three days a week consistently, lean toward eight. If you are transitioning from one race cycle to the next with only a few weeks off, four is often enough to recover and rebuild before starting the next plan.",
+          "A rough benchmark for readiness: you can run your target plan's starting weekly mileage comfortably for two to three consecutive weeks, with easy runs that genuinely feel easy. If week one of a plan calls for 35 miles and that feels like a shock, the base phase was not long enough.",
+        ],
+        bullets: [
+          "Coming off a long break or injury: 6 to 8 weeks of gradual rebuilding.",
+          "Transitioning between race cycles with a short break: 3 to 4 weeks.",
+          "First-time runner building up from nothing: Couch to 5K serves as your base phase.",
+        ],
+      },
+      {
+        heading: "How to structure base training",
+        body: [
+          "Keep intensity low and build volume gradually -- the 10 percent rule (do not increase weekly mileage by more than 10 percent per week) is a useful guardrail, though the exact number matters less than avoiding large sudden jumps.",
+          "Three or four running days per week is sufficient for most runners in a base phase. Add a fifth day only if you have been running at that frequency consistently before. Every run should feel controlled; if your heart rate is consistently elevated on what should be easy days, slow down.",
+        ],
+        bullets: [
+          "Easy runs should make up 80 percent or more of your weekly mileage.",
+          "Add strides two or three times per week to maintain leg speed without adding intensity stress.",
+          "Include one longer run each week -- the foundation for your future long run progression.",
+          "Take at least one full rest day per week; two is better when mileage is building.",
+          "This is the best phase to invest in strength training -- load is low and your body has the capacity to adapt.",
+        ],
+      },
+      {
+        heading: "When to add base building to your year",
+        body: [
+          "The natural time is immediately after recovering from a goal race. After two to three weeks of genuine rest and light activity, a base phase bridges you from recovery back to purposeful training. Think of the year as a cycle: race, recover, build base, race-specific training, race again.",
+          "The anystride base-building-4-week plan is designed for exactly this window -- four weeks of progressive easy mileage that prepares you to enter a half marathon or marathon plan from a position of strength rather than scrambling to keep up from day one. Use the anystride pace calculator at /calculator to confirm your easy pace range before starting, then keep every base-phase run in that zone.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How do I know if I need a base building phase?",
+        a: "If your current weekly mileage is significantly below the starting mileage of the plan you want to follow, or if you have had more than three or four weeks off running, a base phase will help. A good test: can you run the first week of your target plan without it feeling like a significant jump? If not, build first.",
+      },
+      {
+        q: "Can I do speedwork during base building?",
+        a: "Keep it minimal. A few short strides -- 10 to 15 seconds of smooth, quick running -- two or three times per week are fine and help maintain leg speed without adding meaningful intensity stress. Full tempo runs or interval sessions belong in the race-specific phase that follows, not in base building.",
+      },
+      {
+        q: "Does base building make you faster?",
+        a: "Not directly in the short term -- your race times will not improve much during a base phase. What it does is raise the ceiling on how much training your body can absorb in the next cycle. Runners with a solid aerobic base improve faster during race-specific training, hold fitness through a full plan, and race better at the end of it.",
+      },
+      {
+        q: "What should my easy pace be during base building?",
+        a: "Conversational -- you should be able to speak in full sentences without gasping. For most runners that is 60 to 90 seconds per mile slower than 5K race pace. Use the anystride pace calculator at /calculator to get your specific easy pace range from a recent race or time trial, then stay in that zone on every base-phase run.",
+      },
+      {
+        q: "How much weekly mileage should I target in a base phase?",
+        a: "Match the starting mileage of the plan you want to do, then hold it for two to three weeks before beginning. If the plan starts at 30 miles per week and you are currently running 15, build gradually to 30 over six to eight weeks and then transition. Do not start a race-specific plan mid-build.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "couch-to-5k",
+      "higdon-marathon-novice-1",
+    ],
+  },
 ];
 
