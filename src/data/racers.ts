@@ -19,18 +19,22 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-09-02";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
   Denmark: "🇩🇰",
   Ethiopia: "🇪🇹",
+  Finland: "🇫🇮",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
+  Israel: "🇮🇱",
+  Italy: "🇮🇹",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
+  Lesotho: "🇱🇸",
   Netherlands: "🇳🇱",
   Norway: "🇳🇴",
   Tanzania: "🇹🇿",
@@ -213,6 +217,7 @@ export const RACERS: Racer[] = [
     honors: [
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
+      "Commonwealth Mile silver medalist (Glasgow 2026)",
     ],
   },
   {
@@ -255,6 +260,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "Commonwealth Mile champion (Glasgow 2026)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -478,6 +484,7 @@ export const RACERS: Racer[] = [
     events: ["Marathon", "Half Marathon"],
     prs: [],
     honors: [
+      "Sydney Marathon champion (2026)",
       "Olympic marathon champion (Tokyo 2020)",
     ],
   },
@@ -511,6 +518,84 @@ export const RACERS: Racer[] = [
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
   },
+  // ── New additions 2026-09-02 ─────────────────────────────────────────────────
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    hometown: "Singorwet, Bomet County",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:28.28" },
+      { event: "Mile", time: "3:47.71" },
+    ],
+    honors: [
+      "Commonwealth Mile bronze medalist (Glasgow 2026)",
+      "World 1500m champion (Doha 2019)",
+      "Olympic 1500m silver medalist (Tokyo 2020)",
+      "4× Diamond League 1500m champion (2017, 2018, 2019, 2021)",
+    ],
+  },
+  {
+    slug: "addisu-gobena",
+    name: "Addisu Gobena",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:42" }],
+    honors: [
+      "Sydney Marathon champion (2026, 2:04:42 course record)",
+    ],
+  },
+  {
+    slug: "chimdessa-debele",
+    name: "Chimdessa Debele",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:45" }],
+    honors: ["Sydney Marathon runner-up (2026)"],
+  },
+  {
+    slug: "tebello-ramakongoana",
+    name: "Tebello Ramakongoana",
+    gender: "M",
+    country: "Lesotho",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:57" }],
+    honors: ["Sydney Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "amanal-petros",
+    name: "Amanal Petros",
+    gender: "M",
+    country: "Germany",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:09:11" }],
+    honors: [
+      "European Athletics Championships marathon champion (Birmingham 2026, 2:09:11 championship record)",
+    ],
+  },
+  {
+    slug: "pietro-riva",
+    name: "Pietro Riva",
+    gender: "M",
+    country: "Italy",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:09:18" }],
+    honors: ["European Athletics Championships marathon silver medalist (Birmingham 2026)"],
+  },
+  {
+    slug: "gashau-ayale",
+    name: "Gashau Ayale",
+    gender: "M",
+    country: "Israel",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:09:21" }],
+    honors: ["European Athletics Championships marathon bronze medalist (Birmingham 2026)"],
+  },
   {
     slug: "beatrice-chebet",
     name: "Beatrice Chebet",
@@ -529,5 +614,52 @@ export const RACERS: Racer[] = [
       "2025 World Athletics Championships double gold (5000m, 10,000m)",
       "Three-time World Cross Country champion",
     ],
+  },
+  {
+    slug: "irene-cheptai",
+    name: "Irene Cheptai",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:22:11" }],
+    honors: ["Sydney Marathon runner-up (2026)"],
+  },
+  {
+    slug: "shure-demise-ware",
+    name: "Shure Demise Ware",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:22:33" }],
+    honors: ["Sydney Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "alisa-vainio",
+    name: "Alisa Vainio",
+    gender: "F",
+    country: "Finland",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:22:26" }],
+    honors: [
+      "European Athletics Championships marathon champion (Birmingham 2026, 2:22:26 championship record)",
+    ],
+  },
+  {
+    slug: "lili-anna-vindics-toth",
+    name: "Lili Anna Vindics-Tóth",
+    gender: "F",
+    country: "Hungary",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:27:21" }],
+    honors: ["European Athletics Championships marathon silver medalist (Birmingham 2026)"],
+  },
+  {
+    slug: "abbie-donnelly",
+    name: "Abbie Donnelly",
+    gender: "F",
+    country: "Great Britain",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:27:33" }],
+    honors: ["European Athletics Championships marathon bronze medalist (Birmingham 2026)"],
   },
 ];
