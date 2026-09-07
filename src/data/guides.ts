@@ -1007,5 +1007,102 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "rest-days-for-runners",
+    title: "How Many Rest Days Per Week Do Runners Need?",
+    description:
+      "How many rest days runners actually need, when to take them, and the difference between rest and active recovery — for every training level.",
+    targetQuery: "how many rest days per week running / do runners need rest days",
+    updated: "2026-09-07",
+    intro: [
+      "Rest days are where the fitness actually happens. Running creates microscopic damage to muscle fibers; your body repairs and rebuilds them stronger during recovery. Skip the rest and you compound that damage faster than your body can adapt — the most common path to overuse injury and stalled progress.",
+      "How many rest days you need depends on your experience, weekly mileage, and how hard you're training. Here's the framework most coaches use, and how to tell when you need more.",
+    ],
+    sections: [
+      {
+        heading: "What actually happens on a rest day",
+        body: [
+          "Your body is not idle on rest days. Muscle fibers repair and grow stronger. Glycogen stores refill. The cardiovascular adaptations triggered by your hard runs consolidate. Growth hormone — which drives most of these repairs — peaks during sleep and low-activity periods, not during the runs themselves.",
+          "This is why two runners logging the same mileage can diverge sharply over a season: the one who rests well adapts faster and gets fitter; the one who pushes through every day accumulates fatigue faster than their body can absorb it. More running is not always better running.",
+        ],
+      },
+      {
+        heading: "How many rest days by experience level",
+        body: [
+          "There is no single right number, but experience level is the most reliable guide:",
+        ],
+        bullets: [
+          "Beginners (first 6 to 12 months): 2 to 3 rest days per week. New runners have lower adaptive capacity and need longer recovery between sessions. Couch to 5K deliberately spaces its three weekly runs with rest days in between — that structure is not accidental.",
+          "Intermediate runners (1 to 3 years consistent training): 1 to 2 rest days per week. After a year of consistent running, the body tolerates more and recovers faster. A fifth or sixth day can be added, but should stay genuinely easy.",
+          "Advanced runners: some run every day, but at high volumes true rest days are often replaced by very short easy runs of 20 to 30 minutes — a shakeout that keeps the legs moving without adding meaningful stress. The rest still exists; it's just distributed differently.",
+        ],
+      },
+      {
+        heading: "Rest vs. active recovery: they are not the same",
+        body: [
+          "A rest day doesn't require lying still. Light walking, easy cycling, swimming, yoga, or mobility work sends blood to sore muscles without adding running-specific impact. This is active recovery — and for many runners it leaves them feeling better the next day than complete inactivity does.",
+          "The key distinction: a 45-minute easy bike ride rests your joints and tendons from the repeated impact of running while keeping your cardiovascular system warm. Whether that counts as a 'rest day' depends on what you're recovering from. If your legs are sore after a long run, gentle movement often helps. If you're fighting a niggle or have several hard days coming, full rest is the right choice.",
+        ],
+      },
+      {
+        heading: "When to take extra rest days",
+        body: [
+          "Your plan's rest days are a floor, not a ceiling. Take additional rest when any of these apply:",
+        ],
+        bullets: [
+          "After a long run or race. The long run is the most demanding session in most training weeks — rest the following day as a default, especially in marathon plans.",
+          "When your legs feel heavier than usual. Fatigue beyond normal soreness — sluggish easy runs, declining motivation, elevated resting heart rate — is a signal your body needs more time, not more miles.",
+          "When something hurts. Pain that persists past the first mile, or that changes how you run, needs rest. Running through warning signals is how minor irritations become injuries that cost weeks, not days.",
+          "After a stressful week of life, not just training. Sleep debt, illness, and stress all slow recovery. Fitness responds to total life load, not just training load.",
+        ],
+      },
+      {
+        heading: "How rest days fit into popular training plans",
+        body: [
+          "The major marathon and half-marathon plans treat rest as a built-in variable, not an optional extra:",
+          "Hal Higdon Novice plans include one or two dedicated rest days per week plus an optional cross-training day. The rest is deliberately placed after long runs and before the next quality session — following the plan means following the recovery, not just the run days.",
+          "Pfitzinger 18/55 runs six days per week with one rest day. This is a high-volume plan for runners already training consistently; the single weekly rest day is not a concession but a structural choice that lets the other six days carry real load.",
+          "Hansons Marathon Method also runs six days per week. In a plan built around cumulative fatigue, that one rest day matters more, not less — it is the pressure valve that keeps the system functional over 18 weeks.",
+          "The base-building-4-week plan, which many runners use before committing to a full race plan, runs four or five days per week. That window is an ideal time to experiment and find your personal sweet spot before the demands of full marathon training begin.",
+        ],
+      },
+      {
+        heading: "A note on overtraining",
+        body: [
+          "Overtraining — a clinical state of accumulated fatigue that impairs performance despite continued training — is far less common than under-recovering. Most runners who think they're overtrained are simply under-sleeping, under-fueling, or training harder than their current base supports.",
+          "The fix for most runners is not a more sophisticated training plan. It's consistent rest days, consistent sleep, and consistent fueling. The anystride pace calculator can help you check whether your easy run pace matches your actual current fitness level — running easy days too fast is one of the most common reasons runners feel chronically tired despite doing everything else right.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What should I do on a rest day?",
+        a: "Anything low-impact: walking, light stretching, foam rolling, yoga, or easy swimming. The goal is to let your running muscles recover while staying mobile. Avoid long hikes or anything that leaves your legs significantly fatigued the next morning.",
+      },
+      {
+        q: "Is it bad to run every day?",
+        a: "For most recreational runners, yes — running every day without adequate recovery accumulates fatigue faster than the body adapts, increasing injury risk. Some experienced runners do run every day, but they keep most of those days very short and very easy, effectively using them as active recovery. If you're not at that level yet, scheduled rest days will make your harder runs better, not just your recovery days easier.",
+      },
+      {
+        q: "How long does it take to recover from a long run?",
+        a: "A 10-mile long run typically needs 24 to 48 hours of recovery before another quality effort. A 20-mile marathon long run can leave residual fatigue for 48 to 72 hours or more. Most training plans schedule the long run at the end of the week precisely so the following day's rest coincides with the highest recovery demand.",
+      },
+      {
+        q: "Can I do strength training on a rest day from running?",
+        a: "Yes, with one caveat: heavy leg sessions the day before a key run or long run will show up in your legs. Scheduling strength work on the same day as an easy run — run first, then lift — concentrates fatigue into fewer days and leaves dedicated recovery days genuinely clear. A light upper-body or core session on a running rest day is generally fine.",
+      },
+      {
+        q: "How do I know if I need more rest days?",
+        a: "The clearest signals: easy runs feel harder than they should, your resting heart rate is elevated, motivation drops persistently, or performance on key workouts is declining despite consistent training. Any one of these warrants adding a rest day this week. Two or more suggest stepping back for several days and reassessing.",
+      },
+    ],
+    relatedPlans: [
+      "couch-to-5k",
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
 

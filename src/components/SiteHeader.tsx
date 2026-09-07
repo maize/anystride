@@ -28,10 +28,12 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Close the overlay whenever navigation happens.
+  // Close the overlay on browser back/forward (setState in a callback is allowed).
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    const close = () => setOpen(false);
+    window.addEventListener("popstate", close);
+    return () => window.removeEventListener("popstate", close);
+  }, []);
 
   // Lock body scroll while the mobile menu is open.
   useEffect(() => {
@@ -116,6 +118,7 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 aria-current={active ? "page" : undefined}
+                onNavigate={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${100 + i * 50}ms` : "0ms" }}
                 className={`text-3xl font-semibold tracking-tight transition-all duration-700 ease-stride ${
                   open ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
@@ -127,6 +130,7 @@ export function SiteHeader() {
           })}
           <Link
             href="/plans"
+            onNavigate={() => setOpen(false)}
             style={{
               transitionDelay: open ? `${100 + NAV_LINKS.length * 50}ms` : "0ms",
             }}
