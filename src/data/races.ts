@@ -29,7 +29,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-07-22";
+export const RACES_AS_OF = "2026-09-09";
 
 export const RACES: Race[] = [
   {
@@ -144,12 +144,13 @@ export const RACES: Race[] = [
     city: "Glasgow",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The Commonwealth Games return to Scotland for the first time since 1970, and the headline distance event is the reinstated Commonwealth Mile on August 1 — Josh Kerr, the newly crowned mile world-record holder (3:42.66), takes centre stage on home soil against Cameron Myers (AUS) and a stacked field of Commonwealth distance talent.",
+    why: "Home favourite Josh Kerr delivered the Scottish Miracle on August 1: the world-record holder won the reinstated Commonwealth Mile in 3:54.12, with Cameron Myers (AUS) taking silver in 3:55.26 and Timothy Cheruiyot (KEN) bronze in 3:55.41 — Kerr emulating Roger Bannister on Scottish soil 72 years on.",
     watchUrl: "https://www.glasgow2026.com/",
     fieldConfirmed: true,
     men: [
-      { racer: "josh-kerr" },
-      { racer: "cameron-myers" },
+      { racer: "josh-kerr", place: 1, time: "3:54.12" },
+      { racer: "cameron-myers", place: 2, time: "3:55.26" },
+      { racer: "timothy-cheruiyot", place: 3, time: "3:55.41" },
     ],
   },
   {
@@ -159,9 +160,14 @@ export const RACES: Race[] = [
     city: "Birmingham",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The first European Athletics Championships on British soil since London 2012, with distance titles at stake across the 1500m, 5000m, 10,000m, 3000m steeplechase, and marathon — a showcase for the next generation of European distance talent.",
+    why: "Jakob Ingebrigtsen made a triumphant return at Alexander Stadium, winning the men\'s 5000m gold in 13:15.29. Stefan Nillessen (NED) took a surprise men\'s 1500m gold over a packed field, while Georgia Bell (GBR) won the home women\'s 1500m title on an emotional night in Birmingham.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "jakob-ingebrigtsen", place: 1, time: "13:15.29" },
+      { racer: "florian-bremm", place: 2 },
+      { racer: "etienne-daguinos", place: 3 },
+    ],
   },
   {
     slug: "sydney-marathon-2026",
@@ -171,18 +177,18 @@ export const RACES: Race[] = [
     country: "Australia",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The newest Abbott World Marathon Major fields its deepest elite roster yet. Both races are led by reigning world champions: 2025 World Athletics Championships gold medalist Stella Chesang heads the women's field alongside Ruti Aga and Haven Hailu, while 2025 world champion Alphonce Simbu and 2:01:48 man Sisay Lemma take on defending Sydney champion Hailemaryam Kiros in the men's race.",
+    why: "Addisu Gobena (ETH) shattered the Sydney course record with 2:04:42, winning a blazing Ethiopian duel by just four seconds over Chimdessa Debele Gudeta (2:04:46), with Lesotho\'s Tebello Ramakongoana taking a brilliant bronze in 2:04:57. In the women\'s race, Peres Jepchirchir was dominant — winning in 2:18:31 and finishing 3:40 clear of the field.",
     watchUrl: "https://www.sydneymarathon.com.au/",
     fieldConfirmed: true,
     men: [
-      { racer: "alphonce-simbu" },
-      { racer: "sisay-lemma" },
-      { racer: "hailemaryam-kiros" },
+      { racer: "addisu-gobena", place: 1, time: "2:04:42" },
+      { racer: "chimdessa-gudeta", place: 2, time: "2:04:46" },
+      { racer: "tebello-ramakongoana", place: 3, time: "2:04:57" },
     ],
     women: [
-      { racer: "stella-chesang" },
-      { racer: "ruti-aga" },
-      { racer: "haven-hailu" },
+      { racer: "peres-jepchirchir", place: 1, time: "2:18:31" },
+      { racer: "irene-cheptai", place: 2, time: "2:22:11" },
+      { racer: "shure-demise", place: 3, time: "2:22:33" },
     ],
   },
   {
@@ -193,9 +199,14 @@ export const RACES: Race[] = [
     country: "Belgium",
     distance: "Track",
     series: "Diamond League",
-    why: "The Memorial Van Damme — one of track's oldest and most prestigious meetings — hosts the 2026 Diamond League Final, crowning season champions and awarding the Diamond Trophy across all events. With world-record holders and Olympic champions competing over two evenings, the Brussels finale routinely closes the outdoor season in style.",
+    why: "Cameron Myers announced himself as the world\'s best 1500m runner over two breathtaking nights at the Memorial Van Damme: the 20-year-old Australian dipped at the line to win the men\'s 1500m Diamond Trophy in 3:30.14, defeating Olympic champions Jakob Ingebrigtsen and Cole Hocker. Birhanu Balew (BRN) won the men\'s 5000m in an Asian-record 12:45.70.",
     watchUrl: "https://www.memorialvandamme.be/",
-    fieldConfirmed: false,
+    fieldConfirmed: true,
+    men: [
+      { racer: "cameron-myers", place: 1, time: "3:30.14" },
+      { racer: "kipkosgei-koech", place: 2, time: "3:30.18" },
+      { racer: "ethan-strand", place: 3, time: "3:30.50" },
+    ],
   },
   {
     slug: "world-athletics-ultimate-championship-2026",

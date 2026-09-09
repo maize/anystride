@@ -19,18 +19,21 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-09-09";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
+  Bahrain: "🇧🇭",
   Denmark: "🇩🇰",
   Ethiopia: "🇪🇹",
+  France: "🇫🇷",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
+  Lesotho: "🇱🇸",
   Netherlands: "🇳🇱",
   Norway: "🇳🇴",
   Tanzania: "🇹🇿",
@@ -290,6 +293,76 @@ export const RACERS: Racer[] = [
     prs: [],
     honors: ["BMW Berlin Marathon 2026 elite entry"],
   },
+  {
+    slug: "addisu-gobena",
+    name: "Addisu Gobena",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:42" }],
+    honors: [
+      "Sydney Marathon champion (2026, course record 2:04:42)",
+    ],
+  },
+  {
+    slug: "chimdessa-gudeta",
+    name: "Chimdessa Debele Gudeta",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:46" }],
+    honors: ["Sydney Marathon runner-up (2026)"],
+  },
+  {
+    slug: "tebello-ramakongoana",
+    name: "Tebello Ramakongoana",
+    gender: "M",
+    country: "Lesotho",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:04:57" }],
+    honors: ["Sydney Marathon 3rd place (2026)"],
+  },
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:28.77" }],
+    honors: [
+      "World 1500m champion (2019)",
+      "Commonwealth Games mile bronze (2026)",
+      "Multiple Diamond League 1500m titles",
+    ],
+  },
+  {
+    slug: "kipkosgei-koech",
+    name: "Kipkosgei Koech",
+    gender: "M",
+    country: "Kenya",
+    events: ["1500m"],
+    prs: [{ event: "1500m", time: "3:30.18" }],
+    honors: ["Diamond League Final 1500m runner-up (Brussels 2026)"],
+  },
+  {
+    slug: "florian-bremm",
+    name: "Florian Bremm",
+    gender: "M",
+    country: "Germany",
+    events: ["5000m", "10,000m"],
+    prs: [],
+    honors: ["European Athletics Championships 5000m silver (2026)"],
+  },
+  {
+    slug: "etienne-daguinos",
+    name: "Etienne Daguinos",
+    gender: "M",
+    country: "France",
+    events: ["5000m"],
+    prs: [],
+    honors: ["European Athletics Championships 5000m bronze (2026)"],
+  },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
     slug: "tigst-assefa",
@@ -510,6 +583,27 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
+  },
+  {
+    slug: "irene-cheptai",
+    name: "Irene Cheptai",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:22:11" }],
+    honors: ["Sydney Marathon runner-up (2026)"],
+  },
+  {
+    slug: "shure-demise",
+    name: "Shure Demise",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:20:59" }],
+    honors: [
+      "Boston Marathon champion (2016)",
+      "Sydney Marathon 3rd place (2026)",
+    ],
   },
   {
     slug: "beatrice-chebet",
