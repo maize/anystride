@@ -60,9 +60,15 @@ export function SiteHeader() {
     }
 
     document.addEventListener("keydown", handleKeyDown);
+    const desktop = window.matchMedia("(min-width: 768px)");
+    function handleBreakpoint(event: MediaQueryListEvent) {
+      if (event.matches) setOpenPath(null);
+    }
+    desktop.addEventListener("change", handleBreakpoint);
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
+      desktop.removeEventListener("change", handleBreakpoint);
       trigger?.focus();
     };
   }, [open]);
@@ -80,10 +86,10 @@ export function SiteHeader() {
           className="flex items-baseline gap-1 font-semibold"
         >
           <span className="text-lg tracking-tight">anystride</span>
-          <span className="h-2 w-2 translate-y-[-1px] rounded-full bg-brand" />
+          <span aria-hidden="true" className="h-2 w-2 -translate-y-px rounded-full bg-brand" />
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-5 text-sm md:flex">
           {NAV_LINKS.map(({ href, label }) => {
             const active = isActive(pathname, href);
             return (
@@ -114,7 +120,7 @@ export function SiteHeader() {
           type="button"
           onClick={() => setOpenPath(open ? null : pathname)}
           aria-expanded={open}
-          aria-controls="mobile-navigation"
+          aria-controls={open ? "mobile-navigation" : undefined}
           aria-label={open ? "Close menu" : "Open menu"}
           className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
         >

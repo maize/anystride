@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
+import { trackProductEvent } from "@/lib/analytics";
 import {
   DISTANCE_LABELS,
   LEVEL_LABELS,
@@ -45,7 +46,7 @@ function Choice({
         required={required}
         className="peer sr-only"
       />
-      <span className="flex h-full flex-col justify-center rounded-lg border border-border bg-background px-4 py-3 transition-all duration-300 ease-stride group-hover:-translate-y-0.5 group-hover:border-brand peer-checked:border-brand peer-checked:bg-brand/10 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand">
+      <span className="flex h-full flex-col justify-center rounded-lg border border-border bg-background px-4 py-3 text-sm transition-all duration-300 ease-stride group-hover:border-brand peer-checked:border-brand peer-checked:bg-brand/10 peer-checked:ring-1 peer-checked:ring-brand peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand">
         <span className="font-medium">{label}</span>
         {detail && (
           <span className="mt-0.5 text-xs text-muted-foreground">{detail}</span>
@@ -101,6 +102,8 @@ export function PlanFinder({
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!distance || !weeklyBase || !availableDays) return;
+    trackProductEvent("plan_finder_complete");
     setSubmitted(true);
     window.requestAnimationFrame(() => {
       resultRef.current?.focus();
@@ -142,7 +145,7 @@ export function PlanFinder({
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="rounded-2xl bg-muted px-5 pb-6 pt-1 sm:px-8 sm:pb-8 lg:col-span-3"
+          className="rounded-2xl bg-muted px-6 pb-6 pt-4 sm:px-8 sm:pb-8 lg:col-span-3"
         >
           <Question
             number="01"
@@ -211,12 +214,12 @@ export function PlanFinder({
           ref={resultRef}
           tabIndex={-1}
           aria-labelledby="plan-finder-result-title"
-          className="scroll-mt-24 rounded-2xl border border-border p-6 outline-none lg:sticky lg:top-24 lg:col-span-2 sm:p-8"
+          className="scroll-mt-24 rounded-2xl border border-border p-6 lg:sticky lg:top-24 lg:col-span-2 sm:p-8"
         >
           {!result ? (
             <div className="flex min-h-64 flex-col justify-between">
               <div>
-                <p className="font-mono text-xs text-brand tabular-nums">YOUR MATCH</p>
+                <p className="eyebrow text-brand">Your match</p>
                 <h3
                   id="plan-finder-result-title"
                   className="mt-3 text-2xl font-semibold tracking-tight"
@@ -224,8 +227,8 @@ export function PlanFinder({
                   Three answers, one clear place to start
                 </h3>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  We rank plans by opening mileage and days per week. You will
-                  see the tradeoffs, not a mystery score.
+                  Pick your distance, tell us what a typical week looks like,
+                  and find a schedule you can make room for.
                 </p>
               </div>
               <p className="mt-8 border-t border-border pt-4 text-xs text-muted-foreground">

@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
+import { ProductAnalytics } from "@/components/ProductAnalytics";
 import "./globals.css";
 
 // GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
@@ -55,6 +56,9 @@ function Footer() {
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <Link href="/races" className="transition-colors duration-300 ease-stride hover:text-foreground">
+              Races
+            </Link>
             <Link
               href="/plans"
               className="transition-colors duration-300 ease-stride hover:text-foreground"
@@ -72,6 +76,12 @@ function Footer() {
               className="transition-colors duration-300 ease-stride hover:text-foreground"
             >
               Coaching
+            </Link>
+            <Link
+              href="/editorial"
+              className="transition-colors duration-300 ease-stride hover:text-foreground"
+            >
+              Editorial standards
             </Link>
             <Link
               href="/privacy"
@@ -131,6 +141,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="content" className="flex-1">{children}</main>
         <Footer />
+        <ProductAnalytics />
         <Analytics />
         <SpeedInsights />
       </body>

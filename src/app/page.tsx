@@ -23,7 +23,7 @@ export default function Home() {
         </Reveal>
         <Reveal delay={100}>
           <h1 className="text-hero-gradient max-w-2xl pb-1 text-5xl font-bold tracking-tighter sm:text-6xl">
-            Training that fits the runner you are today.
+            Training plans for any distance, any runner.
           </h1>
         </Reveal>
         <Reveal delay={200}>
@@ -42,7 +42,7 @@ export default function Home() {
             </Link>
             <Link
               href="/plans"
-              className="rounded-full border border-border px-6 py-2 text-base font-semibold transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
+              className="px-3 py-2 text-base font-medium text-muted-foreground transition-colors duration-300 ease-stride hover:text-foreground"
             >
               Browse all plans →
             </Link>
@@ -181,7 +181,6 @@ export default function Home() {
         <Reveal>
           <div className="flex flex-col items-start gap-4 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-medium text-brand">New</p>
               <h2 className="mt-1 text-xl font-semibold tracking-tight">
                 Want a real coach, not just a plan?
               </h2>

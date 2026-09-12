@@ -45,10 +45,12 @@ function FilterChip({
   return (
     <Link
       href={href}
+      aria-current={active ? "true" : undefined}
+      scroll={false}
       className={
         active
-          ? "rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-brand-foreground"
-          : "rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:border-brand"
+          ? "rounded-lg bg-foreground px-4 py-3 text-sm font-semibold text-background"
+          : "rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-colors duration-300 ease-stride hover:bg-muted hover:text-foreground"
       }
     >
       {label}
@@ -69,10 +71,10 @@ export default async function PlansPage({
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <div className="flex flex-wrap items-end justify-between gap-3">
+      <div className="flex flex-wrap items-end justify-between gap-8">
         <div>
           <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Training plans</h1>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 max-w-xl text-muted-foreground">
             Compare complete schedules and trusted training methods by distance
             and experience level.
           </p>
@@ -80,13 +82,13 @@ export default async function PlansPage({
         <div className="flex flex-wrap gap-2">
           <Link
             href="/#plan-finder"
-            className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
+            className="action-primary"
           >
             Get matched to a plan
           </Link>
           <Link
             href="/compare"
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand hover:text-brand active:scale-[0.98]"
+            className="action-link px-4"
           >
             Compare side by side →
           </Link>
@@ -94,7 +96,7 @@ export default async function PlansPage({
       </div>
 
       {/* Filters */}
-      <div className="mt-8 space-y-3">
+      <div className="mt-12 space-y-4 border-y border-border py-6">
         <div className="flex flex-wrap items-center gap-2">
           <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Distance
@@ -130,7 +132,11 @@ export default async function PlansPage({
       </div>
 
       {/* Results */}
-      <div className="mt-10">
+      <div className="mt-8">
+        <div className="mb-6 flex items-baseline justify-between gap-4">
+          <h2 className="text-xl font-semibold">{distance ? `${DISTANCE_LABELS[distance]} plans` : "Explore the plans"}</h2>
+          <p className="text-sm text-muted-foreground tabular-nums">{plans.length} {plans.length === 1 ? "plan" : "plans"}{(distance || level) && <> · <Link href="/plans" className="hover:text-foreground hover:underline">Clear filters</Link></>}</p>
+        </div>
         {plans.length === 0 ? (
           <div className="rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
             <p className="font-medium">No plans match yet.</p>

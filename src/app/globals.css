@@ -6,6 +6,7 @@
   /* anystride brand: an energetic "stride" orange on a neutral gray base. */
   --brand: #ff5a1f;
   --brand-foreground: #171717;
+  --brand-text: color-mix(in srgb, var(--brand) 65%, #000000);
   --muted: #f5f5f5;
   --muted-foreground: #666666;
   --border: #e5e5e5;
@@ -18,6 +19,7 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-text: var(--brand-text);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -31,6 +33,7 @@
     --background: #181818;
     --foreground: #f5f5f5;
     --brand: #ff6a33;
+    --brand-text: var(--brand);
     --muted: #1f1f1f;
     --muted-foreground: #9b9b9b;
     --border: #313131;
@@ -41,12 +44,37 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+button, select { cursor: pointer; }
+
+@utility text-brand { color: var(--brand-text); }
+
+/* Keep text accessible while retaining the brighter orange for filled controls. */
+@layer utilities {
+  .text-brand { color: var(--brand-text); }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold tracking-widest text-muted-foreground;
+  }
+  .action-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-brand px-6 py-3 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98];
+  }
+  .action-link {
+    @apply inline-flex items-center gap-3 py-3 text-sm font-semibold underline-offset-4 transition-colors duration-300 ease-stride hover:text-brand hover:underline;
+  }
+  .filter-select {
+    @apply mt-2 min-h-12 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm transition-colors duration-300 ease-stride hover:border-brand;
+  }
 }
 
 h1,
@@ -82,26 +110,36 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 30;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Scroll-entry reveal, driven by IntersectionObserver in <Reveal>. */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
+  .reveal.is-pending {
     opacity: 0;
     transform: translateY(24px);
-    filter: blur(8px);
     transition:
       opacity 0.8s var(--ease-stride),
-      transform 0.8s var(--ease-stride),
-      filter 0.8s var(--ease-stride);
+      transform 0.8s var(--ease-stride);
   }
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body::before, body > header, body > footer { display: none; }
+  .reveal.is-pending { opacity: 1; transform: none; }
 }

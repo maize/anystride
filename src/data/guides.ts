@@ -24,6 +24,8 @@ export interface Guide {
   relatedPlans?: string[];
   /** ISO date, shown as "Updated …" and used in structured data. */
   updated: string;
+  /** Original references, only where the article has actually been source-checked. */
+  sources?: { label: string; url: string }[];
 }
 
 export const GUIDES: Guide[] = [
@@ -284,74 +286,80 @@ export const GUIDES: Guide[] = [
   {
     slug: "fueling-for-long-runs",
     title: "How to Fuel for Long Runs",
-    description:
-      "When to start fueling, how much carbohydrate to take per hour, what to use, and how to practice race-day nutrition before it counts.",
+    description: "What to eat before, during and after a long run, with carbohydrate targets, a worked gel example, hydration guidance and original sources.",
     targetQuery: "fueling for long runs / what to eat during a long run",
-    updated: "2026-06-15",
+    updated: "2026-09-12",
     intro: [
-      "Your body stores roughly 90 minutes of glycogen at easy long-run pace. Once that runs out, pace drops, legs get heavy, and the remaining miles become a slog. The fix is taking in carbohydrates during the run — before you feel like you need them.",
-      "Getting your fueling right in training means your race goes to plan. Getting it wrong means the wall finds you at mile 20. Here is what to take, how much, and when.",
+      "A long run is a useful place to rehearse race-day nutrition. Plan what you will carry, check the labels and use training to find what agrees with you.",
+      "These are general starting points, not a personal prescription. A sports dietitian can help adapt them to your training and health needs.",
     ],
     sections: [
       {
-        heading: "When fueling starts to matter",
+        heading: "Before you head out",
         body: [
-          "For runs under 60 to 75 minutes, your glycogen stores are sufficient and you do not need to eat mid-run. Once you go past 75 minutes — which covers most long runs in a half-marathon or marathon plan — taking in carbohydrates will keep your energy level stable and your pace honest.",
-          "The common mistake is waiting until you feel hungry or tired. By that point, glycogen is already low and catching up is slow. Start fueling at around 45 minutes into the run, before your stores dip.",
+          "Choose a familiar carbohydrate-rich meal about three to four hours before running, or a smaller snack one to two hours beforehand. Toast, cereal or fruit are options; timing and portions depend on what you tolerate. Large amounts of fat or fibre close to exercise can cause discomfort.",
         ],
       },
       {
-        heading: "How much carbohydrate per hour",
+        heading: "Carbohydrate during the run",
         body: [
-          "The guideline most sports dietitians use is 30 to 60 grams of carbohydrate per hour of running, and up to 90 grams per hour for efforts lasting well over two hours when you mix carbohydrate types (glucose plus fructose). Most energy gels contain 20 to 25 grams, so taking one every 30 to 45 minutes falls in the right range.",
-          "Your stomach also has to be trained to absorb fuel while running. Start with smaller amounts on shorter long runs and build up, exactly the way you build mileage.",
+          "The Australian Institute of Sport gives a target of 30–60 grams of carbohydrate per hour for endurance exercise lasting one to two-and-a-half hours. For events longer than roughly two-and-a-half to three hours, up to 90 grams per hour may be appropriate, using mixed carbohydrate sources such as glucose and fructose.",
+          "The higher end is not a starting requirement for every runner. Practice a manageable amount in training, then adjust for duration, effort and gut comfort. Gels, chews, drinks and familiar foods can all contribute. Count carbohydrate from everything you consume.",
         ],
       },
       {
-        heading: "What to use",
+        heading: "A worked example, not a prescription",
         body: [
-          "Gels are the most convenient option: light, fast-absorbing, and easy to carry. Chews work similarly and suit runners who prefer something to bite into. Real food — small pieces of banana, dates, rice balls, or boiled potatoes — is a legitimate alternative and worth testing if gels upset your stomach.",
-          "Sports drinks can double as hydration and carbohydrate at the same time. If you use them on the run, adjust your gel intake so you are not doubling up and overwhelming your gut.",
-        ],
-        bullets: [
-          "Gels: 20-25 g carbs each, fast-absorbing, easy to carry",
-          "Chews: similar to gels, takes a little longer to process",
-          "Real food: banana, dates, rice cakes — easier on sensitive stomachs",
-          "Sports drinks: combine carbs and hydration, watch total carb intake",
+          "If your practiced target is 40 grams per hour and your gel contains 20 grams, two gels per hour provide that amount. Over a four-hour event, that is eight gels if you get no carbohydrate from drinks or food. A 25-gram gel changes the calculation, so check your own product rather than following a universal gel count.",
+          "Write your plan in grams and hours first, then map it to what you can carry and the aid stations available. Start taking regular small amounts early rather than waiting until you feel depleted.",
         ],
       },
       {
-        heading: "Hydration and electrolytes",
+        heading: "Hydration: avoid forcing fluids",
         body: [
-          "Drink to thirst on easy runs. On hot days or runs lasting more than 90 minutes, replace some of what you sweat with a drink or tablet that contains sodium and other electrolytes — plain water alone can dilute blood sodium at high volumes, which causes hyponatremia, a real race-day risk.",
-          "A rough starting point: 400 to 800 ml of fluid per hour, adjusted for heat, humidity, and your own sweat rate. Finishing a long run with pale urine and no unusual swelling is a reasonable sign that hydration was close to right.",
+          "Fluid needs vary with the runner, conditions and effort. Thirst is a useful real-time guide; do not force a fixed volume simply because it is on a schedule.",
+          "Drinking more than your body can handle can cause dangerously low blood sodium (exercise-associated hyponatremia). Sports drinks and salt supplements do not prevent this if you overdrink. A personalised strategy is preferable to treating an electrolyte product as insurance.",
         ],
       },
       {
-        heading: "Practice fueling in training",
+        heading: "After the run",
         body: [
-          "Race day is the worst day to try something new. Use the same gels, chews, or drinks in training that you plan to use on race day. Practice the timing, test what your stomach tolerates, and find out which flavors you can keep down at mile 18.",
-          "Most marathon and half-marathon plans build long runs progressively — use every long run over 75 minutes as a fueling rehearsal. If a product upsets your stomach, switch to another early enough to adapt, not in race week.",
-          "Knowing your expected race time also helps you plan how many hours of fueling you will actually need. The anystride pace calculator can estimate that from a recent race or a current fitness level.",
+          "Include carbohydrate to replenish fuel and protein to support repair in your next meal or snack. Yogurt with fruit, a sandwich or rice with eggs are straightforward options. Prompt refuelling matters especially when another session follows within eight hours; there is no universal 30-minute deadline that makes a later meal worthless.",
+        ],
+      },
+      {
+        heading: "Rehearse before race week",
+        body: [
+          "Check what the organiser supplies, including serving sizes. Try your chosen products, carrying setup and timing on training runs before relying on them in a race. If you repeatedly struggle to eat or drink comfortably, seek individual advice rather than continually increasing your intake.",
         ],
       },
     ],
     faq: [
       {
-        q: "What should I eat before a long run?",
-        a: "A carbohydrate-rich meal two to three hours before works well for most runners: oatmeal, toast with banana, or rice. Keep fat and fiber low to avoid GI issues. If you run early and cannot eat first, a small snack 30 minutes before can help.",
+        q: "How many gels should I carry?",
+        a: "Divide the carbohydrate you plan to get from gels by the grams in each gel. Subtract anything supplied by drinks or food first. The worked example above shows the arithmetic; your personal target may differ.",
       },
       {
-        q: "Can I do long runs fasted?",
-        a: "Some runners do shorter fasted runs as a training stimulus, but long runs over 90 minutes without fuel carry real risk: slower recovery, higher injury risk, and race-day habits that do not hold under pressure. Fuel your long runs.",
+        q: "Do I have to use gels?",
+        a: "No. Chews, sports drinks and familiar carbohydrate-containing foods are alternatives. Choose something you can carry and tolerate while running, and check the serving size.",
       },
       {
-        q: "My stomach hates gels. What can I use instead?",
-        a: "Real food is a legitimate alternative. Medjool dates, banana pieces, rice balls, and homemade energy balls all work. Some runners also tolerate chews or sports drinks better than gels. Experiment in training to find what you can stomach.",
+        q: "Does adding electrolytes make overdrinking safe?",
+        a: "No. Sodium-containing drinks do not remove the risk of exercise-associated hyponatremia when you consume excessive fluid. Do not force fluids beyond your needs.",
+      },
+    ],
+    sources: [
+      {
+        label: "Australian Institute of Sport — carbohydrate targets and practice during exercise",
+        url: "https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/sports-drink/how-and-when-do-i-use-it",
       },
       {
-        q: "How do I avoid hitting the wall?",
-        a: "Start fueling before you feel depleted — aim for 30 to 60 grams of carbohydrate per hour starting around 45 minutes in — and run the early miles of your race conservatively. Bonking almost always comes from going out too fast, fueling too late, or both.",
+        label: "Better Health Channel — pre-exercise meals and recovery nutrition",
+        url: "https://www.betterhealth.vic.gov.au/health/healthyliving/sporting-performance-and-food",
+      },
+      {
+        label: "Wilderness Medical Society — exercise-associated hyponatremia guidelines",
+        url: "https://journals.sagepub.com/doi/full/10.1016/j.wem.2019.11.003",
       },
     ],
     relatedPlans: [
@@ -540,95 +548,6 @@ export const GUIDES: Guide[] = [
       {
         q: "Does hitting the wall only happen in marathons?",
         a: "The wall is most associated with the marathon because it's the most common distance long enough to exhaust glycogen stores at race effort. It can happen in any event lasting two or more hours — a long trail race, a long bike ride — but it's rare in distances shorter than the marathon.",
-      },
-    ],
-    relatedPlans: [
-      "higdon-marathon-novice-1",
-      "pfitzinger-18-55",
-      "hansons-marathon-method",
-    ],
-  },
-  {
-    slug: "fueling-long-runs",
-    title: "Fueling Long Runs: What to Eat and Drink on the Road",
-    description:
-      "What to eat before, during, and after long runs — how many carbs, fluids, and electrolytes you need, and a simple race-ready fueling strategy.",
-    targetQuery: "fueling for long runs / what to eat on a long run",
-    updated: "2026-06-15",
-    intro: [
-      "Your body carries enough glycogen — the stored form of carbohydrate — for roughly 90 to 120 minutes of running. Once those stores run low, pace collapses, every step feels harder than it should, and you get a firsthand introduction to hitting the wall. Fueling is simply the strategy for keeping those stores topped off long enough to finish well.",
-      "Most runners underestimate how much they need and start practicing too late. Getting your nutrition dialed in during training — not experimenting for the first time on race day — is one of the clearest performance gains available to any long-distance runner.",
-    ],
-    sections: [
-      {
-        heading: "The glycogen problem",
-        body: [
-          "Your muscles and liver store carbohydrate as glycogen — roughly 400 to 500 grams in a well-fed runner, equivalent to about 1,600 to 2,000 calories. At easy pace your body burns a mix of fat and carbohydrate, so glycogen lasts longer. As pace rises or the run extends beyond 90 minutes, you draw more heavily on those stores. When they run out, fat alone cannot fuel the intensity you need, and pace drops sharply.",
-          "The practical upshot: for any run lasting longer than 75 to 90 minutes, what you eat before and during the run matters as much as your fitness.",
-        ],
-      },
-      {
-        heading: "Before the run: fueling 2 to 3 hours out",
-        body: [
-          "Eat a carbohydrate-centered meal two to three hours before your long run. Oatmeal with banana, toast with peanut butter and jam, or rice with a little protein all work well. Keep fat and fiber modest — both slow gastric emptying and can cause problems when your gut is being jostled at running pace.",
-          "If your schedule means you run early and can't eat a full meal, a small easily-digestible snack — half a banana, a gel, or a slice of toast — 30 to 45 minutes before you head out is far better than nothing. You're just trying to top off the overnight glycogen drop before a hard effort.",
-        ],
-      },
-      {
-        heading: "During the run: carbohydrate and timing",
-        body: [
-          "Start taking carbohydrate before you feel hungry or tired — roughly 45 to 60 minutes into the run. If you wait until you feel depleted, your glycogen is already low and restoring pace takes time. Early, consistent intake is far more effective than catching up.",
-          "Aim for 30 to 60 grams of carbohydrate per hour. More experienced runners with trained guts can push 60 to 90 grams per hour by combining glucose and fructose sources, which use different intestinal transporters and clear the gut faster. Start at the lower end and build up across several training runs.",
-        ],
-        bullets: [
-          "Gels: 20 to 25g of carbohydrate each; easiest to carry and absorb quickly.",
-          "Chews: similar carbohydrate content; some runners tolerate the texture better than gels.",
-          "Sports drinks: carbohydrate and sodium together; convenient on courses with aid stations.",
-          "Real food: bananas, dates, and rice cakes all work; useful if you struggle with engineered products.",
-        ],
-      },
-      {
-        heading: "Hydration: water and sodium",
-        body: [
-          "Drink to thirst rather than on a rigid schedule — research consistently shows this matches intake to actual need better than prescribed volumes. Plain water is fine for runs under 60 to 75 minutes. On longer efforts, you also need sodium to replace what you lose in sweat. Without it, drinking large amounts of plain water can dilute blood sodium and cause hyponatremia — rare but serious.",
-          "A sports drink, electrolyte tab dissolved in water, or a salty snack alongside plain water all provide the sodium you need. How much you sweat varies enormously by individual, intensity, and temperature — if you finish long runs severely thirsty or with visible white salt marks on your kit, you probably need more.",
-        ],
-      },
-      {
-        heading: "After the run: the recovery window",
-        body: [
-          "After a depleting long run, eating carbohydrate and protein within 30 to 45 minutes helps kickstart glycogen replenishment and muscle repair. This recovery window matters most after long or high-intensity efforts when stores are significantly drawn down — it's less critical after an easy 45-minute jog.",
-          "You don't need a special product: chocolate milk, a bowl of rice with eggs, or yogurt with fruit all hit the right macros. What matters is eating something rather than skipping the meal and getting to it faster than you otherwise would.",
-        ],
-      },
-      {
-        heading: "Practice everything in training — never on race day",
-        body: [
-          "Your gut is trainable. Taking carbohydrates while running can cause nausea at first, especially at intensity, but consistent practice in training desensitizes the stomach over several weeks. Use the long runs in your plan — whether that is Higdon Novice 1 building toward 20 miles, Pfitzinger 18/55 with its stacked midweek volume, or the Hansons cumulative-load approach — to rehearse your exact race-day nutrition.",
-          "Know the gels and drinks available on your race course and train with them specifically. Race day is never the time to discover your stomach disagrees with a new brand. Use the anystride pace calculator to lock in your goal pace before race week, then plan how many aid stations you will hit and whether to carry your own fuel or rely on the course. The combination of practiced nutrition and a smart first-mile pace is what keeps the wall from appearing at mile 20.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "When should I start taking gels on a long run?",
-        a: "Around 45 to 60 minutes in — before you feel depleted. If you wait until you feel hungry or tired, glycogen is already low and recovery is slow. Early, consistent intake beats catching up.",
-      },
-      {
-        q: "How many gels do I need for a marathon?",
-        a: "A typical gel provides 20 to 25 grams of carbohydrate. At 30 to 60 grams per hour, a 4-hour marathon might require 6 to 10 gels depending on how much carbohydrate you get from course drinks. Work it out based on your expected finish time and available aid stations.",
-      },
-      {
-        q: "What if I can't stomach gels during a run?",
-        a: "Your gut can adapt with practice. Start with small amounts early in the run before intensity rises, and repeat consistently across training weeks. Some runners do better with chews, dates, bananas, or sports drinks than with gels — all deliver carbohydrate and all work.",
-      },
-      {
-        q: "Do I need to eat on runs under an hour?",
-        a: "No. For runs up to about 75 minutes at easy pace you have enough glycogen to work with. Stay hydrated, but mid-run carbohydrates are not necessary unless you started the day significantly underfueled.",
-      },
-      {
-        q: "What should I eat the night before a long run?",
-        a: "A carbohydrate-centered dinner — pasta, rice, bread, potatoes — that you know agrees with your digestion. Nothing rich, fatty, or unfamiliar. The goal is to go to bed with full glycogen stores so you start the next morning well-stocked.",
       },
     ],
     relatedPlans: [
@@ -1008,4 +927,3 @@ export const GUIDES: Guide[] = [
     ],
   },
 ];
-

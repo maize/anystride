@@ -1,4 +1,5 @@
 "use client";
+import { trackProductEvent } from "@/lib/analytics";
 
 import {
   type FormEvent,
@@ -176,16 +177,22 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
 
   function startPlan(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!progress.startDate || !parseLocalDate(progress.startDate)) {
+    // Read the submitted control too: autofill/native date entry may precede React state.
+    const startDate = new FormData(event.currentTarget).get("startDate");
+    if (typeof startDate !== "string" || !parseLocalDate(startDate)) {
       setFormError("Choose the date for your first training day.");
       return;
     }
 
     setFormError("");
-    updateProgress({ active: true });
+    updateProgress({ active: true, startDate });
+    trackProductEvent("plan_activated", { plan_slug: plan.slug });
   }
 
   function toggleWorkout(id: string, checked: boolean) {
+    if (checked && !store.getSnapshot().completedWorkoutIds.includes(id)) {
+      trackProductEvent("workout_complete", { plan_slug: plan.slug });
+    }
     store.update((current) => {
       const workoutIds = new Set(current.completedWorkoutIds);
       if (checked) workoutIds.add(id);
@@ -200,9 +207,18 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
   }
 
   function scrollToWeek() {
+    trackProductEvent("plan_resume", { plan_slug: plan.slug });
     document
       .getElementById(`week-${resumeWeek}`)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      ?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+  }
+
+  function printPlan() {
+    trackProductEvent("plan_print", { plan_slug: plan.slug });
+    window.print();
   }
 
   let statusHeading = "Set your plan in motion";
@@ -252,6 +268,7 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
               Plan starts
               <input
                 type="date"
+                name="startDate"
                 value={progress.startDate}
                 onChange={(event) => {
                   setFormError("");
@@ -322,6 +339,7 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
             </button>
             <a
               href={calendarHref}
+              onClick={() => trackProductEvent("plan_calendar_download", { plan_slug: plan.slug })}
               download={`${plan.slug}-training-plan.ics`}
               className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold transition-all duration-300 ease-stride hover:border-foreground active:scale-[0.98]"
             >
@@ -329,7 +347,7 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
             </a>
             <button
               type="button"
-              onClick={() => window.print()}
+              onClick={printPlan}
               className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-all duration-300 ease-stride hover:text-foreground active:scale-[0.98]"
             >
               Print plan
@@ -355,7 +373,7 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
         {!planIsActive && (
           <button
             type="button"
-            onClick={() => window.print()}
+            onClick={printPlan}
             className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-all duration-300 ease-stride hover:border-foreground active:scale-[0.98] print:hidden"
           >
             Print plan

@@ -20,7 +20,10 @@ export async function generateMetadata({
     title: guide.title,
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
-    openGraph: { type: "article", title: guide.title, description: guide.description },
+    openGraph: {
+      type: "article", title: guide.title, description: guide.description,
+      url: `/guides/${guide.slug}`, modifiedTime: guide.updated,
+    },
   };
 }
 
@@ -43,9 +46,8 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
           "@type": "Article",
           headline: guide.title,
           description: guide.description,
-          datePublished: guide.updated,
           dateModified: guide.updated,
-          author: { "@type": "Organization", name: "anystride" },
+          author: { "@type": "Organization", name: "anystride", url: "https://anystride.com/editorial" },
           publisher: { "@type": "Organization", name: "anystride" },
           mainEntityOfPage: url,
         }}
@@ -88,12 +90,18 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
         {guide.title}
       </h1>
       <p className="mt-2 text-xs text-muted-foreground">
+        By <Link href="/editorial" className="underline underline-offset-4 hover:text-brand">anystride</Link>
+        {" · "}
         Updated{" "}
         {new Date(guide.updated).toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
           day: "numeric",
+          timeZone: "UTC",
         })}
+      </p>
+      <p className="mt-3 text-sm text-muted-foreground">
+        General training information. Not independently reviewed by a named clinician or sports dietitian.
       </p>
 
       <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
@@ -124,6 +132,21 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
           )}
         </section>
       ))}
+
+      {guide.sources && guide.sources.length > 0 && (
+        <section aria-labelledby="guide-sources" className="mt-10 border-t border-border pt-6">
+          <h2 id="guide-sources" className="text-xl font-semibold tracking-tight">Sources & further reading</h2>
+          <ul className="mt-3 space-y-3 text-sm">
+            {guide.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-4">
+                  {source.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Calculator CTA */}
       <div className="mt-10 flex flex-col gap-3 rounded-xl border border-border bg-muted p-5 sm:flex-row sm:items-center sm:justify-between">
@@ -158,7 +181,7 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
 
       {/* Related plans */}
       {relatedPlans.length > 0 && (
-        <section className="mt-12">
+        <section className="mt-12" data-guide-plans={guide.slug}>
           <h2 className="text-xl font-semibold tracking-tight">
             Related training plans
           </h2>

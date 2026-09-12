@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated July 26, 2026
+        Last updated September 12, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -22,9 +22,9 @@ export default function PrivacyPage() {
           <p className="mt-2 text-muted-foreground">
             anystride has no accounts, no login, and no paywall. You can browse
             every plan, guide, and tool on this site without giving us any
-            personal information. The only personal data we ever receive is what
-            you type into the coach application form, and we use it only to
-            review and publish coach listings.
+            your name or email. Coach applications and enquiries involve
+            information you submit; the analytics services described below also
+            receive usage data.
           </p>
         </section>
 
@@ -39,6 +39,27 @@ export default function PrivacyPage() {
             visited, approximate location derived from IP address, device type,
             and browser. We do not use this data to identify individual
             visitors, and we do not sell it or share it for advertising.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            We also measure actions such as finding or starting a plan, opening
+            the current week, marking a workout complete, requesting an export,
+            and following race-source or related-plan links. These product events
+            include public content identifiers, not your start date, workout notes,
+            mileage, race times or answers to the plan finder. These additional
+            events are disabled when your browser sends Do Not Track or Global
+            Privacy Control; this does not describe the behaviour of every
+            third-party analytics service above.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">Training progress on this device</h2>
+          <p className="mt-2 text-muted-foreground">
+            Your plan start date, distance units and completed workouts are saved
+            in this browser’s local storage. They are not synced to an account or
+            uploaded as a training record. Clearing site data removes this saved
+            progress; private browsing or blocked storage may prevent it from
+            surviving your visit.
           </p>
         </section>
 

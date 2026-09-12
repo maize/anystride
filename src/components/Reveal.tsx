@@ -4,8 +4,8 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 /**
  * Fades children up into view the first time they enter the viewport.
- * Falls back to fully visible when JavaScript or motion is unavailable
- * (the .reveal styles only apply under prefers-reduced-motion: no-preference).
+ * Content is visible by default, including without JavaScript. Only content
+ * below the viewport is prepared for a reveal after hydration.
  */
 export function Reveal({
   children,
@@ -21,6 +21,10 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window) ||
+      el.getBoundingClientRect().top < window.innerHeight) return;
+    el.classList.add("is-pending");
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -28,7 +32,7 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px -10% 0px" }
+      { rootMargin: "0px 0px 0px 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();

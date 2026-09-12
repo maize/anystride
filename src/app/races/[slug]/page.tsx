@@ -218,6 +218,8 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
       {race.watchUrl && (
         <a
           href={race.watchUrl}
+          data-race-slug={race.slug}
+          data-link-kind="event_site"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex rounded-full bg-brand px-5 py-2 text-sm font-medium text-brand-foreground hover:opacity-90"
@@ -240,6 +242,8 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
           {" · "}
           <a
             href={race.verification.sourceUrl}
+            data-race-slug={race.slug}
+            data-link-kind="verification"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-foreground underline decoration-border underline-offset-4 hover:text-brand"
@@ -271,6 +275,8 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
             {race.resultsUrl && (
               <a
                 href={race.resultsUrl}
+                data-race-slug={race.slug}
+                data-link-kind="results"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex text-sm font-semibold text-brand hover:underline"

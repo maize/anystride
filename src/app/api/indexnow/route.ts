@@ -1,56 +1,58 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getAllSiteUrls } from "@/lib/site-urls";
+import { BASE, getAllSitePaths } from "@/lib/site-urls";
+import { changedPagePaths } from "@/lib/indexnow";
 
 export const runtime = "nodejs";
-
-/**
- * Submits all site URLs to IndexNow (Bing, Yandex, Seznam…) so new/updated pages
- * get crawled in hours instead of weeks. Google ignores IndexNow but is covered
- * by the sitemap.
- *
- * Triggered by a Vercel Cron (see vercel.json). When CRON_SECRET is set, Vercel
- * sends it as a bearer token and we require it; a manual `?token=` is also
- * accepted for testing.
- */
 const KEY = "279484893803f2af6c77a7478ee66696";
-const KEY_LOCATION = `https://anystride.com/${KEY}.txt`;
 
-function authorized(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return true; // no secret configured → allow (low-risk endpoint)
-  const auth = request.headers.get("authorization");
-  if (auth === `Bearer ${secret}`) return true;
-  return request.nextUrl.searchParams.get("token") === secret;
-}
-
-export async function GET(request: NextRequest) {
-  if (!authorized(request)) {
+/** Submit an explicit published batch, never the whole sitemap. See ROADMAP.md. */
+export async function POST(request: NextRequest) {
+  const secret = process.env.INDEXNOW_SECRET ?? process.env.CRON_SECRET;
+  if (!secret) return NextResponse.json({ error: "Submission is not configured." }, { status: 503 });
+  if (request.headers.get("authorization") !== `Bearer ${secret}`) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 
-  const urlList = getAllSiteUrls();
+  let paths: string[] | null;
+  try {
+    const reader = request.body?.getReader();
+    if (!reader) return NextResponse.json({ error: "A JSON paths array is required." }, { status: 400 });
+    const chunks: Uint8Array[] = [];
+    let size = 0;
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > 16_384) {
+        await reader.cancel();
+        return NextResponse.json({ error: "Batch is too large." }, { status: 413 });
+      }
+      chunks.push(value);
+    }
+    paths = changedPagePaths(JSON.parse(Buffer.concat(chunks).toString("utf8")), getAllSitePaths());
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
+  }
+  if (!paths) {
+    return NextResponse.json({ error: "Provide 1–100 canonical site paths, without queries or fragments." }, { status: 400 });
+  }
 
   try {
     const res = await fetch("https://api.indexnow.org/indexnow", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify({
-        host: "anystride.com",
-        key: KEY,
-        keyLocation: KEY_LOCATION,
-        urlList,
+        host: "anystride.com", key: KEY,
+        keyLocation: `${BASE}/${KEY}.txt`,
+        urlList: paths.map((path) => `${BASE}${path}`),
       }),
+      signal: AbortSignal.timeout(10_000),
     });
-    return NextResponse.json({
-      ok: res.ok,
-      status: res.status,
-      submitted: urlList.length,
-    });
-  } catch (err) {
-    console.error("indexnow: submit failed", err);
-    return NextResponse.json(
-      { error: "Submission failed." },
-      { status: 502 },
-    );
+    if (!res.ok) {
+      return NextResponse.json({ ok: false, upstreamStatus: res.status, submitted: 0 }, { status: 502 });
+    }
+    return NextResponse.json({ ok: true, upstreamStatus: res.status, submitted: paths.length });
+  } catch {
+    return NextResponse.json({ error: "Submission failed. Retry this batch later." }, { status: 502 });
   }
 }
