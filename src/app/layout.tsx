@@ -25,15 +25,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anystride.com"),
   title: {
-    default: "anystride — Free running training plans for every distance",
+    default: "anystride — Find a running plan that fits",
     template: "%s · anystride",
   },
   description:
-    "Free, community-sourced running training plans for any distance and any runner. Pick your goal and level, get a complete week-by-week plan. No login, no paywall.",
+    "Compare trusted running methods, follow free training schedules, and find a plan that fits your current base. No login or paywall.",
   openGraph: {
-    title: "anystride — Free running training plans",
+    title: "anystride — Find a running plan that fits",
     description:
-      "Free, community-sourced training plans for any distance and any runner.",
+      "Compare trusted running methods and follow free training schedules without a login or paywall.",
     url: "https://anystride.com",
     siteName: "anystride",
     type: "website",
@@ -103,6 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
@@ -113,7 +114,7 @@ export default function RootLayout({
             name: "anystride",
             url: "https://anystride.com",
             description:
-              "Free, community-sourced running training plans for any distance and any runner.",
+              "Compare trusted running methods and follow free training schedules without a login or paywall.",
             publisher: {
               "@type": "Organization",
               name: "anystride",

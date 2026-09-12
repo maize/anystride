@@ -239,7 +239,7 @@ export const RACERS: Racer[] = [
   },
   {
     slug: "jake-hayward",
-    name: "Jake Hayward",
+    name: "Jake Heyward",
     gender: "M",
     country: "Great Britain",
     events: ["Mile", "1500m"],

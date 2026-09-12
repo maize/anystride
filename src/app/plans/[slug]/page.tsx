@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPlans, getPlanBySlug } from "@/lib/plans";
 import { DistanceBadge, LevelBadge, IntensityMeter } from "@/components/Badge";
-import { WeekTable } from "@/components/WeekTable";
+import { PlanExperience } from "@/components/PlanExperience";
 import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
@@ -152,16 +152,14 @@ export default async function PlanPage({ params }: PageProps<"/plans/[slug]">) {
 
       {/* Schedule (full plans) or structure overview (explainers) */}
       {plan.kind === "full" && plan.weeks ? (
-        <>
-          <h2 className="mt-10 text-xl font-semibold tracking-tight">
-            The plan, week by week
-          </h2>
-          <div className="mt-4 space-y-4">
-            {plan.weeks.map((week) => (
-              <WeekTable key={week.week} week={week} />
-            ))}
-          </div>
-        </>
+        <PlanExperience
+          plan={{
+            slug: plan.slug,
+            name: plan.name,
+            durationWeeks: plan.durationWeeks,
+            weeks: plan.weeks,
+          }}
+        />
       ) : (
         <>
           <h2 className="mt-10 text-xl font-semibold tracking-tight">

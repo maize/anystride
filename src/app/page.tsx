@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { getAllPlans, availableDistances } from "@/lib/plans";
+import { getAllPlans } from "@/lib/plans";
 import { getAllGuides } from "@/lib/guides";
 import { PlanCard } from "@/components/PlanCard";
+import { PlanFinder } from "@/components/PlanFinder";
 import { Reveal } from "@/components/Reveal";
-import { DISTANCE_LABELS, DISTANCE_ORDER } from "@/data/types";
+import { toPlanFinderCandidate } from "@/lib/plan-finder";
 
 export default function Home() {
   const plans = getAllPlans();
-  const available = new Set(availableDistances());
+  const featuredPlans = plans.filter((plan) => plan.kind === "full");
+  const finderCandidates = plans.map(toPlanFinderCandidate);
   const guides = getAllGuides().slice(0, 4);
 
   return (
@@ -21,63 +23,40 @@ export default function Home() {
         </Reveal>
         <Reveal delay={100}>
           <h1 className="text-hero-gradient max-w-2xl pb-1 text-5xl font-bold tracking-tighter sm:text-6xl">
-            Training plans for any distance, any runner.
+            Training that fits the runner you are today.
           </h1>
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            anystride turns the running community&apos;s most trusted training
-            methodologies into clear weekly plans. Pick your goal and your
-            level — and just run.
+            Compare trusted methods, match a plan to your current base and
+            schedule, then turn it into a week you can actually follow.
           </p>
         </Reveal>
         <Reveal delay={300}>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/plans"
+              href="#plan-finder"
               className="rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
             >
-              Browse all plans
+              Find my plan
             </Link>
             <Link
-              href="/calculator"
+              href="/plans"
               className="rounded-full border border-border px-6 py-2 text-base font-semibold transition-all duration-300 ease-stride hover:border-brand active:scale-[0.98]"
             >
-              Find my paces →
+              Browse all plans →
             </Link>
           </div>
         </Reveal>
       </section>
 
-      {/* Distance chooser */}
-      <section id="distances" className="border-t border-border py-12">
+      {/* Plan finder */}
+      <section
+        id="plan-finder"
+        className="scroll-mt-24 border-t border-border py-12 sm:py-16"
+      >
         <Reveal>
-          <h2 className="text-sm font-semibold tracking-wide text-muted-foreground">
-            Choose your distance
-          </h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {DISTANCE_ORDER.map((d) => {
-              const has = available.has(d);
-              return has ? (
-                <Link
-                  key={d}
-                  href={`/training-plans/${d}`}
-                  className="rounded-lg border border-border px-4 py-3 font-medium transition-all duration-300 ease-stride hover:-translate-y-0.5 hover:border-brand hover:text-brand active:scale-[0.98]"
-                >
-                  {DISTANCE_LABELS[d]}
-                </Link>
-              ) : (
-                <span
-                  key={d}
-                  className="cursor-not-allowed rounded-lg border border-dashed border-border px-4 py-3 font-medium text-muted-foreground"
-                  title="Plans coming soon"
-                >
-                  {DISTANCE_LABELS[d]}
-                  <span className="ml-2 text-xs">soon</span>
-                </span>
-              );
-            })}
-          </div>
+          <PlanFinder candidates={finderCandidates} />
         </Reveal>
       </section>
 
@@ -97,7 +76,7 @@ export default function Home() {
           </div>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {plans.map((plan, i) => (
+          {featuredPlans.map((plan, i) => (
             <Reveal key={plan.slug} delay={(i % 3) * 80}>
               <PlanCard plan={plan} />
             </Reveal>

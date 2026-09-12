@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   computePaces,
@@ -41,6 +41,13 @@ export function PaceCalculator() {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<ReturnType<typeof computePaces> | null>(null);
   const [recs, setRecs] = useState<PlanRecommendation[] | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!result) return;
+    resultsRef.current?.focus({ preventScroll: true });
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [result]);
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -99,6 +106,8 @@ export function PaceCalculator() {
               value={time}
               onChange={(e) => setTime(e.target.value)}
               placeholder="e.g. 24:30"
+              aria-invalid={!!error}
+              aria-describedby={error ? "pace-error" : undefined}
               className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-brand"
             />
           </div>
@@ -110,6 +119,7 @@ export function PaceCalculator() {
             <button
               type="button"
               onClick={() => setBasis("recent")}
+              aria-pressed={basis === "recent"}
               className={
                 basis === "recent"
                   ? "rounded-full bg-brand px-4 py-1 text-sm font-medium text-brand-foreground"
@@ -121,6 +131,7 @@ export function PaceCalculator() {
             <button
               type="button"
               onClick={() => setBasis("goal")}
+              aria-pressed={basis === "goal"}
               className={
                 basis === "goal"
                   ? "rounded-full bg-brand px-4 py-1 text-sm font-medium text-brand-foreground"
@@ -170,7 +181,11 @@ export function PaceCalculator() {
           </div>
         </div>
 
-        {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+        {error && (
+          <p id="pace-error" role="alert" className="mt-4 text-sm text-red-600">
+            {error}
+          </p>
+        )}
 
         <button
           type="submit"
@@ -181,7 +196,13 @@ export function PaceCalculator() {
       </form>
 
       {result && (
-        <div className="mt-8 space-y-8">
+        <div
+          ref={resultsRef}
+          tabIndex={-1}
+          aria-live="polite"
+          aria-label="Pace calculation results"
+          className="mt-8 scroll-mt-6 space-y-8 outline-none"
+        >
           {/* VDOT */}
           <div className="flex items-center gap-3">
             <span className="rounded-full bg-brand px-3 py-1 text-sm font-semibold text-brand-foreground">
@@ -219,10 +240,14 @@ export function PaceCalculator() {
           {/* Training paces */}
           <div>
             <h2 className="text-lg font-semibold tracking-tight">
-              Your training paces
+              {basis === "goal"
+                ? "Paces implied by your goal"
+                : "Your current training paces"}
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Use these for the workouts in any anystride plan.
+              {basis === "goal"
+                ? "These show the fitness your goal requires. Base day-to-day training on a recent result or current effort."
+                : "Use these as starting points for workouts in an anystride plan."}
             </p>
             <div className="mt-3 overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">

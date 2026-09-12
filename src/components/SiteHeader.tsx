@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { href: "/plans", label: "Browse" },
-  { href: "/compare", label: "Compare" },
+  { href: "/plans", label: "Plans" },
   { href: "/guides", label: "Guides" },
   { href: "/races", label: "Races" },
   { href: "/calculator", label: "Paces" },
@@ -26,25 +25,60 @@ function isActive(pathname: string, href: string): boolean {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const open = openPath === pathname;
 
-  // Close the overlay whenever navigation happens.
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    if (!open) return;
 
-  // Lock body scroll while the mobile menu is open.
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const menu = menuRef.current;
+    const trigger = triggerRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusable = menu?.querySelectorAll<HTMLElement>("a[href], button");
+    focusable?.[0]?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpenPath(null);
+        return;
+      }
+      if (event.key !== "Tab" || !focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      trigger?.focus();
     };
   }, [open]);
+
+  function closeMenu() {
+    setOpenPath(null);
+  }
 
   return (
     <header className="border-b border-border">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
-        <Link href="/" className="flex items-baseline gap-1 font-semibold">
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="flex items-baseline gap-1 font-semibold"
+        >
           <span className="text-lg tracking-tight">anystride</span>
           <span className="h-2 w-2 translate-y-[-1px] rounded-full bg-brand" />
         </Link>
@@ -68,17 +102,19 @@ export function SiteHeader() {
             );
           })}
           <Link
-            href="/plans"
+            href="/#plan-finder"
             className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
           >
-            Find your plan
+            Find my plan
           </Link>
         </nav>
 
         <button
+          ref={triggerRef}
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => setOpenPath(open ? null : pathname)}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           aria-label={open ? "Close menu" : "Open menu"}
           className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
         >
@@ -102,42 +138,46 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile overlay menu */}
-      <div
-        className={`fixed inset-0 z-40 flex flex-col bg-background/80 backdrop-blur-3xl transition-opacity duration-300 ease-stride md:hidden ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <nav className="mt-24 flex flex-col gap-2 px-8">
-          {NAV_LINKS.map(({ href, label }, i) => {
-            const active = isActive(pathname, href);
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-current={active ? "page" : undefined}
-                style={{ transitionDelay: open ? `${100 + i * 50}ms` : "0ms" }}
-                className={`text-3xl font-semibold tracking-tight transition-all duration-700 ease-stride ${
-                  open ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-                } ${active ? "text-brand" : ""}`}
-              >
-                {label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/plans"
-            style={{
-              transitionDelay: open ? `${100 + NAV_LINKS.length * 50}ms` : "0ms",
-            }}
-            className={`mt-6 w-max rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-700 ease-stride active:scale-[0.98] ${
-              open ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-            }`}
-          >
-            Find your plan
-          </Link>
-        </nav>
-      </div>
+      {open && (
+        <div
+          ref={menuRef}
+          id="mobile-navigation"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+          className="fixed inset-0 z-40 flex flex-col bg-background/80 backdrop-blur-3xl md:hidden"
+        >
+          <nav className="mt-24 flex flex-col gap-2 px-8">
+            {NAV_LINKS.map(({ href, label }, i) => {
+              const active = isActive(pathname, href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={closeMenu}
+                  aria-current={active ? "page" : undefined}
+                  style={{ transitionDelay: `${100 + i * 50}ms` }}
+                  className={`text-3xl font-semibold tracking-tight transition-all duration-700 ease-stride ${
+                    active ? "text-brand" : ""
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/#plan-finder"
+              onClick={closeMenu}
+              style={{
+                transitionDelay: `${100 + NAV_LINKS.length * 50}ms`,
+              }}
+              className="mt-6 w-max rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-700 ease-stride active:scale-[0.98]"
+            >
+              Find my plan
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

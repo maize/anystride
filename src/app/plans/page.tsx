@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "Browse training plans",
   description:
     "Browse free running training plans by distance and experience level.",
+  alternates: { canonical: "/plans" },
 };
 
 function isDistance(v: string | undefined): v is Distance {
@@ -72,15 +73,24 @@ export default async function PlansPage({
         <div>
           <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Training plans</h1>
           <p className="mt-2 text-muted-foreground">
-            Free, community-sourced plans. Filter by distance and level.
+            Compare complete schedules and trusted training methods by distance
+            and experience level.
           </p>
         </div>
-        <Link
-          href="/compare"
-          className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand hover:text-brand active:scale-[0.98]"
-        >
-          Compare side by side →
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/#plan-finder"
+            className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
+          >
+            Get matched to a plan
+          </Link>
+          <Link
+            href="/compare"
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-all duration-300 ease-stride hover:border-brand hover:text-brand active:scale-[0.98]"
+          >
+            Compare side by side →
+          </Link>
+        </div>
       </div>
 
       {/* Filters */}
