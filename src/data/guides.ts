@@ -926,4 +926,88 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "hill-training-for-runners",
+    title: "Hill Training for Runners: How to Use Hills to Get Faster",
+    description:
+      "Why hill training makes you faster on flat ground, how hill repeats and hill strides differ, and how to add them to any training plan without injury.",
+    targetQuery: "hill training for runners / hill repeats running benefits",
+    updated: "2026-09-14",
+    intro: [
+      "Hills are one of the most efficient training tools available to distance runners. They build strength, improve running economy, and raise your aerobic ceiling -- all at once, and without the same injury risk as track intervals at the same effort. Many coaches describe hill repeats as speed work in disguise.",
+      "You do not need hilly terrain to race to benefit from hill training. Runners targeting flat road races include hill work specifically because the muscular strength and power developed on an incline transfers directly to faster, more efficient running on flat ground.",
+    ],
+    sections: [
+      {
+        heading: "Why hills make you a better runner",
+        body: [
+          "Running uphill requires more force from the glutes, hamstrings, and calves with every stride. That muscular demand, sustained over a session of hill repeats, builds the kind of leg strength that is otherwise hard to target through flat running alone. The result is a more powerful push-off phase in every stride, which translates to better running economy -- you cover more ground for the same aerobic effort.",
+          "Hills also raise your heart rate to near-interval intensity while your foot strike is naturally softer than it would be running the same effort on flat ground. The incline shortens your effective stride, reducing the impact forces that cause many overuse injuries during hard flat workouts. This makes hills a particularly useful way to develop fitness for runners who are injury-prone on the track.",
+        ],
+      },
+      {
+        heading: "Hill repeats versus hill strides",
+        body: [
+          "These are two distinct workouts that serve different purposes and suit different phases of training.",
+          "Hill repeats are a structured quality session: you run a sustained uphill effort of 60 seconds to 3 minutes at a hard effort, jog or walk back down, and repeat. The effort is roughly interval intensity -- hard but controlled, not an all-out sprint. A typical session starts with 4 to 6 repeats and can build to 10 or more as fitness develops. Use a hill with a consistent grade of 4 to 8 percent if possible.",
+          "Hill strides are short, fast accelerations of 15 to 25 seconds up a moderate slope. They are not a quality workout in the interval sense -- they are a neuromuscular stimulus added after easy runs to develop power and turnover without accumulating meaningful fatigue. Four to six hill strides at the end of an easy run, once or twice a week, is enough to see consistent improvement in leg strength and stride mechanics.",
+        ],
+        bullets: [
+          "Hill repeats -- sustained hard efforts, 60 sec to 3 min, 4 to 10 reps; a full quality session like a tempo or interval workout",
+          "Hill strides -- 15 to 25 sec fast accelerations, 4 to 6 reps at the end of an easy run; low fatigue, high neuromuscular benefit",
+        ],
+      },
+      {
+        heading: "How to run hill repeats correctly",
+        body: [
+          "The most common mistake in hill repeats is going out too hard and dying on the fourth rep. The effort should feel controlled and sustainable for the full set -- think of it like running at 5K effort, not sprinting.",
+          "Keep your form tall: lean into the hill from the ankles rather than bending at the waist, drive your arms actively, and shorten your stride to maintain a quick cadence. Looking down at your feet tends to collapse your posture; look 10 to 20 feet ahead instead. On the recovery jog down, keep the pace easy and let your heart rate come back down before the next repeat.",
+          "Pace by effort on the uphill, not by split time. The same hill can take very different times depending on fatigue, heat, and the wind. What matters is that each rep feels like a similar, hard-but-controlled effort.",
+        ],
+      },
+      {
+        heading: "When to add hills to your training plan",
+        body: [
+          "Hill strides can be added almost any time -- they are low enough in fatigue cost that they fit alongside easy aerobic training without disrupting recovery. If you are in a base-building phase, adding four to six hill strides after two or three easy runs per week is an excellent way to build leg strength before heavier training begins.",
+          "Hill repeat sessions are a harder addition and require the same care as interval workouts. Treat them as a quality session: schedule them on a day when your legs are relatively fresh, never back-to-back with a long run or another quality workout, and limit them to once per week. They fit naturally into the weeks leading up to your race-specific training block, which is why plans like Pfitzinger 18/55 and Higdon Intermediate include hill or general strength phases early in the cycle.",
+          "In the final four to six weeks before a goal race, reduce or eliminate hill repeats and shift to race-specific work. The strength gains you built from hills in earlier weeks carry forward.",
+        ],
+      },
+      {
+        heading: "No hills nearby? Use a treadmill",
+        body: [
+          "A treadmill at 4 to 8 percent incline produces the same muscular stimulus as outdoor hills and works well for both hill strides and hill repeats. Set the speed to match your target effort, run the uphill interval, then reduce the incline to zero and slow down for the recovery.",
+          "One limitation: the treadmill belt does part of the work on the descent, so you lose some of the eccentric loading that comes from running downhill outdoors. For a pure strength stimulus, the uphill portions are what matter most, and a treadmill delivers those reliably regardless of the terrain around you.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How often should I do hill repeats?",
+        a: "Once per week is the right frequency for most runners. Hill repeats are a quality session comparable in stress to tempo or interval work -- doing them more than once a week leaves too little recovery for your other training to land well. Hill strides, which are much shorter and easier, can be done two or three times per week after easy runs.",
+      },
+      {
+        q: "Do hills help with flat road races?",
+        a: "Yes, significantly. The muscular strength and power built during hill training transfers directly to flat running economy. Runners who include regular hill work in their training cycle typically hold their pace better in the later miles of a flat race because their legs are stronger and fatigue more slowly.",
+      },
+      {
+        q: "How steep should a training hill be?",
+        a: "A consistent grade of 4 to 8 percent is ideal for hill repeats. Steeper than 10 percent changes the mechanics enough to feel more like hiking than running, and the recovery jogging down becomes awkward. A gentle rolling hill works well for hill strides; it does not need to be steep.",
+      },
+      {
+        q: "Should beginners do hill training?",
+        a: "Hill strides, yes -- they are low-impact enough to suit most runners who have a few months of consistent running behind them. Full hill repeat sessions are better suited to runners who have an established aerobic base and already do some form of quality work. If you are in your first training cycle, get comfortable with easy running first, then add strides before moving to repeats.",
+      },
+      {
+        q: "Can hills replace track intervals?",
+        a: "They can substitute for intervals in many training blocks, especially in the early and middle phases of a training cycle when building general fitness. Hill repeats produce a similar cardiovascular stimulus with less joint stress. In the final weeks before a goal race, race-specific flat intervals are more relevant -- but the strength built from hills earlier in the cycle makes those later intervals easier to hit.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-half-intermediate-1",
+      "pfitzinger-18-55",
+      "higdon-marathon-novice-1",
+    ],
+  },
 ];
