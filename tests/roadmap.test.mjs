@@ -52,6 +52,72 @@ test("product analytics guards local, preview, opt-out, invalid events and provi
   assert.doesNotThrow(() => client("anystride.com", "production", {}, () => { throw Error("blocked"); })("plan_print"));
 });
 
+test("PostHog sends only public paths and approved product details", () => {
+  const sent = [];
+  let config;
+  const location = { hostname: "anystride.com", origin: "https://anystride.com", pathname: "/plans/couch-to-5k" };
+  const navigator = {};
+  const sdk = {
+    init(token, options) {
+      assert.equal(token, "project-token");
+      config = options;
+    },
+    capture(event, properties) {
+      const raw = {
+        uuid: "event-id",
+        event,
+        properties: {
+          token: "project-token",
+          distinct_id: "anonymous-id",
+          $current_url: "https://anystride.com/plans/couch-to-5k?email=runner@example.com",
+          $referrer: "https://example.com/?private=1",
+          start_date: "2026-09-15",
+          ...properties,
+        },
+      };
+      const filtered = config.before_send(raw);
+      if (filtered) sent.push(filtered);
+    },
+  };
+  const { capturePostHogPageview, capturePostHogProductEvent } = load(
+    "src/lib/posthog.ts",
+    { "posthog-js": { default: sdk } },
+    { process: { env: { NODE_ENV: "production", NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: "project-token", NEXT_PUBLIC_POSTHOG_HOST: "https://us.i.posthog.com" } }, window: { location }, navigator },
+  );
+  capturePostHogPageview(location.pathname);
+  capturePostHogProductEvent("plan_activated", { plan_slug: "couch-to-5k", start_date: "2026-09-15", email: "runner@example.com" });
+  assert.deepEqual(sent.map((event) => event.event), ["$pageview", "plan_activated"]);
+  assert.deepEqual(JSON.parse(JSON.stringify(sent[1].properties)), {
+    token: "project-token",
+    distinct_id: "anonymous-id",
+    $process_person_profile: false,
+    $current_url: "https://anystride.com/plans/couch-to-5k",
+    $pathname: "/plans/couch-to-5k",
+    plan_slug: "couch-to-5k",
+  });
+  assert.equal(config.autocapture, false);
+  assert.equal(config.capture_pageview, false);
+  assert.equal(config.disable_session_recording, true);
+  assert.equal(config.disable_persistence, true);
+  location.pathname = "/account/workspaces/private";
+  capturePostHogPageview(location.pathname);
+  capturePostHogProductEvent("plan_activated", { plan_slug: "couch-to-5k" });
+  assert.equal(sent.length, 2);
+  assert.equal(config.before_send({ uuid: "event-id", event: "$pageview", properties: { token: "project-token" } }), null);
+  location.pathname = "/plans/couch-to-5k";
+  navigator.doNotTrack = "1";
+  capturePostHogPageview(location.pathname);
+  assert.equal(sent.length, 2);
+  delete navigator.doNotTrack;
+  navigator.globalPrivacyControl = true;
+  capturePostHogPageview(location.pathname);
+  assert.equal(sent.length, 2);
+  delete navigator.globalPrivacyControl;
+  location.hostname = "anystride-preview.vercel.app";
+  capturePostHogPageview(location.pathname);
+  assert.equal(sent.length, 2);
+});
+
 test("IndexNow accepts only explicit canonical batches and deduplicates", () => {
   const { changedPagePaths } = load("src/lib/indexnow.ts");
   const allowed = ["/", "/guides/fueling-for-long-runs"];

@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated September 12, 2026
+        Last updated September 15, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -35,7 +35,8 @@ export default function PrivacyPage() {
           <p className="mt-2 text-muted-foreground">
             We use Google Analytics 4, Vercel Analytics, and Vercel Speed
             Insights to understand which pages are useful and how fast they
-            load. These services collect standard usage data such as pages
+            load. When configured, we also use PostHog for public pageviews
+            and product events. These services collect standard usage data such as pages
             visited, approximate location derived from IP address, device type,
             and browser. We do not use this data to identify individual
             visitors, and we do not sell it or share it for advertising.
@@ -46,9 +47,12 @@ export default function PrivacyPage() {
             and following race-source or related-plan links. These product events
             include public content identifiers, not your start date, workout notes,
             mileage, race times or answers to the plan finder. These additional
-            events are disabled when your browser sends Do Not Track or Global
-            Privacy Control; this does not describe the behaviour of every
-            third-party analytics service above.
+            events and PostHog pageviews are disabled when your browser sends
+            Do Not Track or Global Privacy Control; this does not describe the
+            behaviour of every third-party analytics service above. PostHog
+            receives public page paths and the product events listed here,
+            without query strings, form entries, training progress or session
+            recordings. It does not store analytics cookies or browser data.
           </p>
         </section>
 

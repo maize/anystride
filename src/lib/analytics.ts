@@ -2,6 +2,7 @@
 
 import { sendGAEvent } from "@next/third-parties/google";
 import { PRODUCT_EVENTS, productEventParameters, type ProductEvent } from "./product-events";
+import { capturePostHogProductEvent } from "./posthog";
 
 export function trackProductEvent(event: ProductEvent, parameters: Record<string, unknown> = {}) {
   if (typeof window === "undefined" || process.env.NODE_ENV !== "production") return;
@@ -14,4 +15,5 @@ export function trackProductEvent(event: ProductEvent, parameters: Record<string
   } catch {
     // Analytics is best-effort.
   }
+  capturePostHogProductEvent(event, parameters);
 }
