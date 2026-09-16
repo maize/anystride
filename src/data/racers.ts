@@ -19,12 +19,13 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-09-16";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
   Denmark: "🇩🇰",
+  France: "🇫🇷",
   Ethiopia: "🇪🇹",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
@@ -181,6 +182,7 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile", "5000m"],
     prs: [{ event: "1500m", time: "3:27.65" }],
     honors: [
+      "WAUC 5000m silver (Budapest 2026, 13:00.05)",
       "Olympic 1500m champion (Paris 2024), Olympic record holder (3:27.65)",
       "World 5000m champion (Tokyo 2025)",
     ],
@@ -197,6 +199,7 @@ export const RACERS: Racer[] = [
       { event: "5000m", time: "12:48.45" },
     ],
     honors: [
+      "WAUC 5000m champion (Budapest 2026, 12:59.24)",
       "Olympic 5000m champion (Paris 2024)",
       "Olympic 1500m champion (Tokyo 2020)",
       "Multiple World Championship titles (1500m, 5000m)",
@@ -211,6 +214,8 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
+      "Brussels Diamond League 1500m champion (2026, 3:30.14)",
+      "WAUC 1500m silver (Budapest 2026, 3:29.68)",
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
@@ -254,6 +259,7 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "3:42.66" }],
     honors: [
+      "WAUC 1500m champion (Budapest 2026, 3:29.35)",
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
@@ -510,6 +516,70 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
+  },
+  {
+    slug: "hobbs-kessler",
+    name: "Hobbs Kessler",
+    gender: "M",
+    country: "United States",
+    born: "2003-03-15",
+    events: ["1500m", "Mile", "800m"],
+    prs: [],
+    honors: [
+      "WAUC 1500m bronze (Budapest 2026, 3:30.73)",
+      "World Indoor 1500m bronze (2024)",
+      "Short track 2000m world record holder (2026)",
+    ],
+  },
+  {
+    slug: "freweyni-hailu",
+    name: "Freweyni Hailu",
+    gender: "F",
+    country: "Ethiopia",
+    hometown: "Werie Lehe, Tigray",
+    born: "2001-02-12",
+    events: ["1500m", "5000m"],
+    prs: [
+      { event: "1500m", time: "3:54.16" },
+      { event: "5000m", time: "14:18.94" },
+    ],
+    honors: [
+      "Brussels Diamond League 5000m champion (2026, 14:35.20)",
+      "World Indoor 1500m champion (2024)",
+      "World Indoor 3000m champion (2025)",
+    ],
+  },
+  {
+    slug: "likina-amebaw",
+    name: "Likina Amebaw",
+    gender: "F",
+    country: "Ethiopia",
+    born: "1997-11-30",
+    events: ["5000m"],
+    prs: [{ event: "5000m", time: "14:18.41" }],
+    honors: [
+      "WAUC 5000m champion (Budapest 2026, 14:30.36)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/likina-amebaw-14877871" },
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    hometown: "Wollongong, New South Wales",
+    born: "1996-10-22",
+    events: ["1500m", "5000m"],
+    prs: [
+      { event: "5000m", time: "14:32.39" },
+      { event: "1500m", time: "3:59.45" },
+    ],
+    honors: [
+      "WAUC 5000m silver (Budapest 2026, 14:32.39 Australian record)",
+      "World 2000m record holder",
+      "World Indoor 1500m silver (2026)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/australia/jessica-hull-14464506" },
   },
   {
     slug: "beatrice-chebet",

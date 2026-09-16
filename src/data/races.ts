@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-09-11";
+export const RACES_AS_OF = "2026-09-16";
 
 export const RACES: Race[] = [
   {
@@ -313,10 +313,20 @@ export const RACES: Race[] = [
     coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
+      checkedAt: "2026-09-16",
       sourceName: "World Athletics results",
       sourceUrl: "https://worldathletics.org/competitions/diamond-league/calendar-results/7214029/result",
     },
+    men: [
+      { racer: "cameron-myers", place: 1, time: "3:30.14" },
+      { name: "Phanuel Koech", country: "Kenya", place: 2, time: "3:30.18" },
+      { racer: "ethan-strand", place: 3, time: "3:30.50" },
+    ],
+    women: [
+      { racer: "freweyni-hailu", place: 1, time: "14:35.20" },
+      { racer: "likina-amebaw", place: 2, time: "14:36.31" },
+      { name: "Senayet Getachew", country: "Ethiopia", place: 3, time: "14:37.09" },
+    ],
   },
   {
     slug: "world-athletics-ultimate-championship-2026",
@@ -329,18 +339,24 @@ export const RACES: Race[] = [
     city: "Budapest",
     country: "Hungary",
     distance: "Track",
-    why: "The inaugural World Athletics Ultimate Championship brings 381 athletes from 65 federations to Budapest for 28 disciplines across three evenings. The distance programme includes straight finals at 1500m and 5000m.",
+    why: "The inaugural World Athletics Ultimate Championship lit up Budapest across three evenings: Josh Kerr backed up his London world mile record with 1500m gold in 3:29.35, Cameron Myers took silver in 3:29.68, and Jakob Ingebrigtsen dominated the 5000m in 12:59.24. Likina Amebaw claimed Ethiopia's women's 5000m title in 14:30.36, with Australia's Jessica Hull taking silver.",
     watchUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026",
-    coverage: "field",
+    resultsUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
-      sourceName: "World Athletics final entry list",
-      sourceUrl: "https://worldathletics.org/news/press-releases/final-entry-lists-world-athletics-ultimate-championship-budapest-26",
+      checkedAt: "2026-09-16",
+      sourceName: "World Athletics results",
+      sourceUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026",
     },
     men: [
-      { racer: "cole-hocker" },
-      { racer: "jakob-ingebrigtsen" },
+      { racer: "josh-kerr", place: 1, time: "3:29.35" },
+      { racer: "cameron-myers", place: 2, time: "3:29.68" },
+      { racer: "hobbs-kessler", place: 3, time: "3:30.73" },
+    ],
+    women: [
+      { racer: "likina-amebaw", place: 1, time: "14:30.36" },
+      { racer: "jessica-hull", place: 2, time: "14:32.39" },
     ],
   },
   {
@@ -356,13 +372,21 @@ export const RACES: Race[] = [
     distance: "Mile · 5K · Half Marathon",
     why: "Copenhagen hosts world title races in the mile and 5K on Saturday, September 19, followed by the half marathon on Sunday, September 20. The first elite race starts at 10:10 local time on Saturday.",
     watchUrl: "https://worldathletics.org/en/competitions/world-athletics-road-running-championships/copenhagen26",
-    coverage: "schedule",
+    coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
-      sourceName: "World Athletics event FAQ",
-      sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/faq",
+      checkedAt: "2026-09-16",
+      sourceName: "World Athletics final entry list",
+      sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/news/press-releases/final-entry-lists-world-road-running-championships-copenhagen-26",
     },
+    men: [
+      { racer: "yared-nuguse" },
+      { racer: "jakob-ingebrigtsen" },
+      { name: "Jimmy Gressier", country: "France" },
+    ],
+    women: [
+      { name: "Agnes Ngetich", country: "Kenya" },
+    ],
   },
   {
     slug: "berlin-marathon-2026",
