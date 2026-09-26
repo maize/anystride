@@ -1,4 +1,5 @@
 import { JWT, OAuth2Client } from "google-auth-library";
+import { PRODUCT_EVENTS } from "./product-events";
 
 /**
  * Google Analytics 4 Data API access for the weekly review.
@@ -114,13 +115,14 @@ export interface WeeklyStats {
   leads: number;
   pages: Record<string, string | number>[];
   landingPages: Record<string, string | number>[];
+  productEvents: Record<string, string | number>[];
 }
 
 export async function fetchWeekly(days = 7): Promise<WeeklyStats> {
   const token = await getAccessToken();
-  const dateRanges = [{ startDate: `${days}daysAgo`, endDate: "today" }];
+  const dateRanges = [{ startDate: `${days}daysAgo`, endDate: "yesterday" }];
 
-  const [byPage, totals, leads, landing] = await Promise.all([
+  const [byPage, totals, leads, landing, events] = await Promise.all([
     runReport(token, {
       dateRanges,
       dimensions: [{ name: "pagePath" }],
@@ -160,6 +162,14 @@ export async function fetchWeekly(days = 7): Promise<WeeklyStats> {
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
       limit: 20,
     }),
+    runReport(token, {
+      dateRanges,
+      dimensions: [{ name: "eventName" }],
+      metrics: [{ name: "eventCount" }, { name: "totalUsers" }],
+      dimensionFilter: {
+        filter: { fieldName: "eventName", inListFilter: { values: [...PRODUCT_EVENTS] } },
+      },
+    }),
   ]);
 
   return {
@@ -169,5 +179,8 @@ export async function fetchWeekly(days = 7): Promise<WeeklyStats> {
     leads: Number(toRows(leads)[0]?.eventCount ?? 0),
     pages: toRows(byPage),
     landingPages: toRows(landing),
+    productEvents: PRODUCT_EVENTS.map((eventName) =>
+      toRows(events).find((row) => row.eventName === eventName) ?? { eventName, eventCount: 0, totalUsers: 0 },
+    ),
   };
 }

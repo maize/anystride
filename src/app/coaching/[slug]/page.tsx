@@ -17,7 +17,10 @@ export async function generateMetadata({
   const coach = getCoachBySlug(slug);
   if (!coach) return { title: "Coach not found" };
   return {
-    title: `${coach.name} — running coach in ${coach.location}`,
+    title:
+      coach.location === "Global"
+        ? `${coach.name} — global online running coach`
+        : `${coach.name} — running coach in ${coach.location}`,
     description: coach.blurb,
     alternates: { canonical: `/coaching/${coach.slug}` },
   };
@@ -29,6 +32,10 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
   if (!coach) notFound();
 
   const url = `https://anystride.com/coaching/${coach.slug}`;
+  const email = coach.link.startsWith("mailto:")
+    ? coach.link.slice("mailto:".length).split("?")[0]
+    : undefined;
+  const displayName = coach.name.split(" —")[0];
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
@@ -38,8 +45,15 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
           "@type": "Person",
           name: coach.name,
           jobTitle: "Running coach",
-          url: coach.link,
-          address: { "@type": "PostalAddress", addressLocality: coach.location },
+          ...(email ? { email } : { url: coach.link }),
+          ...(coach.location === "Global"
+            ? {}
+            : {
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: coach.location,
+                },
+              }),
           mainEntityOfPage: url,
         }}
       />
@@ -120,15 +134,17 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
       <div className="mt-8 rounded-xl border border-border p-5">
         <a
           href={coach.link}
-          target="_blank"
-          rel="nofollow noopener noreferrer"
+          target={email ? undefined : "_blank"}
+          rel={email ? undefined : "nofollow noopener noreferrer"}
           className="inline-flex rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90"
         >
-          Visit {coach.name.split(" —")[0]}&apos;s site →
+          {email ? "Book via email →" : `Visit ${displayName}’s site →`}
         </a>
         <p className="mt-3 text-xs text-muted-foreground">
-          You&apos;ll connect with the coach directly on their own site. anystride
-          doesn&apos;t take a cut or handle payment.
+          {email
+            ? `You’ll contact ${displayName} directly by email. `
+            : "You’ll connect with the coach directly on their own site. "}
+          anystride doesn&apos;t take a cut or handle payment.
         </p>
       </div>
 
