@@ -348,7 +348,7 @@ export const RACES: Race[] = [
     men: [
       { racer: "josh-kerr", place: 1, time: "3:29.35" },
       { racer: "cameron-myers", place: 2, time: "3:29.68" },
-      { name: "Hobbs Kessler", country: "United States", place: 3, time: "3:30.73" },
+      { racer: "hobbs-kessler", place: 3, time: "3:30.73" },
     ],
     women: [
       { name: "Klaudia Kazimierska", country: "Poland", place: 1, time: "3:57.55" },
