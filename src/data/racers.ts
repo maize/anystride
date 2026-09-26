@@ -19,21 +19,25 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-08-12";
+export const RACERS_AS_OF = "2026-09-23";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
   Denmark: "🇩🇰",
+  Eritrea: "🇪🇷",
   Ethiopia: "🇪🇹",
+  France: "🇫🇷",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
-  Italy: "🇮🇹",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
   Norway: "🇳🇴",
+  Poland: "🇵🇱",
+  Rwanda: "🇷🇼",
+  Sweden: "🇸🇪",
   Tanzania: "🇹🇿",
   Uganda: "🇺🇬",
   "United States": "🇺🇸",
@@ -101,6 +105,26 @@ export const RACERS: Racer[] = [
       "Former marathon world record holder",
       "First to run a marathon under two hours (INEOS 1:59 Challenge, 2019, unofficial)",
     ],
+  },
+  {
+    slug: "kenenisa-bekele",
+    name: "Kenenisa Bekele",
+    gender: "M",
+    country: "Ethiopia",
+    born: "1982-09-13",
+    events: ["Marathon", "5000m", "10,000m", "Cross country"],
+    prs: [
+      { event: "Marathon", time: "2:01:41" },
+      { event: "5000m", time: "12:37.35" },
+      { event: "10,000m", time: "26:17.53" },
+    ],
+    honors: [
+      "Berlin Marathon champion (2016, 2019)",
+      "5000m world record holder (12:37.35, 2004) & 10,000m world record holder (26:17.53, 2005)",
+      "Three-time Olympic champion (5000m & 10,000m, Athens 2004; 10,000m, Beijing 2008)",
+      "Five-time World Cross Country champion (long course)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/kenenisa-bekele-14208194" },
   },
   {
     slug: "tadese-takele",
@@ -198,6 +222,7 @@ export const RACERS: Racer[] = [
       { event: "5000m", time: "12:48.45" },
     ],
     honors: [
+      "World Ultimate Championship 5000m gold (Budapest 2026, 12:59.24)",
       "Olympic 5000m champion (Paris 2024)",
       "Olympic 1500m champion (Tokyo 2020)",
       "Multiple World Championship titles (1500m, 5000m)",
@@ -212,6 +237,7 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
+      "World Ultimate Championship 1500m silver (Budapest 2026, 3:29.68)",
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
@@ -240,7 +266,7 @@ export const RACERS: Racer[] = [
   },
   {
     slug: "jake-hayward",
-    name: "Jake Hayward",
+    name: "Jake Heyward",
     gender: "M",
     country: "Great Britain",
     events: ["Mile", "1500m"],
@@ -253,9 +279,13 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Great Britain",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "3:42.66" }],
+    prs: [
+      { event: "Mile", time: "3:42.66" },
+      { event: "1500m", time: "3:29.35" },
+    ],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "World Ultimate Championship 1500m gold (Budapest 2026, 3:29.35)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -283,23 +313,6 @@ export const RACERS: Racer[] = [
     ],
   },
   {
-    slug: "timothy-cheruiyot",
-    name: "Timothy Cheruiyot",
-    gender: "M",
-    country: "Kenya",
-    born: "1995-11-20",
-    events: ["1500m", "Mile"],
-    prs: [
-      { event: "1500m", time: "3:28.28" },
-      { event: "Mile", time: "3:47.71" },
-    ],
-    honors: [
-      "World 1500m champion (Doha 2019)",
-      "Olympic 1500m silver medalist (Tokyo 2020)",
-      "Commonwealth Games mile bronze (Glasgow 2026, 3:55.41)",
-    ],
-  },
-  {
     slug: "gabriel-geay",
     name: "Gabriel Geay",
     gender: "M",
@@ -309,70 +322,6 @@ export const RACERS: Racer[] = [
     honors: ["BMW Berlin Marathon 2026 elite entry"],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
-  {
-    slug: "nadia-battocletti",
-    name: "Nadia Battocletti",
-    gender: "F",
-    country: "Italy",
-    born: "2000-04-12",
-    events: ["3000m", "5000m", "10,000m", "Cross country"],
-    prs: [
-      { event: "5000m", time: "14:23.15" },
-      { event: "10,000m", time: "30:38.23" },
-    ],
-    honors: [
-      "European Athletics Championships 5000m gold (Rome 2024, Birmingham 2026)",
-      "European Athletics Championships 10,000m gold (Rome 2024)",
-      "Paris 2024 Olympic 10,000m silver",
-      "World Athletics Championships 10,000m silver (Tokyo 2025)",
-      "World Indoor 3000m champion (2026)",
-    ],
-  },
-  {
-    slug: "abbey-caldwell",
-    name: "Abbey Caldwell",
-    gender: "F",
-    country: "Australia",
-    born: "2001-07-03",
-    events: ["800m", "1500m", "Mile"],
-    prs: [
-      { event: "1500m", time: "3:56.12" },
-      { event: "Mile", time: "4:20.51" },
-    ],
-    honors: [
-      "Commonwealth Games women's mile gold (Glasgow 2026, 4:39.31)",
-      "Commonwealth Games 1500m bronze (Birmingham 2022)",
-    ],
-  },
-  {
-    slug: "jessica-hull",
-    name: "Jessica Hull",
-    gender: "F",
-    country: "Australia",
-    born: "1996-10-22",
-    events: ["1500m", "Mile"],
-    prs: [
-      { event: "1500m", time: "3:55.16" },
-      { event: "Mile", time: "4:15.34" },
-    ],
-    honors: [
-      "Olympic 1500m silver medalist (Paris 2024)",
-      "World Athletics Championships 1500m bronze (Tokyo 2025)",
-      "Commonwealth Games women's mile silver (Glasgow 2026, 4:39.86)",
-    ],
-  },
-  {
-    slug: "claudia-hollingsworth",
-    name: "Claudia Hollingsworth",
-    gender: "F",
-    country: "Australia",
-    born: "2005-04-12",
-    events: ["800m", "1500m", "Mile"],
-    prs: [],
-    honors: [
-      "Commonwealth Games women's mile bronze (Glasgow 2026, 4:40.20)",
-    ],
-  },
   {
     slug: "tigst-assefa",
     name: "Tigst Assefa",
@@ -467,7 +416,7 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Kenya",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:19:37" }],
+    prs: [{ event: "Marathon", time: "2:19:35" }],
     honors: ["Boston Marathon runner-up (2026)"],
   },
   {
@@ -558,9 +507,10 @@ export const RACERS: Racer[] = [
     country: "Kenya",
     born: "1993-10-22",
     events: ["Marathon", "Half Marathon"],
-    prs: [],
+    prs: [{ event: "Marathon", time: "2:18:31" }],
     honors: [
       "Olympic marathon champion (Tokyo 2020)",
+      "Sydney Marathon champion (2026)",
     ],
   },
   {
@@ -594,6 +544,20 @@ export const RACERS: Racer[] = [
     honors: ["Seoul Marathon champion (2026)"],
   },
   {
+    slug: "agnes-ngetich",
+    name: "Agnes Jebet Ngetich",
+    gender: "F",
+    country: "Kenya",
+    events: ["Half Marathon"],
+    prs: [
+      { event: "Half Marathon", time: "1:05:15" },
+    ],
+    honors: [
+      "Women-only half marathon world record — 1:05:15 (Copenhagen 2026)",
+      "World Road Running Championships half marathon champion (2026)",
+    ],
+  },
+  {
     slug: "beatrice-chebet",
     name: "Beatrice Chebet",
     gender: "F",
@@ -610,6 +574,166 @@ export const RACERS: Racer[] = [
       "Paris 2024 Olympic double gold (5000m, 10,000m)",
       "2025 World Athletics Championships double gold (5000m, 10,000m)",
       "Three-time World Cross Country champion",
+    ],
+  },
+  {
+    slug: "emmanuel-wanyonyi",
+    name: "Emmanuel Wanyonyi",
+    gender: "M",
+    country: "Kenya",
+    born: "2004-08-01",
+    events: ["800m", "1000m"],
+    prs: [{ event: "1000m", time: "2:11.83" }],
+    honors: [
+      "1000m world record — 2:11.83 (Monaco 2026), breaking Noah Ngeny's 27-year-old mark",
+      "Olympic 800m champion (Paris 2024)",
+      "World 800m champion (2025)",
+    ],
+  },
+  {
+    slug: "azeddine-habz",
+    name: "Azeddine Habz",
+    gender: "M",
+    country: "France",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:29.80" }],
+    honors: [
+      "Paris Diamond League 1500m runner-up (2026, 3:29.80 PB)",
+    ],
+  },
+  {
+    slug: "jake-wightman",
+    name: "Jake Wightman",
+    gender: "M",
+    country: "Great Britain",
+    born: "1994-07-11",
+    events: ["1500m", "Mile"],
+    prs: [{ event: "1500m", time: "3:29.23" }],
+    honors: [
+      "2022 World Athletics Championships 1500m champion (Eugene)",
+      "Paris Diamond League 1500m 3rd place (2026, 3:29.95)",
+      "Monaco Diamond League 1000m runner-up (2026, 2:12.77)",
+    ],
+  },
+  {
+    slug: "grant-fisher",
+    name: "Grant Fisher",
+    gender: "M",
+    country: "United States",
+    born: "1997-04-22",
+    events: ["5000m", "10,000m"],
+    prs: [{ event: "5000m", time: "12:44.09" }],
+    honors: [
+      "Indoor 5000m world record — 12:44.09 (2025, US all-conditions record)",
+      "2024 Paris Olympics 5000m bronze medalist",
+      "2024 Paris Olympics 10,000m bronze medalist",
+      "Paris Diamond League 5000m champion (2026, first DL victory)",
+    ],
+  },
+  {
+    slug: "amos-kipruto",
+    name: "Amos Kipruto",
+    gender: "M",
+    country: "Kenya",
+    born: "1992-09-16",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:01:39" }],
+    honors: [
+      "London Marathon champion (2022)",
+      "2019 World Athletics Championships marathon bronze medalist",
+    ],
+  },
+  {
+    slug: "alex-masai",
+    name: "Alex Masai",
+    gender: "M",
+    country: "Kenya",
+    born: "1997-02-05",
+    events: ["Marathon", "Half Marathon", "5000m"],
+    prs: [{ event: "Marathon", time: "2:04:37" }],
+    honors: [
+      "2025 Chicago Marathon 3rd place",
+    ],
+  },
+  {
+    slug: "timothy-cheruiyot",
+    name: "Timothy Cheruiyot",
+    gender: "M",
+    country: "Kenya",
+    born: "1995-11-20",
+    events: ["1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:28.28" },
+      { event: "Mile", time: "3:47.71" },
+    ],
+    honors: [
+      "World 1500m champion (Doha 2019)",
+      "Olympic 1500m silver medalist (Tokyo 2020)",
+      "Commonwealth Games mile bronze (Glasgow 2026, 3:55.41)",
+    ],
+  },
+  {
+    slug: "abbey-caldwell",
+    name: "Abbey Caldwell",
+    gender: "F",
+    country: "Australia",
+    born: "2001-07-03",
+    events: ["800m", "1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:56.12" },
+      { event: "Mile", time: "4:20.51" },
+    ],
+    honors: [
+      "Commonwealth Games women's mile gold (Glasgow 2026, 4:39.31)",
+      "Commonwealth Games 1500m bronze (Birmingham 2022)",
+    ],
+  },
+  {
+    slug: "jessica-hull",
+    name: "Jessica Hull",
+    gender: "F",
+    country: "Australia",
+    born: "1996-10-22",
+    events: ["1500m", "Mile"],
+    prs: [
+      { event: "1500m", time: "3:55.16" },
+      { event: "Mile", time: "4:15.34" },
+    ],
+    honors: [
+      "Olympic 1500m silver medalist (Paris 2024)",
+      "World Athletics Championships 1500m bronze (Tokyo 2025)",
+      "Commonwealth Games women's mile silver (Glasgow 2026, 4:39.86)",
+    ],
+  },
+  {
+    slug: "claudia-hollingsworth",
+    name: "Claudia Hollingsworth",
+    gender: "F",
+    country: "Australia",
+    born: "2005-04-12",
+    events: ["800m", "1500m", "Mile"],
+    prs: [],
+    honors: [
+      "Commonwealth Games women's mile bronze (Glasgow 2026, 4:40.20)",
+    ],
+  },
+  {
+    slug: "nadia-battocletti",
+    name: "Nadia Battocletti",
+    gender: "F",
+    country: "Italy",
+    born: "2000-04-12",
+    events: ["3000m", "5000m", "10,000m", "Cross country"],
+    prs: [
+      { event: "5000m", time: "14:23.15" },
+      { event: "10,000m", time: "30:38.23" },
+    ],
+    honors: [
+      "European Athletics Championships 5000m gold (Rome 2024, Birmingham 2026)",
+      "European Athletics Championships 10,000m gold (Rome 2024)",
+      "Paris 2024 Olympic 10,000m silver",
+      "World Athletics Championships 10,000m silver (Tokyo 2025)",
+      "World Indoor 3000m champion (2026)",
     ],
   },
 ];
