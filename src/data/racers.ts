@@ -660,13 +660,12 @@ export const RACERS: Racer[] = [
     name: "Timothy Cheruiyot",
     gender: "M",
     country: "Kenya",
-    born: "1995-11-20",
+    born: "1999-01-24",
     events: ["1500m", "Mile"],
     prs: [{ event: "1500m", time: "3:28.77" }],
     honors: [
-      "World 1500m champion (Doha 2019)",
-      "Diamond League 1500m champion (2018, 2019)",
-      "Commonwealth Games mile bronze (Glasgow 2026)",
+      "World Athletics Championships 1500m champion (2019)",
+      "Commonwealth Games mile bronze medalist (2026, 3:55.41)",
     ],
   },
   {
@@ -675,9 +674,9 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Australia",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "4:39.31" }],
+    prs: [],
     honors: [
-      "Commonwealth Games women’s mile gold (Glasgow 2026, 4:39.31 — inaugural champion)",
+      "Commonwealth Games mile champion (2026, 4:39.31 — first women’s Commonwealth Mile gold medallist)",
     ],
   },
   {
@@ -685,11 +684,11 @@ export const RACERS: Racer[] = [
     name: "Jessica Hull",
     gender: "F",
     country: "Australia",
-    born: "1996-09-16",
+    born: "1996-02-15",
     events: ["1500m", "Mile"],
     prs: [],
     honors: [
-      "Commonwealth Games women’s mile silver (Glasgow 2026)",
+      "Commonwealth Games mile silver medalist (2026, 4:39.86)",
     ],
   },
   {
@@ -698,9 +697,9 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Australia",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "4:40.20" }],
+    prs: [],
     honors: [
-      "Commonwealth Games women’s mile bronze (Glasgow 2026)",
+      "Commonwealth Games mile bronze medalist (2026, 4:40.20)",
     ],
   },
   {
@@ -745,9 +744,9 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Great Britain",
     events: ["1500m", "Mile"],
-    prs: [],
+    prs: [{ event: "1500m", time: "4:07.78" }],
     honors: [
-      "European Athletics Championships women’s 1500m gold (Birmingham 2026)",
+      "European Athletics Championships 1500m champion (2026, 4:07.78)",
     ],
   },
   {
