@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-09-11";
+export const RACES_AS_OF = "2026-09-23";
 
 export const RACES: Race[] = [
   {
@@ -329,18 +329,25 @@ export const RACES: Race[] = [
     city: "Budapest",
     country: "Hungary",
     distance: "Track",
-    why: "The inaugural World Athletics Ultimate Championship brings 381 athletes from 65 federations to Budapest for 28 disciplines across three evenings. The distance programme includes straight finals at 1500m and 5000m.",
+    why: "Josh Kerr followed his mile world record with World Ultimate Championship 1500m gold in 3:29.35 ahead of Cameron Myers (3:29.68) and Hobbs Kessler (3:30.73). Jakob Ingebrigtsen took the 5000m in 12:59.24 with Cole Hocker second in 13:00.05. Poland's Klaudia Kazimierska won the women's 1500m in 3:57.55, with Nikki Hiltz third in 3:58.16; Likina Amebaw led an Ethiopian sweep of the women's 5000m in 14:30.36.",
     watchUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026",
-    coverage: "field",
+    resultsUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026/results/men/1500-metres/finals/results",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
-      sourceName: "World Athletics final entry list",
-      sourceUrl: "https://worldathletics.org/news/press-releases/final-entry-lists-world-athletics-ultimate-championship-budapest-26",
+      checkedAt: "2026-09-23",
+      sourceName: "World Athletics results",
+      sourceUrl: "https://worldathletics.org/competitions/world-athletics-ultimate-championship/2026/results/men/1500-metres/finals/results",
     },
     men: [
-      { racer: "cole-hocker" },
-      { racer: "jakob-ingebrigtsen" },
+      { racer: "josh-kerr", place: 1, time: "3:29.35" },
+      { racer: "cameron-myers", place: 2, time: "3:29.68" },
+      { name: "Hobbs Kessler", country: "United States", place: 3, time: "3:30.73" },
+    ],
+    women: [
+      { name: "Klaudia Kazimierska", country: "Poland", place: 1, time: "3:57.55" },
+      { name: "Georgia Hunter Bell", country: "Great Britain", place: 2, time: "3:57.72" },
+      { racer: "nikki-hiltz", place: 3, time: "3:58.16" },
     ],
   },
   {
@@ -354,15 +361,26 @@ export const RACES: Race[] = [
     city: "Copenhagen",
     country: "Denmark",
     distance: "Mile · 5K · Half Marathon",
-    why: "Copenhagen hosts world title races in the mile and 5K on Saturday, September 19, followed by the half marathon on Sunday, September 20. The first elite race starts at 10:10 local time on Saturday.",
+    why: "Agnes Jebet Ngetich set a women-only half marathon world record of 1:05:15 to win Sunday's race by 50 seconds. Sweden's Andreas Almgren claimed the men's half marathon in a European record 58:06. Eritrea's Dawit Seare upset Jakob Ingebrigtsen in the men's 5K (12:56 to 12:59); Germany's Robert Farken won the road mile in 3:51.80.",
     watchUrl: "https://worldathletics.org/en/competitions/world-athletics-road-running-championships/copenhagen26",
-    coverage: "schedule",
+    resultsUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/results",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
-      sourceName: "World Athletics event FAQ",
-      sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/faq",
+      checkedAt: "2026-09-23",
+      sourceName: "World Athletics results",
+      sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/results",
     },
+    men: [
+      { name: "Andreas Almgren", country: "Sweden", place: 1, time: "58:06" },
+      { name: "Nicholas Kipkorir", country: "Kenya", place: 2 },
+      { name: "Joshua Cheptegei", country: "Uganda", place: 3, time: "58:26" },
+    ],
+    women: [
+      { racer: "agnes-ngetich", place: 1, time: "1:05:15" },
+      { name: "Veronica Loleo", country: "Kenya", place: 2, time: "1:06:05" },
+      { name: "Florence Niyonkuru", country: "Rwanda", place: 3, time: "1:06:08" },
+    ],
   },
   {
     slug: "berlin-marathon-2026",
@@ -376,15 +394,21 @@ export const RACES: Race[] = [
     country: "Germany",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "Berlin's fast course hosts the 52nd edition on September 27. Tigst Assefa and Rosemary Wanjiru headline the women's field; defending champion Sabastian Sawe withdrew with an injury on August 27.",
+    why: "Berlin's fast course hosts the 52nd edition on September 27. Two-time champion Kenenisa Bekele headlines the men's field; seven starters have sub-2:05 PRs. Tigst Assefa and Rosemary Wanjiru lead the women's field.",
     watchUrl: "https://www.bmw-berlin-marathon.com/en/",
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
-      sourceName: "BMW Berlin Marathon",
-      sourceUrl: "https://www.bmw-berlin-marathon.com/en/",
+      checkedAt: "2026-09-23",
+      sourceName: "BMW Berlin Marathon elite fields",
+      sourceUrl: "https://www.bmw-berlin-marathon.com/en/news-media/news/detail/top-stars-complete-the-bmw-berlin-marathon-field-for-thrilling-races",
     },
+    men: [
+      { racer: "kenenisa-bekele" },
+      { racer: "gabriel-geay" },
+      { name: "Guye Adola", country: "Ethiopia" },
+      { name: "Getaneh Molla", country: "Ethiopia" },
+    ],
     women: [
       { racer: "tigst-assefa" },
       { racer: "rosemary-wanjiru" },
@@ -467,5 +491,27 @@ export const RACES: Race[] = [
       { racer: "sifan-hassan" },
       { name: "Sheila Chepkirui", country: "Kenya" },
     ],
+  },
+  {
+    slug: "tokyo-marathon-2027",
+    name: "Tokyo Marathon 2027",
+    date: "2027-03-07",
+    startsAt: "2027-03-07T00:00:00+09:00",
+    endsAt: "2027-03-07T23:59:59+09:00",
+    timeZone: "Asia/Tokyo",
+    schedulePrecision: "date",
+    city: "Tokyo",
+    country: "Japan",
+    distance: "Marathon",
+    series: "World Marathon Majors",
+    why: "Asia's only Abbott World Marathon Major returns to central Tokyo in early March. The flat, fast course through the Imperial Palace gardens has produced multiple course records and is consistently one of the deepest elite fields on the calendar.",
+    watchUrl: "https://www.marathon.tokyo/en/",
+    coverage: "schedule",
+    verification: {
+      state: "review-needed",
+      checkedAt: "2026-09-23",
+      sourceName: "Tokyo Marathon official site",
+      sourceUrl: "https://www.marathon.tokyo/en/",
+    },
   },
 ];

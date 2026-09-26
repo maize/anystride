@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
-import { ProductAnalytics } from "@/components/ProductAnalytics";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 import "./globals.css";
 
 // GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
@@ -141,11 +138,8 @@ export default function RootLayout({
         <SiteHeader />
         <main id="content" className="flex-1">{children}</main>
         <Footer />
-        <ProductAnalytics />
-        <Analytics />
-        <SpeedInsights />
+        <SiteAnalytics gaId={GA_ID} />
       </body>
-      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
