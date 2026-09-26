@@ -233,8 +233,14 @@ export const RACES: Race[] = [
     men: [
       { racer: "josh-kerr", place: 1, time: "3:54.12" },
       { racer: "cameron-myers", place: 2, time: "3:55.26" },
+      { racer: "timothy-cheruiyot", place: 3, time: "3:55.41" },
     ],
-  },
+  
+    women: [
+      { racer: "abbey-caldwell", place: 1, time: "4:39.31" },
+      { racer: "jessica-hull", place: 2, time: "4:39.86" },
+      { racer: "claudia-hollingsworth", place: 3, time: "4:40.20" },
+    ],},
   {
     slug: "european-athletics-championships-2026",
     name: "European Athletics Championships 2026",
