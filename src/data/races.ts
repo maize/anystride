@@ -291,14 +291,14 @@ export const RACES: Race[] = [
       sourceUrl: "https://worldathletics.org/competition/calendar-results/results/7235579",
     },
     men: [
-      { name: "Addisu Gobena", country: "Ethiopia", place: 1, time: "2:04:42" },
-      { name: "Chimdessa Debele", country: "Ethiopia", place: 2, time: "2:04:46" },
-      { name: "Tebello Ramakongoana", country: "Lesotho", place: 3, time: "2:04:57" },
+      { racer: "addisu-gobena", place: 1, time: "2:04:42" },
+      { racer: "chimdessa-debele", place: 2, time: "2:04:46" },
+      { racer: "tebello-ramakongoana", place: 3, time: "2:04:57" },
     ],
     women: [
       { racer: "peres-jepchirchir", place: 1, time: "2:18:31" },
-      { name: "Irine Cheptai", country: "Kenya", place: 2, time: "2:22:11" },
-      { name: "Shure Demise", country: "Ethiopia", place: 3, time: "2:22:33" },
+      { racer: "irene-cheptai", place: 2, time: "2:22:11" },
+      { racer: "shure-demise-ware", place: 3, time: "2:22:33" },
     ],
   },
   {
