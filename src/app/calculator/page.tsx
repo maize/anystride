@@ -11,7 +11,7 @@ export default function CalculatorPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
       <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">
-        Paces &amp; plan finder
+        Training paces
       </h1>
       <p className="mt-2 text-muted-foreground">
         Plug in a recent race result (or a goal time) and your current weekly

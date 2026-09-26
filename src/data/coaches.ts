@@ -381,7 +381,35 @@ export const COACHES: Coach[] = [
     verified: false,
   },
 
-  // ---- Online (US) ----
+  // ---- Online / global ----
+  {
+    slug: "jack-anstey",
+    name: "Jack Anstey",
+    city: "Online",
+    location: "Global",
+    format: "online",
+    focus: ["5k-10k", "half", "marathon", "performance"],
+    specialties: [
+      "800m–marathon",
+      "World Champion",
+      "Evidence-based training",
+      "Personalized online coaching",
+    ],
+    experience: "5 years",
+    blurb:
+      "World Champion and professional middle-distance runner offering individualized online coaching from 800m to the marathon.",
+    bio: [
+      "I’m an Australian professional middle-distance runner and World Champion with experience competing at the highest levels of the sport, alongside five years of coaching experience. I hold a degree in Kinesiology from Illinois State University, where I was also a First-Team All-American, and have experience coaching both competitive and recreational runners.",
+      "My approach is highly individualized, combining evidence-based training principles with the practical experience I’ve gained throughout my professional career. I enjoy working with runners across a wide range of abilities and goals, from athletes looking to improve their first 5K through to competitive runners pursuing significant performance breakthroughs.",
+      "I offer personalized online coaching with regular communication, training adjustments, race planning, and ongoing feedback. My goal is to help athletes train consistently, understand the purpose behind their training, and ultimately become better, more confident runners.",
+    ],
+    link: "mailto:jackanstey3@gmail.com",
+    source: {
+      name: "Coach-provided profile",
+      url: "mailto:jackanstey3@gmail.com",
+    },
+    verified: true,
+  },
   {
     slug: "running-joyfully",
     name: "Running Joyfully — Kaitlin Gregg Goodman",
