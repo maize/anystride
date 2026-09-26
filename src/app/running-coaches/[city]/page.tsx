@@ -48,12 +48,17 @@ export default async function CityCoachesPage({
           "@type": "CollectionPage",
           name: `Running coaches ${where}`,
           url,
-          about: coaches.map((c) => ({
-            "@type": "Person",
-            name: c.name,
-            jobTitle: "Running coach",
-            url: c.link,
-          })),
+          about: coaches.map((c) => {
+            const email = c.link.startsWith("mailto:")
+              ? c.link.slice("mailto:".length).split("?")[0]
+              : undefined;
+            return {
+              "@type": "Person",
+              name: c.name,
+              jobTitle: "Running coach",
+              ...(email ? { email } : { url: c.link }),
+            };
+          }),
         }}
       />
 
