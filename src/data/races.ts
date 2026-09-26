@@ -252,7 +252,7 @@ export const RACES: Race[] = [
     city: "Birmingham",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The first European Athletics Championships on British soil since London 2012 delivered distance drama in Birmingham: Jakob Ingebrigtsen returned from Achilles surgery to win the men's 5000m in 13:15.29, while Nadia Battocletti retained her European women's 5000m crown in 15:37.84.",
+    why: "Birmingham delivered a week of European excellence (10–16 August): Stefan Nillessen (NED) kicked to 1500m gold in 3:35.70; Georgia Hunter Bell gave Great Britain a rapturous home win in the women's 1500m; Jakob Ingebrigtsen reclaimed the 5000m title; Nadia Battocletti won her sixth European gold in the women's 5000m; and Amanal Petros set a championship record of 2:09:11 in the men's marathon, with Finland's Alisa Vainio dominant in the women's race.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
     resultsUrl: "https://worldathletics.org/competition/calendar-results/results/7192415",
     coverage: "results",
