@@ -926,4 +926,96 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "what-is-a-tempo-run",
+    title: "What Is a Tempo Run? The Workout Every Distance Runner Needs",
+    description:
+      "What a tempo run is, why running at threshold pace makes you faster, how to structure the workout, and how often to add it to your training week.",
+    targetQuery: "what is a tempo run / tempo run workout",
+    updated: "2026-09-21",
+    intro: [
+      "A tempo run is a sustained effort at a pace just below your limit — hard enough to push your fitness, controlled enough to finish strong. It is the single most valuable quality workout for runners training for any distance from 5K to the marathon.",
+      "The concept is simple; the execution trips people up because tempo pace is easy to get wrong in both directions. Here is what it is, why it works, and exactly how to run one.",
+    ],
+    sections: [
+      {
+        heading: "What is a tempo run?",
+        body: [
+          "A tempo run — also called a threshold run — is a continuous effort held at lactate threshold pace. That is the highest effort at which your body can still clear lactate from your muscles roughly as fast as it produces it. Go a little harder and lactate accumulates, fatigue accelerates, and you are forced to slow.",
+          "At tempo pace, the effort is what coaches call comfortably hard: you can speak a word or two, but holding a conversation is difficult. It should feel honest but not desperate — a pace you could sustain for about 40 to 60 minutes in a race, not a sprint and not a jog.",
+          "For most runners, tempo pace sits somewhere between 10K race pace and half-marathon race pace. The exact number depends on your current fitness. Use the anystride pace calculator at /calculator to find your threshold pace from a recent race time rather than guessing.",
+        ],
+      },
+      {
+        heading: "Why tempo runs make you faster",
+        body: [
+          "Training at lactate threshold raises the pace at which you can run before fatigue overtakes you. In practical terms: your easy runs get easier, your race pace becomes more sustainable, and the later miles of a long race feel less catastrophic.",
+          "This is what makes tempo runs the highest-return quality workout for distance runners. Interval sessions develop raw aerobic power (VO2max); easy running builds your aerobic base. Tempo runs sit between the two and connect them — they teach your body to sustain that base at genuinely fast speeds without blowing up.",
+        ],
+      },
+      {
+        heading: "Three types of tempo workout",
+        body: [
+          "There is more than one way to accumulate threshold training:",
+        ],
+        bullets: [
+          "Classic tempo run — 20 to 40 minutes of continuous running at threshold pace, bookended by 10-minute easy warmup and cooldown jogs. The gold-standard format for most runners.",
+          "Cruise intervals — 2 to 3 repetitions of 8 to 15 minutes at threshold pace with 60 to 90 seconds of easy jogging recovery between them. Useful when continuous tempo is hard to sustain or to spread volume across smaller blocks.",
+          "Marathon-pace tempo — longer and slightly slower, 45 to 90 minutes at marathon goal pace. Less intense than true threshold but builds the same metabolic efficiency relevant to longer racing. Pfitzinger 18/55 and Hansons Marathon Method both include this regularly.",
+        ],
+      },
+      {
+        heading: "How to structure a tempo run",
+        body: [
+          "The structure is consistent regardless of format:",
+        ],
+        bullets: [
+          "Warmup: 10 to 15 minutes of easy jogging, building gradually. Do not skip this — starting a threshold effort cold sets the wrong tone and raises injury risk.",
+          "Main effort: 20 to 40 minutes at threshold pace for a classic tempo, or your chosen interval structure.",
+          "Cooldown: 10 minutes of easy jogging. Resist the urge to stop immediately after the hard effort; a cooldown helps clear metabolic byproducts and keeps the legs from stiffening.",
+        ],
+      },
+      {
+        heading: "How often to include tempo runs",
+        body: [
+          "For most runners, one tempo session per week is the right amount. Two per week works in a structured build phase if all other sessions are genuinely easy, but stacking quality on quality is one of the most common ways to accumulate fatigue without realizing it. Intermediate and advanced plans from Higdon and Pfitzinger typically include one or two threshold sessions per week.",
+          "Schedule your tempo run after a full rest day or easy day — never the day after a long run. Your legs need to be fresh enough to actually hit the pace.",
+        ],
+      },
+      {
+        heading: "Finding your tempo pace",
+        body: [
+          "The most reliable method is from a recent race result. Enter a recent 5K, 10K, or half-marathon time into the anystride pace calculator and it returns your threshold pace directly. A rough manual shortcut: tempo pace is roughly 25 to 30 seconds per mile faster than your easy run pace, or about 20 to 30 seconds per mile slower than your 10K race pace.",
+          "Do not rely on feel alone. Effort can mislead you, especially in warm weather or after a harder training week. A pace anchor keeps the workout in the right zone and makes progress measurable over weeks.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What is a tempo run in simple terms?",
+        a: "A steady, sustained run at comfortably hard effort — the hardest pace you could hold for 40 to 60 minutes in a race. Faster than your easy runs, but not all-out. The full session with warmup and cooldown takes 40 to 65 minutes.",
+      },
+      {
+        q: "How fast should my tempo pace be?",
+        a: "For most runners, roughly between 10K race pace and half-marathon race pace — about 25 to 30 seconds per mile slower than your 10K time. Enter a recent race result into the anystride pace calculator for your exact number rather than estimating.",
+      },
+      {
+        q: "How long should a tempo run be?",
+        a: "The threshold effort portion should be 20 to 40 minutes. Beginners can start with 15 minutes of threshold running and still produce real adaptation; add time gradually as fitness builds.",
+      },
+      {
+        q: "How often should I do tempo workouts?",
+        a: "Once per week is standard for most runners. Two per week works in a structured build phase if all your other runs are genuinely easy. More than two is rarely beneficial and often leads to accumulated fatigue that undermines both the tempo sessions and the easy runs.",
+      },
+      {
+        q: "What is the difference between a tempo run and intervals?",
+        a: "Pace and duration. Interval workouts are shorter, faster repetitions at 5K effort or harder, with full recovery jogs between them. Tempo runs are longer sustained efforts at threshold pace — harder than an easy run, but not all-out. Both develop different energy systems, and most training plans include both.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-10k-intermediate",
+      "higdon-half-intermediate-1",
+      "pfitzinger-18-55",
+    ],
+  },
 ];
