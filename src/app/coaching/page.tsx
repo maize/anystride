@@ -80,7 +80,7 @@ export default async function CoachingPage({
             </label>
             <button type="submit" className="action-primary sm:col-span-3 lg:col-span-1">Find coaches <span aria-hidden="true">→</span></button>
           </form>
-          <p className="mt-6 text-xs leading-relaxed text-muted-foreground">Public listings, not yet verified by anystride. Each profile links to the coach&apos;s own website.</p>
+          <p className="mt-6 text-xs leading-relaxed text-muted-foreground">Profiles connect to each coach&apos;s website or preferred booking method. Unverified listings are labeled on their profile.</p>
         </aside>
 
         <section id="coaches" aria-labelledby="coach-results-heading" className="scroll-mt-8 lg:col-span-3">

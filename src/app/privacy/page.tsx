@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated September 15, 2026
+        Last updated September 26, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -76,8 +76,9 @@ export default function PrivacyPage() {
             submit — name, email, location, website, and coaching background —
             in our database. We use them to review your application, contact
             you about it, and, if approved, publish the listing details you
-            provided. Your email address is never published. To have your
-            application or listing removed, email us and we will delete it.
+            provided. Your email address is never published unless you explicitly
+            provide it as your public booking contact. To have your application or
+            listing removed, email us and we will delete it.
           </p>
         </section>
 
