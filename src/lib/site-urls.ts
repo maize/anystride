@@ -27,6 +27,7 @@ export function getAllSitePaths(): string[] {
     "/calculator",
     "/coaching",
     "/coaching/apply",
+    "/editorial",
   ];
   const plans = getAllPlans().map((p) => `/plans/${p.slug}`);
   const guides = getAllGuides().map((g) => `/guides/${g.slug}`);
@@ -51,4 +52,15 @@ export function getAllSitePaths(): string[] {
 /** Same list as absolute URLs. */
 export function getAllSiteUrls(): string[] {
   return getAllSitePaths().map((p) => `${BASE}${p}`);
+}
+
+/** Content dates, not build timestamps. Leave unknown revision dates unset. */
+export function getSiteRevisions(): Map<string, string> {
+  const revisions = new Map<string, string>([["/editorial", "2026-09-12"]]);
+  for (const guide of getAllGuides()) revisions.set(`/guides/${guide.slug}`, guide.updated);
+  const latestGuide = getAllGuides()[0]?.updated;
+  if (latestGuide) revisions.set("/guides", latestGuide);
+  // Verification dates are visible page content, not an automated refresh clock.
+  for (const race of getAllRaces()) revisions.set(`/races/${race.slug}`, race.verification.checkedAt);
+  return revisions;
 }

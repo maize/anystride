@@ -19,13 +19,15 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-07-22";
+export const RACERS_AS_OF = "2026-09-23";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
   Australia: "🇦🇺",
   Denmark: "🇩🇰",
+  Eritrea: "🇪🇷",
   Ethiopia: "🇪🇹",
+  France: "🇫🇷",
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
@@ -33,6 +35,9 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
   Norway: "🇳🇴",
+  Poland: "🇵🇱",
+  Rwanda: "🇷🇼",
+  Sweden: "🇸🇪",
   Tanzania: "🇹🇿",
   Uganda: "🇺🇬",
   "United States": "🇺🇸",
@@ -100,6 +105,26 @@ export const RACERS: Racer[] = [
       "Former marathon world record holder",
       "First to run a marathon under two hours (INEOS 1:59 Challenge, 2019, unofficial)",
     ],
+  },
+  {
+    slug: "kenenisa-bekele",
+    name: "Kenenisa Bekele",
+    gender: "M",
+    country: "Ethiopia",
+    born: "1982-09-13",
+    events: ["Marathon", "5000m", "10,000m", "Cross country"],
+    prs: [
+      { event: "Marathon", time: "2:01:41" },
+      { event: "5000m", time: "12:37.35" },
+      { event: "10,000m", time: "26:17.53" },
+    ],
+    honors: [
+      "Berlin Marathon champion (2016, 2019)",
+      "5000m world record holder (12:37.35, 2004) & 10,000m world record holder (26:17.53, 2005)",
+      "Three-time Olympic champion (5000m & 10,000m, Athens 2004; 10,000m, Beijing 2008)",
+      "Five-time World Cross Country champion (long course)",
+    ],
+    links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/kenenisa-bekele-14208194" },
   },
   {
     slug: "tadese-takele",
@@ -197,6 +222,7 @@ export const RACERS: Racer[] = [
       { event: "5000m", time: "12:48.45" },
     ],
     honors: [
+      "World Ultimate Championship 5000m gold (Budapest 2026, 12:59.24)",
       "Olympic 5000m champion (Paris 2024)",
       "Olympic 1500m champion (Tokyo 2020)",
       "Multiple World Championship titles (1500m, 5000m)",
@@ -211,6 +237,7 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "3:46.06" }, { event: "1500m", time: "3:28.00" }],
     honors: [
+      "World Ultimate Championship 1500m silver (Budapest 2026, 3:29.68)",
       "Prefontaine Classic Bowerman Mile champion (2026, 3:46.06 Australian record)",
       "Paris Diamond League 1500m champion (2026, 3:28.00 Australian record, world lead)",
     ],
@@ -239,7 +266,7 @@ export const RACERS: Racer[] = [
   },
   {
     slug: "jake-hayward",
-    name: "Jake Hayward",
+    name: "Jake Heyward",
     gender: "M",
     country: "Great Britain",
     events: ["Mile", "1500m"],
@@ -252,9 +279,13 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Great Britain",
     events: ["1500m", "Mile"],
-    prs: [{ event: "Mile", time: "3:42.66" }],
+    prs: [
+      { event: "Mile", time: "3:42.66" },
+      { event: "1500m", time: "3:29.35" },
+    ],
     honors: [
       "Mile world record — 3:42.66 (London 2026), first man under 3:43",
+      "World Ultimate Championship 1500m gold (Budapest 2026, 3:29.35)",
       "World 1500m champion (2023)",
       "World indoor mile record holder (3:47.17, 2023)",
     ],
@@ -385,7 +416,7 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Kenya",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:19:37" }],
+    prs: [{ event: "Marathon", time: "2:19:35" }],
     honors: ["Boston Marathon runner-up (2026)"],
   },
   {
@@ -476,9 +507,10 @@ export const RACERS: Racer[] = [
     country: "Kenya",
     born: "1993-10-22",
     events: ["Marathon", "Half Marathon"],
-    prs: [],
+    prs: [{ event: "Marathon", time: "2:18:31" }],
     honors: [
       "Olympic marathon champion (Tokyo 2020)",
+      "Sydney Marathon champion (2026)",
     ],
   },
   {
@@ -510,6 +542,20 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [],
     honors: ["Seoul Marathon champion (2026)"],
+  },
+  {
+    slug: "agnes-ngetich",
+    name: "Agnes Jebet Ngetich",
+    gender: "F",
+    country: "Kenya",
+    events: ["Half Marathon"],
+    prs: [
+      { event: "Half Marathon", time: "1:05:15" },
+    ],
+    honors: [
+      "Women-only half marathon world record — 1:05:15 (Copenhagen 2026)",
+      "World Road Running Championships half marathon champion (2026)",
+    ],
   },
   {
     slug: "beatrice-chebet",
