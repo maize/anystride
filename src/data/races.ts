@@ -264,8 +264,8 @@ export const RACES: Race[] = [
     },
     men: [
       { racer: "jakob-ingebrigtsen", place: 1, time: "13:15.29" },
-      { name: "Florian Bremm", country: "Germany", place: 2, time: "13:15.60" },
-      { name: "Etienne Daguinos", country: "France", place: 3, time: "13:16.09" },
+      { racer: "florian-bremm", place: 2, time: "13:15.60" },
+      { racer: "etienne-daguinos", place: 3, time: "13:16.09" },
     ],
   },
   {
@@ -292,13 +292,13 @@ export const RACES: Race[] = [
     },
     men: [
       { racer: "addisu-gobena", place: 1, time: "2:04:42" },
-      { racer: "chimdessa-debele", place: 2, time: "2:04:46" },
+      { racer: "chimdessa-gudeta", place: 2, time: "2:04:46" },
       { racer: "tebello-ramakongoana", place: 3, time: "2:04:57" },
     ],
     women: [
       { racer: "peres-jepchirchir", place: 1, time: "2:18:31" },
       { racer: "irene-cheptai", place: 2, time: "2:22:11" },
-      { racer: "shure-demise-ware", place: 3, time: "2:22:33" },
+      { racer: "shure-demise", place: 3, time: "2:22:33" },
     ],
   },
   {
