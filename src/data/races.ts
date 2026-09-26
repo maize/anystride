@@ -252,7 +252,7 @@ export const RACES: Race[] = [
     city: "Birmingham",
     country: "Great Britain",
     distance: "Track & Road",
-    why: "The first European Athletics Championships on British soil since London 2012 staged distance finals from the 1500m through the marathon. Jakob Ingebrigtsen won the men's 5000m in 13:15.29 at Birmingham's Alexander Stadium.",
+    why: "The first European Athletics Championships on British soil since London 2012 delivered distance drama in Birmingham: Jakob Ingebrigtsen returned from Achilles surgery to win the men's 5000m in 13:15.29, while Nadia Battocletti retained her European women's 5000m crown in 15:37.84.",
     watchUrl: "https://www.european-athletics.com/competitions/european-athletics-championships/",
     resultsUrl: "https://worldathletics.org/competition/calendar-results/results/7192415",
     coverage: "results",
