@@ -3,6 +3,9 @@
 > Free, community-sourced running training plans for any distance and any runner.
 > Domain: **anystride.com**
 
+> Current implementation sequence and remaining acceptance checks: [90-day roadmap](./ROADMAP.md).
+> The scaffold notes below are historical, not a description of every current feature.
+
 ## Vision
 
 A fast, free, no-login website where any runner can pick their **goal distance** and

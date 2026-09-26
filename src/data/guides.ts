@@ -24,6 +24,8 @@ export interface Guide {
   relatedPlans?: string[];
   /** ISO date, shown as "Updated …" and used in structured data. */
   updated: string;
+  /** Original references, only where the article has actually been source-checked. */
+  sources?: { label: string; url: string }[];
 }
 
 export const GUIDES: Guide[] = [
@@ -284,74 +286,80 @@ export const GUIDES: Guide[] = [
   {
     slug: "fueling-for-long-runs",
     title: "How to Fuel for Long Runs",
-    description:
-      "When to start fueling, how much carbohydrate to take per hour, what to use, and how to practice race-day nutrition before it counts.",
+    description: "What to eat before, during and after a long run, with carbohydrate targets, a worked gel example, hydration guidance and original sources.",
     targetQuery: "fueling for long runs / what to eat during a long run",
-    updated: "2026-06-15",
+    updated: "2026-09-12",
     intro: [
-      "Your body stores roughly 90 minutes of glycogen at easy long-run pace. Once that runs out, pace drops, legs get heavy, and the remaining miles become a slog. The fix is taking in carbohydrates during the run — before you feel like you need them.",
-      "Getting your fueling right in training means your race goes to plan. Getting it wrong means the wall finds you at mile 20. Here is what to take, how much, and when.",
+      "A long run is a useful place to rehearse race-day nutrition. Plan what you will carry, check the labels and use training to find what agrees with you.",
+      "These are general starting points, not a personal prescription. A sports dietitian can help adapt them to your training and health needs.",
     ],
     sections: [
       {
-        heading: "When fueling starts to matter",
+        heading: "Before you head out",
         body: [
-          "For runs under 60 to 75 minutes, your glycogen stores are sufficient and you do not need to eat mid-run. Once you go past 75 minutes — which covers most long runs in a half-marathon or marathon plan — taking in carbohydrates will keep your energy level stable and your pace honest.",
-          "The common mistake is waiting until you feel hungry or tired. By that point, glycogen is already low and catching up is slow. Start fueling at around 45 minutes into the run, before your stores dip.",
+          "Choose a familiar carbohydrate-rich meal about three to four hours before running, or a smaller snack one to two hours beforehand. Toast, cereal or fruit are options; timing and portions depend on what you tolerate. Large amounts of fat or fibre close to exercise can cause discomfort.",
         ],
       },
       {
-        heading: "How much carbohydrate per hour",
+        heading: "Carbohydrate during the run",
         body: [
-          "The guideline most sports dietitians use is 30 to 60 grams of carbohydrate per hour of running, and up to 90 grams per hour for efforts lasting well over two hours when you mix carbohydrate types (glucose plus fructose). Most energy gels contain 20 to 25 grams, so taking one every 30 to 45 minutes falls in the right range.",
-          "Your stomach also has to be trained to absorb fuel while running. Start with smaller amounts on shorter long runs and build up, exactly the way you build mileage.",
+          "The Australian Institute of Sport gives a target of 30–60 grams of carbohydrate per hour for endurance exercise lasting one to two-and-a-half hours. For events longer than roughly two-and-a-half to three hours, up to 90 grams per hour may be appropriate, using mixed carbohydrate sources such as glucose and fructose.",
+          "The higher end is not a starting requirement for every runner. Practice a manageable amount in training, then adjust for duration, effort and gut comfort. Gels, chews, drinks and familiar foods can all contribute. Count carbohydrate from everything you consume.",
         ],
       },
       {
-        heading: "What to use",
+        heading: "A worked example, not a prescription",
         body: [
-          "Gels are the most convenient option: light, fast-absorbing, and easy to carry. Chews work similarly and suit runners who prefer something to bite into. Real food — small pieces of banana, dates, rice balls, or boiled potatoes — is a legitimate alternative and worth testing if gels upset your stomach.",
-          "Sports drinks can double as hydration and carbohydrate at the same time. If you use them on the run, adjust your gel intake so you are not doubling up and overwhelming your gut.",
-        ],
-        bullets: [
-          "Gels: 20-25 g carbs each, fast-absorbing, easy to carry",
-          "Chews: similar to gels, takes a little longer to process",
-          "Real food: banana, dates, rice cakes — easier on sensitive stomachs",
-          "Sports drinks: combine carbs and hydration, watch total carb intake",
+          "If your practiced target is 40 grams per hour and your gel contains 20 grams, two gels per hour provide that amount. Over a four-hour event, that is eight gels if you get no carbohydrate from drinks or food. A 25-gram gel changes the calculation, so check your own product rather than following a universal gel count.",
+          "Write your plan in grams and hours first, then map it to what you can carry and the aid stations available. Start taking regular small amounts early rather than waiting until you feel depleted.",
         ],
       },
       {
-        heading: "Hydration and electrolytes",
+        heading: "Hydration: avoid forcing fluids",
         body: [
-          "Drink to thirst on easy runs. On hot days or runs lasting more than 90 minutes, replace some of what you sweat with a drink or tablet that contains sodium and other electrolytes — plain water alone can dilute blood sodium at high volumes, which causes hyponatremia, a real race-day risk.",
-          "A rough starting point: 400 to 800 ml of fluid per hour, adjusted for heat, humidity, and your own sweat rate. Finishing a long run with pale urine and no unusual swelling is a reasonable sign that hydration was close to right.",
+          "Fluid needs vary with the runner, conditions and effort. Thirst is a useful real-time guide; do not force a fixed volume simply because it is on a schedule.",
+          "Drinking more than your body can handle can cause dangerously low blood sodium (exercise-associated hyponatremia). Sports drinks and salt supplements do not prevent this if you overdrink. A personalised strategy is preferable to treating an electrolyte product as insurance.",
         ],
       },
       {
-        heading: "Practice fueling in training",
+        heading: "After the run",
         body: [
-          "Race day is the worst day to try something new. Use the same gels, chews, or drinks in training that you plan to use on race day. Practice the timing, test what your stomach tolerates, and find out which flavors you can keep down at mile 18.",
-          "Most marathon and half-marathon plans build long runs progressively — use every long run over 75 minutes as a fueling rehearsal. If a product upsets your stomach, switch to another early enough to adapt, not in race week.",
-          "Knowing your expected race time also helps you plan how many hours of fueling you will actually need. The anystride pace calculator can estimate that from a recent race or a current fitness level.",
+          "Include carbohydrate to replenish fuel and protein to support repair in your next meal or snack. Yogurt with fruit, a sandwich or rice with eggs are straightforward options. Prompt refuelling matters especially when another session follows within eight hours; there is no universal 30-minute deadline that makes a later meal worthless.",
+        ],
+      },
+      {
+        heading: "Rehearse before race week",
+        body: [
+          "Check what the organiser supplies, including serving sizes. Try your chosen products, carrying setup and timing on training runs before relying on them in a race. If you repeatedly struggle to eat or drink comfortably, seek individual advice rather than continually increasing your intake.",
         ],
       },
     ],
     faq: [
       {
-        q: "What should I eat before a long run?",
-        a: "A carbohydrate-rich meal two to three hours before works well for most runners: oatmeal, toast with banana, or rice. Keep fat and fiber low to avoid GI issues. If you run early and cannot eat first, a small snack 30 minutes before can help.",
+        q: "How many gels should I carry?",
+        a: "Divide the carbohydrate you plan to get from gels by the grams in each gel. Subtract anything supplied by drinks or food first. The worked example above shows the arithmetic; your personal target may differ.",
       },
       {
-        q: "Can I do long runs fasted?",
-        a: "Some runners do shorter fasted runs as a training stimulus, but long runs over 90 minutes without fuel carry real risk: slower recovery, higher injury risk, and race-day habits that do not hold under pressure. Fuel your long runs.",
+        q: "Do I have to use gels?",
+        a: "No. Chews, sports drinks and familiar carbohydrate-containing foods are alternatives. Choose something you can carry and tolerate while running, and check the serving size.",
       },
       {
-        q: "My stomach hates gels. What can I use instead?",
-        a: "Real food is a legitimate alternative. Medjool dates, banana pieces, rice balls, and homemade energy balls all work. Some runners also tolerate chews or sports drinks better than gels. Experiment in training to find what you can stomach.",
+        q: "Does adding electrolytes make overdrinking safe?",
+        a: "No. Sodium-containing drinks do not remove the risk of exercise-associated hyponatremia when you consume excessive fluid. Do not force fluids beyond your needs.",
+      },
+    ],
+    sources: [
+      {
+        label: "Australian Institute of Sport — carbohydrate targets and practice during exercise",
+        url: "https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/sports-drink/how-and-when-do-i-use-it",
       },
       {
-        q: "How do I avoid hitting the wall?",
-        a: "Start fueling before you feel depleted — aim for 30 to 60 grams of carbohydrate per hour starting around 45 minutes in — and run the early miles of your race conservatively. Bonking almost always comes from going out too fast, fueling too late, or both.",
+        label: "Better Health Channel — pre-exercise meals and recovery nutrition",
+        url: "https://www.betterhealth.vic.gov.au/health/healthyliving/sporting-performance-and-food",
+      },
+      {
+        label: "Wilderness Medical Society — exercise-associated hyponatremia guidelines",
+        url: "https://journals.sagepub.com/doi/full/10.1016/j.wem.2019.11.003",
       },
     ],
     relatedPlans: [
@@ -540,95 +548,6 @@ export const GUIDES: Guide[] = [
       {
         q: "Does hitting the wall only happen in marathons?",
         a: "The wall is most associated with the marathon because it's the most common distance long enough to exhaust glycogen stores at race effort. It can happen in any event lasting two or more hours — a long trail race, a long bike ride — but it's rare in distances shorter than the marathon.",
-      },
-    ],
-    relatedPlans: [
-      "higdon-marathon-novice-1",
-      "pfitzinger-18-55",
-      "hansons-marathon-method",
-    ],
-  },
-  {
-    slug: "fueling-long-runs",
-    title: "Fueling Long Runs: What to Eat and Drink on the Road",
-    description:
-      "What to eat before, during, and after long runs — how many carbs, fluids, and electrolytes you need, and a simple race-ready fueling strategy.",
-    targetQuery: "fueling for long runs / what to eat on a long run",
-    updated: "2026-06-15",
-    intro: [
-      "Your body carries enough glycogen — the stored form of carbohydrate — for roughly 90 to 120 minutes of running. Once those stores run low, pace collapses, every step feels harder than it should, and you get a firsthand introduction to hitting the wall. Fueling is simply the strategy for keeping those stores topped off long enough to finish well.",
-      "Most runners underestimate how much they need and start practicing too late. Getting your nutrition dialed in during training — not experimenting for the first time on race day — is one of the clearest performance gains available to any long-distance runner.",
-    ],
-    sections: [
-      {
-        heading: "The glycogen problem",
-        body: [
-          "Your muscles and liver store carbohydrate as glycogen — roughly 400 to 500 grams in a well-fed runner, equivalent to about 1,600 to 2,000 calories. At easy pace your body burns a mix of fat and carbohydrate, so glycogen lasts longer. As pace rises or the run extends beyond 90 minutes, you draw more heavily on those stores. When they run out, fat alone cannot fuel the intensity you need, and pace drops sharply.",
-          "The practical upshot: for any run lasting longer than 75 to 90 minutes, what you eat before and during the run matters as much as your fitness.",
-        ],
-      },
-      {
-        heading: "Before the run: fueling 2 to 3 hours out",
-        body: [
-          "Eat a carbohydrate-centered meal two to three hours before your long run. Oatmeal with banana, toast with peanut butter and jam, or rice with a little protein all work well. Keep fat and fiber modest — both slow gastric emptying and can cause problems when your gut is being jostled at running pace.",
-          "If your schedule means you run early and can't eat a full meal, a small easily-digestible snack — half a banana, a gel, or a slice of toast — 30 to 45 minutes before you head out is far better than nothing. You're just trying to top off the overnight glycogen drop before a hard effort.",
-        ],
-      },
-      {
-        heading: "During the run: carbohydrate and timing",
-        body: [
-          "Start taking carbohydrate before you feel hungry or tired — roughly 45 to 60 minutes into the run. If you wait until you feel depleted, your glycogen is already low and restoring pace takes time. Early, consistent intake is far more effective than catching up.",
-          "Aim for 30 to 60 grams of carbohydrate per hour. More experienced runners with trained guts can push 60 to 90 grams per hour by combining glucose and fructose sources, which use different intestinal transporters and clear the gut faster. Start at the lower end and build up across several training runs.",
-        ],
-        bullets: [
-          "Gels: 20 to 25g of carbohydrate each; easiest to carry and absorb quickly.",
-          "Chews: similar carbohydrate content; some runners tolerate the texture better than gels.",
-          "Sports drinks: carbohydrate and sodium together; convenient on courses with aid stations.",
-          "Real food: bananas, dates, and rice cakes all work; useful if you struggle with engineered products.",
-        ],
-      },
-      {
-        heading: "Hydration: water and sodium",
-        body: [
-          "Drink to thirst rather than on a rigid schedule — research consistently shows this matches intake to actual need better than prescribed volumes. Plain water is fine for runs under 60 to 75 minutes. On longer efforts, you also need sodium to replace what you lose in sweat. Without it, drinking large amounts of plain water can dilute blood sodium and cause hyponatremia — rare but serious.",
-          "A sports drink, electrolyte tab dissolved in water, or a salty snack alongside plain water all provide the sodium you need. How much you sweat varies enormously by individual, intensity, and temperature — if you finish long runs severely thirsty or with visible white salt marks on your kit, you probably need more.",
-        ],
-      },
-      {
-        heading: "After the run: the recovery window",
-        body: [
-          "After a depleting long run, eating carbohydrate and protein within 30 to 45 minutes helps kickstart glycogen replenishment and muscle repair. This recovery window matters most after long or high-intensity efforts when stores are significantly drawn down — it's less critical after an easy 45-minute jog.",
-          "You don't need a special product: chocolate milk, a bowl of rice with eggs, or yogurt with fruit all hit the right macros. What matters is eating something rather than skipping the meal and getting to it faster than you otherwise would.",
-        ],
-      },
-      {
-        heading: "Practice everything in training — never on race day",
-        body: [
-          "Your gut is trainable. Taking carbohydrates while running can cause nausea at first, especially at intensity, but consistent practice in training desensitizes the stomach over several weeks. Use the long runs in your plan — whether that is Higdon Novice 1 building toward 20 miles, Pfitzinger 18/55 with its stacked midweek volume, or the Hansons cumulative-load approach — to rehearse your exact race-day nutrition.",
-          "Know the gels and drinks available on your race course and train with them specifically. Race day is never the time to discover your stomach disagrees with a new brand. Use the anystride pace calculator to lock in your goal pace before race week, then plan how many aid stations you will hit and whether to carry your own fuel or rely on the course. The combination of practiced nutrition and a smart first-mile pace is what keeps the wall from appearing at mile 20.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "When should I start taking gels on a long run?",
-        a: "Around 45 to 60 minutes in — before you feel depleted. If you wait until you feel hungry or tired, glycogen is already low and recovery is slow. Early, consistent intake beats catching up.",
-      },
-      {
-        q: "How many gels do I need for a marathon?",
-        a: "A typical gel provides 20 to 25 grams of carbohydrate. At 30 to 60 grams per hour, a 4-hour marathon might require 6 to 10 gels depending on how much carbohydrate you get from course drinks. Work it out based on your expected finish time and available aid stations.",
-      },
-      {
-        q: "What if I can't stomach gels during a run?",
-        a: "Your gut can adapt with practice. Start with small amounts early in the run before intensity rises, and repeat consistently across training weeks. Some runners do better with chews, dates, bananas, or sports drinks than with gels — all deliver carbohydrate and all work.",
-      },
-      {
-        q: "Do I need to eat on runs under an hour?",
-        a: "No. For runs up to about 75 minutes at easy pace you have enough glycogen to work with. Stay hydrated, but mid-run carbohydrates are not necessary unless you started the day significantly underfueled.",
-      },
-      {
-        q: "What should I eat the night before a long run?",
-        a: "A carbohydrate-centered dinner — pasta, rice, bread, potatoes — that you know agrees with your digestion. Nothing rich, fatty, or unfamiliar. The goal is to go to bed with full glycogen stores so you start the next morning well-stocked.",
       },
     ],
     relatedPlans: [
@@ -924,6 +843,100 @@ export const GUIDES: Guide[] = [
     relatedPlans: ["base-building-4-week", "couch-to-5k", "bridge-to-10k"],
   },
   {
+    slug: "run-walk-method",
+    title: "The Run/Walk Method: How to Use Walk Breaks to Run Farther and Faster",
+    description:
+      "What the run/walk method is, which ratios to use, how walk breaks let beginners and veterans cover more distance — and whether they slow you down.",
+    targetQuery: "run walk method / Jeff Galloway run walk intervals / walk breaks running",
+    updated: "2026-07-27",
+    intro: [
+      "The run/walk method is exactly what it sounds like: you alternate running and walking throughout a workout or race, following a set ratio rather than walking only when you're forced to. It sounds simple because it is — and that simplicity is why it works for such a wide range of runners, from first-timers who can barely jog five minutes to marathoners targeting personal bests.",
+      "Walk breaks are not a sign of weakness or poor fitness. Used deliberately, they manage fatigue, protect your joints, and let you cover distances you couldn't otherwise reach. Here is how to use them well.",
+    ],
+    sections: [
+      {
+        heading: "What is the run/walk method?",
+        body: [
+          "The run/walk method, popularized by coach Jeff Galloway in the 1970s, replaces continuous running with planned intervals of running and walking. You set a ratio — say, run 3 minutes, walk 1 minute — and stick to it from the start, before fatigue sets in. The walk intervals are taken on a schedule, not as a rescue when your legs give out.",
+          "This distinction matters enormously. A scheduled walk break at minute 5 is recovery. A forced walk at minute 25 because you ran too hard is damage control. The run/walk method is about the former: structured rest that keeps you running longer, further, and more comfortably than you would manage straight through.",
+        ],
+      },
+      {
+        heading: "Who benefits most",
+        body: [
+          "The run/walk method is genuinely useful across a wide range of runners, not just beginners. The groups who benefit most:",
+        ],
+        bullets: [
+          "Complete beginners — walk breaks make the initial weeks of running manageable without the injury risk of running continuously too soon. The Couch to 5K plan is built on this exact principle.",
+          "Runners returning from injury — walk intervals let the body ease back into impact-loading without overloading healing tissue on the first day back.",
+          "Long-distance runners — walk breaks during a marathon or ultra allow muscles to recover briefly, reducing the glycogen burn rate and helping you hold form deeper into the race.",
+          "Runners in hot weather — a brief walk every few minutes gives your cardiovascular system a moment to shed heat, which matters a lot on summer long runs.",
+          "Older runners — reduced continuous impact load means less cumulative stress on joints and connective tissue, which tend to recover more slowly with age.",
+        ],
+      },
+      {
+        heading: "Choosing your run/walk ratio",
+        body: [
+          "The right ratio depends entirely on your current fitness and your goal. There is no single correct answer — what works is the ratio that lets you finish each run feeling like you could do a little more, not the ratio that grinds you down by mile 4.",
+          "A practical starting framework:",
+        ],
+        bullets: [
+          "Very new to running: run 1 minute, walk 2 minutes. Shift the balance toward running every week or two as it gets easier.",
+          "Can run 20 to 30 minutes straight: run 4 to 5 minutes, walk 1 minute. Walk breaks are now about managing fatigue over longer distances, not survival.",
+          "Experienced runner using walk breaks in a race: run 9 minutes, walk 1 minute, or run 4 minutes, walk 30 seconds. Short, frequent breaks rather than long, infrequent ones.",
+          "Training for your first half-marathon or marathon: a 4:1 or 8:1 ratio on your long runs will get you to the finish line even if it's farther than you've ever gone.",
+        ],
+      },
+      {
+        heading: "Using run/walk in races",
+        body: [
+          "Walk breaks in a race are not a compromise — they are a strategy, and one that works. Many runners who race with a consistent run/walk ratio finish ahead of runners who went out too fast and were forced to walk anyway. Planned walking is efficient; unplanned walking from exhaustion is not.",
+          "The key is committing to the ratio from the first mile, not waiting until you need the break. Walk breaks taken early are genuine recovery; walk breaks taken at mile 18 because you're hitting the wall are too late to help much. Use the anystride pace calculator at /calculator to set a goal pace and then build your run/walk ratio around it.",
+          "If your race uses time-based intervals, a GPS watch with an interval timer makes this easy: set it to beep at the end of each run and walk segment and you never have to think about it during the race.",
+        ],
+      },
+      {
+        heading: "Does run/walk make you slower?",
+        body: [
+          "For new runners, no — run/walk typically makes you faster over a given distance than continuous running would, because you arrive at the later miles with more energy. The walk intervals are short enough that they do not lose significant time, but long enough to lower heart rate, reduce muscle fatigue, and keep your form from falling apart.",
+          "For experienced runners, the answer is nuanced. On short distances — 5K and 10K — continuous running at race effort is almost always faster than a run/walk ratio. On the marathon, a well-chosen run/walk ratio can produce a better finishing time than going out at continuous pace and fading badly. Galloway's research suggests many recreational marathoners finish within minutes of their straight-running time while experiencing far less post-race soreness.",
+          "The honest test is your own data. If you run a long run continuous and a similar-effort long run with 4:1 intervals and compare how you feel in the final miles and the next two days, you'll know which approach suits you.",
+        ],
+      },
+      {
+        heading: "Transitioning away from walk breaks",
+        body: [
+          "Run/walk is a tool, not a permanent identity. Many runners use it for a training cycle, build their aerobic base, and then shift to continuous running as their fitness improves. The Couch to 5K plan does this systematically over nine weeks: the walk segments get shorter each week until the whole run is continuous.",
+          "If your goal is continuous running, reduce the walk interval first (from 2 minutes to 1 minute to 30 seconds) before cutting it out entirely. Keep the run segments the same length until the shorter walk feels comfortable, then lengthen the run segment. Done gradually, the transition happens almost without noticing.",
+          "If run/walk simply suits you — if you enjoy it, recover better from it, and have no interest in ditching it — that is a legitimate long-term approach. Plenty of experienced marathoners run every race with walk breaks and have been doing so for years. Finishing well beats finishing continuously but broken.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is the run/walk method real running?",
+        a: "Yes. There is no rule that running has to be continuous. If you cover a marathon distance with planned walk breaks and finish in under six hours, you ran a marathon. The method is widely used, well-researched, and produces genuine fitness results. The only thing that matters is whether it helps you reach your goal.",
+      },
+      {
+        q: "What run/walk ratio should I start with?",
+        a: "If you are new to running, start with something that feels manageable on day one: run 1 to 2 minutes, walk 2 to 3 minutes. You can always increase the run segments as you get fitter. If you can already run 20 minutes straight and are adding walk breaks for longer distances, a 4:1 or 5:1 ratio is a practical starting point.",
+      },
+      {
+        q: "Can I run a marathon using the run/walk method?",
+        a: "Absolutely. Many runners use run/walk for their first marathon and find they finish more comfortably and recover more quickly than runners who went out too hard. A consistent 4:1 or 8:1 ratio applied from mile 1 is far more effective than running continuous until mile 18 and walking the rest in exhaustion.",
+      },
+      {
+        q: "Will I get slower if I keep using walk breaks?",
+        a: "Not necessarily. Your aerobic fitness improves whether you are running continuously or using run/walk intervals — the cardiovascular system does not distinguish. Over time, as fitness improves, you can extend the run segments and shorten the walk intervals if you choose, or simply enjoy covering longer distances with less wear. The goal determines the method.",
+      },
+      {
+        q: "Should I use run/walk on every run or just long ones?",
+        a: "Most runners who use the method apply it to their longer or harder-effort runs and do shorter easy runs continuously as their fitness allows. There is no rule against using it on every run, especially in the early weeks. Use it wherever it helps you finish the session without injury or excessive fatigue.",
+      },
+    ],
+    relatedPlans: ["couch-to-5k", "higdon-half-novice-1", "higdon-marathon-novice-1"],
+  },
+  {
     slug: "negative-splits",
     title: "Negative Splits: How to Run the Second Half of a Race Faster",
     description:
@@ -1002,6 +1015,286 @@ export const GUIDES: Guide[] = [
     ],
     relatedPlans: [
       "higdon-half-novice-1",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
+  {
+    slug: "what-is-a-tempo-run",
+    title: "What Is a Tempo Run? The Workout Every Distance Runner Needs",
+    description:
+      "What a tempo run is, why running at threshold pace makes you faster, how to structure the workout, and how often to add it to your training week.",
+    targetQuery: "what is a tempo run / tempo run workout",
+    updated: "2026-09-21",
+    intro: [
+      "A tempo run is a sustained effort at a pace just below your limit — hard enough to push your fitness, controlled enough to finish strong. It is the single most valuable quality workout for runners training for any distance from 5K to the marathon.",
+      "The concept is simple; the execution trips people up because tempo pace is easy to get wrong in both directions. Here is what it is, why it works, and exactly how to run one.",
+    ],
+    sections: [
+      {
+        heading: "What is a tempo run?",
+        body: [
+          "A tempo run — also called a threshold run — is a continuous effort held at lactate threshold pace. That is the highest effort at which your body can still clear lactate from your muscles roughly as fast as it produces it. Go a little harder and lactate accumulates, fatigue accelerates, and you are forced to slow.",
+          "At tempo pace, the effort is what coaches call comfortably hard: you can speak a word or two, but holding a conversation is difficult. It should feel honest but not desperate — a pace you could sustain for about 40 to 60 minutes in a race, not a sprint and not a jog.",
+          "For most runners, tempo pace sits somewhere between 10K race pace and half-marathon race pace. The exact number depends on your current fitness. Use the anystride pace calculator at /calculator to find your threshold pace from a recent race time rather than guessing.",
+        ],
+      },
+      {
+        heading: "Why tempo runs make you faster",
+        body: [
+          "Training at lactate threshold raises the pace at which you can run before fatigue overtakes you. In practical terms: your easy runs get easier, your race pace becomes more sustainable, and the later miles of a long race feel less catastrophic.",
+          "This is what makes tempo runs the highest-return quality workout for distance runners. Interval sessions develop raw aerobic power (VO2max); easy running builds your aerobic base. Tempo runs sit between the two and connect them — they teach your body to sustain that base at genuinely fast speeds without blowing up.",
+        ],
+      },
+      {
+        heading: "Three types of tempo workout",
+        body: [
+          "There is more than one way to accumulate threshold training:",
+        ],
+        bullets: [
+          "Classic tempo run — 20 to 40 minutes of continuous running at threshold pace, bookended by 10-minute easy warmup and cooldown jogs. The gold-standard format for most runners.",
+          "Cruise intervals — 2 to 3 repetitions of 8 to 15 minutes at threshold pace with 60 to 90 seconds of easy jogging recovery between them. Useful when continuous tempo is hard to sustain or to spread volume across smaller blocks.",
+          "Marathon-pace tempo — longer and slightly slower, 45 to 90 minutes at marathon goal pace. Less intense than true threshold but builds the same metabolic efficiency relevant to longer racing. Pfitzinger 18/55 and Hansons Marathon Method both include this regularly.",
+        ],
+      },
+      {
+        heading: "How to structure a tempo run",
+        body: [
+          "The structure is consistent regardless of format:",
+        ],
+        bullets: [
+          "Warmup: 10 to 15 minutes of easy jogging, building gradually. Do not skip this — starting a threshold effort cold sets the wrong tone and raises injury risk.",
+          "Main effort: 20 to 40 minutes at threshold pace for a classic tempo, or your chosen interval structure.",
+          "Cooldown: 10 minutes of easy jogging. Resist the urge to stop immediately after the hard effort; a cooldown helps clear metabolic byproducts and keeps the legs from stiffening.",
+        ],
+      },
+      {
+        heading: "How often to include tempo runs",
+        body: [
+          "For most runners, one tempo session per week is the right amount. Two per week works in a structured build phase if all other sessions are genuinely easy, but stacking quality on quality is one of the most common ways to accumulate fatigue without realizing it. Intermediate and advanced plans from Higdon and Pfitzinger typically include one or two threshold sessions per week.",
+          "Schedule your tempo run after a full rest day or easy day — never the day after a long run. Your legs need to be fresh enough to actually hit the pace.",
+        ],
+      },
+      {
+        heading: "Finding your tempo pace",
+        body: [
+          "The most reliable method is from a recent race result. Enter a recent 5K, 10K, or half-marathon time into the anystride pace calculator and it returns your threshold pace directly. A rough manual shortcut: tempo pace is roughly 25 to 30 seconds per mile faster than your easy run pace, or about 20 to 30 seconds per mile slower than your 10K race pace.",
+          "Do not rely on feel alone. Effort can mislead you, especially in warm weather or after a harder training week. A pace anchor keeps the workout in the right zone and makes progress measurable over weeks.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What is a tempo run in simple terms?",
+        a: "A steady, sustained run at comfortably hard effort — the hardest pace you could hold for 40 to 60 minutes in a race. Faster than your easy runs, but not all-out. The full session with warmup and cooldown takes 40 to 65 minutes.",
+      },
+      {
+        q: "How fast should my tempo pace be?",
+        a: "For most runners, roughly between 10K race pace and half-marathon race pace — about 25 to 30 seconds per mile slower than your 10K time. Enter a recent race result into the anystride pace calculator for your exact number rather than estimating.",
+      },
+      {
+        q: "How long should a tempo run be?",
+        a: "The threshold effort portion should be 20 to 40 minutes. Beginners can start with 15 minutes of threshold running and still produce real adaptation; add time gradually as fitness builds.",
+      },
+      {
+        q: "How often should I do tempo workouts?",
+        a: "Once per week is standard for most runners. Two per week works in a structured build phase if all your other runs are genuinely easy. More than two is rarely beneficial and often leads to accumulated fatigue that undermines both the tempo sessions and the easy runs.",
+      },
+      {
+        q: "What is the difference between a tempo run and intervals?",
+        a: "Pace and duration. Interval workouts are shorter, faster repetitions at 5K effort or harder, with full recovery jogs between them. Tempo runs are longer sustained efforts at threshold pace — harder than an easy run, but not all-out. Both develop different energy systems, and most training plans include both.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-10k-intermediate",
+      "higdon-half-intermediate-1",
+      "pfitzinger-18-55",
+    ],
+  },
+  {
+    slug: "rest-days-for-runners",
+    title: "How Many Rest Days Per Week Do Runners Need?",
+    description:
+      "How many rest days runners actually need, when to take them, and the difference between rest and active recovery — for every training level.",
+    targetQuery: "how many rest days per week running / do runners need rest days",
+    updated: "2026-09-07",
+    intro: [
+      "Rest days are where the fitness actually happens. Running creates microscopic damage to muscle fibers; your body repairs and rebuilds them stronger during recovery. Skip the rest and you compound that damage faster than your body can adapt — the most common path to overuse injury and stalled progress.",
+      "How many rest days you need depends on your experience, weekly mileage, and how hard you're training. Here's the framework most coaches use, and how to tell when you need more.",
+    ],
+    sections: [
+      {
+        heading: "What actually happens on a rest day",
+        body: [
+          "Your body is not idle on rest days. Muscle fibers repair and grow stronger. Glycogen stores refill. The cardiovascular adaptations triggered by your hard runs consolidate. Growth hormone — which drives most of these repairs — peaks during sleep and low-activity periods, not during the runs themselves.",
+          "This is why two runners logging the same mileage can diverge sharply over a season: the one who rests well adapts faster and gets fitter; the one who pushes through every day accumulates fatigue faster than their body can absorb it. More running is not always better running.",
+        ],
+      },
+      {
+        heading: "How many rest days by experience level",
+        body: [
+          "There is no single right number, but experience level is the most reliable guide:",
+        ],
+        bullets: [
+          "Beginners (first 6 to 12 months): 2 to 3 rest days per week. New runners have lower adaptive capacity and need longer recovery between sessions. Couch to 5K deliberately spaces its three weekly runs with rest days in between — that structure is not accidental.",
+          "Intermediate runners (1 to 3 years consistent training): 1 to 2 rest days per week. After a year of consistent running, the body tolerates more and recovers faster. A fifth or sixth day can be added, but should stay genuinely easy.",
+          "Advanced runners: some run every day, but at high volumes true rest days are often replaced by very short easy runs of 20 to 30 minutes — a shakeout that keeps the legs moving without adding meaningful stress. The rest still exists; it's just distributed differently.",
+        ],
+      },
+      {
+        heading: "Rest vs. active recovery: they are not the same",
+        body: [
+          "A rest day doesn't require lying still. Light walking, easy cycling, swimming, yoga, or mobility work sends blood to sore muscles without adding running-specific impact. This is active recovery — and for many runners it leaves them feeling better the next day than complete inactivity does.",
+          "The key distinction: a 45-minute easy bike ride rests your joints and tendons from the repeated impact of running while keeping your cardiovascular system warm. Whether that counts as a 'rest day' depends on what you're recovering from. If your legs are sore after a long run, gentle movement often helps. If you're fighting a niggle or have several hard days coming, full rest is the right choice.",
+        ],
+      },
+      {
+        heading: "When to take extra rest days",
+        body: [
+          "Your plan's rest days are a floor, not a ceiling. Take additional rest when any of these apply:",
+        ],
+        bullets: [
+          "After a long run or race. The long run is the most demanding session in most training weeks — rest the following day as a default, especially in marathon plans.",
+          "When your legs feel heavier than usual. Fatigue beyond normal soreness — sluggish easy runs, declining motivation, elevated resting heart rate — is a signal your body needs more time, not more miles.",
+          "When something hurts. Pain that persists past the first mile, or that changes how you run, needs rest. Running through warning signals is how minor irritations become injuries that cost weeks, not days.",
+          "After a stressful week of life, not just training. Sleep debt, illness, and stress all slow recovery. Fitness responds to total life load, not just training load.",
+        ],
+      },
+      {
+        heading: "How rest days fit into popular training plans",
+        body: [
+          "The major marathon and half-marathon plans treat rest as a built-in variable, not an optional extra:",
+          "Hal Higdon Novice plans include one or two dedicated rest days per week plus an optional cross-training day. The rest is deliberately placed after long runs and before the next quality session — following the plan means following the recovery, not just the run days.",
+          "Pfitzinger 18/55 runs six days per week with one rest day. This is a high-volume plan for runners already training consistently; the single weekly rest day is not a concession but a structural choice that lets the other six days carry real load.",
+          "Hansons Marathon Method also runs six days per week. In a plan built around cumulative fatigue, that one rest day matters more, not less — it is the pressure valve that keeps the system functional over 18 weeks.",
+          "The base-building-4-week plan, which many runners use before committing to a full race plan, runs four or five days per week. That window is an ideal time to experiment and find your personal sweet spot before the demands of full marathon training begin.",
+        ],
+      },
+      {
+        heading: "A note on overtraining",
+        body: [
+          "Overtraining — a clinical state of accumulated fatigue that impairs performance despite continued training — is far less common than under-recovering. Most runners who think they're overtrained are simply under-sleeping, under-fueling, or training harder than their current base supports.",
+          "The fix for most runners is not a more sophisticated training plan. It's consistent rest days, consistent sleep, and consistent fueling. The anystride pace calculator can help you check whether your easy run pace matches your actual current fitness level — running easy days too fast is one of the most common reasons runners feel chronically tired despite doing everything else right.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What should I do on a rest day?",
+        a: "Anything low-impact: walking, light stretching, foam rolling, yoga, or easy swimming. The goal is to let your running muscles recover while staying mobile. Avoid long hikes or anything that leaves your legs significantly fatigued the next morning.",
+      },
+      {
+        q: "Is it bad to run every day?",
+        a: "For most recreational runners, yes — running every day without adequate recovery accumulates fatigue faster than the body adapts, increasing injury risk. Some experienced runners do run every day, but they keep most of those days very short and very easy, effectively using them as active recovery. If you're not at that level yet, scheduled rest days will make your harder runs better, not just your recovery days easier.",
+      },
+      {
+        q: "How long does it take to recover from a long run?",
+        a: "A 10-mile long run typically needs 24 to 48 hours of recovery before another quality effort. A 20-mile marathon long run can leave residual fatigue for 48 to 72 hours or more. Most training plans schedule the long run at the end of the week precisely so the following day's rest coincides with the highest recovery demand.",
+      },
+      {
+        q: "Can I do strength training on a rest day from running?",
+        a: "Yes, with one caveat: heavy leg sessions the day before a key run or long run will show up in your legs. Scheduling strength work on the same day as an easy run — run first, then lift — concentrates fatigue into fewer days and leaves dedicated recovery days genuinely clear. A light upper-body or core session on a running rest day is generally fine.",
+      },
+      {
+        q: "How do I know if I need more rest days?",
+        a: "The clearest signals: easy runs feel harder than they should, your resting heart rate is elevated, motivation drops persistently, or performance on key workouts is declining despite consistent training. Any one of these warrants adding a rest day this week. Two or more suggest stepping back for several days and reassessing.",
+      },
+    ],
+    relatedPlans: [
+      "couch-to-5k",
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
+  {
+    slug: "treadmill-vs-outdoor-running",
+    title: "Treadmill vs Outdoor Running: Which Is Better for Training?",
+    description:
+      "The real differences between treadmill and outdoor running — effort, biomechanics, and when each option serves your training better.",
+    targetQuery: "treadmill vs outdoor running / is treadmill running the same as outside",
+    updated: "2026-08-10",
+    intro: [
+      "Treadmill running and outdoor running are similar enough that both build fitness, but different enough that choosing between them intelligently can matter. Neither is simply better — each has genuine advantages the other lacks, and the right choice depends on the session, the weather, and what your training needs at that moment.",
+      "Here is an honest comparison of the differences that actually affect your training, when to reach for each, and how to use both well in a single cycle.",
+    ],
+    sections: [
+      {
+        heading: "The real differences in effort and biomechanics",
+        body: [
+          "The most common claim about treadmills is that they are easier because the belt moves under you. Research has mostly debunked this for aerobic effort: at the same pace, heart rate and oxygen consumption are essentially identical between treadmill and road running. The exception is wind resistance — outdoors, you push against air; indoors, you do not. The traditional fix is setting the treadmill to a 1 percent incline, which reintroduces roughly equivalent energy cost for most paces.",
+          "What is genuinely different is the biomechanics. Outdoor running involves varied terrain, camber, and constant micro-adjustments in balance and stride. Treadmill running is more uniform: the belt assists the recovery phase of each stride slightly, the surface never changes, and your brain and proprioceptive system do less work. For most training purposes this is not a problem, but it does mean that exclusive treadmill running over many weeks can leave runners feeling slightly flat or uncoordinated when they return to roads.",
+        ],
+      },
+      {
+        heading: "Where the treadmill wins",
+        body: [
+          "Precise pace and effort control is the treadmill's clearest advantage. Setting the belt to a specific speed removes the temptation to drift faster or slower, making it easier to execute tempo runs, marathon-pace sessions, and interval repeats at exactly the right effort. For runners who struggle with even pacing outdoors, the treadmill is a genuinely useful training tool for quality workouts.",
+          "Safety and environment are the other strong cases. Running indoors in extreme heat, icy conditions, or darkness is safer and removes weather as a variable. For runners in climates with harsh winters or very hot summers, the treadmill is what keeps training continuous instead of interrupted.",
+          "Convenience also matters. A treadmill at home or in a gym means no planning a route, no pre-dawn navigation, and no lost time to commuting. For busy runners, that friction reduction often means the run actually happens.",
+        ],
+        bullets: [
+          "Precise pace control for quality sessions",
+          "Safe running in extreme heat, ice, or darkness",
+          "Consistent surface that is easy on the joints for high-impact weeks",
+          "No route planning or equipment requirements beyond shoes",
+        ],
+      },
+      {
+        heading: "Where outdoor running wins",
+        body: [
+          "Outdoor running trains the full range of demands you will face in a race. It builds the proprioception and balance that treadmill running does not, it includes natural terrain variation that works stabilizer muscles, and it prepares your legs for the specific surfaces and grade changes of your target course. If you are training for a road marathon or trail race, outdoor miles are more specific preparation.",
+          "Running outside also provides the variable resistance that makes the effort honest. The 1 percent incline approximation for wind resistance is a reasonable average, but headwinds, hills, and cambered roads mean outdoor running at any given pace involves a more variable cardiovascular demand — which is exactly what racing involves.",
+          "Mentally, many runners find outdoor running more sustainable over long training cycles. The changing environment, natural light, and absence of a dashboard to stare at reduce perceived effort and make long easy runs more enjoyable, which matters when you are 14 weeks into an 18-week cycle.",
+        ],
+        bullets: [
+          "Specific preparation for road and trail race conditions",
+          "Natural terrain variation that develops balance and stability",
+          "Honest variable resistance including wind and surface changes",
+          "Psychological benefit of changing scenery on long runs",
+        ],
+      },
+      {
+        heading: "How to use both in the same training cycle",
+        body: [
+          "The best approach for most runners is not a choice between treadmill and outdoor — it is intentional use of each for what it does best. A sensible division: use the treadmill for controlled quality sessions where precise pace execution matters, and do easy runs, long runs, and recovery days outdoors.",
+          "If weather or safety forces all running indoors for a week or two, a full training block on the treadmill is fine. The physiological adaptation is real. What you might notice on return to outdoor running is a few easy days needed to reacclimate to terrain and wind. That readjustment is brief and not a reason to avoid the treadmill when conditions make outdoor running impractical.",
+          "If you are training for a specific race — say a fall marathon using Pfitzinger 18/55 or Hansons Marathon Method — try to do the final six to eight weeks primarily outdoors, particularly the long runs and marathon-pace sessions. Racing specificity matters most when you are close to race day, and legs accustomed to outdoor running handle race-day surfaces and conditions better than legs that have been entirely treadmill-trained.",
+        ],
+      },
+      {
+        heading: "Adjusting pace from treadmill to road",
+        body: [
+          "If most of your training is on a treadmill and you are preparing for an outdoor race, use the anystride pace calculator at /calculator to set your target race paces from a recent race or time trial — whether done on the treadmill or outside. The paces it generates apply to outdoor running at goal effort. On the treadmill, set the speed to match and add a 1 percent grade to account for the missing wind resistance. If your easy runs feel harder than expected when you move outdoors, slow down a little and give your body a week to readjust to terrain.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is treadmill running easier than running outside?",
+        a: "At the same pace, aerobic effort is nearly identical. The small difference from missing wind resistance is corrected by running at a 1 percent incline. Biomechanically, treadmill running is more uniform and does slightly less proprioceptive work — but not meaningfully easier as a cardiovascular training stimulus.",
+      },
+      {
+        q: "Does treadmill running build the same fitness as outdoor running?",
+        a: "Yes, for cardiovascular and aerobic fitness. The same pace at the same effort produces essentially the same adaptation. What treadmill running does not build as effectively is the terrain-specific stability and balance that outdoor running develops over time.",
+      },
+      {
+        q: "Why should I set the treadmill to 1 percent incline?",
+        a: "Outdoor running involves pushing against air resistance; the treadmill does not. A 1 percent grade compensates for this difference in energy cost and makes treadmill pace equivalent to outdoor pace for most runners at most speeds. Above about 7.5 mph, the compensation is less necessary because other factors dominate.",
+      },
+      {
+        q: "Can I do a long run on the treadmill?",
+        a: "Yes, it is perfectly valid. Long treadmill runs build the same aerobic base as outdoor long runs. The main practical challenge is mental — 18 miles on a treadmill is a long time in one place. Breaking it into segments, watching something engaging, or running with audio helps. Near race day, getting at least a few long runs outside is useful for race-specific preparation.",
+      },
+      {
+        q: "My marathon is on roads. Should I avoid treadmills?",
+        a: "Not necessarily. Treadmill running is useful for quality sessions and bad-weather days throughout the cycle. For the final six to eight weeks, prioritize outdoor long runs and marathon-pace sessions on road surfaces similar to your race course. That specificity is most valuable close to race day, not throughout the whole cycle.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
       "higdon-marathon-novice-1",
       "pfitzinger-18-55",
       "hansons-marathon-method",
@@ -1099,4 +1392,3 @@ export const GUIDES: Guide[] = [
     relatedPlans: ["base-building-4-week", "higdon-marathon-novice-1", "higdon-half-novice-1"],
   },
 ];
-
