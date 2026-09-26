@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteAnalytics } from "@/components/SiteAnalytics";
 import "./globals.css";
 
 // GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
@@ -25,15 +23,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anystride.com"),
   title: {
-    default: "anystride — Free running training plans for every distance",
+    default: "anystride — Find a running plan that fits",
     template: "%s · anystride",
   },
   description:
-    "Free, community-sourced running training plans for any distance and any runner. Pick your goal and level, get a complete week-by-week plan. No login, no paywall.",
+    "Compare trusted running methods, follow free training schedules, and find a plan that fits your current base. No login or paywall.",
   openGraph: {
-    title: "anystride — Free running training plans",
+    title: "anystride — Find a running plan that fits",
     description:
-      "Free, community-sourced training plans for any distance and any runner.",
+      "Compare trusted running methods and follow free training schedules without a login or paywall.",
     url: "https://anystride.com",
     siteName: "anystride",
     type: "website",
@@ -55,6 +53,9 @@ function Footer() {
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <Link href="/races" className="transition-colors duration-300 ease-stride hover:text-foreground">
+              Races
+            </Link>
             <Link
               href="/plans"
               className="transition-colors duration-300 ease-stride hover:text-foreground"
@@ -72,6 +73,12 @@ function Footer() {
               className="transition-colors duration-300 ease-stride hover:text-foreground"
             >
               Coaching
+            </Link>
+            <Link
+              href="/editorial"
+              className="transition-colors duration-300 ease-stride hover:text-foreground"
+            >
+              Editorial standards
             </Link>
             <Link
               href="/privacy"
@@ -103,6 +110,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
@@ -113,7 +121,7 @@ export default function RootLayout({
             name: "anystride",
             url: "https://anystride.com",
             description:
-              "Free, community-sourced running training plans for any distance and any runner.",
+              "Compare trusted running methods and follow free training schedules without a login or paywall.",
             publisher: {
               "@type": "Organization",
               name: "anystride",
@@ -130,10 +138,8 @@ export default function RootLayout({
         <SiteHeader />
         <main id="content" className="flex-1">{children}</main>
         <Footer />
-        <Analytics />
-        <SpeedInsights />
+        <SiteAnalytics gaId={GA_ID} />
       </body>
-      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
