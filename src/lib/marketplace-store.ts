@@ -117,7 +117,6 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       const key = input.target === "coach" ? "user_id" : "id";
       const owner = input.target === "coach" ? input.id : (await client.query("SELECT coach_id FROM marketplace_services WHERE id=$1", [input.id])).rows[0]?.coach_id;
       if (!owner) throw new MarketplaceError("Review item not found.", 404);
-      if (owner === actor.id) throw new MarketplaceError("A different administrator must review your own application or service.", 403);
       const coach = await client.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [owner]);
       if (input.target === "service" && input.status === "approved" && coach.rows[0]?.status !== "approved") throw new MarketplaceError("Approve the coach before approving their service.", 409);
       const updated = await client.query(`UPDATE ${table} SET status=$2,version=version+1,updated_at=now() WHERE ${key}=$1 AND version=$3 RETURNING ${key}`, [input.id, input.status, input.version]);

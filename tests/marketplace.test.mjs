@@ -72,7 +72,7 @@ test("marketplace input rejects forged ownership, approval, payment fields and m
   assert.throws(() => parse({ action: "inquire", id: randomUUID(), serviceId: randomUUID(), message: "Please tell me about this coaching service.", shareWithCoach: false }), /Confirm/);
 });
 
-test("real SQL: application → independent approval → service review → private runner request → acceptance → withdrawal", async (t) => {
+test("real SQL: application → admin approval → service review → private runner request → acceptance → withdrawal", async (t) => {
   const f = await fixture(t);
   const act = f.actOnMarketplace;
   const service = proposal();
@@ -83,15 +83,14 @@ test("real SQL: application → independent approval → service review → priv
   assert.equal((await act(coach, application)).notification, undefined);
   assert.equal((await f.db.query("SELECT count(*)::int AS n FROM marketplace_coaches")).rows[0].n, 1);
   await assert.rejects(act(coach, { action: "review", target: "coach", id: coach.id, status: "approved", version: 1 }), (e) => e.status === 403);
-  await assert.rejects(act({ ...coach, admin: true }, { action: "review", target: "coach", id: coach.id, status: "approved", version: 1 }), /different administrator/);
-  await act(admin, { action: "review", target: "coach", id: coach.id, status: "approved", version: 1 });
+  await act({ ...coach, admin: true }, { action: "review", target: "coach", id: coach.id, status: "approved", version: 1 });
   await assert.rejects(act(admin, { action: "review", target: "coach", id: coach.id, status: "suspended", version: 1 }), /Refresh/);
   const serviceResult = await act(coach, service);
   assert.equal(serviceResult.notification.kind, "service");
   assert.equal(serviceResult.notification.targetId, service.id);
   assert.equal((await act(coach, service)).notification, undefined);
   assert.equal((await f.marketplaceDashboard(runner)).catalog.length, 0);
-  await act(admin, { action: "review", target: "service", id: service.id, status: "approved", version: 1 });
+  await act({ ...coach, admin: true }, { action: "review", target: "service", id: service.id, status: "approved", version: 1 });
   const catalog = (await f.marketplaceDashboard(runner)).catalog;
   assert.equal(catalog.length, 1);
   assert.equal("coach_id" in catalog[0], false);

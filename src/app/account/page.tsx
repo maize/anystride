@@ -83,7 +83,7 @@ export default async function AccountPage() {
       </>}
     </section>
 
-    {actor.admin && <section className="mt-12 space-y-6" aria-labelledby="review-heading"><h2 id="review-heading" className="text-2xl font-semibold">Review queue</h2><p className="text-sm text-muted-foreground">Verify the coach and service before approval. You cannot review your own application or service. Suspended coaches and services are hidden from new enquiries.</p>
+    {actor.admin && <section className="mt-12 space-y-6" aria-labelledby="review-heading"><h2 id="review-heading" className="text-2xl font-semibold">Review queue</h2><p className="text-sm text-muted-foreground">Verify the coach and service before approval. Administrator decisions are recorded. Suspended coaches and services are hidden from new enquiries.</p>
       {!data.reviewCoaches.length && !data.reviewServices.length && <p className="text-muted-foreground">Nothing to review yet.</p>}
       {([...data.reviewCoaches.map((c) => ({ ...c, target: "coach", title: c.name, description: `${c.bio}\n\n${c.credentials}` })), ...data.reviewServices.map((s) => ({ ...s, target: "service" }))]).map((item) => <article key={`${item.target}:${item.id}`} className="rounded-xl border border-border p-6">
         <h3 className="text-lg font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.target} · {item.status}</p><p className="my-4 whitespace-pre-wrap">{item.description}</p>
