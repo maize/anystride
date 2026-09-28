@@ -28,6 +28,10 @@ export function getAllSitePaths(): string[] {
     "/coaching",
     "/coaching/apply",
     "/editorial",
+    "/coaching/match",
+    "/partners",
+    "/clinics",
+    "/partners/race-hubs",
   ];
   const plans = getAllPlans().map((p) => `/plans/${p.slug}`);
   const guides = getAllGuides().map((g) => `/guides/${g.slug}`);

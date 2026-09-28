@@ -10,6 +10,8 @@ export function ProductAnalytics() {
       if (!(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>("a[href]");
       if (!link) return;
+      if (link.pathname === "/coaching/match" && link.origin === window.location.origin) trackProductEvent("coach_match_open");
+      if (link.dataset.coachSlug) trackProductEvent("coach_contact_click", { coach_slug: link.dataset.coachSlug });
       const race = link.dataset.raceSlug;
       if (race) {
         trackProductEvent("race_source_click", { race_slug: race, link_kind: link.dataset.linkKind });

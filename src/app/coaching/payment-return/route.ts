@@ -1,0 +1,7 @@
+/** No query/session data, analytics or entitlement mutation on the return page. */
+export function GET() {
+  return new Response(
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Test checkout · Anystride</title><style>body{margin:0;background:#faf9f7;color:#181818;font:1rem/1.5 ui-sans-serif,sans-serif}main{max-width:40rem;margin:4rem auto;padding:1.5rem}h1{font-size:2rem;line-height:1.25;letter-spacing:-.025em}p{margin:1.5rem 0}a{color:inherit;text-underline-offset:.25em}a:focus-visible{outline:2px solid #c55724;outline-offset:4px}</style></head><body><main><a href="/coaching">← Back to coaching</a><h1>Anystride — test checkout</h1><p>You have returned from Stripe. This page does not confirm a payment.</p><p>The operator must check the verified webhook payment record. No real coaching service or coach access has been purchased.</p><p>For the account-based sandbox, <a href="/account">return to your account</a> and open the workspace from your accepted request. It remains locked until the signed payment event is verified.</p></main></body></html>`,
+    { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex", "Referrer-Policy": "no-referrer", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'" } },
+  );
+}

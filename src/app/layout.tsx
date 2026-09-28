@@ -80,6 +80,9 @@ function Footer() {
             >
               Editorial standards
             </Link>
+            <Link href="/clinics" className="transition-colors duration-300 ease-stride hover:text-foreground">Athlete clinics</Link>
+            <Link href="/partners" className="transition-colors duration-300 ease-stride hover:text-foreground">Partner with us</Link>
+            <a href="/account" className="transition-colors duration-300 ease-stride hover:text-foreground">Coaching account</a>
             <Link
               href="/privacy"
               className="transition-colors duration-300 ease-stride hover:text-foreground"

@@ -1,0 +1,10 @@
+# Local-only Supabase configuration, runtime state and verification tooling.
+supabase/
+scripts/local-marketplace.mjs
+LOCAL-TESTING.md
+
+# Deployment configuration comes from Vercel, never this Mac's environment files.
+.env*
+node_modules/
+.next/
+.git/

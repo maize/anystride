@@ -301,6 +301,10 @@ export function PlanFinder({
                 </div>
               )}
 
+              <p className="mt-6 text-sm text-muted-foreground">
+                Prefer personal guidance? <Link href="/coaching/match" className="text-brand hover:underline">Ask about finding a coach →</Link>
+              </p>
+
               <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
                 <Link
                   href={`/plans?distance=${result.primary.plan.distance}`}

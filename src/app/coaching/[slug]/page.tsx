@@ -134,6 +134,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
       <div className="mt-8 rounded-xl border border-border p-5">
         <a
           href={coach.link}
+          data-coach-slug={coach.slug}
           target={email ? undefined : "_blank"}
           rel={email ? undefined : "nofollow noopener noreferrer"}
           className="inline-flex rounded-full bg-brand px-6 py-2.5 font-medium text-brand-foreground hover:opacity-90"

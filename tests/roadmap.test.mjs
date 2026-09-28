@@ -1,32 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
-import { dirname, resolve } from "node:path";
-import vm from "node:vm";
-import ts from "typescript";
-
-const root = resolve(import.meta.dirname, "..");
-const require = createRequire(import.meta.url);
-
-// Execute the actual TS modules with isolated dependency boundaries; no network or credentials.
-function load(file, mocks = {}, globals = {}) {
-  const filename = resolve(root, file);
-  const code = ts.transpileModule(readFileSync(filename, "utf8"), {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
-  }).outputText;
-  const compiled = { exports: {} };
-  const localRequire = (name) => {
-    if (name in mocks) return mocks[name];
-    if (name.startsWith(".") || name.startsWith("@/")) {
-      const target = name.startsWith("@/") ? resolve(root, "src", name.slice(2)) : resolve(dirname(filename), name);
-      return load(`${target}.ts`, mocks, globals);
-    }
-    return require(name);
-  };
-  vm.runInNewContext(code, { module: compiled, exports: compiled.exports, require: localRequire, process: { env: {} }, Buffer, AbortSignal, ...globals }, { filename });
-  return compiled.exports;
-}
+import { load } from "./support/load-module.mjs";
 
 test("product parameters discard inputs and malformed identifiers", () => {
   const { productEventParameters } = load("src/lib/product-events.ts");
@@ -195,7 +169,7 @@ test("weekly report uses complete days and reports zero-count product events", a
   const report = await fetchWeekly(7);
   assert.equal(reports.length, 5);
   assert.ok(reports.every((body) => body.dateRanges[0].startDate === "7daysAgo" && body.dateRanges[0].endDate === "yesterday"));
-  assert.equal(report.productEvents.length, 8);
+  assert.equal(report.productEvents.length, 14);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_activated").eventCount, 3);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_activated").totalUsers, 2);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_print").eventCount, 0);

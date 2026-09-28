@@ -20,8 +20,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-semibold tracking-tight">The short version</h2>
           <p className="mt-2 text-muted-foreground">
-            anystride has no accounts, no login, and no paywall. You can browse
-            every plan, guide, and tool on this site without giving us any
+            Anystride’s training plans have no login requirement or paywall. You can browse
+            every plan, guide, and tool on this site without giving us
             your name or email. Coach applications and enquiries involve
             information you submit; the analytics services described below also
             receive usage data.
@@ -48,11 +48,12 @@ export default function PrivacyPage() {
             include public content identifiers, not your start date, workout notes,
             mileage, race times or answers to the plan finder. These additional
             events and PostHog pageviews are disabled when your browser sends
-            Do Not Track or Global Privacy Control; this does not describe the
-            behaviour of every third-party analytics service above. PostHog
-            receives public page paths and the product events listed here,
-            without query strings, form entries, training progress or session
-            recordings. It does not store analytics cookies or browser data.
+            Do Not Track or Global
+            Privacy Control; this does not describe the behaviour of every
+            third-party analytics service above.
+            PostHog receives public page paths and the product events listed here,
+            without query strings, form entries, training progress or session recordings.
+            It does not store analytics cookies or browser data.
           </p>
         </section>
 
@@ -80,14 +81,51 @@ export default function PrivacyPage() {
             provide it as your public booking contact. To have your application or
             listing removed, email us and we will delete it.
           </p>
+          <p className="mt-3 text-muted-foreground">
+            Coach-matching, clinic pilot and partnership enquiries are stored separately with
+            your name, email, the preferences or business details you submit,
+            the submission time and the version of the contact permission you
+            accepted. We use these details to review and respond to the enquiry,
+            not to enrol you in marketing. We do not send a matching request to
+            coaches without asking you first. Clinic enquiries include your
+            attendance or hosting interest and chosen topic; we do not share
+            these details with athletes or other participants without asking you
+            first. Do not include medical information.
+            Email hello@anystride.com to request removal.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Analytics records counts of submitted enquiries, coach-matching link
+            clicks and clicks on coaches’ contact or booking links. It does not
+            receive the contents of these enquiry forms.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">Optional coaching accounts</h2>
+          <p className="mt-2 text-muted-foreground">
+            The coaching account pilot is in preparation. When enabled, Supabase
+            manages sign in and email verification. Anystride stores your account
+            identifier alongside coach applications, service proposals, coaching
+            requests and review records. We do not store your password.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            A request you choose to send is visible to that coach and Anystride,
+            along with the service details shown when you sent it. We record the
+            time and version of this sharing permission. Other runners cannot
+            see your request. Approved service descriptions and coaching names
+            are visible to signed in participants. Account pages do not load our
+            analytics trackers. Do not include medical history or identity documents.
+            Contact hello@anystride.com about correcting or removing account data.
+          </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold tracking-tight">Cookies</h2>
           <p className="mt-2 text-muted-foreground">
             Google Analytics sets cookies to distinguish repeat visits. We set
-            no other cookies. You can block cookies in your browser settings
-            without losing any functionality on this site.
+            authentication cookies only when the optional coaching account pilot
+            is enabled. Blocking those cookies prevents account sign in, but does
+            not restrict access to public training plans, guides or tools.
           </p>
         </section>
 

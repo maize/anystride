@@ -39,7 +39,7 @@ export async function pingDb(): Promise<boolean> {
 // Reuse a single pool across warm invocations. Pointed at the pooled endpoint
 // (POSTGRES_URL), so a small max is plenty per instance.
 let pool: Pool | undefined;
-function getPool(): Pool {
+export function getPool(): Pool {
   if (!pool) {
     pool = new Pool({
       connectionString: CONNECTION_STRING,

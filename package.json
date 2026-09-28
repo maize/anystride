@@ -7,27 +7,32 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check:launch": "node scripts/check-launch-readiness.mjs"
   },
   "dependencies": {
-    "@next/third-parties": "^16.2.6",
+    "@next/third-parties": "16.3.5",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.116.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "google-auth-library": "^10.6.2",
-    "next": "16.2.6",
+    "next": "16.3.5",
     "pg": "^8.21.0",
-    "posthog-js": "1.433.4",
+    "posthog-js": "^1.433.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "stripe": "22.6.2"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.6",
+    "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

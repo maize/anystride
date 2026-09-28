@@ -3,6 +3,13 @@
 Status recorded 2026-09-12. Weeks describe the original sequence, not elapsed time.
 This file is the working checklist; an implemented item is not necessarily deployed.
 
+Monetization work is tracked separately in [the enquiry pilot](./MONETIZATION.md):
+coach matching and partnership interest first; no payments or affiliate programme activated.
+
+The [coaching account pilot](./MARKETPLACE.md) now includes authentication plumbing,
+coach/service review and private enquiries. [Stripe sandbox setup](./STRIPE.md) is
+in progress. Neither public payments nor paid coach access is enabled.
+
 ## Weeks 1–2: trustworthy foundations
 
 - [x] Race timestamps/time zones, separate schedule/field/results coverage, official sources and stale-data labels.
