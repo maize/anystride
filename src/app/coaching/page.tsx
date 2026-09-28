@@ -21,6 +21,12 @@ export const metadata: Metadata = {
 
 const FORMATS: CoachFormat[] = ["online", "in-person", "hybrid"];
 
+function SelectCaret() {
+  return <svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground">
+    <path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+  </svg>;
+}
+
 function price(amount: number, currency: string) {
   return new Intl.NumberFormat("en", { style: "currency", currency }).format(amount / 100);
 }
@@ -94,22 +100,31 @@ export default async function CoachingPage({
           </div>
           <form key={`${city}-${focus}-${format}`} action="/coaching#coaches" method="get" className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
             <label className="text-sm font-medium">City
-              <select name="city" defaultValue={city ?? ""} className="filter-select">
-                <option value="">All locations</option>
-                {cities.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
+              <span className="relative mt-2 block">
+                <select name="city" defaultValue={city ?? ""} className="filter-select">
+                  <option value="">All locations</option>
+                  {cities.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+                <SelectCaret />
+              </span>
             </label>
             <label className="text-sm font-medium">Training focus
-              <select name="focus" defaultValue={focus ?? ""} className="filter-select">
-                <option value="">Every goal</option>
-                {focuses.map((f) => <option key={f} value={f}>{COACH_FOCUS_LABELS[f]}</option>)}
-              </select>
+              <span className="relative mt-2 block">
+                <select name="focus" defaultValue={focus ?? ""} className="filter-select">
+                  <option value="">Every goal</option>
+                  {focuses.map((f) => <option key={f} value={f}>{COACH_FOCUS_LABELS[f]}</option>)}
+                </select>
+                <SelectCaret />
+              </span>
             </label>
             <label className="text-sm font-medium">Coaching format
-              <select name="format" defaultValue={format ?? ""} className="filter-select">
-                <option value="">All formats</option>
-                {FORMATS.map((f) => <option key={f} value={f}>{COACH_FORMAT_LABELS[f]}</option>)}
-              </select>
+              <span className="relative mt-2 block">
+                <select name="format" defaultValue={format ?? ""} className="filter-select">
+                  <option value="">All formats</option>
+                  {FORMATS.map((f) => <option key={f} value={f}>{COACH_FORMAT_LABELS[f]}</option>)}
+                </select>
+                <SelectCaret />
+              </span>
             </label>
             <button type="submit" className="action-primary sm:col-span-3 lg:col-span-1">Find coaches <span aria-hidden="true">→</span></button>
           </form>
