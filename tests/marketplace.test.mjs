@@ -94,6 +94,9 @@ test("real SQL: application → admin approval → service review → private ru
   const catalog = (await f.marketplaceDashboard(runner)).catalog;
   assert.equal(catalog.length, 1);
   assert.equal("coach_id" in catalog[0], false);
+  const publicCatalog = await f.marketplacePublicCatalog();
+  assert.deepEqual(JSON.parse(JSON.stringify(publicCatalog)), [{ id: service.id, title: service.title, description: service.description, amount: service.amount, currency: service.currency, durationWeeks: service.durationWeeks, coachName: application.name }]);
+  assert.equal("coachId" in publicCatalog[0], false);
   const inquiry = { action: "inquire", id: randomUUID(), serviceId: service.id, message: "I would like to work on my first half marathon." };
   await assert.rejects(act(coach, inquiry), /own service/);
   await act(runner, inquiry);
@@ -128,6 +131,7 @@ test("real SQL: suspension hides services and blocks new requests and acceptance
   await act(runner, inquiry);
   await act(admin, { action: "review", target: "coach", id: coach.id, status: "suspended", version: 2 });
   assert.equal((await f.marketplaceDashboard(runner)).catalog.length, 0);
+  assert.equal((await f.marketplacePublicCatalog()).length, 0);
   await assert.rejects(act(other, { ...inquiry, id: randomUUID() }), /not available/);
   await assert.rejects(act(coach, { action: "respond", id: inquiry.id, status: "accepted" }), /no longer available/);
   await act(runner, { action: "respond", id: inquiry.id, status: "cancelled" });

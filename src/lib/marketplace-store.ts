@@ -2,7 +2,7 @@ import "server-only";
 import { Pool, type PoolClient } from "pg";
 import type { MarketplaceActor } from "./marketplace-auth";
 import type { MarketplaceAction } from "./marketplace-input";
-import { MarketplaceError, marketplaceOrigin } from "./marketplace-config";
+import { marketplaceEnabled, MarketplaceError, marketplaceOrigin } from "./marketplace-config";
 import { marketplaceDatabaseConfig } from "./marketplace-database";
 import type { ReviewNotification } from "./marketplace-notifications";
 
@@ -45,6 +45,41 @@ export async function marketplaceDashboard(actor: MarketplaceActor) {
       FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id ORDER BY s.created_at DESC LIMIT 100`) : Promise.resolve({ rows: [] }),
   ]);
   return { coach: coach.rows[0] ?? null, services: services.rows, requests: requests.rows, catalog: catalog.rows, reviewCoaches: reviewCoaches.rows, reviewServices: reviewServices.rows };
+}
+
+export type PublicMarketplaceService = {
+  id: string;
+  title: string;
+  description: string;
+  amount: number;
+  currency: string;
+  durationWeeks: number;
+  coachName: string;
+};
+
+export async function marketplacePublicCatalog(): Promise<PublicMarketplaceService[]> {
+  if (!marketplaceEnabled()) return [];
+  const result = await marketplacePool().query<{
+    id: string;
+    title: string;
+    description: string;
+    amount: number;
+    currency: string;
+    duration_weeks: number;
+    coach_name: string;
+  }>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,c.name AS coach_name
+    FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id
+    WHERE s.status='approved' AND c.status='approved'
+    ORDER BY s.created_at DESC LIMIT 100`);
+  return result.rows.map((service) => ({
+    id: service.id,
+    title: service.title,
+    description: service.description,
+    amount: service.amount,
+    currency: service.currency,
+    durationWeeks: service.duration_weeks,
+    coachName: service.coach_name,
+  }));
 }
 
 export async function actOnMarketplace(actor: MarketplaceActor, input: MarketplaceAction): Promise<{ saved: boolean; notification?: ReviewNotification }> {

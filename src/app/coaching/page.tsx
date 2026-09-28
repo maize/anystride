@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { filterCoaches, availableFocuses, availableCities } from "@/lib/coaches";
 import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
+import { marketplacePublicCatalog, type PublicMarketplaceService } from "@/lib/marketplace-store";
 import {
   COACH_FOCUS_LABELS,
   COACH_FORMAT_LABELS,
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
 };
 
 const FORMATS: CoachFormat[] = ["online", "in-person", "hybrid"];
+
+function price(amount: number, currency: string) {
+  return new Intl.NumberFormat("en", { style: "currency", currency }).format(amount / 100);
+}
 
 function isFocus(v: string | undefined): v is CoachFocus {
   return !!v && (FOCUS_ORDER as string[]).includes(v);
@@ -44,6 +49,9 @@ export default async function CoachingPage({
   const coaches = filterCoaches({ city, focus, format });
   const focuses = availableFocuses();
   const hasFilters = Boolean(city || focus || format);
+  let services: PublicMarketplaceService[] = [];
+  try { services = await marketplacePublicCatalog(); }
+  catch { console.error("Public coaching service catalog could not be loaded."); }
 
   return (
     <div className="mx-auto max-w-5xl px-5 pb-16">
@@ -52,6 +60,31 @@ export default async function CoachingPage({
         <p className="mt-3 max-w-2xl text-lg text-muted-foreground">Browse running coaches by city, focus, and format, then connect with them directly.</p>
         <Link href="/coaching/apply" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">Are you a coach? Claim or add your profile →</Link>
       </section>
+
+      {services.length > 0 && <section aria-labelledby="services-heading" className="mb-12 border-t border-border pt-8">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <p className="eyebrow text-brand">Ready to start</p>
+            <h2 id="services-heading" className="mt-3 text-2xl font-semibold tracking-tight">Coaching services</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">Reviewed offers from coaches testing the Anystride pilot. Sign in to ask a coach about an offer; no payment is taken.</p>
+          </div>
+          <Link href="/account" className="action-link shrink-0">Open your coaching account <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {services.map((service) => <article key={service.id} className="group flex h-full flex-col rounded-2xl border border-border bg-background p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:border-brand/50">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              <span>{service.coachName}</span>
+              <span>{service.durationWeeks} {service.durationWeeks === 1 ? "week" : "weeks"}</span>
+            </div>
+            <h3 className="mt-5 text-xl font-semibold tracking-tight transition-colors duration-300 ease-stride group-hover:text-brand">{service.title}</h3>
+            <p className="mt-3 flex-1 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4">
+              <p><span className="text-xs text-muted-foreground">Proposed total</span><br /><span className="font-semibold tabular-nums">{price(service.amount, service.currency)}</span></p>
+              <Link href="/account" className="text-sm font-semibold text-brand hover:underline">Ask this coach →</Link>
+            </div>
+          </article>)}
+        </div>
+      </section>}
 
       <div className="grid items-start gap-8 border-t border-border pt-8 lg:grid-cols-4 lg:gap-12">
         <aside aria-label="Filter coaches" className="lg:sticky lg:top-8">
