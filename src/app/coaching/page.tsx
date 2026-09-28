@@ -112,7 +112,6 @@ export default async function CoachingPage({
         <h2 className="text-xl font-semibold">Not sure where to start?</h2>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">Register interest in our manual coach-matching pilot. The request is free; a match is not guaranteed.</p>
         <Link href="/coaching/match" className="mt-3 inline-block text-sm font-medium text-brand hover:underline">Ask about finding a coach →</Link>
-        <p className="mt-4 text-sm text-muted-foreground">Interested in learning with a group? <Link href="/clinics" className="text-brand hover:underline">Help shape our athlete clinic pilot →</Link></p>
       </section>
 
       {/* City pages (internal links for SEO) */}

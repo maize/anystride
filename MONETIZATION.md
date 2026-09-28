@@ -16,8 +16,6 @@ activate affiliate tracking, send email, or launch paid campaigns.
   Collects name, email, goal, format, optional city and contact permission.
 - `/partners`: partnership enquiry for coaches, race organisers and brands.
   No fabricated audience statistics, prices or partner logos.
-- `/clinics`: early interest from runners and potential athlete hosts. Three
-  proposed topics, explicit unconfirmed availability, no booking or checkout.
 - `/partners/race-hubs`: organiser-facing outline for a manually maintained
   preparation page, with a dedicated enquiry form. This is not a hub builder or
   an existing partner event. No automated emails or registration system is implied.
@@ -95,11 +93,9 @@ record was acknowledged by the server; duplicate retries do not emit a second
 success event. Localhost, preview deployments and DNT/GPC remain excluded.
 Form contents never go to analytics. A coach click can include its public slug.
 
-The second pilot adds `clinic_interest` and `race_hub_enquiry`. These replace the
-generic `partnership_enquiry` event for their respective submissions; do not add
-them again as generic enquiries. Both attendee and host clinic requests count as
-`clinic_interest`; distinguish them in the private export, not by sending their
-form answers to GA. Page views provide the initial traffic baseline.
+The race hub pilot adds `race_hub_enquiry` in place of the generic
+`partnership_enquiry` event for its submissions. Page views provide the initial
+traffic baseline.
 
 Review raw enquiries, confirmed valid requests, coach acceptances, introductions
 and eventual paid outcomes separately. GA counts are not revenue, unique leads,
@@ -109,37 +105,21 @@ References checked during the monetization discussion:
 [RunSignup affiliate programme](https://runsignup.com/Affiliate),
 [affiliate API and attribution documentation](https://runsignup.com/Affiliate/Doc).
 
-## Athlete clinics and race hub validation
+## Race hub validation
 
-These are the next two experiments, not six simultaneous product launches.
 Keep editorial coverage independent and existing resources free.
 
 ### Private inbox routing
 
-All three interests use the existing `kind: partnership` storage category:
+Race hub interest uses the existing `kind: partnership` storage category:
 
 | `details.interest` | Required extra fields | Review action |
 | --- | --- | --- |
-| `clinic_attend` | `topic`; message optional, no organisation required | Group interest by topic; respond about this pilot only. |
-| `clinic_host` | `organisation` (athlete name accepted), `topic`; message optional | Check relevant experience, teaching fit and availability. |
 | `race_hub` | `organisation`, `message` | Confirm organiser authority, event details and requested scope. |
 
-Topic keys are `race_preparation`, `training` and `strength`. New types are
-allowlisted details on partnership records, so no change to the existing table's
-kind constraint is needed. Existing coach/race/brand enquiries remain supported.
-Do not forward attendee details to athletes or other participants without asking.
-
-### First clinic: manual validation before booking infrastructure
-
-1. Review topic interest and recruit one suitable athlete. For strength teaching,
-   confirm relevant qualifications rather than treating race results as credentials.
-2. Agree learning outcomes, format, availability, compensation and content rights
-   with the athlete. Do not promise recording access before it is agreed.
-3. Send interested runners a concrete proposed session and price for feedback.
-   Interest submissions alone do not demonstrate willingness to pay.
-4. Only after confirming the host and enough paying demand to cover delivery costs,
-   approve booking, payment, cancellation and support arrangements. None is built
-   or activated in this release. Decide whether to run, change or drop the pilot.
+It is an allowlisted detail on partnership records, so no change to the existing
+table's kind constraint is needed. Existing coach, race and brand enquiries remain
+supported.
 
 ### First race hub: scoped service before a platform
 

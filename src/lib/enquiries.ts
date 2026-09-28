@@ -4,15 +4,9 @@ export const COACH_GOALS = {
   "half-marathon": "Half marathon", marathon: "Marathon", ultra: "Trail / ultra",
 } as const;
 export const COACH_FORMATS = { online: "Online", local: "In person", either: "Either" } as const;
-export const CLINIC_INTERESTS = { clinic_attend: "Attend a clinic", clinic_host: "Host a clinic" } as const;
-export const CLINIC_TOPICS = {
-  race_preparation: "Preparing for race day",
-  training: "Building a consistent training routine",
-  strength: "Strength for runners",
-} as const;
 export const PARTNER_TYPES = {
   coach: "Coaching enquiries", race: "Race promotion", brand: "Editorial sponsorship",
-  race_hub: "Race preparation hub", ...CLINIC_INTERESTS,
+  race_hub: "Race preparation hub",
 } as const;
 export type PartnerInterest = keyof typeof PARTNER_TYPES;
 export type EnquiryKind = "coach_match" | "partnership";
@@ -54,12 +48,9 @@ export function parseEnquiry(body: unknown): { enquiry: Enquiry } | { error: str
     const organisation = field(b.organisation, 160);
     const message = field(b.message, 1000);
     if (!choice(b.interest, PARTNER_TYPES)) return { error: "Choose a valid partnership interest." };
-    const clinic = choice(b.interest, CLINIC_INTERESTS);
-    if (clinic && !choice(b.topic, CLINIC_TOPICS)) return { error: "Choose a clinic topic." };
-    if ((b.interest !== "clinic_attend" && !organisation) || (b.organisation !== undefined && (typeof b.organisation !== "string" || b.organisation.trim().length > 160))) return { error: "Enter your organisation or athlete name (up to 160 characters)." };
-    if ((!clinic && !message) || (b.message !== undefined && (typeof b.message !== "string" || b.message.trim().length > 1000))) return { error: "Enter a short message (up to 1,000 characters)." };
+    if (!organisation || (b.organisation !== undefined && (typeof b.organisation !== "string" || b.organisation.trim().length > 160))) return { error: "Enter your organisation (up to 160 characters)." };
+    if (!message || (b.message !== undefined && (typeof b.message !== "string" || b.message.trim().length > 1000))) return { error: "Enter a short message (up to 1,000 characters)." };
     Object.assign(details, { organisation, interest: b.interest, message });
-    if (clinic) details.topic = b.topic as string;
   }
   return { enquiry: { id: b.id, kind: b.kind, name, email, details, consentVersion: ENQUIRY_CONSENT_VERSION } };
 }

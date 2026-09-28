@@ -25,11 +25,6 @@ export default function PartnersPage() {
           <Link href="/partners/race-hubs" className="mt-3 inline-block text-sm font-medium text-brand hover:underline">Help entrants prepare with a race hub →</Link>
         </section>
         <section className="py-6">
-          <h2 className="text-xl font-semibold">For athletes</h2>
-          <p className="mt-2 text-muted-foreground">Help shape a small online clinic around what you know best. We want to create paid teaching opportunities without charging athletes for editorial exposure.</p>
-          <Link href="/clinics" className="mt-3 inline-block text-sm font-medium text-brand hover:underline">Explore the athlete clinic pilot →</Link>
-        </section>
-        <section className="py-6">
           <h2 className="text-xl font-semibold">For running brands</h2>
           <p className="mt-2 text-muted-foreground">Discuss support for an original athlete interview or race briefing. Sponsorship would be disclosed and would not buy a favourable review or control our editorial selections.</p>
         </section>

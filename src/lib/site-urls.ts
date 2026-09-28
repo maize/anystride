@@ -30,7 +30,6 @@ export function getAllSitePaths(): string[] {
     "/editorial",
     "/coaching/match",
     "/partners",
-    "/clinics",
     "/partners/race-hubs",
   ];
   const plans = getAllPlans().map((p) => `/plans/${p.slug}`);

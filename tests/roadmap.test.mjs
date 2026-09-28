@@ -167,9 +167,10 @@ test("weekly report uses complete days and reports zero-count product events", a
     },
   });
   const report = await fetchWeekly(7);
+  const { PRODUCT_EVENTS } = load("src/lib/product-events.ts");
   assert.equal(reports.length, 5);
   assert.ok(reports.every((body) => body.dateRanges[0].startDate === "7daysAgo" && body.dateRanges[0].endDate === "yesterday"));
-  assert.equal(report.productEvents.length, 14);
+  assert.equal(report.productEvents.length, PRODUCT_EVENTS.length);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_activated").eventCount, 3);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_activated").totalUsers, 2);
   assert.equal(report.productEvents.find((row) => row.eventName === "plan_print").eventCount, 0);

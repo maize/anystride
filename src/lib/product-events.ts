@@ -12,7 +12,6 @@ export const PRODUCT_EVENTS = [
   "coach_match_request",
   "coach_contact_click",
   "partnership_enquiry",
-  "clinic_interest",
   "race_hub_enquiry",
 ] as const;
 
@@ -21,7 +20,6 @@ export type ProductEvent = (typeof PRODUCT_EVENTS)[number];
 /** Classify a saved enquiry without forwarding any of its contents to analytics. */
 export function enquiryProductEvent(kind: string, interest: unknown): ProductEvent {
   if (kind === "coach_match") return "coach_match_request";
-  if (interest === "clinic_attend" || interest === "clinic_host") return "clinic_interest";
   if (interest === "race_hub") return "race_hub_enquiry";
   return "partnership_enquiry";
 }

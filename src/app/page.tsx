@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             <div className="border-t border-border bg-background p-8 lg:border-l lg:border-t-0 sm:p-12">
-              <p className="eyebrow">Choose your next step</p>
+              <p className="eyebrow">Two ways to start</p>
               <ol className="mt-6">
                 <li className="grid grid-cols-[40px_1fr] gap-4 border-t border-border py-5">
                   <span className="font-mono text-sm text-muted-foreground tabular-nums">
@@ -112,23 +112,6 @@ export default function Home() {
                       The matching pilot is reviewed by Anystride before any
                       introduction.
                     </p>
-                  </div>
-                </li>
-                <li className="grid grid-cols-[40px_1fr] gap-4 border-y border-border py-5">
-                  <span className="font-mono text-sm text-muted-foreground tabular-nums">
-                    03
-                  </span>
-                  <div>
-                    <h3 className="font-semibold">Learn from athletes</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Help shape the first small online athlete clinics.
-                    </p>
-                    <Link
-                      href="/clinics"
-                      className="mt-2 inline-flex text-sm font-semibold text-brand underline-offset-4 transition-colors duration-300 ease-stride hover:underline"
-                    >
-                      Explore athlete clinics →
-                    </Link>
                   </div>
                 </li>
               </ol>

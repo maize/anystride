@@ -82,15 +82,12 @@ export default function PrivacyPage() {
             listing removed, email us and we will delete it.
           </p>
           <p className="mt-3 text-muted-foreground">
-            Coach-matching, clinic pilot and partnership enquiries are stored separately with
+            Coach-matching and partnership enquiries are stored separately with
             your name, email, the preferences or business details you submit,
             the submission time and the version of the contact permission you
             accepted. We use these details to review and respond to the enquiry,
             not to enrol you in marketing. We do not send a matching request to
-            coaches without asking you first. Clinic enquiries include your
-            attendance or hosting interest and chosen topic; we do not share
-            these details with athletes or other participants without asking you
-            first. Do not include medical information.
+            coaches without asking you first. Do not include medical information.
             Email hello@anystride.com to request removal.
           </p>
           <p className="mt-3 text-muted-foreground">

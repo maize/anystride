@@ -108,33 +108,24 @@ test("new pages are canonical and commercial analytics omit lead details", () =>
   const { getAllSitePaths } = load("src/lib/site-urls.ts");
   assert.ok(getAllSitePaths().includes("/coaching/match"));
   assert.ok(getAllSitePaths().includes("/partners"));
-  assert.ok(getAllSitePaths().includes("/clinics"));
+  assert.ok(!getAllSitePaths().includes("/clinics"));
   assert.ok(getAllSitePaths().includes("/partners/race-hubs"));
   const { productEventParameters } = load("src/lib/product-events.ts");
   const safe = productEventParameters({ ...sample, coach_slug: "test-coach", message: "private message" });
   assert.deepEqual(JSON.parse(JSON.stringify(safe)), { coach_slug: "test-coach" });
 });
 
-const clinic = { ...partner, interest: "clinic_attend", organisation: undefined, message: "", topic: "training" };
 const hub = { ...partner, interest: "race_hub" };
 
-test("clinic attendees need a topic but not a business; hosts and hubs need an organisation", () => {
+test("retired clinic interests are rejected and race hubs need an organisation and message", () => {
   const { parseEnquiry } = load("src/lib/enquiries.ts");
-  for (const interest of ["clinic_attend", "clinic_host"]) {
-    for (const topic of ["race_preparation", "training", "strength"]) {
-      const parsed = parseEnquiry({ ...partner, interest, topic, message: "" });
-      assert.equal(parsed.enquiry.details.topic, topic);
-      assert.equal(parsed.enquiry.details.interest, interest);
-    }
-  }
-  assert.ok(parseEnquiry(clinic).enquiry);
   assert.ok(parseEnquiry(hub).enquiry);
   for (const body of [
-    { ...clinic, topic: "" }, { ...clinic, topic: "__proto__" }, { ...clinic, topic: "constructor" },
-    { ...clinic, topic: {} }, { ...clinic, consent: false }, { ...clinic, message: {} },
-    { ...clinic, organisation: {} }, { ...clinic, organisation: "x".repeat(161) },
-    { ...clinic, interest: "clinic_host" }, { ...hub, organisation: "" }, { ...hub, message: "" },
-    { ...clinic, message: "x".repeat(1001) },
+    { ...partner, interest: "clinic_attend", topic: "training" },
+    { ...partner, interest: "clinic_host", topic: "strength" },
+    { ...hub, organisation: "" }, { ...hub, message: "" },
+    { ...hub, organisation: {} }, { ...hub, organisation: "x".repeat(161) },
+    { ...hub, message: {} }, { ...hub, message: "x".repeat(1001) },
   ]) assert.ok(parseEnquiry(body).error, JSON.stringify(body));
   const details = parseEnquiry({ ...hub, topic: "strength", participantList: "do not store" }).enquiry.details;
   assert.equal(details.topic, undefined);
@@ -142,7 +133,7 @@ test("clinic attendees need a topic but not a business; hosts and hubs need an o
 });
 
 test("pilot requests pass only validated fields to the existing private store", async () => {
-  for (const body of [clinic, { ...clinic, interest: "clinic_host", organisation: "Test Athlete" }, hub]) {
+  for (const body of [hub]) {
     let saved;
     const { POST } = route({ save: async (enquiry) => { saved = enquiry; return "created"; } });
     const response = await POST(request({ ...body, payment: "never store", participantList: "never store" }));
@@ -159,14 +150,13 @@ test("pilot requests pass only validated fields to the existing private store", 
 test("pilot analytics classify outcomes without passing any form answers", () => {
   const { enquiryProductEvent, PRODUCT_EVENTS, productEventParameters } = load("src/lib/product-events.ts");
   for (const [kind, interest, expected] of [
-    ["coach_match", "clinic_attend", "coach_match_request"],
-    ["partnership", "clinic_attend", "clinic_interest"],
-    ["partnership", "clinic_host", "clinic_interest"],
+    ["coach_match", undefined, "coach_match_request"],
     ["partnership", "race_hub", "race_hub_enquiry"],
     ["partnership", "race", "partnership_enquiry"],
   ]) {
     assert.equal(enquiryProductEvent(kind, interest), expected);
     assert.ok(PRODUCT_EVENTS.includes(expected));
   }
-  assert.deepEqual(JSON.parse(JSON.stringify(productEventParameters({ ...clinic, athlete: "private", raceDate: "2026-10-10" }))), {});
+  assert.ok(!PRODUCT_EVENTS.includes("clinic_interest"));
+  assert.deepEqual(JSON.parse(JSON.stringify(productEventParameters({ ...hub, athlete: "private", raceDate: "2026-10-10" }))), {});
 });
