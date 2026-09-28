@@ -60,6 +60,83 @@ export default function Home() {
         </Reveal>
       </section>
 
+      {/* Coaching launch */}
+      <section className="border-t border-border py-12 sm:py-16">
+        <Reveal>
+          <div className="overflow-hidden rounded-2xl bg-muted lg:grid lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="p-8 sm:p-12">
+              <p className="eyebrow text-brand">New for runners</p>
+              <h2 className="mt-4 max-w-xl text-4xl font-semibold tracking-tighter">
+                Coaching, when a plan is not enough.
+              </h2>
+              <p className="mt-4 max-w-xl text-base text-muted-foreground">
+                Browse independent running coaches by goal, location and
+                format. If you are unsure who fits, tell us what you need and
+                we will review your request before making an introduction.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <Link href="/coaching" className="action-primary">
+                  Browse running coaches
+                </Link>
+                <Link href="/coaching/match" className="action-link">
+                  Ask for a match →
+                </Link>
+              </div>
+              <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+                The directory is free to browse. Your training plans stay free,
+                with no account or paywall.
+              </p>
+            </div>
+
+            <div className="border-t border-border bg-background p-8 lg:border-l lg:border-t-0 sm:p-12">
+              <p className="eyebrow">Choose your next step</p>
+              <ol className="mt-6">
+                <li className="grid grid-cols-[40px_1fr] gap-4 border-t border-border py-5">
+                  <span className="font-mono text-sm text-muted-foreground tabular-nums">
+                    01
+                  </span>
+                  <div>
+                    <h3 className="font-semibold">Browse on your terms</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Filter coaches by focus, city and online availability.
+                    </p>
+                  </div>
+                </li>
+                <li className="grid grid-cols-[40px_1fr] gap-4 border-t border-border py-5">
+                  <span className="font-mono text-sm text-muted-foreground tabular-nums">
+                    02
+                  </span>
+                  <div>
+                    <h3 className="font-semibold">Ask a human</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      The matching pilot is reviewed by Anystride before any
+                      introduction.
+                    </p>
+                  </div>
+                </li>
+                <li className="grid grid-cols-[40px_1fr] gap-4 border-y border-border py-5">
+                  <span className="font-mono text-sm text-muted-foreground tabular-nums">
+                    03
+                  </span>
+                  <div>
+                    <h3 className="font-semibold">Learn from athletes</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Help shape the first small online athlete clinics.
+                    </p>
+                    <Link
+                      href="/clinics"
+                      className="mt-2 inline-flex text-sm font-semibold text-brand underline-offset-4 transition-colors duration-300 ease-stride hover:underline"
+                    >
+                      Explore athlete clinics →
+                    </Link>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Featured plans */}
       <section className="border-t border-border py-12">
         <Reveal>
@@ -174,29 +251,6 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
-      </section>
-
-      {/* Coaching teaser */}
-      <section className="border-t border-border py-12">
-        <Reveal>
-          <div className="flex flex-col items-start gap-4 rounded-2xl bg-muted p-8 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 className="mt-1 text-xl font-semibold tracking-tight">
-                Want a real coach, not just a plan?
-              </h2>
-              <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-                Browse running coaches across US cities by focus and format,
-                then connect with them directly.
-              </p>
-            </div>
-            <Link
-              href="/coaching"
-              className="shrink-0 rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
-            >
-              Find a coach
-            </Link>
-          </div>
-        </Reveal>
       </section>
     </div>
   );
