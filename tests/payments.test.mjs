@@ -213,7 +213,9 @@ test("payment transactions commit or roll back and always release connections", 
 test("payment return is never proof of payment and exposes no booking data", async () => {
   const response = load("src/app/coaching/payment-return/route.ts", {}, globals()).GET();
   assert.equal(response.headers.get("x-robots-tag"), "noindex");
-  assert.match(await response.text(), /does not confirm a payment/);
+  const html = await response.text();
+  assert.match(html, /does not confirm a payment/);
+  assert.match(html, /href="\/account\/coaching#purchases"/);
 });
 
 function checkoutHarness() {

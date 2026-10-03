@@ -77,7 +77,7 @@ export default async function CoachingPage({
           <Link href="/account" className="action-link shrink-0">Open your coaching account <span aria-hidden="true">→</span></Link>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {services.map((service) => <article key={service.id} className="group flex h-full flex-col rounded-2xl border border-border bg-background p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:border-brand/50">
+          {services.map((service) => <article key={service.id} id={`service-${service.id}`} className="group flex h-full scroll-mt-8 flex-col rounded-2xl border border-border bg-background p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:border-brand/50">
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               <span>{service.coachName}</span>
               <span>{service.durationWeeks} {service.durationWeeks === 1 ? "week" : "weeks"}</span>
@@ -86,7 +86,7 @@ export default async function CoachingPage({
             <p className="mt-3 flex-1 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{service.description}</p>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-4">
               <p><span className="text-xs text-muted-foreground">Proposed total</span><br /><span className="font-semibold tabular-nums">{price(service.amount, service.currency)}</span></p>
-              <Link href="/account" className="text-sm font-semibold text-brand hover:underline">Ask this coach →</Link>
+              <a href={`/account/explore#service-${service.id}`} className="text-sm font-semibold text-brand hover:underline">Ask this coach →</a>
             </div>
           </article>)}
         </div>

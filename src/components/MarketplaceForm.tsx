@@ -8,7 +8,7 @@ const accountButton = "rounded-lg bg-foreground px-3 py-2 text-base font-semibol
 
 /** A stable retry reference lasts for an unchanged payload, never a form reset. */
 export function MarketplaceForm({ action, fields = {}, children, button, success }: {
-  action: "apply" | "service" | "inquire" | "respond" | "review";
+  action: "apply" | "service" | "edit-service" | "inquire" | "respond" | "review";
   fields?: Record<string, string | number>;
   children?: ReactNode;
   button: string;
@@ -28,8 +28,9 @@ export function MarketplaceForm({ action, fields = {}, children, button, success
     event.preventDefault();
     if (inFlight.current || saved) return;
     const data = new FormData(event.currentTarget);
+    const form = event.currentTarget;
     const body: Record<string, unknown> = { action, ...fields, ...Object.fromEntries(data) };
-    if (action === "service") {
+    if (action === "service" || action === "edit-service") {
       const price = String(body.price ?? "");
       if (!/^\d{1,4}(?:\.\d{1,2})?$/.test(price)) {
         setError(true); setMessage("Enter a price with no more than two decimal places."); status.current?.focus(); return;
@@ -51,7 +52,9 @@ export function MarketplaceForm({ action, fields = {}, children, button, success
       const response = await fetch("/api/marketplace", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(15000) });
       const result = await response.json();
       if (!response.ok || result.saved !== true) throw new Error(result.error || "Your changes could not be saved. Try again.");
-      setSaved(true); setMessage(success); router.refresh();
+      if (action === "service") { form.reset(); attempt.current = { body: "", id: "" }; }
+      else setSaved(true);
+      setMessage(success); router.refresh();
     } catch (cause) {
       setError(true);
       setMessage(cause instanceof Error && cause.name !== "TimeoutError" ? cause.message : "The request timed out. Try again with this form; we will check for a duplicate.");
@@ -65,7 +68,7 @@ export function MarketplaceForm({ action, fields = {}, children, button, success
       {children}
       <button type="submit" className={accountButton}>{pending ? "Saving…" : saved ? "Saved" : button}</button>
     </fieldset>
-    <p ref={status} tabIndex={-1} role={error ? "alert" : "status"} className={`text-sm ${error ? "text-red-700" : "text-muted-foreground"}`}>{message}</p>
+    <p ref={status} tabIndex={-1} role={error ? "alert" : "status"} className={`text-sm ${error ? "text-red-700 dark:text-red-400" : "text-muted-foreground"}`}>{message}</p>
     <noscript><p className="text-sm">Enable JavaScript to use your coaching account. Your details will not be sent through a page URL.</p></noscript>
   </form>;
 }

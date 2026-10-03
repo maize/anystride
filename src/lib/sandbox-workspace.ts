@@ -7,6 +7,7 @@ import { marketplaceTransaction } from "./marketplace-store";
 import { paymentConfig, testOffer } from "./payment-config";
 import { checkoutParameters, createTestCheckout } from "./payment-checkout";
 import { paymentTransaction } from "./payment-store";
+import type { TestBooking } from "./payment-store";
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export function sandboxReference(value: unknown): string {
@@ -26,6 +27,23 @@ function requireSandbox() {
 
 interface Snapshot { title: string; description: string; amount: number; currency: string; durationWeeks: number; coachName: string; serviceVersion: number }
 interface RequestRecord { id: string; runner_id: string; coach_id: string; service_id: string; status: string; service_snapshot: Snapshot; service_status: string; coach_status: string }
+
+export interface AccountPurchase {
+  request_id: string; service_snapshot: Snapshot; status: TestBooking["status"];
+  amount: number; currency: string; created_at: Date;
+}
+
+/** History survives withdrawal and suspension. Only the paying athlete can see it;
+ * workspace access is still checked separately against the current request. */
+export async function sandboxPurchaseHistory(actor: MarketplaceActor): Promise<AccountPurchase[]> {
+  if (!sandboxWorkspaceEnabled()) return [];
+  return paymentTransaction(async (client) => {
+    const { rows } = await client.query<AccountPurchase>(`SELECT w.request_id,w.service_snapshot,b.status,b.amount,b.currency,b.created_at
+      FROM stripe_test_workspaces w JOIN stripe_test_bookings b ON b.id=w.request_id AND b.request_hash=w.payment_hash
+      WHERE w.runner_id=$1 ORDER BY b.created_at DESC LIMIT 100`, [actor.id]);
+    return rows;
+  });
+}
 
 async function ownedRequest(actor: MarketplaceActor, requestId: string) {
   requireSandbox();

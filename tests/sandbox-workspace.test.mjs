@@ -101,6 +101,28 @@ test("SQL milestone: independent approval → runner checkout → verified payme
   assert.equal((await f.db.query("SELECT count(*)::int AS n FROM stripe_test_workspace_messages")).rows[0].n, 2);
 });
 
+test("purchase history belongs to the paying athlete and records verified payment states", async (t) => {
+  const f = await fixture(t);
+  assert.equal((await f.sandboxPurchaseHistory(runner)).length, 0, "Acceptance alone is not a purchase");
+  await f.startSandboxCheckout(runner, f.requestId);
+  assert.equal((await f.sandboxPurchaseHistory(runner))[0].status, "pending");
+  await f.pay();
+  const [paid] = await f.sandboxPurchaseHistory(runner);
+  assert.equal(paid.status, "paid");
+  assert.equal(paid.amount, offer.amount);
+  assert.equal(paid.service_snapshot.title, offer.title);
+  assert.equal("payment_hash" in paid, false);
+  assert.equal("test_email" in paid, false);
+  for (const actor of [coach, admin]) assert.equal((await f.sandboxPurchaseHistory(actor)).length, 0);
+  await f.refund();
+  await f.db.query("UPDATE marketplace_requests SET status='cancelled'");
+  assert.equal((await f.sandboxPurchaseHistory(runner))[0].status, "refunded", "History survives withdrawal");
+  await f.db.query("UPDATE stripe_test_workspaces SET payment_hash='tampered'");
+  assert.equal((await f.sandboxPurchaseHistory(runner)).length, 0, "Mismatched bookings are never reported as paid");
+  f.env.VERCEL_ENV = "production";
+  assert.equal((await f.sandboxPurchaseHistory(runner)).length, 0);
+});
+
 test("offer mismatch, changed checkout binding, unpaid states and suspended requests fail closed", async (t) => {
   const f = await fixture(t);
   f.env.STRIPE_TEST_OFFERS = JSON.stringify([{ ...offer, amount: 1 }]);

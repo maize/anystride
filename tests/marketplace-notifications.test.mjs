@@ -26,7 +26,7 @@ test("review alerts use fixed content, a private review link and stable per-item
   assert.equal(sent[0].body.to, "matthias.e.link@gmail.com");
   assert.match(sent[0].body.subject, /New coach application/);
   assert.match(sent[2].body.subject, /New coaching service proposal/);
-  assert.match(sent[0].body.text, /https:\/\/anystride.com\/account#review-heading/);
+  assert.match(sent[0].body.text, /https:\/\/anystride.com\/account\/review/);
   assert.deepEqual(Object.keys(sent[0].body).sort(), ["from", "subject", "text", "to"]);
   assert.doesNotMatch(JSON.stringify(sent[0].body), /private-coach-id|re_private_fixture/);
   assert.equal(sent[0].headers["Idempotency-Key"], sent[1].headers["Idempotency-Key"]);
@@ -34,6 +34,8 @@ test("review alerts use fixed content, a private review link and stable per-item
   assert.equal(sent[0].redirect, "error");
   assert.ok(sent[0].signal instanceof AbortSignal);
   assert.equal(n.logs.length, 0);
+  await n.notifyMarketplaceReview({ kind: "service", targetId: "private-service-id", version: 3 });
+  assert.notEqual(sent[2].headers["Idempotency-Key"], sent[3].headers["Idempotency-Key"]);
 });
 
 test("disabled, preview and incomplete configurations never send review mail", async () => {

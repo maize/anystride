@@ -137,6 +137,51 @@ test("real SQL: suspension hides services and blocks new requests and acceptance
   await act(runner, { action: "respond", id: inquiry.id, status: "cancelled" });
 });
 
+test("service edits enforce ownership, re-review, stale-write checks, audit and original request terms", async (t) => {
+  const f = await fixture(t);
+  const act = f.actOnMarketplace;
+  await act(coach, application);
+  await act(admin, { action: "review", target: "coach", id: coach.id, status: "approved", version: 1 });
+  const service = proposal();
+  await act(coach, service);
+  await act(admin, { action: "review", target: "service", id: service.id, status: "approved", version: 1 });
+  await act(runner, { action: "inquire", id: randomUUID(), serviceId: service.id, message: "I would like help with my first marathon." });
+  const edit = { ...service, action: "edit-service", version: 2, amount: 15000, title: "Updated coaching service" };
+  for (const actor of [other, runner, admin]) await assert.rejects(act(actor, edit), (error) => error.status === 404);
+  const result = await act(coach, edit);
+  assert.equal(result.notification.version, 3);
+  assert.equal((await act(coach, edit)).notification, undefined, "An exact retry does not notify again");
+  const updated = (await f.marketplaceDashboard(coach)).services[0];
+  assert.equal(updated.status, "pending");
+  assert.equal(updated.version, 3);
+  assert.equal(updated.amount, 15000);
+  assert.equal((await f.marketplacePublicCatalog()).length, 0);
+  const original = (await f.marketplaceDashboard(runner)).requests[0].service_snapshot;
+  assert.equal(original.amount, service.amount);
+  assert.equal(original.title, service.title);
+  await assert.rejects(act(coach, { ...edit, title: "Conflicting edit" }), (error) => error.status === 409);
+  await assert.rejects(act(admin, { action: "review", target: "service", id: service.id, status: "approved", version: 2 }), (error) => error.status === 409);
+  await act(admin, { action: "review", target: "service", id: service.id, status: "approved", version: 3 });
+  assert.equal((await f.marketplacePublicCatalog())[0].amount, edit.amount);
+  await act(admin, { action: "review", target: "service", id: service.id, status: "suspended", version: 4 });
+  await assert.rejects(act(coach, { ...edit, version: 5 }), (error) => error.status === 403);
+  const audit = (await f.db.query("SELECT actor_id FROM marketplace_audit WHERE action='edit-service'")).rows;
+  assert.equal(audit.length, 1);
+  assert.equal(audit[0].actor_id, coach.id);
+});
+
+test("service edit inputs cannot grant approval or ownership; review reads require admin", async (t) => {
+  const { parseMarketplaceAction: parse } = load("src/lib/marketplace-input.ts", { "server-only": {} });
+  const edit = { ...proposal(), action: "edit-service", version: 1 };
+  assert.equal(parse(edit).version, 1);
+  for (const fields of [{ version: 0 }, { version: "1" }, { status: "approved" }, { coachId: other.id }, { admin: true }]) assert.throws(() => parse({ ...edit, ...fields }));
+  const f = await fixture(t);
+  await f.actOnMarketplace(coach, application);
+  for (const actor of [coach, runner]) await assert.rejects(f.marketplaceReviews(actor), (error) => error.status === 403);
+  assert.equal((await f.marketplaceReviews(admin)).reviewCoaches.length, 1);
+  assert.equal((await f.marketplaceDashboard(admin, { includeReviews: false })).reviewCoaches.length, 0);
+});
+
 test("marketplace API rejects CSRF, missing authentication, invalid bodies and private error leakage", async () => {
   let authenticated = false;
   let writes = 0;
@@ -167,12 +212,9 @@ test("marketplace API rejects CSRF, missing authentication, invalid bodies and p
 test("private account entry uses document navigation and analytics are excluded", () => {
   const layout = readFileSync(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
   const analytics = readFileSync(new URL("../src/components/SiteAnalytics.tsx", import.meta.url), "utf8");
-  const account = readFileSync(new URL("../src/app/account/page.tsx", import.meta.url), "utf8");
   assert.match(layout, /<a href="\/account"/);
   assert.match(analytics, /pathname\.startsWith\("\/account\/"\)/);
   assert.match(analytics, /return null/);
-  assert.match(account, /const sandboxEnabled = sandboxWorkspaceEnabled\(\)/);
-  assert.match(account, /This local sandbox supports applications, enquiries and Stripe test payments/);
 });
 
 test("local marketplace runner requires an explicit test-only Stripe opt-in", () => {

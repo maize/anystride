@@ -2,7 +2,7 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { marketplaceOrigin } from "./marketplace-config";
 
-export interface ReviewNotification { kind: "coach" | "service"; targetId: string }
+export interface ReviewNotification { kind: "coach" | "service"; targetId: string; version?: number }
 
 /** Best-effort alert, not a durable mail queue. The review queue is authoritative. */
 export async function notifyMarketplaceReview(notification: ReviewNotification): Promise<void> {
@@ -17,14 +17,14 @@ export async function notifyMarketplaceReview(notification: ReviewNotification):
       console.error("Marketplace review notification: configuration incomplete.");
       return;
     }
-    const reviewUrl = `${marketplaceOrigin()}/account#review-heading`;
+    const reviewUrl = `${marketplaceOrigin()}/account/review`;
     const subject = notification.kind === "coach" ? "New coach application · Anystride" : "New coaching service proposal · Anystride";
     const text = [
       notification.kind === "coach" ? "A coach has submitted an application for your review." : "A coach has submitted a service proposal for your review.",
       "", "Sign in to your administrator account to review it:", reviewUrl,
       "", "Application details stay in Anystride. This alert does not approve the submission or enable payments.",
     ].join("\n");
-    const reference = createHash("sha256").update(`${notification.kind}:${notification.targetId}`).digest("hex");
+    const reference = createHash("sha256").update(`${notification.kind}:${notification.targetId}${notification.version ? `:${notification.version}` : ""}`).digest("hex");
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST", redirect: "error", cache: "no-store", signal: AbortSignal.timeout(5000),
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json", "Idempotency-Key": `marketplace-review-v1/${reference}` },

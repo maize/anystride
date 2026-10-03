@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
-  return <div className="mx-auto max-w-3xl px-4 py-12">{children}</div>;
+  return <div className="mx-auto max-w-5xl px-4 py-12">{children}</div>;
 }

@@ -30,21 +30,39 @@ export async function marketplaceTransaction<T>(fn: (client: PoolClient) => Prom
   finally { client.release(); }
 }
 
-export async function marketplaceDashboard(actor: MarketplaceActor) {
+export type ReviewStatus = "pending" | "approved" | "rejected" | "suspended";
+export interface CoachApplication { name: string; bio: string; credentials: string; status: ReviewStatus }
+export interface CoachingService { id: string; title: string; description: string; amount: number; currency: string; duration_weeks: number; status: ReviewStatus; version: number }
+export interface CoachingRequest {
+  id: string; service_id: string; message: string; status: "requested" | "accepted" | "declined" | "cancelled"; is_runner: boolean; created_at: Date;
+  service_snapshot: { title: string; description: string; amount: number; currency: string; durationWeeks: number; coachName: string; serviceVersion: number };
+}
+export interface CatalogService extends Omit<CoachingService, "status" | "version"> { coach_name: string }
+
+export async function marketplaceReviews(actor: MarketplaceActor) {
+  if (!actor.admin) throw new MarketplaceError("Administrator access required.", 403);
   const client = marketplacePool();
-  const [coach, services, requests, catalog, reviewCoaches, reviewServices] = await Promise.all([
-    client.query("SELECT name,bio,credentials,status FROM marketplace_coaches WHERE user_id=$1", [actor.id]),
-    client.query("SELECT id,title,description,amount,currency,duration_weeks,status FROM marketplace_services WHERE coach_id=$1 ORDER BY created_at DESC LIMIT 10", [actor.id]),
-    client.query(`SELECT id,message,service_snapshot,status,runner_id=$1 AS is_runner FROM marketplace_requests
+  const [coaches, services] = await Promise.all([
+    client.query<CoachApplication & { id: string; version: number }>("SELECT user_id AS id,name,bio,credentials,status,version FROM marketplace_coaches ORDER BY (status='pending') DESC,created_at DESC LIMIT 100"),
+    client.query<CoachingService & { coach_name: string; coach_status: ReviewStatus }>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,s.status,s.version,c.name AS coach_name,c.status AS coach_status
+      FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id ORDER BY (s.status='pending') DESC,s.created_at DESC LIMIT 100`),
+  ]);
+  return { reviewCoaches: coaches.rows, reviewServices: services.rows };
+}
+
+export async function marketplaceDashboard(actor: MarketplaceActor, { includeReviews = true } = {}) {
+  const client = marketplacePool();
+  const [coach, services, requests, catalog, reviews] = await Promise.all([
+    client.query<CoachApplication>("SELECT name,bio,credentials,status FROM marketplace_coaches WHERE user_id=$1", [actor.id]),
+    client.query<CoachingService>("SELECT id,title,description,amount,currency,duration_weeks,status,version FROM marketplace_services WHERE coach_id=$1 ORDER BY created_at DESC LIMIT 10", [actor.id]),
+    client.query<CoachingRequest>(`SELECT id,service_id,message,service_snapshot,status,created_at,runner_id=$1 AS is_runner FROM marketplace_requests
       WHERE runner_id=$1 OR coach_id=$1 ORDER BY created_at DESC LIMIT 100`, [actor.id]),
-    client.query(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,c.name AS coach_name
+    client.query<CatalogService>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,c.name AS coach_name
       FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id
       WHERE s.status='approved' AND c.status='approved' AND c.user_id<>$1 ORDER BY s.created_at DESC LIMIT 100`, [actor.id]),
-    actor.admin ? client.query("SELECT user_id AS id,name,bio,credentials,status,version FROM marketplace_coaches ORDER BY created_at DESC LIMIT 100") : Promise.resolve({ rows: [] }),
-    actor.admin ? client.query(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,s.status,s.version,c.name AS coach_name
-      FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id ORDER BY s.created_at DESC LIMIT 100`) : Promise.resolve({ rows: [] }),
+    actor.admin && includeReviews ? marketplaceReviews(actor) : { reviewCoaches: [], reviewServices: [] },
   ]);
-  return { coach: coach.rows[0] ?? null, services: services.rows, requests: requests.rows, catalog: catalog.rows, reviewCoaches: reviewCoaches.rows, reviewServices: reviewServices.rows };
+  return { coach: coach.rows[0] ?? null, services: services.rows, requests: requests.rows, catalog: catalog.rows, ...reviews };
 }
 
 export type PublicMarketplaceService = {
@@ -109,6 +127,20 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       if (count.rows[0].count >= 10) throw new MarketplaceError("The pilot allows ten service proposals per coach. Contact Anystride for help.", 429);
       await client.query(`INSERT INTO marketplace_services (id,coach_id,title,description,amount,currency,duration_weeks)
         VALUES ($1,$2,$3,$4,$5,$6,$7)`, [input.id, actor.id, input.title, input.description, input.amount, input.currency, input.durationWeeks]);
+    } else if (input.action === "edit-service") {
+      target = input.id;
+      // Match review/inquiry lock order. Ownership is checked even for admins.
+      const coach = await client.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [actor.id]);
+      const { rows: [service] } = await client.query("SELECT * FROM marketplace_services WHERE id=$1 AND coach_id=$2 FOR UPDATE", [input.id, actor.id]);
+      if (!service) throw new MarketplaceError("Service not found.", 404);
+      if (coach.rows[0]?.status !== "approved") throw new MarketplaceError("Your coach application must be approved before editing services.", 403);
+      if (service.status === "suspended") throw new MarketplaceError("This service is suspended. Contact Anystride before making changes.", 403);
+      const unchanged = service.title === input.title && service.description === input.description && service.amount === input.amount && service.currency === input.currency && service.duration_weeks === input.durationWeeks;
+      if (unchanged && service.status === "pending" && service.version === input.version + 1) return { saved: true };
+      if (service.version !== input.version) throw new MarketplaceError("This service changed. Refresh before editing it again.", 409);
+      if (unchanged && service.status !== "rejected") return { saved: true };
+      await client.query(`UPDATE marketplace_services SET title=$2,description=$3,amount=$4,currency=$5,duration_weeks=$6,
+        status='pending',version=version+1,updated_at=now() WHERE id=$1`, [input.id, input.title, input.description, input.amount, input.currency, input.durationWeeks]);
     } else if (input.action === "inquire") {
       target = input.id;
       const existing = await client.query("SELECT runner_id,service_id,message FROM marketplace_requests WHERE id=$1", [input.id]);
@@ -162,7 +194,7 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
     // The caller receives this only after both the item and audit entry commit.
     const notification: ReviewNotification | undefined = input.action === "apply"
       ? { kind: "coach", targetId: actor.id }
-      : input.action === "service" ? { kind: "service", targetId: input.id } : undefined;
+      : input.action === "service" || input.action === "edit-service" ? { kind: "service", targetId: input.id, ...(input.action === "edit-service" ? { version: input.version + 1 } : {}) } : undefined;
     return { saved: true, notification };
   });
 }
