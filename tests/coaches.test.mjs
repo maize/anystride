@@ -15,6 +15,10 @@ const registry = JSON.parse(
     "utf8",
   ),
 );
+const coachPageSource = readFileSync(
+  new URL("../src/app/coaching/[slug]/page.tsx", import.meta.url),
+  "utf8",
+);
 
 const FORMATS = new Set(["online", "in-person", "hybrid"]);
 const FOCUSES = new Set([
@@ -75,6 +79,11 @@ test("coach records are complete, route-safe, and use known directory values", (
     assert.equal(new Set(coach.focus).size, coach.focus.length, `${coach.slug}: duplicate focus`);
     assertStringList(coach.specialties, `${coach.slug}.specialties`);
     assertStringList(coach.bio, `${coach.slug}.bio`);
+    assert.doesNotMatch(
+      coach.bio.join(" "),
+      /\b(?:according to|(?:website|site|source|listing)\s+(?:describes|says|states))\b/i,
+      `${coach.slug}: bio should describe the offering instead of its source`,
+    );
     parsedUrl(coach.link, `${coach.slug}.link`);
     assertNonemptyString(coach.source?.name, `${coach.slug}.source.name`);
     parsedUrl(coach.source?.url, `${coach.slug}.source.url`);
@@ -100,6 +109,11 @@ test("V.O2 imports are independently sourced and retain discovery provenance", (
   for (const coach of VDOT_COACHES) {
     assert.ok(allSlugs.has(coach.slug), `${coach.slug}: generated coach is absent from COACHES`);
     assert.equal(coach.verified, false, `${coach.slug}: an imported profile cannot be pre-verified`);
+    assert.doesNotMatch(
+      coach.bio.join(" "),
+      /public website describes/i,
+      `${coach.slug}: imported copy should describe the offering directly`,
+    );
 
     const link = parsedUrl(
       coach.link,
@@ -133,6 +147,11 @@ test("V.O2 imports are independently sourced and retain discovery provenance", (
     assert.match(discovery.pathname, /^\/running-coach\//, `${coach.slug}: invalid V.O2 profile URL`);
     assertIsoDate(coach.sourceCheckedAt, `${coach.slug}.sourceCheckedAt`);
   }
+});
+
+test("coach pages keep marketplace discovery provenance out of public copy", () => {
+  assert.doesNotMatch(coachPageSource, /coach\.discoveredFrom/);
+  assert.doesNotMatch(coachPageSource, /discovered through/i);
 });
 
 test("coach and city routes do not collide in the sitemap", () => {

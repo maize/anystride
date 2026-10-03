@@ -1,6 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { filterCoaches, availableFocuses, availableCities } from "@/lib/coaches";
+import {
+  availableCitiesFor,
+  availableFocusesFor,
+  filterCoachCatalog,
+  getAllCoachesWithDiscovered,
+} from "@/lib/coaches";
 import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import { marketplacePublicCatalog, type PublicMarketplaceService } from "@/lib/marketplace-store";
@@ -18,6 +23,8 @@ export const metadata: Metadata = {
     "Browse running coaches across US cities — New York, Boston, Chicago, LA, San Francisco, and online. Filter by city, focus, and format, then connect directly.",
   alternates: { canonical: "/coaching" },
 };
+
+export const dynamic = "force-dynamic";
 
 const FORMATS: CoachFormat[] = ["online", "in-person", "hybrid"];
 
@@ -44,7 +51,8 @@ export default async function CoachingPage({
   const pick = (v: string | string[] | undefined) =>
     Array.isArray(v) ? v[0] : v;
 
-  const cities = availableCities();
+  const catalog = await getAllCoachesWithDiscovered();
+  const cities = availableCitiesFor(catalog);
   const rawCity = pick(sp.city);
   const city = rawCity && cities.includes(rawCity) ? rawCity : undefined;
   const focus = isFocus(pick(sp.focus)) ? (pick(sp.focus) as CoachFocus) : undefined;
@@ -52,8 +60,8 @@ export default async function CoachingPage({
     ? (pick(sp.format) as CoachFormat)
     : undefined;
 
-  const coaches = filterCoaches({ city, focus, format });
-  const focuses = availableFocuses();
+  const coaches = filterCoachCatalog(catalog, { city, focus, format });
+  const focuses = availableFocusesFor(catalog);
   const hasFilters = Boolean(city || focus || format);
   let services: PublicMarketplaceService[] = [];
   try { services = await marketplacePublicCatalog(); }

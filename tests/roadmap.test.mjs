@@ -103,7 +103,7 @@ test("IndexNow accepts only explicit canonical batches and deduplicates", () => 
 
 test("IndexNow route fails closed and never fetches invalid batches", async () => {
   let requests = 0;
-  const mocks = { "@/lib/site-urls": { BASE: "https://anystride.com", getAllSitePaths: () => ["/"] } };
+  const mocks = { "@/lib/site-urls": { BASE: "https://anystride.com", getAllSitePathsWithDiscovered: async () => ["/"] } };
   const globals = { fetch: async () => { requests++; return new Response(null, { status: 200 }); } };
   const request = (body, token = "test-secret") => new Request("http://localhost/api/indexnow", { method: "POST", headers: { Authorization: `Bearer ${token}` }, body });
   const disabled = load("src/app/api/indexnow/route.ts", mocks, globals);
@@ -121,7 +121,7 @@ test("IndexNow route fails closed and never fetches invalid batches", async () =
 });
 
 test("IndexNow reports upstream failures instead of false success", async () => {
-  const mocks = { "@/lib/site-urls": { BASE: "https://anystride.com", getAllSitePaths: () => ["/"] } };
+  const mocks = { "@/lib/site-urls": { BASE: "https://anystride.com", getAllSitePathsWithDiscovered: async () => ["/"] } };
   for (const fetch of [async () => new Response(null, { status: 429 }), async () => { throw Error("timeout"); }]) {
     const { POST } = load("src/app/api/indexnow/route.ts", mocks, { process: { env: { CRON_SECRET: "test" } }, fetch });
     const response = await POST(new Request("http://localhost/api/indexnow", { method: "POST", headers: { Authorization: "Bearer test" }, body: '{"paths":["/"]}' }));
@@ -135,7 +135,13 @@ test("guides, sitemap and redirect agree on the single canonical fueling page", 
   assert.equal(new Set(GUIDES.map((guide) => guide.slug)).size, GUIDES.length);
   const guide = GUIDES.find((guide) => guide.slug === "fueling-for-long-runs");
   assert.equal(guide.sources.length, 3);
-  const sitemap = load("src/app/sitemap.ts").default();
+  const siteUrls = load("src/lib/site-urls.ts");
+  const sitemap = await load("src/app/sitemap.ts", {
+    "@/lib/site-urls": {
+      ...siteUrls,
+      getAllSitePathsWithDiscovered: async () => siteUrls.getAllSitePaths(),
+    },
+  }).default();
   assert.equal(sitemap.some((entry) => entry.url.endsWith("/fueling-long-runs")), false);
   assert.equal(sitemap.find((entry) => entry.url.endsWith(`/guides/${guide.slug}`)).lastModified, guide.updated);
   assert.equal(sitemap.find((entry) => entry.url === "https://anystride.com/calculator").lastModified, undefined);

@@ -102,18 +102,30 @@ export default function PrivacyPage() {
             Unclaimed public coach listings
           </h2>
           <p className="mt-2 text-muted-foreground">
-            We may discover coaches through public professional directories and
-            create an unclaimed listing using information published on the
-            coach&apos;s own public website. This can include the coach&apos;s name,
-            broad business location, advertised services and specialties,
-            website, and the public source URLs used to compile the listing. We
-            display source attribution on each unclaimed profile.
+            We create some unclaimed listings from information coaches publish
+            on their business websites. This can include the coach&apos;s name,
+            broad business location, advertised services and specialties, and
+            website. The profile describes those services directly; it does not
+            show which directory or platform led us to the website.
           </p>
           <p className="mt-3 text-muted-foreground">
             We do not import profile photos, testimonials or reviews, personal
             email addresses, phone numbers, or other personal contact details
             for these listings. A coach can claim a profile or ask us to
             correct or remove it by emailing hello@anystride.com.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            When an approved Reddit integration is enabled, we do not publish
+            or retain Reddit usernames, post text, comments, links to posts,
+            profile data, or inferred identities. We privately retain Reddit&apos;s
+            internal post identifier and the business website address supplied
+            in that post, together with confirmation times, so we can check each
+            day that the coach still explicitly links to the same first-party
+            website.
+            If we cannot confirm that association for 36 hours, the listing is
+            hidden. If the post is removed or no longer qualifies, its record
+            and any listing that depends on it are deleted. Public profiles do
+            not identify Reddit as their discovery source.
           </p>
         </section>
 

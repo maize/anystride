@@ -461,11 +461,23 @@ function coachIdentity(name: string): string {
     .trim();
 }
 
-const curatedNames = new Set(CURATED_COACHES.map((coach) => coachIdentity(coach.name)));
-const importedCoaches: readonly Coach[] = VDOT_COACHES;
+function mergeCoachSources(...sources: readonly (readonly Coach[])[]): Coach[] {
+  const names = new Set<string>();
+  const slugs = new Set<string>();
 
-/** Curated profiles take precedence when an imported public profile is the same coach. */
-export const COACHES: Coach[] = [
-  ...CURATED_COACHES,
-  ...importedCoaches.filter((coach) => !curatedNames.has(coachIdentity(coach.name))),
-];
+  return sources.flatMap((source) =>
+    source.filter((coach) => {
+      const identity = coachIdentity(coach.name);
+      if (names.has(identity) || slugs.has(coach.slug)) return false;
+      names.add(identity);
+      slugs.add(coach.slug);
+      return true;
+    }),
+  );
+}
+
+/** Curated profiles take precedence, followed by reviewed directory imports. */
+export const COACHES: Coach[] = mergeCoachSources(
+  CURATED_COACHES,
+  VDOT_COACHES,
+);

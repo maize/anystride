@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllCoaches, getCoachBySlug } from "@/lib/coaches";
+import { getAllCoaches, getCoachBySlugWithDiscovered } from "@/lib/coaches";
 import { COACH_FOCUS_LABELS, COACH_FORMAT_LABELS } from "@/data/coaches";
 import { Avatar } from "@/components/Avatar";
 import { JsonLd } from "@/components/JsonLd";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return getAllCoaches().map((coach) => ({ slug: coach.slug }));
@@ -14,7 +16,7 @@ export async function generateMetadata({
   params,
 }: PageProps<"/coaching/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const coach = getCoachBySlug(slug);
+  const coach = await getCoachBySlugWithDiscovered(slug);
   if (!coach) return { title: "Coach not found" };
   return {
     title:
@@ -28,7 +30,7 @@ export async function generateMetadata({
 
 export default async function CoachPage({ params }: PageProps<"/coaching/[slug]">) {
   const { slug } = await params;
-  const coach = getCoachBySlug(slug);
+  const coach = await getCoachBySlugWithDiscovered(slug);
   if (!coach) notFound();
 
   const url = `https://anystride.com/coaching/${coach.slug}`;
@@ -161,20 +163,6 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
           >
             {coach.source.name}
           </a>
-          {coach.discoveredFrom ? (
-            <>
-              {" "}
-              and discovered through{" "}
-              <a
-                href={coach.discoveredFrom.url}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="font-medium text-brand hover:underline"
-              >
-                {coach.discoveredFrom.name}
-              </a>
-            </>
-          ) : null}
           . It has not yet been claimed or verified by the coach.{" "}
           <Link
             href={`/coaching/apply?claim=${encodeURIComponent(coach.slug)}`}

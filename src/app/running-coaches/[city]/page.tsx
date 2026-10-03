@@ -3,12 +3,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   availableCities,
-  filterCoaches,
-  getCityBySlug,
+  availableCitiesFor,
+  filterCoachCatalog,
+  getAllCoachesWithDiscovered,
+  getCityBySlugFor,
 } from "@/lib/coaches";
 import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import { JsonLd } from "@/components/JsonLd";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return availableCities().map((city) => ({ city: citySlug(city) }));
@@ -18,7 +22,8 @@ export async function generateMetadata({
   params,
 }: PageProps<"/running-coaches/[city]">): Promise<Metadata> {
   const { city: slug } = await params;
-  const city = getCityBySlug(slug);
+  const catalog = await getAllCoachesWithDiscovered();
+  const city = getCityBySlugFor(catalog, slug);
   if (!city) return { title: "Coaches not found" };
   const where = city === "Online" ? "online" : `in ${city}`;
   return {
@@ -32,10 +37,11 @@ export default async function CityCoachesPage({
   params,
 }: PageProps<"/running-coaches/[city]">) {
   const { city: slug } = await params;
-  const city = getCityBySlug(slug);
+  const catalog = await getAllCoachesWithDiscovered();
+  const city = getCityBySlugFor(catalog, slug);
   if (!city) notFound();
 
-  const coaches = filterCoaches({ city });
+  const coaches = filterCoachCatalog(catalog, { city });
   const isOnline = city === "Online";
   const where = isOnline ? "online" : `in ${city}`;
   const url = `https://anystride.com/running-coaches/${slug}`;
@@ -90,7 +96,7 @@ export default async function CityCoachesPage({
           Coaches in other cities
         </h2>
         <div className="mt-3 flex flex-wrap gap-2">
-          {availableCities()
+          {availableCitiesFor(catalog)
             .filter((c) => c !== city)
             .map((c) => (
               <Link

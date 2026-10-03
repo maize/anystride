@@ -1,6 +1,11 @@
 import { getAllPlans } from "./plans";
 import { getAllGuides } from "./guides";
-import { getAllCoaches, availableCities } from "./coaches";
+import {
+  getAllCoaches,
+  getAllCoachesWithDiscovered,
+  availableCities,
+  availableCitiesFor,
+} from "./coaches";
 import { getAllRaces, getAllRacers } from "./races";
 import { DISTANCE_ORDER } from "@/data/types";
 import { citySlug } from "./slug";
@@ -17,7 +22,7 @@ function distancesWithPlans(): string[] {
  * Canonical list of all indexable site paths. Single source of truth for both
  * the sitemap and IndexNow submission.
  */
-export function getAllSitePaths(): string[] {
+function sitePaths(coachSlugs: string[], coachCities: string[]): string[] {
   const staticPaths = [
     "/",
     "/plans",
@@ -34,8 +39,8 @@ export function getAllSitePaths(): string[] {
   ];
   const plans = getAllPlans().map((p) => `/plans/${p.slug}`);
   const guides = getAllGuides().map((g) => `/guides/${g.slug}`);
-  const coaches = getAllCoaches().map((c) => `/coaching/${c.slug}`);
-  const cityPages = availableCities().map((c) => `/running-coaches/${citySlug(c)}`);
+  const coaches = coachSlugs.map((slug) => `/coaching/${slug}`);
+  const cityPages = coachCities.map((city) => `/running-coaches/${citySlug(city)}`);
   const distancePages = distancesWithPlans().map((d) => `/training-plans/${d}`);
   const races = getAllRaces().map((r) => `/races/${r.slug}`);
   const racers = getAllRacers().map((r) => `/racers/${r.slug}`);
@@ -50,6 +55,22 @@ export function getAllSitePaths(): string[] {
     ...races,
     ...racers,
   ];
+}
+
+export function getAllSitePaths(): string[] {
+  return sitePaths(
+    getAllCoaches().map((coach) => coach.slug),
+    availableCities(),
+  );
+}
+
+/** Request-time paths, including reviewed profiles from the private view. */
+export async function getAllSitePathsWithDiscovered(): Promise<string[]> {
+  const coaches = await getAllCoachesWithDiscovered();
+  return sitePaths(
+    coaches.map((coach) => coach.slug),
+    availableCitiesFor(coaches),
+  );
 }
 
 /** Same list as absolute URLs. */

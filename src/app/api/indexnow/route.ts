@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { BASE, getAllSitePaths } from "@/lib/site-urls";
+import { BASE, getAllSitePathsWithDiscovered } from "@/lib/site-urls";
 import { changedPagePaths } from "@/lib/indexnow";
 
 export const runtime = "nodejs";
@@ -29,7 +29,10 @@ export async function POST(request: NextRequest) {
       }
       chunks.push(value);
     }
-    paths = changedPagePaths(JSON.parse(Buffer.concat(chunks).toString("utf8")), getAllSitePaths());
+    paths = changedPagePaths(
+      JSON.parse(Buffer.concat(chunks).toString("utf8")),
+      await getAllSitePathsWithDiscovered(),
+    );
   } catch {
     return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
   }

@@ -22,7 +22,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Alli Felsenthal offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Alli Felsenthal's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Alli Felsenthal offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.runafastermarathon.com/",
     "source": {
@@ -55,7 +55,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Amanda Hoang offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
     "bio": [
-      "Amanda Hoang's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      "Amanda Hoang offers online coaching focused on personalized training, strength training and track and cross-country."
     ],
     "link": "https://www.mandymovez.com/",
     "source": {
@@ -86,7 +86,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Amy Windle offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
     "bio": [
-      "Amy Windle's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      "Amy Windle offers online coaching focused on personalized training, strength training and injury-aware training."
     ],
     "link": "https://coachamywindle.my.canva.site/",
     "source": {
@@ -123,7 +123,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Andie Cozzarelli offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Andie Cozzarelli's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Andie Cozzarelli offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://run4acozz.com/",
     "source": {
@@ -160,7 +160,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Andy McGhee offers online and in-person running coaching with a focus on strength training, trail and ultrarunning and track and cross-country.",
     "bio": [
-      "Andy McGhee's public website describes online and in-person coaching focused on strength training, trail and ultrarunning and track and cross-country."
+      "Andy McGhee offers online and in-person coaching focused on strength training, trail and ultrarunning and track and cross-country."
     ],
     "link": "https://andymcgheecoaching.com/",
     "source": {
@@ -195,7 +195,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Angela Reckart offers online running coaching with a focus on strength training, track and cross-country and marathon.",
     "bio": [
-      "Angela Reckart's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      "Angela Reckart offers online coaching focused on strength training, track and cross-country and marathon."
     ],
     "link": "https://www.ngucoaching.com/",
     "source": {
@@ -226,7 +226,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Arj Thiruchelvam offers online and in-person running coaching with a focus on nutrition, track and cross-country and beginner runners.",
     "bio": [
-      "Arj Thiruchelvam's public website describes online and in-person coaching focused on nutrition, track and cross-country and beginner runners."
+      "Arj Thiruchelvam offers online and in-person coaching focused on nutrition, track and cross-country and beginner runners."
     ],
     "link": "https://performancephysique.co.uk/",
     "source": {
@@ -260,7 +260,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Backroads Endurance offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Backroads Endurance's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Backroads Endurance offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.backroadsendurance.com/",
     "source": {
@@ -294,7 +294,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Becky Anthony offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
     "bio": [
-      "Becky Anthony's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      "Becky Anthony offers online coaching focused on personalized training, strength training and injury-aware training."
     ],
     "link": "https://tayloredtrainingrun.com/",
     "source": {
@@ -327,7 +327,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Becky Croft offers online running coaching with a focus on strength training, nutrition and injury-aware training.",
     "bio": [
-      "Becky Croft's public website describes online coaching focused on strength training, nutrition and injury-aware training."
+      "Becky Croft offers online coaching focused on strength training, nutrition and injury-aware training."
     ],
     "link": "https://hustle-eat-thrive.myshopify.com/",
     "source": {
@@ -363,7 +363,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Ben Lauder Dykes offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Ben Lauder Dykes's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Ben Lauder Dykes offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://bldapproved.com/",
     "source": {
@@ -400,7 +400,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Bonnie Wilder offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Bonnie Wilder's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Bonnie Wilder offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://runningtheextramiles.com/",
     "source": {
@@ -435,7 +435,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Brian Lock offers online running coaching with a focus on injury-aware training, beginner runners and boston qualifying.",
     "bio": [
-      "Brian Lock's public website describes online coaching focused on injury-aware training, beginner runners and boston qualifying."
+      "Brian Lock offers online coaching focused on injury-aware training, beginner runners and boston qualifying."
     ],
     "link": "https://roadrunnercoaching.com/",
     "source": {
@@ -466,7 +466,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Bridget Oldenburg offers online running coaching with a focus on personalized training, track and cross-country and boston qualifying.",
     "bio": [
-      "Bridget Oldenburg's public website describes online coaching focused on personalized training, track and cross-country and boston qualifying."
+      "Bridget Oldenburg offers online coaching focused on personalized training, track and cross-country and boston qualifying."
     ],
     "link": "https://runwithurheart.com/",
     "source": {
@@ -502,7 +502,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Brooklynn Harvey offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Brooklynn Harvey's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Brooklynn Harvey offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.47runcoaching.com/",
     "source": {
@@ -530,7 +530,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Caroline Högardh offers online running coaching with a focus on marathon.",
     "bio": [
-      "Caroline Högardh's public website describes online coaching focused on marathon."
+      "Caroline Högardh offers online coaching focused on marathon."
     ],
     "link": "https://carolinehogardhrunning.webnode.se/",
     "source": {
@@ -565,7 +565,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Cary Morgan offers online running coaching with a focus on personalized training, injury-aware training and trail and ultrarunning.",
     "bio": [
-      "Cary Morgan's public website describes online coaching focused on personalized training, injury-aware training and trail and ultrarunning."
+      "Cary Morgan offers online coaching focused on personalized training, injury-aware training and trail and ultrarunning."
     ],
     "link": "https://www.cadenceruncoaching.com/",
     "source": {
@@ -602,7 +602,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Char Griess offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Char Griess's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Char Griess offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.charathoner.com/",
     "source": {
@@ -635,7 +635,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Christina Mather offers online running coaching with a focus on personalized training, nutrition and injury-aware training.",
     "bio": [
-      "Christina Mather's public website describes online coaching focused on personalized training, nutrition and injury-aware training."
+      "Christina Mather offers online coaching focused on personalized training, nutrition and injury-aware training."
     ],
     "link": "https://mathercoachingservices.weebly.com/",
     "source": {
@@ -671,7 +671,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Dami Alao offers online running coaching with a focus on strength training, injury-aware training and trail and ultrarunning.",
     "bio": [
-      "Dami Alao's public website describes online coaching focused on strength training, injury-aware training and trail and ultrarunning."
+      "Dami Alao offers online coaching focused on strength training, injury-aware training and trail and ultrarunning."
     ],
     "link": "https://www.trainbaseline.net/",
     "source": {
@@ -706,7 +706,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "David Abbott offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "David Abbott's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "David Abbott offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "http://davidabbott.io/",
     "source": {
@@ -739,7 +739,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "David Schwinger - ETA offers online running coaching with a focus on personalized training, strength training and 5k and 10k.",
     "bio": [
-      "David Schwinger - ETA's public website describes online coaching focused on personalized training, strength training and 5k and 10k."
+      "David Schwinger - ETA offers online coaching focused on personalized training, strength training and 5k and 10k."
     ],
     "link": "https://endurancetrainingalliance.com/",
     "source": {
@@ -774,7 +774,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Dimitris Kyriakopoulos offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Dimitris Kyriakopoulos's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Dimitris Kyriakopoulos offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://your-running-university.myshopify.com/",
     "source": {
@@ -810,7 +810,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Dylan Belles offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Dylan Belles's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Dylan Belles offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.dylanbelles.com/",
     "source": {
@@ -838,7 +838,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Elizabeth Miller offers online running coaching with a focus on personalized training.",
     "bio": [
-      "Elizabeth Miller's public website describes online coaching focused on personalized training."
+      "Elizabeth Miller offers online coaching focused on personalized training."
     ],
     "link": "https://endurance4you.com/run-coaching/",
     "source": {
@@ -868,7 +868,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Evan Schwartz offers online running coaching with a focus on personalized training and marathon.",
     "bio": [
-      "Evan Schwartz's public website describes online coaching focused on personalized training and marathon."
+      "Evan Schwartz offers online coaching focused on personalized training and marathon."
     ],
     "link": "https://www.evanschwartzcoaching.com/",
     "source": {
@@ -898,7 +898,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Evan Titus offers online running coaching with a focus on strength training and nutrition.",
     "bio": [
-      "Evan Titus's public website describes online coaching focused on strength training and nutrition."
+      "Evan Titus offers online coaching focused on strength training and nutrition."
     ],
     "link": "https://www.evantitusfitness.com/",
     "source": {
@@ -933,7 +933,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Fleet Feet Nashville offers online running coaching with a focus on personalized training, injury-aware training and track and cross-country.",
     "bio": [
-      "Fleet Feet Nashville's public website describes online coaching focused on personalized training, injury-aware training and track and cross-country."
+      "Fleet Feet Nashville offers online coaching focused on personalized training, injury-aware training and track and cross-country."
     ],
     "link": "https://www.fleetfeet.com/s/nashville/",
     "source": {
@@ -968,7 +968,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Gaby Go offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Gaby Go's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Gaby Go offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://gorunstronger.com/",
     "source": {
@@ -996,7 +996,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Hannah Shakeshaft offers online running coaching with a focus on individual running coaching.",
     "bio": [
-      "Hannah Shakeshaft's public website describes online coaching focused on individual running coaching."
+      "Hannah Shakeshaft offers online coaching focused on individual running coaching."
     ],
     "link": "https://www.overlaprunning.com/",
     "source": {
@@ -1028,7 +1028,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Heather Caplan RDN offers online running coaching with a focus on nutrition, trail and ultrarunning and track and cross-country.",
     "bio": [
-      "Heather Caplan RDN's public website describes online coaching focused on nutrition, trail and ultrarunning and track and cross-country."
+      "Heather Caplan RDN offers online coaching focused on nutrition, trail and ultrarunning and track and cross-country."
     ],
     "link": "https://heathercaplan.com/",
     "source": {
@@ -1061,7 +1061,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Ian Paramore offers online running coaching with a focus on injury-aware training, track and cross-country and marathon.",
     "bio": [
-      "Ian Paramore's public website describes online coaching focused on injury-aware training, track and cross-country and marathon."
+      "Ian Paramore offers online coaching focused on injury-aware training, track and cross-country and marathon."
     ],
     "link": "https://runnerbeancoaching.wordpress.com/",
     "source": {
@@ -1095,7 +1095,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Jillian Reyna offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Jillian Reyna's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Jillian Reyna offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.risereigntraining.com/",
     "source": {
@@ -1131,7 +1131,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Joe Shayne offers online and in-person running coaching with a focus on personalized training, strength training and injury-aware training.",
     "bio": [
-      "Joe Shayne's public website describes online and in-person coaching focused on personalized training, strength training and injury-aware training."
+      "Joe Shayne offers online and in-person coaching focused on personalized training, strength training and injury-aware training."
     ],
     "link": "https://werunkings.com/",
     "source": {
@@ -1167,7 +1167,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Jonathan Lyau offers online running coaching with a focus on personalized training, nutrition and track and cross-country.",
     "bio": [
-      "Jonathan Lyau's public website describes online coaching focused on personalized training, nutrition and track and cross-country."
+      "Jonathan Lyau offers online coaching focused on personalized training, nutrition and track and cross-country."
     ],
     "link": "https://personalbesttraininghi.com/",
     "source": {
@@ -1201,7 +1201,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Joseph Winwood offers online running coaching with a focus on trail and ultrarunning, beginner runners and marathon.",
     "bio": [
-      "Joseph Winwood's public website describes online coaching focused on trail and ultrarunning, beginner runners and marathon."
+      "Joseph Winwood offers online coaching focused on trail and ultrarunning, beginner runners and marathon."
     ],
     "link": "https://www.southernmostrunningco.com/",
     "source": {
@@ -1236,7 +1236,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Karen Dunn offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Karen Dunn's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Karen Dunn offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.strengthenyourstride.coach/",
     "source": {
@@ -1267,7 +1267,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Karli Saur offers online and in-person running coaching with a focus on strength training, nutrition and track and cross-country.",
     "bio": [
-      "Karli Saur's public website describes online and in-person coaching focused on strength training, nutrition and track and cross-country."
+      "Karli Saur offers online and in-person coaching focused on strength training, nutrition and track and cross-country."
     ],
     "link": "https://www.irondiamondfitness.com/",
     "source": {
@@ -1300,7 +1300,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Kasey Halbleib offers online running coaching with a focus on personalized training, track and cross-country and beginner runners.",
     "bio": [
-      "Kasey Halbleib's public website describes online coaching focused on personalized training, track and cross-country and beginner runners."
+      "Kasey Halbleib offers online coaching focused on personalized training, track and cross-country and beginner runners."
     ],
     "link": "https://runwildcoaching.fit/",
     "source": {
@@ -1333,7 +1333,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Kim Elia offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
     "bio": [
-      "Kim Elia's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      "Kim Elia offers online coaching focused on personalized training, strength training and injury-aware training."
     ],
     "link": "https://www.orthonept.com/",
     "source": {
@@ -1368,7 +1368,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Kristyn R Smith offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Kristyn R Smith's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Kristyn R Smith offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://coachkrisrs.com/",
     "source": {
@@ -1402,7 +1402,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Kyle McKinley offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Kyle McKinley's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Kyle McKinley offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.scissortailrunning.com/",
     "source": {
@@ -1438,7 +1438,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Laura Filla offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Laura Filla's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Laura Filla offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://fillaendurance.com/",
     "source": {
@@ -1474,7 +1474,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Leah Rosenfeld offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Leah Rosenfeld's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Leah Rosenfeld offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.leahrosenfeld.com/",
     "source": {
@@ -1506,7 +1506,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Liam Struwe offers online running coaching with a focus on strength training, track and cross-country and marathon.",
     "bio": [
-      "Liam Struwe's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      "Liam Struwe offers online coaching focused on strength training, track and cross-country and marathon."
     ],
     "link": "https://runstark.co.uk/home-1",
     "source": {
@@ -1534,7 +1534,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Lindsey Altermatt offers online running coaching with a focus on trail and ultrarunning.",
     "bio": [
-      "Lindsey Altermatt's public website describes online coaching focused on trail and ultrarunning."
+      "Lindsey Altermatt offers online coaching focused on trail and ultrarunning."
     ],
     "link": "https://mntrailruncollective.com/",
     "source": {
@@ -1567,7 +1567,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Louis Serafini offers online running coaching with a focus on personalized training, marathon and half marathon.",
     "bio": [
-      "Louis Serafini's public website describes online coaching focused on personalized training, marathon and half marathon."
+      "Louis Serafini offers online coaching focused on personalized training, marathon and half marathon."
     ],
     "link": "https://serafinicoaching.run/",
     "source": {
@@ -1599,7 +1599,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Maddie Barrett offers online running coaching with a focus on track and cross-country, marathon and 5k and 10k.",
     "bio": [
-      "Maddie Barrett's public website describes online coaching focused on track and cross-country, marathon and 5k and 10k."
+      "Maddie Barrett offers online coaching focused on track and cross-country, marathon and 5k and 10k."
     ],
     "link": "https://www.joyfulrunningcoaching.com/",
     "source": {
@@ -1637,7 +1637,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Malindi Elmore offers online running coaching with a focus on strength training, track and cross-country and triathlon.",
     "bio": [
-      "Malindi Elmore's public website describes online coaching focused on strength training, track and cross-country and triathlon."
+      "Malindi Elmore offers online coaching focused on strength training, track and cross-country and triathlon."
     ],
     "link": "https://malindielmore.com/",
     "source": {
@@ -1671,7 +1671,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Mark Day offers online running coaching with a focus on strength training, trail and ultrarunning and marathon.",
     "bio": [
-      "Mark Day's public website describes online coaching focused on strength training, trail and ultrarunning and marathon."
+      "Mark Day offers online coaching focused on strength training, trail and ultrarunning and marathon."
     ],
     "link": "https://racewithoutfear.com/",
     "source": {
@@ -1708,7 +1708,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Matt Hotaling offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
     "bio": [
-      "Matt Hotaling's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      "Matt Hotaling offers online coaching focused on personalized training, strength training and track and cross-country."
     ],
     "link": "https://sites.google.com/view/amrunningvb",
     "source": {
@@ -1743,7 +1743,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Matt LoPiccolo offers online and in-person running coaching with a focus on personalized training, injury-aware training and track and cross-country.",
     "bio": [
-      "Matt LoPiccolo's public website describes online and in-person coaching focused on personalized training, injury-aware training and track and cross-country."
+      "Matt LoPiccolo offers online and in-person coaching focused on personalized training, injury-aware training and track and cross-country."
     ],
     "link": "https://lopiccoloendurance.com/",
     "source": {
@@ -1778,7 +1778,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Megan Cooke offers online running coaching with a focus on strength training, track and cross-country and marathon.",
     "bio": [
-      "Megan Cooke's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      "Megan Cooke offers online coaching focused on strength training, track and cross-country and marathon."
     ],
     "link": "https://www.ngucoaching.com/",
     "source": {
@@ -1809,7 +1809,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Michelle Baxter offers online running coaching with a focus on nutrition and marathon.",
     "bio": [
-      "Michelle Baxter's public website describes online coaching focused on nutrition and marathon."
+      "Michelle Baxter offers online coaching focused on nutrition and marathon."
     ],
     "link": "https://www.therunnersplate.com/",
     "source": {
@@ -1844,7 +1844,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Mikkel Gisle Johnsen offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Mikkel Gisle Johnsen's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Mikkel Gisle Johnsen offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.mgjcoaching.no/international",
     "source": {
@@ -1881,7 +1881,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Nathan Pennington offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Nathan Pennington's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Nathan Pennington offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://rundreamachieve.com/",
     "source": {
@@ -1918,7 +1918,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Nelle Gray offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Nelle Gray's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Nelle Gray offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.magnumopuscoaching.com/",
     "source": {
@@ -1954,7 +1954,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Nialah Ferrer offers online and in-person running coaching with a focus on personalized training, strength training and injury-aware training.",
     "bio": [
-      "Nialah Ferrer's public website describes online and in-person coaching focused on personalized training, strength training and injury-aware training."
+      "Nialah Ferrer offers online and in-person coaching focused on personalized training, strength training and injury-aware training."
     ],
     "link": "https://werunkings.com/",
     "source": {
@@ -1987,7 +1987,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Nicholas Hilton offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Nicholas Hilton's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Nicholas Hilton offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.hiltonperformancerunning.com/",
     "source": {
@@ -2022,7 +2022,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Noa Besner offers online running coaching with a focus on personalized training, nutrition and beginner runners.",
     "bio": [
-      "Noa Besner's public website describes online coaching focused on personalized training, nutrition and beginner runners."
+      "Noa Besner offers online coaching focused on personalized training, nutrition and beginner runners."
     ],
     "link": "https://runcoachnoa.com/",
     "source": {
@@ -2056,7 +2056,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Pamela Hunt offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Pamela Hunt's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Pamela Hunt offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.orithyia.nyc/coaching",
     "source": {
@@ -2088,7 +2088,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Pete Simon offers online and in-person running coaching with a focus on strength training, nutrition and injury-aware training.",
     "bio": [
-      "Pete Simon's public website describes online and in-person coaching focused on strength training, nutrition and injury-aware training."
+      "Pete Simon offers online and in-person coaching focused on strength training, nutrition and injury-aware training."
     ],
     "link": "https://petesimon.com/",
     "source": {
@@ -2120,7 +2120,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "PW Performance Coaching offers online running coaching with a focus on marathon and 5k and 10k.",
     "bio": [
-      "PW Performance Coaching's public website describes online coaching focused on marathon and 5k and 10k."
+      "PW Performance Coaching offers online coaching focused on marathon and 5k and 10k."
     ],
     "link": "https://pwperformancecoaching.com/",
     "source": {
@@ -2154,7 +2154,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Rachel Turner offers online running coaching with a focus on nutrition, injury-aware training and trail and ultrarunning.",
     "bio": [
-      "Rachel Turner's public website describes online coaching focused on nutrition, injury-aware training and trail and ultrarunning."
+      "Rachel Turner offers online coaching focused on nutrition, injury-aware training and trail and ultrarunning."
     ],
     "link": "https://runnersnutritioncoach.com/",
     "source": {
@@ -2190,7 +2190,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Richard Airey offers online running coaching with a focus on strength training, nutrition and injury-aware training.",
     "bio": [
-      "Richard Airey's public website describes online coaching focused on strength training, nutrition and injury-aware training."
+      "Richard Airey offers online coaching focused on strength training, nutrition and injury-aware training."
     ],
     "link": "https://www.blacksheependurance.com/",
     "source": {
@@ -2218,7 +2218,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Riley Coulter offers online running coaching with a focus on individual running coaching.",
     "bio": [
-      "Riley Coulter's public website describes online coaching focused on individual running coaching."
+      "Riley Coulter offers online coaching focused on individual running coaching."
     ],
     "link": "https://www.driftlessdistanceproject.com/",
     "source": {
@@ -2254,7 +2254,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Roabel Medhanie offers online running coaching with a focus on injury-aware training, triathlon and marathon.",
     "bio": [
-      "Roabel Medhanie's public website describes online coaching focused on injury-aware training, triathlon and marathon."
+      "Roabel Medhanie offers online coaching focused on injury-aware training, triathlon and marathon."
     ],
     "link": "https://www.runwithroabel.com/",
     "source": {
@@ -2288,7 +2288,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Sarah Kozul offers online running coaching with a focus on personalized training, injury-aware training and marathon.",
     "bio": [
-      "Sarah Kozul's public website describes online coaching focused on personalized training, injury-aware training and marathon."
+      "Sarah Kozul offers online coaching focused on personalized training, injury-aware training and marathon."
     ],
     "link": "https://runnerssense.com/",
     "source": {
@@ -2323,7 +2323,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Scott Andrew Brown offers online and in-person running coaching with a focus on personalized training, track and cross-country and beginner runners.",
     "bio": [
-      "Scott Andrew Brown's public website describes online and in-person coaching focused on personalized training, track and cross-country and beginner runners."
+      "Scott Andrew Brown offers online and in-person coaching focused on personalized training, track and cross-country and beginner runners."
     ],
     "link": "https://samurairunningjapan.com/",
     "source": {
@@ -2359,7 +2359,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Shaina Cales offers online running coaching with a focus on personalized training, nutrition and marathon.",
     "bio": [
-      "Shaina Cales's public website describes online coaching focused on personalized training, nutrition and marathon."
+      "Shaina Cales offers online coaching focused on personalized training, nutrition and marathon."
     ],
     "link": "https://www.sparkrunning.co/",
     "source": {
@@ -2388,7 +2388,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Stuart Lamp offers online running coaching with a focus on individual running coaching.",
     "bio": [
-      "Stuart Lamp's public website describes online coaching focused on individual running coaching."
+      "Stuart Lamp offers online coaching focused on individual running coaching."
     ],
     "link": "https://www.allied-endurance.com/",
     "source": {
@@ -2423,7 +2423,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Tammy Whyte offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Tammy Whyte's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Tammy Whyte offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.tw-training.com/",
     "source": {
@@ -2458,7 +2458,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Tiffany England offers online running coaching with a focus on trail and ultrarunning, track and cross-country and beginner runners.",
     "bio": [
-      "Tiffany England's public website describes online coaching focused on trail and ultrarunning, track and cross-country and beginner runners."
+      "Tiffany England offers online coaching focused on trail and ultrarunning, track and cross-country and beginner runners."
     ],
     "link": "https://www.englandrunning.com/",
     "source": {
@@ -2486,7 +2486,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Todd Nickel offers online running coaching with a focus on masters runners.",
     "bio": [
-      "Todd Nickel's public website describes online coaching focused on masters runners."
+      "Todd Nickel offers online coaching focused on masters runners."
     ],
     "link": "https://resiliencerunco.ca/",
     "source": {
@@ -2523,7 +2523,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Tom Palamar and Jenny Crawshaw offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
     "bio": [
-      "Tom Palamar and Jenny Crawshaw's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      "Tom Palamar and Jenny Crawshaw offers online coaching focused on personalized training, strength training and track and cross-country."
     ],
     "link": "https://fastpackrunning.com/",
     "source": {
@@ -2551,7 +2551,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Toni Kengor offers online running coaching with a focus on injury-aware training.",
     "bio": [
-      "Toni Kengor's public website describes online coaching focused on injury-aware training."
+      "Toni Kengor offers online coaching focused on injury-aware training."
     ],
     "link": "https://www.relentlessrunners.com/",
     "source": {
@@ -2585,7 +2585,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Trish Dobrowski offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Trish Dobrowski's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      "Trish Dobrowski offers online and in-person coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://longrunpt.com/",
     "source": {
@@ -2620,7 +2620,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Will Baldwin offers online running coaching with a focus on personalized training, strength training and nutrition.",
     "bio": [
-      "Will Baldwin's public website describes online coaching focused on personalized training, strength training and nutrition."
+      "Will Baldwin offers online coaching focused on personalized training, strength training and nutrition."
     ],
     "link": "https://www.runbaldwin.com/",
     "source": {
@@ -2651,7 +2651,7 @@ export const VDOT_COACHES = [
     ],
     "blurb": "Zacharias Wedel offers online running coaching with a focus on injury-aware training, marathon and 5k and 10k.",
     "bio": [
-      "Zacharias Wedel's public website describes online coaching focused on injury-aware training, marathon and 5k and 10k."
+      "Zacharias Wedel offers online coaching focused on injury-aware training, marathon and 5k and 10k."
     ],
     "link": "https://www.zacharias-wedel.de/",
     "source": {

@@ -50,12 +50,16 @@ export default function TermsPage() {
             Coach profiles describe independent coaches, not employees or
             partners of anystride. Some profiles are published after we approve
             a coach&apos;s application. Others are unclaimed public listings
-            compiled from public professional directories and coaches&apos; own
-            websites, with their sources disclosed on the profile. An unclaimed
-            listing is not an endorsement or verification. We do not verify
-            certifications, guarantee results, or take part in any agreement
-            you make with a coach. Vet any coach yourself before paying for
-            their services.
+            based on facts coaches publish on their own business websites.
+            When discovery starts from an anonymous account, we consider a
+            first-party coaching site only when the coach explicitly supplies it;
+            we do not research the account to identify the person behind it.
+            Profiles describe the services offered without displaying
+            discovery-source attribution.
+            An unclaimed listing is not an endorsement or verification. We do
+            not verify certifications, guarantee results, or take part in any
+            agreement you make with a coach. Vet any coach yourself before
+            paying for their services.
           </p>
         </section>
 

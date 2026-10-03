@@ -1,0 +1,68 @@
+name: Reddit coach discovery
+
+on:
+  schedule:
+    - cron: "37 5 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: reddit-coach-discovery
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    if: >-
+      ${{
+        vars.REDDIT_APPROVAL_DATA_API == 'true' &&
+        vars.REDDIT_APPROVAL_COMMERCIAL_USE == 'true' &&
+        vars.REDDIT_APPROVAL_OFF_PLATFORM_LINKING == 'true' &&
+        vars.REDDIT_APPROVAL_PUBLIC_DIRECTORY == 'true' &&
+        vars.REDDIT_APPROVAL_DELETION_PROCESS == 'true'
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify the importer before allowing database changes
+        run: |
+          npm test
+          npm run lint
+          npx tsc --noEmit
+          npm run build
+
+      - name: Discover, revalidate, and publish eligible coaches
+        env:
+          REDDIT_IMPORT_ENABLED: "true"
+          REDDIT_APPROVAL_DATA_API: ${{ vars.REDDIT_APPROVAL_DATA_API }}
+          REDDIT_APPROVAL_COMMERCIAL_USE: ${{ vars.REDDIT_APPROVAL_COMMERCIAL_USE }}
+          REDDIT_APPROVAL_OFF_PLATFORM_LINKING: ${{ vars.REDDIT_APPROVAL_OFF_PLATFORM_LINKING }}
+          REDDIT_APPROVAL_PUBLIC_DIRECTORY: ${{ vars.REDDIT_APPROVAL_PUBLIC_DIRECTORY }}
+          REDDIT_APPROVAL_DELETION_PROCESS: ${{ vars.REDDIT_APPROVAL_DELETION_PROCESS }}
+          REDDIT_APPROVAL_REFERENCE: ${{ secrets.REDDIT_APPROVAL_REFERENCE }}
+          REDDIT_APPROVAL_REVIEWER: ${{ secrets.REDDIT_APPROVAL_REVIEWER }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+          REDDIT_IMPORT_DATABASE_URL: ${{ secrets.REDDIT_IMPORT_DATABASE_URL }}
+          REDDIT_IMPORT_DATABASE_CA: ${{ secrets.REDDIT_IMPORT_DATABASE_CA }}
+          REDDIT_IMPORT_MODE: publish
+          REDDIT_PUBLICATION_APPROVED: ${{ vars.REDDIT_APPROVAL_PUBLIC_DIRECTORY }}
+          REDDIT_IMPORT_MAX_CANDIDATES: ${{ vars.REDDIT_IMPORT_MAX_CANDIDATES || '25' }}
+          REDDIT_IMPORT_MAX_ADDITIONS: ${{ vars.REDDIT_IMPORT_MAX_ADDITIONS || '10' }}
+        run: npm run import:reddit-coaches

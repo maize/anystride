@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
-import { BASE, getAllSitePaths, getSiteRevisions } from "@/lib/site-urls";
+import { BASE, getAllSitePathsWithDiscovered, getSiteRevisions } from "@/lib/site-urls";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const revisions = getSiteRevisions();
-  return getAllSitePaths().map((path) => ({
+  return (await getAllSitePathsWithDiscovered()).map((path) => ({
     url: `${BASE}${path}`,
     lastModified: revisions.get(path),
     changeFrequency: path === "/" ? "weekly" : "monthly",

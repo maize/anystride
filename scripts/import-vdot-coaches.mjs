@@ -563,7 +563,7 @@ function inferCoach(profile, website) {
     focus: [...new Set(focus)],
     specialties,
     blurb,
-    bio: [`${profile.name}'s public website describes ${formatPhrase} coaching focused on ${specialtyPhrase}.`],
+    bio: [`${profile.name} offers ${formatPhrase} coaching focused on ${specialtyPhrase}.`],
     link: sourceUrl,
     source: { name: hostname(sourceUrl), url: sourceUrl },
     discoveredFrom: { name: "V.O2 coach marketplace", url: profile.profileUrl },
