@@ -1,0 +1,5363 @@
+[
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/adam-burum",
+    "slug": "adam-burum",
+    "name": "Adam Burum",
+    "location": "Houston, Texas, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/alexander-felicier",
+    "slug": "alexander-felicier",
+    "name": "Alexander Felicier",
+    "location": "Wappinger Falls & Bronx, New York, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ali-greenberg",
+    "slug": "ali-greenberg",
+    "name": "Ali Greenberg",
+    "location": "Los Angeles, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/alissa-kolarik",
+    "slug": "alissa-kolarik",
+    "name": "Alissa Kolarik",
+    "location": "Wadsworth, Ohio, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/alli-felsenthal",
+    "slug": "alli-felsenthal",
+    "name": "Alli Felsenthal",
+    "location": "Brooklyn, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.runafastermarathon.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.runafastermarathon.com/",
+        "https://www.runafastermarathon.com/group-events-2"
+      ]
+    },
+    "coachSlug": "coach-alli-felsenthal",
+    "coach": {
+      "slug": "coach-alli-felsenthal",
+      "name": "Alli Felsenthal",
+      "city": "Online",
+      "location": "Brooklyn, New York, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Alli Felsenthal offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Alli Felsenthal's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.runafastermarathon.com/",
+      "source": {
+        "name": "runafastermarathon.com",
+        "url": "https://www.runafastermarathon.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/alli-felsenthal"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/amanda-hoang",
+    "slug": "amanda-hoang",
+    "name": "Amanda Hoang",
+    "location": "Houston, Texas, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.mandymovez.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.mandymovez.com/"
+      ]
+    },
+    "coachSlug": "coach-amanda-hoang",
+    "coach": {
+      "slug": "coach-amanda-hoang",
+      "name": "Amanda Hoang",
+      "city": "Online",
+      "location": "Houston, Texas, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Track and cross-country"
+      ],
+      "blurb": "Amanda Hoang offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
+      "bio": [
+        "Amanda Hoang's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      ],
+      "link": "https://www.mandymovez.com/",
+      "source": {
+        "name": "mandymovez.com",
+        "url": "https://www.mandymovez.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/amanda-hoang"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/amber-schriner",
+    "slug": "amber-schriner",
+    "name": "Amber Schriner",
+    "location": "Lyons, CO, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/amy-sitar",
+    "slug": "amy-sitar",
+    "name": "Amy Sitar",
+    "location": "NY, NY, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/amy-windle",
+    "slug": "amy-windle",
+    "name": "Amy Windle",
+    "location": "Langley, BC, Canada",
+    "status": "ready",
+    "website": {
+      "url": "https://coachamywindle.my.canva.site/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://coachamywindle.my.canva.site/"
+      ]
+    },
+    "coachSlug": "coach-amy-windle",
+    "coach": {
+      "slug": "coach-amy-windle",
+      "name": "Amy Windle",
+      "city": "Online",
+      "location": "Langley, BC, Canada",
+      "format": "online",
+      "focus": [
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Injury-aware training"
+      ],
+      "blurb": "Amy Windle offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
+      "bio": [
+        "Amy Windle's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      ],
+      "link": "https://coachamywindle.my.canva.site/",
+      "source": {
+        "name": "coachamywindle.my.canva.site",
+        "url": "https://coachamywindle.my.canva.site/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/amy-windle"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andie-cozzarelli",
+    "slug": "andie-cozzarelli",
+    "name": "Andie Cozzarelli",
+    "location": "Chattanooga, Tennessee, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://run4acozz.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://run4acozz.com/",
+        "https://run4acozz.com/coaching"
+      ]
+    },
+    "coachSlug": "coach-andie-cozzarelli",
+    "coach": {
+      "slug": "coach-andie-cozzarelli",
+      "name": "Andie Cozzarelli",
+      "city": "Online",
+      "location": "Chattanooga, Tennessee, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Andie Cozzarelli offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Andie Cozzarelli's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://run4acozz.com/",
+      "source": {
+        "name": "run4acozz.com",
+        "url": "https://run4acozz.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/andie-cozzarelli"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andre",
+    "slug": "andre",
+    "name": "Andre Laboy",
+    "location": "Los Angeles, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andrew-samuels",
+    "slug": "andrew-samuels",
+    "name": "Andrew Samuels",
+    "location": "New York, NY, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andrewshivery",
+    "slug": "andrewshivery",
+    "name": "Andrew Shivery",
+    "location": "Miami, Florida, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andy-mcghee-coaching",
+    "slug": "andy-mcghee-coaching",
+    "name": "Andy McGhee",
+    "location": "Southampton, Hampshire, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://andymcgheecoaching.com/",
+      "discoveryMethod": "reviewed-search",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://andymcgheecoaching.com/",
+        "https://andymcgheecoaching.com/running-coaching"
+      ]
+    },
+    "coachSlug": "coach-andy-mcghee-coaching",
+    "coach": {
+      "slug": "coach-andy-mcghee-coaching",
+      "name": "Andy McGhee",
+      "city": "Online",
+      "location": "Southampton, Hampshire, United Kingdom",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware",
+        "triathlon"
+      ],
+      "specialties": [
+        "Strength training",
+        "Trail and ultrarunning",
+        "Track and cross-country",
+        "Triathlon",
+        "Marathon"
+      ],
+      "blurb": "Andy McGhee offers online and in-person running coaching with a focus on strength training, trail and ultrarunning and track and cross-country.",
+      "bio": [
+        "Andy McGhee's public website describes online and in-person coaching focused on strength training, trail and ultrarunning and track and cross-country."
+      ],
+      "link": "https://andymcgheecoaching.com/",
+      "source": {
+        "name": "andymcgheecoaching.com",
+        "url": "https://andymcgheecoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/andy-mcghee-coaching"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/andy-mellor",
+    "slug": "andy-mellor",
+    "name": "Andy Mellor",
+    "location": "England, Greater Manchester, United Kingdom",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/angela-reckart",
+    "slug": "angela-reckart",
+    "name": "Angela Reckart",
+    "location": "Cape May Court House, New Jersey, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.ngucoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.ngucoaching.com/",
+        "https://www.ngucoaching.com/running-coach-megans-music/"
+      ]
+    },
+    "coachSlug": "coach-angela-reckart",
+    "coach": {
+      "slug": "coach-angela-reckart",
+      "name": "Angela Reckart",
+      "city": "Online",
+      "location": "Cape May Court House, New Jersey, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Track and cross-country",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Angela Reckart offers online running coaching with a focus on strength training, track and cross-country and marathon.",
+      "bio": [
+        "Angela Reckart's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      ],
+      "link": "https://www.ngucoaching.com/",
+      "source": {
+        "name": "ngucoaching.com",
+        "url": "https://www.ngucoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/angela-reckart"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ann-alyanak",
+    "slug": "ann-alyanak",
+    "name": "Ann Alyanak",
+    "location": "Bellbrook, OH, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/arash-taheri",
+    "slug": "arash-taheri",
+    "name": "Arash Taheri",
+    "location": "Ridgeland, Mississippi, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ariane-hendrix-roach",
+    "slug": "ariane-hendrix-roach",
+    "name": "Ariane Hendrix Roach",
+    "location": "Portland, OR, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/performancephysique",
+    "slug": "performancephysique",
+    "name": "Arj Thiruchelvam",
+    "location": "Solihull, Birmingham, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://performancephysique.co.uk/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://performancephysique.co.uk/",
+        "https://performancephysique.co.uk/coaching-training/"
+      ]
+    },
+    "coachSlug": "coach-performancephysique",
+    "coach": {
+      "slug": "coach-performancephysique",
+      "name": "Arj Thiruchelvam",
+      "city": "Online",
+      "location": "Solihull, Birmingham, United Kingdom",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "performance"
+      ],
+      "specialties": [
+        "Nutrition",
+        "Track and cross-country",
+        "Beginner runners"
+      ],
+      "blurb": "Arj Thiruchelvam offers online and in-person running coaching with a focus on nutrition, track and cross-country and beginner runners.",
+      "bio": [
+        "Arj Thiruchelvam's public website describes online and in-person coaching focused on nutrition, track and cross-country and beginner runners."
+      ],
+      "link": "https://performancephysique.co.uk/",
+      "source": {
+        "name": "performancephysique.co.uk",
+        "url": "https://performancephysique.co.uk/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/performancephysique"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/backroadsendurance",
+    "slug": "backroadsendurance",
+    "name": "Backroads Endurance",
+    "location": "Noblesville, Indiana, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.backroadsendurance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.backroadsendurance.com/",
+        "https://www.backroadsendurance.com/home/about/"
+      ]
+    },
+    "coachSlug": "coach-backroadsendurance",
+    "coach": {
+      "slug": "coach-backroadsendurance",
+      "name": "Backroads Endurance",
+      "city": "Online",
+      "location": "Noblesville, Indiana, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Beginner runners"
+      ],
+      "blurb": "Backroads Endurance offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Backroads Endurance's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.backroadsendurance.com/",
+      "source": {
+        "name": "backroadsendurance.com",
+        "url": "https://www.backroadsendurance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/backroadsendurance"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/bawcom-running",
+    "slug": "bawcom-running",
+    "name": "Bawcom Running",
+    "location": "Flagstaff, Arizona, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tayloredtraining",
+    "slug": "tayloredtraining",
+    "name": "Becky Anthony",
+    "location": "Phoenix, Arizona, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://tayloredtrainingrun.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://tayloredtrainingrun.com/",
+        "https://tayloredtrainingrun.com/about/"
+      ]
+    },
+    "coachSlug": "coach-tayloredtraining",
+    "coach": {
+      "slug": "coach-tayloredtraining",
+      "name": "Becky Anthony",
+      "city": "Online",
+      "location": "Phoenix, Arizona, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Injury-aware training",
+        "Marathon"
+      ],
+      "blurb": "Becky Anthony offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
+      "bio": [
+        "Becky Anthony's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      ],
+      "link": "https://tayloredtrainingrun.com/",
+      "source": {
+        "name": "tayloredtrainingrun.com",
+        "url": "https://tayloredtrainingrun.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/tayloredtraining"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/becky-croft",
+    "slug": "becky-croft",
+    "name": "Becky Croft",
+    "location": "Tulsa, OK, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://hustle-eat-thrive.myshopify.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://hustle-eat-thrive.myshopify.com/",
+        "https://hustle-eat-thrive.myshopify.com/policies/terms-of-service"
+      ]
+    },
+    "coachSlug": "coach-becky-croft",
+    "coach": {
+      "slug": "coach-becky-croft",
+      "name": "Becky Croft",
+      "city": "Online",
+      "location": "Tulsa, OK, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Becky Croft offers online running coaching with a focus on strength training, nutrition and injury-aware training.",
+      "bio": [
+        "Becky Croft's public website describes online coaching focused on strength training, nutrition and injury-aware training."
+      ],
+      "link": "https://hustle-eat-thrive.myshopify.com/",
+      "source": {
+        "name": "hustle-eat-thrive.myshopify.com",
+        "url": "https://hustle-eat-thrive.myshopify.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/becky-croft"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ben-lauder-dykes",
+    "slug": "ben-lauder-dykes",
+    "name": "Ben Lauder Dykes",
+    "location": "New York, New York, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://bldapproved.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://bldapproved.com/"
+      ]
+    },
+    "coachSlug": "coach-ben-lauder-dykes",
+    "coach": {
+      "slug": "coach-ben-lauder-dykes",
+      "name": "Ben Lauder Dykes",
+      "city": "New York",
+      "location": "New York, New York, United Kingdom",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Ben Lauder Dykes offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Ben Lauder Dykes's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://bldapproved.com/",
+      "source": {
+        "name": "bldapproved.com",
+        "url": "https://bldapproved.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/ben-lauder-dykes"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/bonnie-wilder",
+    "slug": "bonnie-wilder",
+    "name": "Bonnie Wilder",
+    "location": "West Hartford, Connecticut, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://runningtheextramiles.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://runningtheextramiles.com/",
+        "https://runningtheextramiles.com/about-us"
+      ]
+    },
+    "coachSlug": "coach-bonnie-wilder",
+    "coach": {
+      "slug": "coach-bonnie-wilder",
+      "name": "Bonnie Wilder",
+      "city": "Online",
+      "location": "West Hartford, Connecticut, United States",
+      "format": "hybrid",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Bonnie Wilder offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Bonnie Wilder's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://runningtheextramiles.com/",
+      "source": {
+        "name": "runningtheextramiles.com",
+        "url": "https://runningtheextramiles.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/bonnie-wilder"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/brendan-mcgoldrick",
+    "slug": "brendan-mcgoldrick",
+    "name": "Brendan McGoldrick",
+    "location": "Matawan, NJ, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/roadrunnercoaching",
+    "slug": "roadrunnercoaching",
+    "name": "Brian Lock",
+    "location": "Dunlap, Illinois, USA",
+    "status": "ready",
+    "website": {
+      "url": "https://roadrunnercoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://roadrunnercoaching.com/",
+        "https://roadrunnercoaching.com/meet-coach-brian/"
+      ]
+    },
+    "coachSlug": "coach-roadrunnercoaching",
+    "coach": {
+      "slug": "coach-roadrunnercoaching",
+      "name": "Brian Lock",
+      "city": "Online",
+      "location": "Dunlap, Illinois, USA",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Injury-aware training",
+        "Beginner runners",
+        "Boston qualifying",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Brian Lock offers online running coaching with a focus on injury-aware training, beginner runners and boston qualifying.",
+      "bio": [
+        "Brian Lock's public website describes online coaching focused on injury-aware training, beginner runners and boston qualifying."
+      ],
+      "link": "https://roadrunnercoaching.com/",
+      "source": {
+        "name": "roadrunnercoaching.com",
+        "url": "https://roadrunnercoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/roadrunnercoaching"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/brian-taggart",
+    "slug": "brian-taggart",
+    "name": "Brian Taggart",
+    "location": "Co Tyrone, N.Ireland, Ireland",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/bridget-oldenburg-1",
+    "slug": "bridget-oldenburg-1",
+    "name": "Bridget Oldenburg",
+    "location": "Spring, TX, USA",
+    "status": "ready",
+    "website": {
+      "url": "https://runwithurheart.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://runwithurheart.com/",
+        "https://runwithurheart.com/coaching/"
+      ]
+    },
+    "coachSlug": "coach-bridget-oldenburg-1",
+    "coach": {
+      "slug": "coach-bridget-oldenburg-1",
+      "name": "Bridget Oldenburg",
+      "city": "Online",
+      "location": "Spring, TX, USA",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Track and cross-country",
+        "Boston qualifying"
+      ],
+      "blurb": "Bridget Oldenburg offers online running coaching with a focus on personalized training, track and cross-country and boston qualifying.",
+      "bio": [
+        "Bridget Oldenburg's public website describes online coaching focused on personalized training, track and cross-country and boston qualifying."
+      ],
+      "link": "https://runwithurheart.com/",
+      "source": {
+        "name": "runwithurheart.com",
+        "url": "https://runwithurheart.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/bridget-oldenburg-1"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/brooklynn-harvey",
+    "slug": "brooklynn-harvey",
+    "name": "Brooklynn Harvey",
+    "location": "Pendleton, Indiana, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.47runcoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.47runcoaching.com/",
+        "https://www.47runcoaching.com/about"
+      ]
+    },
+    "coachSlug": "coach-brooklynn-harvey",
+    "coach": {
+      "slug": "coach-brooklynn-harvey",
+      "name": "Brooklynn Harvey",
+      "city": "Online",
+      "location": "Pendleton, Indiana, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Trail and ultrarunning"
+      ],
+      "blurb": "Brooklynn Harvey offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Brooklynn Harvey's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.47runcoaching.com/",
+      "source": {
+        "name": "47runcoaching.com",
+        "url": "https://www.47runcoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/brooklynn-harvey"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/bruce-mcintosh",
+    "slug": "bruce-mcintosh",
+    "name": "Bruce MCINTOSH",
+    "location": "BOARDMAN, Ohio, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/bryan-kelpe",
+    "slug": "bryan-kelpe",
+    "name": "Bryan Kelpe",
+    "location": "Cape Girardeau, Missouri, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/caitlinruncoach",
+    "slug": "caitlinruncoach",
+    "name": "Caitlin Rushlander",
+    "location": "Mars, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/carolinehogardhrunning",
+    "slug": "carolinehogardhrunning",
+    "name": "Caroline Högardh",
+    "location": "Stockholm, Stockholm, Sweden",
+    "status": "ready",
+    "website": {
+      "url": "https://carolinehogardhrunning.webnode.se/",
+      "discoveryMethod": "reviewed-search",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://carolinehogardhrunning.webnode.se/"
+      ]
+    },
+    "coachSlug": "coach-carolinehogardhrunning",
+    "coach": {
+      "slug": "coach-carolinehogardhrunning",
+      "name": "Caroline Högardh",
+      "city": "Online",
+      "location": "Stockholm, Stockholm, Sweden",
+      "format": "online",
+      "focus": [
+        "marathon"
+      ],
+      "specialties": [
+        "Marathon"
+      ],
+      "blurb": "Caroline Högardh offers online running coaching with a focus on marathon.",
+      "bio": [
+        "Caroline Högardh's public website describes online coaching focused on marathon."
+      ],
+      "link": "https://carolinehogardhrunning.webnode.se/",
+      "source": {
+        "name": "carolinehogardhrunning.webnode.se",
+        "url": "https://carolinehogardhrunning.webnode.se/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/carolinehogardhrunning"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/cary-morgan",
+    "slug": "cary-morgan",
+    "name": "Cary Morgan",
+    "location": "Vestavia, Alabama, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.cadenceruncoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.cadenceruncoaching.com/",
+        "https://www.cadenceruncoaching.com/services"
+      ]
+    },
+    "coachSlug": "coach-cary-morgan",
+    "coach": {
+      "slug": "coach-cary-morgan",
+      "name": "Cary Morgan",
+      "city": "Online",
+      "location": "Vestavia, Alabama, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Injury-aware training",
+        "Trail and ultrarunning",
+        "Track and cross-country",
+        "Marathon"
+      ],
+      "blurb": "Cary Morgan offers online running coaching with a focus on personalized training, injury-aware training and trail and ultrarunning.",
+      "bio": [
+        "Cary Morgan's public website describes online coaching focused on personalized training, injury-aware training and trail and ultrarunning."
+      ],
+      "link": "https://www.cadenceruncoaching.com/",
+      "source": {
+        "name": "cadenceruncoaching.com",
+        "url": "https://www.cadenceruncoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/cary-morgan"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/cesar-hubbard",
+    "slug": "cesar-hubbard",
+    "name": "CESAR HUBBARD",
+    "location": "Los Mochis, Sinaloa, Mexico",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/charathoner",
+    "slug": "charathoner",
+    "name": "Char Griess",
+    "location": "Erie, Colorado, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.charathoner.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.charathoner.com/"
+      ]
+    },
+    "coachSlug": "coach-charathoner",
+    "coach": {
+      "slug": "coach-charathoner",
+      "name": "Char Griess",
+      "city": "Online",
+      "location": "Erie, Colorado, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Char Griess offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Char Griess's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.charathoner.com/",
+      "source": {
+        "name": "charathoner.com",
+        "url": "https://www.charathoner.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/charathoner"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/chase-solarin",
+    "slug": "chase-solarin",
+    "name": "Chase Solarin",
+    "location": "San Diego, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/chris_wg",
+    "slug": "chris_wg",
+    "name": "Chris White-Gloria, PhD",
+    "location": "Calgary, Alberta, Canada",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/christina-mather",
+    "slug": "christina-mather",
+    "name": "Christina Mather",
+    "location": "Fort Worth, Texas, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://mathercoachingservices.weebly.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://mathercoachingservices.weebly.com/",
+        "https://mathercoachingservices.weebly.com/about.html"
+      ]
+    },
+    "coachSlug": "coach-christina-mather",
+    "coach": {
+      "slug": "coach-christina-mather",
+      "name": "Christina Mather",
+      "city": "Online",
+      "location": "Fort Worth, Texas, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country",
+        "Marathon"
+      ],
+      "blurb": "Christina Mather offers online running coaching with a focus on personalized training, nutrition and injury-aware training.",
+      "bio": [
+        "Christina Mather's public website describes online coaching focused on personalized training, nutrition and injury-aware training."
+      ],
+      "link": "https://mathercoachingservices.weebly.com/",
+      "source": {
+        "name": "mathercoachingservices.weebly.com",
+        "url": "https://mathercoachingservices.weebly.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/christina-mather"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/christina-welsh",
+    "slug": "christina-welsh",
+    "name": "Christina Welsh",
+    "location": "St. Petersburg, Florida, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/chuckybizzarro",
+    "slug": "chuckybizzarro",
+    "name": "Chucky Bizzarro",
+    "location": "Cranberry Township, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachandcoffey",
+    "slug": "coachandcoffey",
+    "name": "Coach and Coffey",
+    "location": "New York, New York, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coach-asia--rawls",
+    "slug": "coach-asia--rawls",
+    "name": "Coach Asia",
+    "location": "Detroit, Michigan, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kevin-strehlo",
+    "slug": "kevin-strehlo",
+    "name": "Coach Kevin Strehlo",
+    "location": "Los Angeles, CA, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/colin-cronin",
+    "slug": "colin-cronin",
+    "name": "Colin Cronin",
+    "location": "Savannah, Virginia, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/conner-benson",
+    "slug": "conner-benson",
+    "name": "Conner Benson",
+    "location": "Georgetown, Texas, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/dami-alao",
+    "slug": "dami-alao",
+    "name": "Dami Alao",
+    "location": "Alexandria, Virginia, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.trainbaseline.net/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.trainbaseline.net/",
+        "https://www.trainbaseline.net/about"
+      ]
+    },
+    "coachSlug": "coach-dami-alao",
+    "coach": {
+      "slug": "coach-dami-alao",
+      "name": "Dami Alao",
+      "city": "Online",
+      "location": "Alexandria, Virginia, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Injury-aware training",
+        "Trail and ultrarunning",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Dami Alao offers online running coaching with a focus on strength training, injury-aware training and trail and ultrarunning.",
+      "bio": [
+        "Dami Alao's public website describes online coaching focused on strength training, injury-aware training and trail and ultrarunning."
+      ],
+      "link": "https://www.trainbaseline.net/",
+      "source": {
+        "name": "trainbaseline.net",
+        "url": "https://www.trainbaseline.net/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/dami-alao"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/daniel-farrugia",
+    "slug": "daniel-farrugia",
+    "name": "Daniel Farrugia",
+    "location": "Adelaide, South Australia, Australia",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/daniele-berto",
+    "slug": "daniele-berto",
+    "name": "Daniele Berto",
+    "location": "Rovigo, Veneto, Italy",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/mercadocoaching",
+    "slug": "mercadocoaching",
+    "name": "Danny Mercado",
+    "location": "West Covina, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/david-abbott",
+    "slug": "david-abbott",
+    "name": "David Abbott",
+    "location": "Sacramento, California, United States",
+    "status": "ready",
+    "website": {
+      "url": "http://davidabbott.io/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "http://davidabbott.io/"
+      ]
+    },
+    "coachSlug": "coach-david-abbott",
+    "coach": {
+      "slug": "coach-david-abbott",
+      "name": "David Abbott",
+      "city": "Online",
+      "location": "Sacramento, California, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Masters runners"
+      ],
+      "blurb": "David Abbott offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "David Abbott's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "http://davidabbott.io/",
+      "source": {
+        "name": "davidabbott.io",
+        "url": "http://davidabbott.io/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/david-abbott"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/adn-run",
+    "slug": "adn-run",
+    "name": "DAVID MARTINEZ",
+    "location": "MEXICO",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/eta",
+    "slug": "eta",
+    "name": "David Schwinger - ETA",
+    "location": "Rochester, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://endurancetrainingalliance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://endurancetrainingalliance.com/",
+        "https://endurancetrainingalliance.com/about-me"
+      ]
+    },
+    "coachSlug": "coach-eta",
+    "coach": {
+      "slug": "coach-eta",
+      "name": "David Schwinger - ETA",
+      "city": "Online",
+      "location": "Rochester, New York, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "5K and 10K"
+      ],
+      "blurb": "David Schwinger - ETA offers online running coaching with a focus on personalized training, strength training and 5k and 10k.",
+      "bio": [
+        "David Schwinger - ETA's public website describes online coaching focused on personalized training, strength training and 5k and 10k."
+      ],
+      "link": "https://endurancetrainingalliance.com/",
+      "source": {
+        "name": "endurancetrainingalliance.com",
+        "url": "https://endurancetrainingalliance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/eta"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/dean-carroll",
+    "slug": "dean-carroll",
+    "name": "Dean Carroll",
+    "location": "Dublin, Ireland, Ireland",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachdeev",
+    "slug": "coachdeev",
+    "name": "Derrick Isaac",
+    "location": "Smyrna, Delaware, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/diane-neubauer",
+    "slug": "diane-neubauer",
+    "name": "Diane Neubauer",
+    "location": "Ambler, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/dimitris-kyriakopoulos",
+    "slug": "dimitris-kyriakopoulos",
+    "name": "Dimitris Kyriakopoulos",
+    "location": "Athens, Attica, Greece",
+    "status": "ready",
+    "website": {
+      "url": "https://your-running-university.myshopify.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://your-running-university.myshopify.com/",
+        "https://your-running-university.myshopify.com/collections/the-hybrid-coaching-system%E2%84%A2"
+      ]
+    },
+    "coachSlug": "coach-dimitris-kyriakopoulos",
+    "coach": {
+      "slug": "coach-dimitris-kyriakopoulos",
+      "name": "Dimitris Kyriakopoulos",
+      "city": "Online",
+      "location": "Athens, Attica, Greece",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Dimitris Kyriakopoulos offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Dimitris Kyriakopoulos's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://your-running-university.myshopify.com/",
+      "source": {
+        "name": "your-running-university.myshopify.com",
+        "url": "https://your-running-university.myshopify.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/dimitris-kyriakopoulos"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/de-la-cruz",
+    "slug": "de-la-cruz",
+    "name": "Dr. Andres T. De La Cruz, DC, CSCS",
+    "location": "Pasadena, CA, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/matt-debole",
+    "slug": "matt-debole",
+    "name": "Dr. Matt DeBole, DPT",
+    "location": "Albany, New York, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/dylan-belles",
+    "slug": "dylan-belles",
+    "name": "Dylan Belles",
+    "location": "Eureka, Missouri, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.dylanbelles.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.dylanbelles.com/",
+        "https://www.dylanbelles.com/services-1"
+      ]
+    },
+    "coachSlug": "coach-dylan-belles",
+    "coach": {
+      "slug": "coach-dylan-belles",
+      "name": "Dylan Belles",
+      "city": "Online",
+      "location": "Eureka, Missouri, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Masters runners"
+      ],
+      "blurb": "Dylan Belles offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Dylan Belles's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.dylanbelles.com/",
+      "source": {
+        "name": "dylanbelles.com",
+        "url": "https://www.dylanbelles.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/dylan-belles"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/endurance4you",
+    "slug": "endurance4you",
+    "name": "Elizabeth Miller",
+    "location": "San Antonio, Texas, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://endurance4you.com/run-coaching/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://endurance4you.com/run-coaching/",
+        "https://endurance4you.com/run-coaching/"
+      ]
+    },
+    "coachSlug": "coach-endurance4you",
+    "coach": {
+      "slug": "coach-endurance4you",
+      "name": "Elizabeth Miller",
+      "city": "Online",
+      "location": "San Antonio, Texas, United States",
+      "format": "online",
+      "focus": [
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training"
+      ],
+      "blurb": "Elizabeth Miller offers online running coaching with a focus on personalized training.",
+      "bio": [
+        "Elizabeth Miller's public website describes online coaching focused on personalized training."
+      ],
+      "link": "https://endurance4you.com/run-coaching/",
+      "source": {
+        "name": "endurance4you.com",
+        "url": "https://endurance4you.com/run-coaching/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/endurance4you"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/elliotmurphy",
+    "slug": "elliotmurphy",
+    "name": "Elliot Murphy",
+    "location": "The Colony, Texas, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/emily-kopacz",
+    "slug": "emily-kopacz",
+    "name": "Emily Kopacz",
+    "location": "Wrentham, Massachusetts, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ericthomas",
+    "slug": "ericthomas",
+    "name": "Eric Thomas",
+    "location": "Birmingham, Alabama, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/evan-espinoza",
+    "slug": "evan-espinoza",
+    "name": "Evan Espinoza",
+    "location": "Birmingham, Alabama, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/evan-schwartz",
+    "slug": "evan-schwartz",
+    "name": "Evan Schwartz",
+    "location": "Boulder, Colorado, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.evanschwartzcoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.evanschwartzcoaching.com/",
+        "https://www.evanschwartzcoaching.com/marathon-coaching"
+      ]
+    },
+    "coachSlug": "coach-evan-schwartz",
+    "coach": {
+      "slug": "coach-evan-schwartz",
+      "name": "Evan Schwartz",
+      "city": "Online",
+      "location": "Boulder, Colorado, United States",
+      "format": "online",
+      "focus": [
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Marathon"
+      ],
+      "blurb": "Evan Schwartz offers online running coaching with a focus on personalized training and marathon.",
+      "bio": [
+        "Evan Schwartz's public website describes online coaching focused on personalized training and marathon."
+      ],
+      "link": "https://www.evanschwartzcoaching.com/",
+      "source": {
+        "name": "evanschwartzcoaching.com",
+        "url": "https://www.evanschwartzcoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/evan-schwartz"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/eat-fitness",
+    "slug": "eat-fitness",
+    "name": "Evan Titus",
+    "location": "Norwalk, Connecticut, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.evantitusfitness.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.evantitusfitness.com/",
+        "https://www.evantitusfitness.com/coaching-intake-form"
+      ]
+    },
+    "coachSlug": "coach-eat-fitness",
+    "coach": {
+      "slug": "coach-eat-fitness",
+      "name": "Evan Titus",
+      "city": "Online",
+      "location": "Norwalk, Connecticut, United States",
+      "format": "online",
+      "focus": [
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Nutrition"
+      ],
+      "blurb": "Evan Titus offers online running coaching with a focus on strength training and nutrition.",
+      "bio": [
+        "Evan Titus's public website describes online coaching focused on strength training and nutrition."
+      ],
+      "link": "https://www.evantitusfitness.com/",
+      "source": {
+        "name": "evantitusfitness.com",
+        "url": "https://www.evantitusfitness.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/eat-fitness"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/fleetfeetnashville",
+    "slug": "fleetfeetnashville",
+    "name": "Fleet Feet Nashville",
+    "location": "Nashville, TN, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.fleetfeet.com/s/nashville/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.fleetfeet.com/s/nashville/",
+        "https://www.fleetfeet.com/s/nashville/about"
+      ]
+    },
+    "coachSlug": "coach-fleetfeetnashville",
+    "coach": {
+      "slug": "coach-fleetfeetnashville",
+      "name": "Fleet Feet Nashville",
+      "city": "Online",
+      "location": "Nashville, TN, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Injury-aware training",
+        "Track and cross-country",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Fleet Feet Nashville offers online running coaching with a focus on personalized training, injury-aware training and track and cross-country.",
+      "bio": [
+        "Fleet Feet Nashville's public website describes online coaching focused on personalized training, injury-aware training and track and cross-country."
+      ],
+      "link": "https://www.fleetfeet.com/s/nashville/",
+      "source": {
+        "name": "fleetfeet.com",
+        "url": "https://www.fleetfeet.com/s/nashville/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/fleetfeetnashville"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/forrest-hamilton",
+    "slug": "forrest-hamilton",
+    "name": "Forrest Hamilton",
+    "location": "Virginia Beach, Virginia, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/gaby-go",
+    "slug": "gaby-go",
+    "name": "Gaby Go",
+    "location": "Bethesda, Maryland, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://gorunstronger.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://gorunstronger.com/",
+        "https://gorunstronger.com/performance-coaching/"
+      ]
+    },
+    "coachSlug": "coach-gaby-go",
+    "coach": {
+      "slug": "coach-gaby-go",
+      "name": "Gaby Go",
+      "city": "Online",
+      "location": "Bethesda, Maryland, United States",
+      "format": "hybrid",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Gaby Go offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Gaby Go's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://gorunstronger.com/",
+      "source": {
+        "name": "gorunstronger.com",
+        "url": "https://gorunstronger.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/gaby-go"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/gayle-lindsay",
+    "slug": "gayle-lindsay",
+    "name": "Gayle Lindsay",
+    "location": "Perth, Scotland, United Kingdom",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/hannah-shakeshaft",
+    "slug": "hannah-shakeshaft",
+    "name": "Hannah Shakeshaft",
+    "location": "Philadelphia, Pennsylvania, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.overlaprunning.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.overlaprunning.com/"
+      ]
+    },
+    "coachSlug": "coach-hannah-shakeshaft",
+    "coach": {
+      "slug": "coach-hannah-shakeshaft",
+      "name": "Hannah Shakeshaft",
+      "city": "Online",
+      "location": "Philadelphia, Pennsylvania, United States",
+      "format": "online",
+      "focus": [
+        "performance"
+      ],
+      "specialties": [
+        "Individual running coaching"
+      ],
+      "blurb": "Hannah Shakeshaft offers online running coaching with a focus on individual running coaching.",
+      "bio": [
+        "Hannah Shakeshaft's public website describes online coaching focused on individual running coaching."
+      ],
+      "link": "https://www.overlaprunning.com/",
+      "source": {
+        "name": "overlaprunning.com",
+        "url": "https://www.overlaprunning.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/hannah-shakeshaft"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/harvey-nelson",
+    "slug": "harvey-nelson",
+    "name": "Harvey Nelson - McKirdy Trained",
+    "location": "Flagstaff, Arizona, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/heather-caplan-rdn",
+    "slug": "heather-caplan-rdn",
+    "name": "Heather Caplan RDN",
+    "location": "No, Michigan, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://heathercaplan.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://heathercaplan.com/",
+        "https://heathercaplan.com/about"
+      ]
+    },
+    "coachSlug": "coach-heather-caplan-rdn",
+    "coach": {
+      "slug": "coach-heather-caplan-rdn",
+      "name": "Heather Caplan RDN",
+      "city": "Online",
+      "location": "No, Michigan, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "performance"
+      ],
+      "specialties": [
+        "Nutrition",
+        "Trail and ultrarunning",
+        "Track and cross-country",
+        "5K and 10K"
+      ],
+      "blurb": "Heather Caplan RDN offers online running coaching with a focus on nutrition, trail and ultrarunning and track and cross-country.",
+      "bio": [
+        "Heather Caplan RDN's public website describes online coaching focused on nutrition, trail and ultrarunning and track and cross-country."
+      ],
+      "link": "https://heathercaplan.com/",
+      "source": {
+        "name": "heathercaplan.com",
+        "url": "https://heathercaplan.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/heather-caplan-rdn"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ian-hutchinson",
+    "slug": "ian-hutchinson",
+    "name": "Ian Hutchinson",
+    "location": "Tow law, Durham, United Kingdom",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ian-paramore",
+    "slug": "ian-paramore",
+    "name": "Ian Paramore",
+    "location": "Loughborough, Leicestershire, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://runnerbeancoaching.wordpress.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://runnerbeancoaching.wordpress.com/",
+        "https://runnerbeancoaching.wordpress.com/about/"
+      ]
+    },
+    "coachSlug": "coach-ian-paramore",
+    "coach": {
+      "slug": "coach-ian-paramore",
+      "name": "Ian Paramore",
+      "city": "Online",
+      "location": "Loughborough, Leicestershire, United Kingdom",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon"
+      ],
+      "specialties": [
+        "Injury-aware training",
+        "Track and cross-country",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Ian Paramore offers online running coaching with a focus on injury-aware training, track and cross-country and marathon.",
+      "bio": [
+        "Ian Paramore's public website describes online coaching focused on injury-aware training, track and cross-country and marathon."
+      ],
+      "link": "https://runnerbeancoaching.wordpress.com/",
+      "source": {
+        "name": "runnerbeancoaching.wordpress.com",
+        "url": "https://runnerbeancoaching.wordpress.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/ian-paramore"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jack-anstey",
+    "slug": "jack-anstey",
+    "name": "Jack Anstey",
+    "location": "Flagstaff, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jack-harrison",
+    "slug": "jack-harrison",
+    "name": "Jack Harrison",
+    "location": "Middlesbrough, England, United Kingdom",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jakob-quentin",
+    "slug": "jakob-quentin",
+    "name": "Jakob Quentin",
+    "location": "Berlin, Berlin, Germany",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jamiekluzek",
+    "slug": "jamiekluzek",
+    "name": "Jamie Kluzek",
+    "location": "Elizabeth, Illinois, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jennifer-andrews",
+    "slug": "jennifer-andrews",
+    "name": "Jennifer Andrews",
+    "location": "Interior, BC, Canada",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jerry-mullins",
+    "slug": "jerry-mullins",
+    "name": "Jerry Mullins",
+    "location": "Dallas, Oregon, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/risereigntraining",
+    "slug": "risereigntraining",
+    "name": "Jillian Reyna",
+    "location": "Akron, Ohio, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.risereigntraining.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.risereigntraining.com/",
+        "https://www.risereigntraining.com/services-pricing"
+      ]
+    },
+    "coachSlug": "coach-risereigntraining",
+    "coach": {
+      "slug": "coach-risereigntraining",
+      "name": "Jillian Reyna",
+      "city": "Online",
+      "location": "Akron, Ohio, United States",
+      "format": "online",
+      "focus": [
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Marathon"
+      ],
+      "blurb": "Jillian Reyna offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Jillian Reyna's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.risereigntraining.com/",
+      "source": {
+        "name": "risereigntraining.com",
+        "url": "https://www.risereigntraining.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/risereigntraining"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jim-ellis",
+    "slug": "jim-ellis",
+    "name": "Jim Ellis",
+    "location": "Knoxville, Tennessee, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jared-yabu1",
+    "slug": "jared-yabu1",
+    "name": "JJ Yabu",
+    "location": "Boulder, Colorado, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coach-joe-shayne",
+    "slug": "coach-joe-shayne",
+    "name": "Joe Shayne",
+    "location": "Brooklyn, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://werunkings.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://werunkings.com/",
+        "https://werunkings.com/pages/about-us"
+      ]
+    },
+    "coachSlug": "coach-coach-joe-shayne",
+    "coach": {
+      "slug": "coach-coach-joe-shayne",
+      "name": "Joe Shayne",
+      "city": "Online",
+      "location": "Brooklyn, New York, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Injury-aware training",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Joe Shayne offers online and in-person running coaching with a focus on personalized training, strength training and injury-aware training.",
+      "bio": [
+        "Joe Shayne's public website describes online and in-person coaching focused on personalized training, strength training and injury-aware training."
+      ],
+      "link": "https://werunkings.com/",
+      "source": {
+        "name": "werunkings.com",
+        "url": "https://werunkings.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/coach-joe-shayne"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/john-carstens",
+    "slug": "john-carstens",
+    "name": "John Carstens",
+    "location": "Kansas City, MO, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/john-hoffman",
+    "slug": "john-hoffman",
+    "name": "John Hoffman",
+    "location": "Wesley Chapel, Florida, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/john-reniewicki",
+    "slug": "john-reniewicki",
+    "name": "John Reniewicki",
+    "location": "Baltimore, Arizona, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jonathan-lyau",
+    "slug": "jonathan-lyau",
+    "name": "Jonathan Lyau",
+    "location": "Honolulu, Hawaii, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://personalbesttraininghi.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://personalbesttraininghi.com/",
+        "https://personalbesttraininghi.com/your-coach"
+      ]
+    },
+    "coachSlug": "coach-jonathan-lyau",
+    "coach": {
+      "slug": "coach-jonathan-lyau",
+      "name": "Jonathan Lyau",
+      "city": "Online",
+      "location": "Honolulu, Hawaii, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Nutrition",
+        "Track and cross-country",
+        "Beginner runners",
+        "Marathon"
+      ],
+      "blurb": "Jonathan Lyau offers online running coaching with a focus on personalized training, nutrition and track and cross-country.",
+      "bio": [
+        "Jonathan Lyau's public website describes online coaching focused on personalized training, nutrition and track and cross-country."
+      ],
+      "link": "https://personalbesttraininghi.com/",
+      "source": {
+        "name": "personalbesttraininghi.com",
+        "url": "https://personalbesttraininghi.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/jonathan-lyau"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jonathon-loughran",
+    "slug": "jonathon-loughran",
+    "name": "Jonathon Loughran",
+    "location": "Tyrone, Ireland, Ireland",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/jordan-colby",
+    "slug": "jordan-colby",
+    "name": "Jordan Colby",
+    "location": "Chico, CA, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/joseph-winwood",
+    "slug": "joseph-winwood",
+    "name": "Joseph Winwood",
+    "location": "Dallas, Texas, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.southernmostrunningco.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.southernmostrunningco.com/",
+        "https://www.southernmostrunningco.com/collections/running-coaching"
+      ]
+    },
+    "coachSlug": "coach-joseph-winwood",
+    "coach": {
+      "slug": "coach-joseph-winwood",
+      "name": "Joseph Winwood",
+      "city": "Online",
+      "location": "Dallas, Texas, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "half",
+        "marathon"
+      ],
+      "specialties": [
+        "Trail and ultrarunning",
+        "Beginner runners",
+        "Marathon",
+        "Half marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Joseph Winwood offers online running coaching with a focus on trail and ultrarunning, beginner runners and marathon.",
+      "bio": [
+        "Joseph Winwood's public website describes online coaching focused on trail and ultrarunning, beginner runners and marathon."
+      ],
+      "link": "https://www.southernmostrunningco.com/",
+      "source": {
+        "name": "southernmostrunningco.com",
+        "url": "https://www.southernmostrunningco.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/joseph-winwood"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/juan-carlos-arcos-lira",
+    "slug": "juan-carlos-arcos-lira",
+    "name": "Juan Carlos Arcos Lira",
+    "location": "Acolman, CDMX, Mexico",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/karen-dunn",
+    "slug": "karen-dunn",
+    "name": "Karen Dunn",
+    "location": "Collegeville, Pennsylvania, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.strengthenyourstride.coach/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.strengthenyourstride.coach/",
+        "https://www.strengthenyourstride.coach/personal-training/"
+      ]
+    },
+    "coachSlug": "coach-karen-dunn",
+    "coach": {
+      "slug": "coach-karen-dunn",
+      "name": "Karen Dunn",
+      "city": "Online",
+      "location": "Collegeville, Pennsylvania, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Karen Dunn offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Karen Dunn's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.strengthenyourstride.coach/",
+      "source": {
+        "name": "strengthenyourstride.coach",
+        "url": "https://www.strengthenyourstride.coach/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/karen-dunn"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachkarli",
+    "slug": "coachkarli",
+    "name": "Karli Saur",
+    "location": "Bernardsville, New Jersey, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.irondiamondfitness.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.irondiamondfitness.com/"
+      ]
+    },
+    "coachSlug": "coach-coachkarli",
+    "coach": {
+      "slug": "coach-coachkarli",
+      "name": "Karli Saur",
+      "city": "Online",
+      "location": "Bernardsville, New Jersey, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Nutrition",
+        "Track and cross-country"
+      ],
+      "blurb": "Karli Saur offers online and in-person running coaching with a focus on strength training, nutrition and track and cross-country.",
+      "bio": [
+        "Karli Saur's public website describes online and in-person coaching focused on strength training, nutrition and track and cross-country."
+      ],
+      "link": "https://www.irondiamondfitness.com/",
+      "source": {
+        "name": "irondiamondfitness.com",
+        "url": "https://www.irondiamondfitness.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/coachkarli"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/runwildcoaching",
+    "slug": "runwildcoaching",
+    "name": "Kasey Halbleib",
+    "location": "Philadelphia, Pennsylvania, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://runwildcoaching.fit/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://runwildcoaching.fit/"
+      ]
+    },
+    "coachSlug": "coach-runwildcoaching",
+    "coach": {
+      "slug": "coach-runwildcoaching",
+      "name": "Kasey Halbleib",
+      "city": "Online",
+      "location": "Philadelphia, Pennsylvania, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Track and cross-country",
+        "Beginner runners",
+        "Marathon"
+      ],
+      "blurb": "Kasey Halbleib offers online running coaching with a focus on personalized training, track and cross-country and beginner runners.",
+      "bio": [
+        "Kasey Halbleib's public website describes online coaching focused on personalized training, track and cross-country and beginner runners."
+      ],
+      "link": "https://runwildcoaching.fit/",
+      "source": {
+        "name": "runwildcoaching.fit",
+        "url": "https://runwildcoaching.fit/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/runwildcoaching"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/katie-brady",
+    "slug": "katie-brady",
+    "name": "Katie Brady",
+    "location": "St. Louis, Missouri, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/katie-fedoronko",
+    "slug": "katie-fedoronko",
+    "name": "Katie Fedoronko",
+    "location": "Chicago, Illinois, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kelly-vigil",
+    "slug": "kelly-vigil",
+    "name": "Kelly Vigil",
+    "location": "Summerville, Virginia, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kevin-huwe",
+    "slug": "kevin-huwe",
+    "name": "Kevin Huwe",
+    "location": "Chattanooga, TN, U.S",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kim-elia",
+    "slug": "kim-elia",
+    "name": "Kim Elia",
+    "location": "Hudson, MA, USA",
+    "status": "ready",
+    "website": {
+      "url": "https://www.orthonept.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.orthonept.com/",
+        "https://www.orthonept.com/about-us"
+      ]
+    },
+    "coachSlug": "coach-kim-elia",
+    "coach": {
+      "slug": "coach-kim-elia",
+      "name": "Kim Elia",
+      "city": "Online",
+      "location": "Hudson, MA, USA",
+      "format": "online",
+      "focus": [
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Injury-aware training",
+        "Marathon"
+      ],
+      "blurb": "Kim Elia offers online running coaching with a focus on personalized training, strength training and injury-aware training.",
+      "bio": [
+        "Kim Elia's public website describes online coaching focused on personalized training, strength training and injury-aware training."
+      ],
+      "link": "https://www.orthonept.com/",
+      "source": {
+        "name": "orthonept.com",
+        "url": "https://www.orthonept.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/kim-elia"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kirk-mueller",
+    "slug": "kirk-mueller",
+    "name": "Kirk Mueller",
+    "location": "Birmingham, Alabama, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/kristyn-r-smith",
+    "slug": "kristyn-r-smith",
+    "name": "Kristyn R Smith",
+    "location": "New York, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://coachkrisrs.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://coachkrisrs.com/",
+        "https://coachkrisrs.com/about/"
+      ]
+    },
+    "coachSlug": "coach-kristyn-r-smith",
+    "coach": {
+      "slug": "coach-kristyn-r-smith",
+      "name": "Kristyn R Smith",
+      "city": "New York",
+      "location": "New York, New York, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Kristyn R Smith offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Kristyn R Smith's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://coachkrisrs.com/",
+      "source": {
+        "name": "coachkrisrs.com",
+        "url": "https://coachkrisrs.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/kristyn-r-smith"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/scissortailrunning",
+    "slug": "scissortailrunning",
+    "name": "Kyle McKinley",
+    "location": "Edmond, Oklahoma, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.scissortailrunning.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.scissortailrunning.com/",
+        "https://www.scissortailrunning.com/coaching"
+      ]
+    },
+    "coachSlug": "coach-scissortailrunning",
+    "coach": {
+      "slug": "coach-scissortailrunning",
+      "name": "Kyle McKinley",
+      "city": "Online",
+      "location": "Edmond, Oklahoma, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Trail and ultrarunning",
+        "Track and cross-country"
+      ],
+      "blurb": "Kyle McKinley offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Kyle McKinley's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.scissortailrunning.com/",
+      "source": {
+        "name": "scissortailrunning.com",
+        "url": "https://www.scissortailrunning.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/scissortailrunning"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachlaurafilla",
+    "slug": "coachlaurafilla",
+    "name": "Laura Filla",
+    "location": "St. Louis, Missouri, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://fillaendurance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://fillaendurance.com/",
+        "https://fillaendurance.com/coaching-programs/"
+      ]
+    },
+    "coachSlug": "coach-coachlaurafilla",
+    "coach": {
+      "slug": "coach-coachlaurafilla",
+      "name": "Laura Filla",
+      "city": "Online",
+      "location": "St. Louis, Missouri, United States",
+      "format": "hybrid",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Laura Filla offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Laura Filla's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://fillaendurance.com/",
+      "source": {
+        "name": "fillaendurance.com",
+        "url": "https://fillaendurance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/coachlaurafilla"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/laura-hunt",
+    "slug": "laura-hunt",
+    "name": "Laura Hunt",
+    "location": "Edmond, Oklahoma, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/leahrosenfeld",
+    "slug": "leahrosenfeld",
+    "name": "Leah Rosenfeld",
+    "location": "Los Angeles, California, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.leahrosenfeld.com/",
+      "discoveryMethod": "reviewed-search",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach surname appears in the site domain",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.leahrosenfeld.com/",
+        "https://www.leahrosenfeld.com/private-coaching"
+      ]
+    },
+    "coachSlug": "coach-leahrosenfeld",
+    "coach": {
+      "slug": "coach-leahrosenfeld",
+      "name": "Leah Rosenfeld",
+      "city": "Los Angeles",
+      "location": "Los Angeles, California, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Leah Rosenfeld offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Leah Rosenfeld's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.leahrosenfeld.com/",
+      "source": {
+        "name": "leahrosenfeld.com",
+        "url": "https://www.leahrosenfeld.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/leahrosenfeld"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/runstark",
+    "slug": "runstark",
+    "name": "Liam Struwe",
+    "location": "Hertford, Hertfordshire, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://runstark.co.uk/home-1",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://runstark.co.uk/home-1",
+        "https://runstark.co.uk/Services"
+      ]
+    },
+    "coachSlug": "coach-runstark",
+    "coach": {
+      "slug": "coach-runstark",
+      "name": "Liam Struwe",
+      "city": "Online",
+      "location": "Hertford, Hertfordshire, United Kingdom",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Track and cross-country",
+        "Marathon"
+      ],
+      "blurb": "Liam Struwe offers online running coaching with a focus on strength training, track and cross-country and marathon.",
+      "bio": [
+        "Liam Struwe's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      ],
+      "link": "https://runstark.co.uk/home-1",
+      "source": {
+        "name": "runstark.co.uk",
+        "url": "https://runstark.co.uk/home-1"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/runstark"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/lindsay-taylor",
+    "slug": "lindsay-taylor",
+    "name": "Lindsay Taylor",
+    "location": "Madison, Wisconsin, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/lindseyaltermatt",
+    "slug": "lindseyaltermatt",
+    "name": "Lindsey Altermatt",
+    "location": "St. Francis, Minnesota, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://mntrailruncollective.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://mntrailruncollective.com/"
+      ]
+    },
+    "coachSlug": "coach-lindseyaltermatt",
+    "coach": {
+      "slug": "coach-lindseyaltermatt",
+      "name": "Lindsey Altermatt",
+      "city": "Online",
+      "location": "St. Francis, Minnesota, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k"
+      ],
+      "specialties": [
+        "Trail and ultrarunning"
+      ],
+      "blurb": "Lindsey Altermatt offers online running coaching with a focus on trail and ultrarunning.",
+      "bio": [
+        "Lindsey Altermatt's public website describes online coaching focused on trail and ultrarunning."
+      ],
+      "link": "https://mntrailruncollective.com/",
+      "source": {
+        "name": "mntrailruncollective.com",
+        "url": "https://mntrailruncollective.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/lindseyaltermatt"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/lisa-brody",
+    "slug": "lisa-brody",
+    "name": "Lisa Brody",
+    "location": "New Haven, CT, US",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/louis-serafini",
+    "slug": "louis-serafini",
+    "name": "Louis Serafini",
+    "location": "North Cambridge, Massachusetts, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://serafinicoaching.run/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://serafinicoaching.run/"
+      ]
+    },
+    "coachSlug": "coach-louis-serafini",
+    "coach": {
+      "slug": "coach-louis-serafini",
+      "name": "Louis Serafini",
+      "city": "Online",
+      "location": "North Cambridge, Massachusetts, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Marathon",
+        "Half marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Louis Serafini offers online running coaching with a focus on personalized training, marathon and half marathon.",
+      "bio": [
+        "Louis Serafini's public website describes online coaching focused on personalized training, marathon and half marathon."
+      ],
+      "link": "https://serafinicoaching.run/",
+      "source": {
+        "name": "serafinicoaching.run",
+        "url": "https://serafinicoaching.run/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/louis-serafini"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/maddie",
+    "slug": "maddie",
+    "name": "Maddie Barrett",
+    "location": "Minneapolis, Minnesota, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.joyfulrunningcoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.joyfulrunningcoaching.com/",
+        "https://www.joyfulrunningcoaching.com/about"
+      ]
+    },
+    "coachSlug": "coach-maddie",
+    "coach": {
+      "slug": "coach-maddie",
+      "name": "Maddie Barrett",
+      "city": "Online",
+      "location": "Minneapolis, Minnesota, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon"
+      ],
+      "specialties": [
+        "Track and cross-country",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Maddie Barrett offers online running coaching with a focus on track and cross-country, marathon and 5k and 10k.",
+      "bio": [
+        "Maddie Barrett's public website describes online coaching focused on track and cross-country, marathon and 5k and 10k."
+      ],
+      "link": "https://www.joyfulrunningcoaching.com/",
+      "source": {
+        "name": "joyfulrunningcoaching.com",
+        "url": "https://www.joyfulrunningcoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/maddie"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/malindi-elmore",
+    "slug": "malindi-elmore",
+    "name": "Malindi Elmore",
+    "location": "Kelowna, BC, Canada",
+    "status": "ready",
+    "website": {
+      "url": "https://malindielmore.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://malindielmore.com/",
+        "https://malindielmore.com/about-malindi/"
+      ]
+    },
+    "coachSlug": "coach-malindi-elmore",
+    "coach": {
+      "slug": "coach-malindi-elmore",
+      "name": "Malindi Elmore",
+      "city": "Online",
+      "location": "Kelowna, BC, Canada",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware",
+        "triathlon"
+      ],
+      "specialties": [
+        "Strength training",
+        "Track and cross-country",
+        "Triathlon",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Malindi Elmore offers online running coaching with a focus on strength training, track and cross-country and triathlon.",
+      "bio": [
+        "Malindi Elmore's public website describes online coaching focused on strength training, track and cross-country and triathlon."
+      ],
+      "link": "https://malindielmore.com/",
+      "source": {
+        "name": "malindielmore.com",
+        "url": "https://malindielmore.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/malindi-elmore"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/mark-day",
+    "slug": "mark-day",
+    "name": "Mark Day",
+    "location": "Cheltenham, Gloucestershire, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://racewithoutfear.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://racewithoutfear.com/"
+      ]
+    },
+    "coachSlug": "coach-mark-day",
+    "coach": {
+      "slug": "coach-mark-day",
+      "name": "Mark Day",
+      "city": "Online",
+      "location": "Cheltenham, Gloucestershire, United Kingdom",
+      "format": "online",
+      "focus": [
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Trail and ultrarunning",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Mark Day offers online running coaching with a focus on strength training, trail and ultrarunning and marathon.",
+      "bio": [
+        "Mark Day's public website describes online coaching focused on strength training, trail and ultrarunning and marathon."
+      ],
+      "link": "https://racewithoutfear.com/",
+      "source": {
+        "name": "racewithoutfear.com",
+        "url": "https://racewithoutfear.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/mark-day"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/g-force",
+    "slug": "g-force",
+    "name": "Mark Good",
+    "location": "Jackson, Michigan, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/slowafrunclub",
+    "slug": "slowafrunclub",
+    "name": "Martinus Evans",
+    "location": "Atlanta, New York, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/amrunningvb",
+    "slug": "amrunningvb",
+    "name": "Matt Hotaling",
+    "location": "Virginia Beach, Virginia, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://sites.google.com/view/amrunningvb",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://sites.google.com/view/amrunningvb",
+        "https://sites.google.com/view/amrunningvb/about-us"
+      ]
+    },
+    "coachSlug": "coach-amrunningvb",
+    "coach": {
+      "slug": "coach-amrunningvb",
+      "name": "Matt Hotaling",
+      "city": "Online",
+      "location": "Virginia Beach, Virginia, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware",
+        "triathlon"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Track and cross-country",
+        "Boston qualifying",
+        "Triathlon"
+      ],
+      "blurb": "Matt Hotaling offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
+      "bio": [
+        "Matt Hotaling's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      ],
+      "link": "https://sites.google.com/view/amrunningvb",
+      "source": {
+        "name": "sites.google.com",
+        "url": "https://sites.google.com/view/amrunningvb"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/amrunningvb"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/lopiccolo",
+    "slug": "lopiccolo",
+    "name": "Matt LoPiccolo",
+    "location": "Apex, North Carolina, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://lopiccoloendurance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://lopiccoloendurance.com/"
+      ]
+    },
+    "coachSlug": "coach-lopiccolo",
+    "coach": {
+      "slug": "coach-lopiccolo",
+      "name": "Matt LoPiccolo",
+      "city": "Online",
+      "location": "Apex, North Carolina, United States",
+      "format": "hybrid",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Injury-aware training",
+        "Track and cross-country",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Matt LoPiccolo offers online and in-person running coaching with a focus on personalized training, injury-aware training and track and cross-country.",
+      "bio": [
+        "Matt LoPiccolo's public website describes online and in-person coaching focused on personalized training, injury-aware training and track and cross-country."
+      ],
+      "link": "https://lopiccoloendurance.com/",
+      "source": {
+        "name": "lopiccoloendurance.com",
+        "url": "https://lopiccoloendurance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/lopiccolo"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/mattmcclintock",
+    "slug": "mattmcclintock",
+    "name": "Matt McClintock - McKirdy Trained",
+    "location": "Flagstaff, Arizona, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/megan-cooke",
+    "slug": "megan-cooke",
+    "name": "Megan Cooke",
+    "location": "Hillsborough, North Carolina, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.ngucoaching.com/",
+      "discoveryMethod": "reviewed-search",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.ngucoaching.com/",
+        "https://www.ngucoaching.com/running-coach-megans-music/"
+      ]
+    },
+    "coachSlug": "coach-megan-cooke",
+    "coach": {
+      "slug": "coach-megan-cooke",
+      "name": "Megan Cooke",
+      "city": "Online",
+      "location": "Hillsborough, North Carolina, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Track and cross-country",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Megan Cooke offers online running coaching with a focus on strength training, track and cross-country and marathon.",
+      "bio": [
+        "Megan Cooke's public website describes online coaching focused on strength training, track and cross-country and marathon."
+      ],
+      "link": "https://www.ngucoaching.com/",
+      "source": {
+        "name": "ngucoaching.com",
+        "url": "https://www.ngucoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/megan-cooke"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/melanie-boyd",
+    "slug": "melanie-boyd",
+    "name": "Melanie Boyd",
+    "location": "Panama, Panama, Panama",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/melissa-labrie",
+    "slug": "melissa-labrie",
+    "name": "Melissa Labrie",
+    "location": "Hollidaysburg, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/melissa-malani",
+    "slug": "melissa-malani",
+    "name": "Melissa Malani",
+    "location": "Winter Park, FL, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/michelle-baxter",
+    "slug": "michelle-baxter",
+    "name": "Michelle Baxter",
+    "location": ", Minnesota, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.therunnersplate.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.therunnersplate.com/",
+        "https://www.therunnersplate.com/about/"
+      ]
+    },
+    "coachSlug": "coach-michelle-baxter",
+    "coach": {
+      "slug": "coach-michelle-baxter",
+      "name": "Michelle Baxter",
+      "city": "Online",
+      "location": ", Minnesota, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Nutrition",
+        "Marathon"
+      ],
+      "blurb": "Michelle Baxter offers online running coaching with a focus on nutrition and marathon.",
+      "bio": [
+        "Michelle Baxter's public website describes online coaching focused on nutrition and marathon."
+      ],
+      "link": "https://www.therunnersplate.com/",
+      "source": {
+        "name": "therunnersplate.com",
+        "url": "https://www.therunnersplate.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/michelle-baxter"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/mikkelgislejohnsen",
+    "slug": "mikkelgislejohnsen",
+    "name": "Mikkel Gisle Johnsen",
+    "location": "Oslo, Norway, Norway",
+    "status": "ready",
+    "website": {
+      "url": "https://www.mgjcoaching.no/international",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.mgjcoaching.no/international"
+      ]
+    },
+    "coachSlug": "coach-mikkelgislejohnsen",
+    "coach": {
+      "slug": "coach-mikkelgislejohnsen",
+      "name": "Mikkel Gisle Johnsen",
+      "city": "Online",
+      "location": "Oslo, Norway, Norway",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Marathon"
+      ],
+      "blurb": "Mikkel Gisle Johnsen offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Mikkel Gisle Johnsen's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.mgjcoaching.no/international",
+      "source": {
+        "name": "mgjcoaching.no",
+        "url": "https://www.mgjcoaching.no/international"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/mikkelgislejohnsen"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/rundreamachieve",
+    "slug": "rundreamachieve",
+    "name": "Nathan Pennington",
+    "location": "Grand Haven, Michigan, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://rundreamachieve.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://rundreamachieve.com/",
+        "https://rundreamachieve.com/services/"
+      ]
+    },
+    "coachSlug": "coach-rundreamachieve",
+    "coach": {
+      "slug": "coach-rundreamachieve",
+      "name": "Nathan Pennington",
+      "city": "Online",
+      "location": "Grand Haven, Michigan, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Track and cross-country",
+        "Beginner runners"
+      ],
+      "blurb": "Nathan Pennington offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Nathan Pennington's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://rundreamachieve.com/",
+      "source": {
+        "name": "rundreamachieve.com",
+        "url": "https://rundreamachieve.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/rundreamachieve"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/naturalathlete",
+    "slug": "naturalathlete",
+    "name": "Natural Athlete Training System",
+    "location": "Arlington, Virginia, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/magnumopuscoaching",
+    "slug": "magnumopuscoaching",
+    "name": "Nelle Gray",
+    "location": "Bridgewater, Virginia, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.magnumopuscoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.magnumopuscoaching.com/",
+        "https://www.magnumopuscoaching.com/run-coaching"
+      ]
+    },
+    "coachSlug": "coach-magnumopuscoaching",
+    "coach": {
+      "slug": "coach-magnumopuscoaching",
+      "name": "Nelle Gray",
+      "city": "Online",
+      "location": "Bridgewater, Virginia, United States",
+      "format": "hybrid",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Trail and ultrarunning"
+      ],
+      "blurb": "Nelle Gray offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Nelle Gray's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.magnumopuscoaching.com/",
+      "source": {
+        "name": "magnumopuscoaching.com",
+        "url": "https://www.magnumopuscoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/magnumopuscoaching"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachnih",
+    "slug": "coachnih",
+    "name": "Nialah Ferrer",
+    "location": "Washington D.C and NYC, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://werunkings.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://werunkings.com/",
+        "https://werunkings.com/pages/about-us"
+      ]
+    },
+    "coachSlug": "coach-coachnih",
+    "coach": {
+      "slug": "coach-coachnih",
+      "name": "Nialah Ferrer",
+      "city": "Online",
+      "location": "Washington D.C and NYC, New York, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Injury-aware training",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Nialah Ferrer offers online and in-person running coaching with a focus on personalized training, strength training and injury-aware training.",
+      "bio": [
+        "Nialah Ferrer's public website describes online and in-person coaching focused on personalized training, strength training and injury-aware training."
+      ],
+      "link": "https://werunkings.com/",
+      "source": {
+        "name": "werunkings.com",
+        "url": "https://werunkings.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/coachnih"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/nicholas-hilton",
+    "slug": "nicholas-hilton",
+    "name": "Nicholas Hilton",
+    "location": "Flagstaff, AZ, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.hiltonperformancerunning.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach surname appears in the site domain",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.hiltonperformancerunning.com/",
+        "https://www.hiltonperformancerunning.com/services"
+      ]
+    },
+    "coachSlug": "coach-nicholas-hilton",
+    "coach": {
+      "slug": "coach-nicholas-hilton",
+      "name": "Nicholas Hilton",
+      "city": "Online",
+      "location": "Flagstaff, AZ, United States",
+      "format": "online",
+      "focus": [
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Marathon"
+      ],
+      "blurb": "Nicholas Hilton offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Nicholas Hilton's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.hiltonperformancerunning.com/",
+      "source": {
+        "name": "hiltonperformancerunning.com",
+        "url": "https://www.hiltonperformancerunning.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/nicholas-hilton"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/noa-besner",
+    "slug": "noa-besner",
+    "name": "Noa Besner",
+    "location": "New York, NY, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://runcoachnoa.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://runcoachnoa.com/",
+        "https://runcoachnoa.com/about-coach-noa/"
+      ]
+    },
+    "coachSlug": "coach-noa-besner",
+    "coach": {
+      "slug": "coach-noa-besner",
+      "name": "Noa Besner",
+      "city": "New York",
+      "location": "New York, NY, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Nutrition",
+        "Beginner runners",
+        "Boston qualifying",
+        "Triathlon"
+      ],
+      "blurb": "Noa Besner offers online running coaching with a focus on personalized training, nutrition and beginner runners.",
+      "bio": [
+        "Noa Besner's public website describes online coaching focused on personalized training, nutrition and beginner runners."
+      ],
+      "link": "https://runcoachnoa.com/",
+      "source": {
+        "name": "runcoachnoa.com",
+        "url": "https://runcoachnoa.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/noa-besner"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/oleksii-kocheshkov",
+    "slug": "oleksii-kocheshkov",
+    "name": "Oleksii Kocheshkov",
+    "location": "Ukraine, Kharkiv, Ukraine",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/pamela-hunt",
+    "slug": "pamela-hunt",
+    "name": "Pamela Hunt",
+    "location": "New York, New York, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.orithyia.nyc/coaching",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.orithyia.nyc/coaching",
+        "https://www.orithyia.nyc/coaching"
+      ]
+    },
+    "coachSlug": "coach-pamela-hunt",
+    "coach": {
+      "slug": "coach-pamela-hunt",
+      "name": "Pamela Hunt",
+      "city": "New York",
+      "location": "New York, New York, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Pamela Hunt offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Pamela Hunt's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.orithyia.nyc/coaching",
+      "source": {
+        "name": "orithyia.nyc",
+        "url": "https://www.orithyia.nyc/coaching"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/pamela-hunt"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/paul-taylor",
+    "slug": "paul-taylor",
+    "name": "Paul Taylor",
+    "location": "Surrey, BC, Canada",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/pedro-lopez",
+    "slug": "pedro-lopez",
+    "name": "Pedro Lopez",
+    "location": "Brooklyn, New York, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/runcoaching",
+    "slug": "runcoaching",
+    "name": "Peppe Lindholm",
+    "location": "Järvsö, Gavleborgs Lan, Sweden",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/petesimon",
+    "slug": "petesimon",
+    "name": "Pete Simon",
+    "location": "Plymouth, Devon, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://petesimon.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://petesimon.com/",
+        "https://www.petesimon.com/coaching/"
+      ]
+    },
+    "coachSlug": "coach-petesimon",
+    "coach": {
+      "slug": "coach-petesimon",
+      "name": "Pete Simon",
+      "city": "Online",
+      "location": "Plymouth, Devon, United Kingdom",
+      "format": "hybrid",
+      "focus": [
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country",
+        "Beginner runners"
+      ],
+      "blurb": "Pete Simon offers online and in-person running coaching with a focus on strength training, nutrition and injury-aware training.",
+      "bio": [
+        "Pete Simon's public website describes online and in-person coaching focused on strength training, nutrition and injury-aware training."
+      ],
+      "link": "https://petesimon.com/",
+      "source": {
+        "name": "petesimon.com",
+        "url": "https://petesimon.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/petesimon"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/paulwhittaker",
+    "slug": "paulwhittaker",
+    "name": "PW Performance Coaching",
+    "location": "Southend-on-Sea, Essex, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://pwperformancecoaching.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://pwperformancecoaching.com/",
+        "https://pwperformancecoaching.com/collections/coaching-plans"
+      ]
+    },
+    "coachSlug": "coach-paulwhittaker",
+    "coach": {
+      "slug": "coach-paulwhittaker",
+      "name": "PW Performance Coaching",
+      "city": "Online",
+      "location": "Southend-on-Sea, Essex, United Kingdom",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "PW Performance Coaching offers online running coaching with a focus on marathon and 5k and 10k.",
+      "bio": [
+        "PW Performance Coaching's public website describes online coaching focused on marathon and 5k and 10k."
+      ],
+      "link": "https://pwperformancecoaching.com/",
+      "source": {
+        "name": "pwperformancecoaching.com",
+        "url": "https://pwperformancecoaching.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/paulwhittaker"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/quint-van-beek",
+    "slug": "quint-van-beek",
+    "name": "Quint Van Beek",
+    "location": "Chicago, Illinois, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/rachel-longstaff",
+    "slug": "rachel-longstaff",
+    "name": "Rachel Longstaff",
+    "location": "Singapore, Singapore, Singapore",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/rachel-turner",
+    "slug": "rachel-turner",
+    "name": "Rachel Turner",
+    "location": "Cambridge, Cambridgeshire, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://runnersnutritioncoach.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://runnersnutritioncoach.com/",
+        "https://runnersnutritioncoach.com/1-1-coaching-package"
+      ]
+    },
+    "coachSlug": "coach-rachel-turner",
+    "coach": {
+      "slug": "coach-rachel-turner",
+      "name": "Rachel Turner",
+      "city": "Online",
+      "location": "Cambridge, Cambridgeshire, United Kingdom",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Nutrition",
+        "Injury-aware training",
+        "Trail and ultrarunning",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Rachel Turner offers online running coaching with a focus on nutrition, injury-aware training and trail and ultrarunning.",
+      "bio": [
+        "Rachel Turner's public website describes online coaching focused on nutrition, injury-aware training and trail and ultrarunning."
+      ],
+      "link": "https://runnersnutritioncoach.com/",
+      "source": {
+        "name": "runnersnutritioncoach.com",
+        "url": "https://runnersnutritioncoach.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/rachel-turner"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ramon-laboy",
+    "slug": "ramon-laboy",
+    "name": "Ramon Laboy",
+    "location": "Bethlehem, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ricardovz",
+    "slug": "ricardovz",
+    "name": "Ricardo V",
+    "location": "MX, MX, Mexico",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/richard-airey",
+    "slug": "richard-airey",
+    "name": "Richard Airey",
+    "location": "Seneca, South Carolina, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.blacksheependurance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.blacksheependurance.com/",
+        "https://www.blacksheependurance.com/about-me-shift"
+      ]
+    },
+    "coachSlug": "coach-richard-airey",
+    "coach": {
+      "slug": "coach-richard-airey",
+      "name": "Richard Airey",
+      "city": "Online",
+      "location": "Seneca, South Carolina, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Trail and ultrarunning",
+        "Track and cross-country"
+      ],
+      "blurb": "Richard Airey offers online running coaching with a focus on strength training, nutrition and injury-aware training.",
+      "bio": [
+        "Richard Airey's public website describes online coaching focused on strength training, nutrition and injury-aware training."
+      ],
+      "link": "https://www.blacksheependurance.com/",
+      "source": {
+        "name": "blacksheependurance.com",
+        "url": "https://www.blacksheependurance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/richard-airey"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/riley-coulter",
+    "slug": "riley-coulter",
+    "name": "Riley Coulter",
+    "location": "Platteville, Wi, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.driftlessdistanceproject.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.driftlessdistanceproject.com/"
+      ]
+    },
+    "coachSlug": "coach-riley-coulter",
+    "coach": {
+      "slug": "coach-riley-coulter",
+      "name": "Riley Coulter",
+      "city": "Online",
+      "location": "Platteville, Wi, United States",
+      "format": "online",
+      "focus": [
+        "performance"
+      ],
+      "specialties": [
+        "Individual running coaching"
+      ],
+      "blurb": "Riley Coulter offers online running coaching with a focus on individual running coaching.",
+      "bio": [
+        "Riley Coulter's public website describes online coaching focused on individual running coaching."
+      ],
+      "link": "https://www.driftlessdistanceproject.com/",
+      "source": {
+        "name": "driftlessdistanceproject.com",
+        "url": "https://www.driftlessdistanceproject.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/riley-coulter"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/roabel",
+    "slug": "roabel",
+    "name": "Roabel Medhanie",
+    "location": "Oakland, CA, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.runwithroabel.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.runwithroabel.com/",
+        "https://www.runwithroabel.com/about-me"
+      ]
+    },
+    "coachSlug": "coach-roabel",
+    "coach": {
+      "slug": "coach-roabel",
+      "name": "Roabel Medhanie",
+      "city": "Online",
+      "location": "Oakland, CA, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Injury-aware training",
+        "Triathlon",
+        "Marathon",
+        "Half marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Roabel Medhanie offers online running coaching with a focus on injury-aware training, triathlon and marathon.",
+      "bio": [
+        "Roabel Medhanie's public website describes online coaching focused on injury-aware training, triathlon and marathon."
+      ],
+      "link": "https://www.runwithroabel.com/",
+      "source": {
+        "name": "runwithroabel.com",
+        "url": "https://www.runwithroabel.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/roabel"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/rob-king",
+    "slug": "rob-king",
+    "name": "Rob King",
+    "location": "Wake Forest, North Carolina, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/robvancleve",
+    "slug": "robvancleve",
+    "name": "Rob VanCleve",
+    "location": "Columbus, OH, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/rod-koborsi",
+    "slug": "rod-koborsi",
+    "name": "Rod Koborsi",
+    "location": "San Francisco, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/ruth-atkinson",
+    "slug": "ruth-atkinson",
+    "name": "Ruth Atkinson - McKirdy Trained",
+    "location": "Texas, Texas, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/sara-plumstead",
+    "slug": "sara-plumstead",
+    "name": "Sara Plumstead",
+    "location": "Detroit, Michigan, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/sarah-kozul",
+    "slug": "sarah-kozul",
+    "name": "Sarah Kozul",
+    "location": "Lakeland, Florida, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://runnerssense.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://runnerssense.com/"
+      ]
+    },
+    "coachSlug": "coach-sarah-kozul",
+    "coach": {
+      "slug": "coach-sarah-kozul",
+      "name": "Sarah Kozul",
+      "city": "Online",
+      "location": "Lakeland, Florida, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Injury-aware training",
+        "Marathon",
+        "Half marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Sarah Kozul offers online running coaching with a focus on personalized training, injury-aware training and marathon.",
+      "bio": [
+        "Sarah Kozul's public website describes online coaching focused on personalized training, injury-aware training and marathon."
+      ],
+      "link": "https://runnerssense.com/",
+      "source": {
+        "name": "runnerssense.com",
+        "url": "https://runnerssense.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/sarah-kozul"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/scott-brown",
+    "slug": "scott-brown",
+    "name": "Scott Andrew Brown",
+    "location": "Sakai, Osaka, Japan",
+    "status": "ready",
+    "website": {
+      "url": "https://samurairunningjapan.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://samurairunningjapan.com/",
+        "https://samurairunningjapan.com/about-me"
+      ]
+    },
+    "coachSlug": "coach-scott-brown",
+    "coach": {
+      "slug": "coach-scott-brown",
+      "name": "Scott Andrew Brown",
+      "city": "Online",
+      "location": "Sakai, Osaka, Japan",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Track and cross-country",
+        "Beginner runners",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Scott Andrew Brown offers online and in-person running coaching with a focus on personalized training, track and cross-country and beginner runners.",
+      "bio": [
+        "Scott Andrew Brown's public website describes online and in-person coaching focused on personalized training, track and cross-country and beginner runners."
+      ],
+      "link": "https://samurairunningjapan.com/",
+      "source": {
+        "name": "samurairunningjapan.com",
+        "url": "https://samurairunningjapan.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/scott-brown"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/evo2run",
+    "slug": "evo2run",
+    "name": "Seb Coach",
+    "location": "Annecy, Haute Savoie, France",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/shainacales",
+    "slug": "shainacales",
+    "name": "Shaina Cales",
+    "location": "Boise, Idaho, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.sparkrunning.co/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.sparkrunning.co/",
+        "https://www.sparkrunning.co/coaching"
+      ]
+    },
+    "coachSlug": "coach-shainacales",
+    "coach": {
+      "slug": "coach-shainacales",
+      "name": "Shaina Cales",
+      "city": "Online",
+      "location": "Boise, Idaho, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Nutrition",
+        "Marathon",
+        "Half marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Shaina Cales offers online running coaching with a focus on personalized training, nutrition and marathon.",
+      "bio": [
+        "Shaina Cales's public website describes online coaching focused on personalized training, nutrition and marathon."
+      ],
+      "link": "https://www.sparkrunning.co/",
+      "source": {
+        "name": "sparkrunning.co",
+        "url": "https://www.sparkrunning.co/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/shainacales"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/spencerstcyr",
+    "slug": "spencerstcyr",
+    "name": "Spencer St. Cyr",
+    "location": "Escondido, California, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/steve-crnic",
+    "slug": "steve-crnic",
+    "name": "Steve Crnic",
+    "location": "Denver, CO, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/steven-salefske",
+    "slug": "steven-salefske",
+    "name": "Steven Salefske",
+    "location": "Virginia Beach, Virginia, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/stuart-lamp",
+    "slug": "stuart-lamp",
+    "name": "Stuart Lamp",
+    "location": "Decatur, Alabama, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.allied-endurance.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.allied-endurance.com/",
+        "https://www.allied-endurance.com/services-5"
+      ]
+    },
+    "coachSlug": "coach-stuart-lamp",
+    "coach": {
+      "slug": "coach-stuart-lamp",
+      "name": "Stuart Lamp",
+      "city": "Online",
+      "location": "Decatur, Alabama, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "performance"
+      ],
+      "specialties": [
+        "Individual running coaching"
+      ],
+      "blurb": "Stuart Lamp offers online running coaching with a focus on individual running coaching.",
+      "bio": [
+        "Stuart Lamp's public website describes online coaching focused on individual running coaching."
+      ],
+      "link": "https://www.allied-endurance.com/",
+      "source": {
+        "name": "allied-endurance.com",
+        "url": "https://www.allied-endurance.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/stuart-lamp"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/suemcdonaldyourrunningcoach",
+    "slug": "suemcdonaldyourrunningcoach",
+    "name": "Sue McDonald",
+    "location": "Santa Barbara, CA, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coach-tammy",
+    "slug": "coach-tammy",
+    "name": "Tammy Whyte",
+    "location": "Chicago, IL, United States",
+    "status": "duplicate",
+    "reason": "Merged into https://vdoto2.com/running-coach/tw-training.",
+    "duplicateOf": "tw-training"
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tw-training",
+    "slug": "tw-training",
+    "name": "Tammy Whyte",
+    "location": "Chicago, Illinois, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.tw-training.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://www.tw-training.com/",
+        "https://www.tw-training.com/services"
+      ]
+    },
+    "coachSlug": "coach-tw-training",
+    "coach": {
+      "slug": "coach-tw-training",
+      "name": "Tammy Whyte",
+      "city": "Chicago",
+      "location": "Chicago, Illinois, United States",
+      "format": "online",
+      "focus": [
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Marathon"
+      ],
+      "blurb": "Tammy Whyte offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Tammy Whyte's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.tw-training.com/",
+      "source": {
+        "name": "tw-training.com",
+        "url": "https://www.tw-training.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/tw-training"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    },
+    "alternateProfileUrls": [
+      "https://vdoto2.com/running-coach/coach-tammy"
+    ]
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tanner-twigg",
+    "slug": "tanner-twigg",
+    "name": "Tanner Twigg",
+    "location": "Ellendale, North Dakota, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/the-endurance-collective",
+    "slug": "the-endurance-collective",
+    "name": "The Endurance Collective",
+    "location": "Lancaster, Pennsylvania, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/thomas_rodin",
+    "slug": "thomas_rodin",
+    "name": "Thomas Rödin",
+    "location": "Malmö, Skåne, Sweden",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tiffany-england",
+    "slug": "tiffany-england",
+    "name": "Tiffany England",
+    "location": "Brighton & Hove, East Sussex, United Kingdom",
+    "status": "ready",
+    "website": {
+      "url": "https://www.englandrunning.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.englandrunning.com/",
+        "https://www.englandrunning.com/about"
+      ]
+    },
+    "coachSlug": "coach-tiffany-england",
+    "coach": {
+      "slug": "coach-tiffany-england",
+      "name": "Tiffany England",
+      "city": "Online",
+      "location": "Brighton & Hove, East Sussex, United Kingdom",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon"
+      ],
+      "specialties": [
+        "Trail and ultrarunning",
+        "Track and cross-country",
+        "Beginner runners",
+        "Boston qualifying",
+        "Marathon"
+      ],
+      "blurb": "Tiffany England offers online running coaching with a focus on trail and ultrarunning, track and cross-country and beginner runners.",
+      "bio": [
+        "Tiffany England's public website describes online coaching focused on trail and ultrarunning, track and cross-country and beginner runners."
+      ],
+      "link": "https://www.englandrunning.com/",
+      "source": {
+        "name": "englandrunning.com",
+        "url": "https://www.englandrunning.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/tiffany-england"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/peakperformance",
+    "slug": "peakperformance",
+    "name": "Tim Kruger",
+    "location": "Omaha, Nebraska, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/resilience-run-co",
+    "slug": "resilience-run-co",
+    "name": "Todd Nickel",
+    "location": "Vancouver, BC, Canada",
+    "status": "ready",
+    "website": {
+      "url": "https://resiliencerunco.ca/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching",
+        "site and directory location agree"
+      ],
+      "pages": [
+        "https://resiliencerunco.ca/"
+      ]
+    },
+    "coachSlug": "coach-resilience-run-co",
+    "coach": {
+      "slug": "coach-resilience-run-co",
+      "name": "Todd Nickel",
+      "city": "Online",
+      "location": "Vancouver, BC, Canada",
+      "format": "online",
+      "focus": [
+        "performance"
+      ],
+      "specialties": [
+        "Masters runners"
+      ],
+      "blurb": "Todd Nickel offers online running coaching with a focus on masters runners.",
+      "bio": [
+        "Todd Nickel's public website describes online coaching focused on masters runners."
+      ],
+      "link": "https://resiliencerunco.ca/",
+      "source": {
+        "name": "resiliencerunco.ca",
+        "url": "https://resiliencerunco.ca/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/resilience-run-co"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tom-myers",
+    "slug": "tom-myers",
+    "name": "Tom Myers",
+    "location": "New York, NY, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/fast-pack-running",
+    "slug": "fast-pack-running",
+    "name": "Tom Palamar and Jenny Crawshaw",
+    "location": "New Port Richey, Florida, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://fastpackrunning.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://fastpackrunning.com/",
+        "https://fastpackrunning.com/training-plans-and-coaching/"
+      ]
+    },
+    "coachSlug": "coach-fast-pack-running",
+    "coach": {
+      "slug": "coach-fast-pack-running",
+      "name": "Tom Palamar and Jenny Crawshaw",
+      "city": "Online",
+      "location": "New Port Richey, Florida, United States",
+      "format": "online",
+      "focus": [
+        "first-timers",
+        "5k-10k",
+        "half",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Track and cross-country",
+        "Marathon",
+        "Half marathon"
+      ],
+      "blurb": "Tom Palamar and Jenny Crawshaw offers online running coaching with a focus on personalized training, strength training and track and cross-country.",
+      "bio": [
+        "Tom Palamar and Jenny Crawshaw's public website describes online coaching focused on personalized training, strength training and track and cross-country."
+      ],
+      "link": "https://fastpackrunning.com/",
+      "source": {
+        "name": "fastpackrunning.com",
+        "url": "https://fastpackrunning.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/fast-pack-running"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/toni-kengor",
+    "slug": "toni-kengor",
+    "name": "Toni Kengor",
+    "location": "Pittsburgh, PA, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.relentlessrunners.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "profile supplies the identity link",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.relentlessrunners.com/"
+      ]
+    },
+    "coachSlug": "coach-toni-kengor",
+    "coach": {
+      "slug": "coach-toni-kengor",
+      "name": "Toni Kengor",
+      "city": "Online",
+      "location": "Pittsburgh, PA, United States",
+      "format": "online",
+      "focus": [
+        "performance"
+      ],
+      "specialties": [
+        "Injury-aware training"
+      ],
+      "blurb": "Toni Kengor offers online running coaching with a focus on injury-aware training.",
+      "bio": [
+        "Toni Kengor's public website describes online coaching focused on injury-aware training."
+      ],
+      "link": "https://www.relentlessrunners.com/",
+      "source": {
+        "name": "relentlessrunners.com",
+        "url": "https://www.relentlessrunners.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/toni-kengor"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/trish-dobrowski",
+    "slug": "trish-dobrowski",
+    "name": "Trish Dobrowski",
+    "location": "Jersey City, New Jersey, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://longrunpt.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://longrunpt.com/",
+        "https://longrunpt.com/services"
+      ]
+    },
+    "coachSlug": "coach-trish-dobrowski",
+    "coach": {
+      "slug": "coach-trish-dobrowski",
+      "name": "Trish Dobrowski",
+      "city": "Online",
+      "location": "Jersey City, New Jersey, United States",
+      "format": "hybrid",
+      "focus": [
+        "5k-10k",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Track and cross-country"
+      ],
+      "blurb": "Trish Dobrowski offers online and in-person running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Trish Dobrowski's public website describes online and in-person coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://longrunpt.com/",
+      "source": {
+        "name": "longrunpt.com",
+        "url": "https://longrunpt.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/trish-dobrowski"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/tucker-robertson",
+    "slug": "tucker-robertson",
+    "name": "Tucker Robertson",
+    "location": "Alabama, United States",
+    "status": "invalid-profile",
+    "reason": "The live directory link returned a not-found page during the source audit."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/coachrohrman",
+    "slug": "coachrohrman",
+    "name": "Tyler Rohrman",
+    "location": "Hockley, Texas, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/runs_it_training",
+    "slug": "runs_it_training",
+    "name": "Vicki Duepner",
+    "location": "St. Louis, Missouri, USA",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/vince-sherry",
+    "slug": "vince-sherry",
+    "name": "Vince Sherry",
+    "location": "Flagstaff, Arizona, United States",
+    "status": "review",
+    "reason": "The candidate business URL redirects back to V.O2, so no independent website was published."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/vinny-mui",
+    "slug": "vinny-mui",
+    "name": "Vinny Mui",
+    "location": "New York, NY, United States",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/will-baldwin",
+    "slug": "will-baldwin",
+    "name": "Will Baldwin",
+    "location": "Denver, Colorado, United States",
+    "status": "ready",
+    "website": {
+      "url": "https://www.runbaldwin.com/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.runbaldwin.com/",
+        "https://www.runbaldwin.com/services/"
+      ]
+    },
+    "coachSlug": "coach-will-baldwin",
+    "coach": {
+      "slug": "coach-will-baldwin",
+      "name": "Will Baldwin",
+      "city": "Online",
+      "location": "Denver, Colorado, United States",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon",
+        "performance",
+        "injury-aware"
+      ],
+      "specialties": [
+        "Personalized training",
+        "Strength training",
+        "Nutrition",
+        "Injury-aware training",
+        "Trail and ultrarunning"
+      ],
+      "blurb": "Will Baldwin offers online running coaching with a focus on personalized training, strength training and nutrition.",
+      "bio": [
+        "Will Baldwin's public website describes online coaching focused on personalized training, strength training and nutrition."
+      ],
+      "link": "https://www.runbaldwin.com/",
+      "source": {
+        "name": "runbaldwin.com",
+        "url": "https://www.runbaldwin.com/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/will-baldwin"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/will-small",
+    "slug": "will-small",
+    "name": "Will Small",
+    "location": "St. John's, NL, Canada",
+    "status": "review",
+    "reason": "No independently hosted coaching website could be matched with high confidence."
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/zwonlinecoach",
+    "slug": "zwonlinecoach",
+    "name": "Zacharias Wedel",
+    "location": "Fürth, Bayern, Germany",
+    "status": "ready",
+    "website": {
+      "url": "https://www.zacharias-wedel.de/",
+      "discoveryMethod": "profile-link",
+      "confidence": "high",
+      "checkedAt": "2026-10-03",
+      "evidence": [
+        "linked from the public coach profile or manually reviewed",
+        "coach name appears on the site",
+        "site describes running or endurance coaching"
+      ],
+      "pages": [
+        "https://www.zacharias-wedel.de/"
+      ]
+    },
+    "coachSlug": "coach-zwonlinecoach",
+    "coach": {
+      "slug": "coach-zwonlinecoach",
+      "name": "Zacharias Wedel",
+      "city": "Online",
+      "location": "Fürth, Bayern, Germany",
+      "format": "online",
+      "focus": [
+        "5k-10k",
+        "marathon"
+      ],
+      "specialties": [
+        "Injury-aware training",
+        "Marathon",
+        "5K and 10K"
+      ],
+      "blurb": "Zacharias Wedel offers online running coaching with a focus on injury-aware training, marathon and 5k and 10k.",
+      "bio": [
+        "Zacharias Wedel's public website describes online coaching focused on injury-aware training, marathon and 5k and 10k."
+      ],
+      "link": "https://www.zacharias-wedel.de/",
+      "source": {
+        "name": "zacharias-wedel.de",
+        "url": "https://www.zacharias-wedel.de/"
+      },
+      "discoveredFrom": {
+        "name": "V.O2 coach marketplace",
+        "url": "https://vdoto2.com/running-coach/zwonlinecoach"
+      },
+      "sourceCheckedAt": "2026-10-03",
+      "verified": false
+    }
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/derek-riedel",
+    "slug": "derek-riedel",
+    "name": "Derek Riedel",
+    "location": "San Antonio, TX, United States",
+    "status": "review",
+    "reason": "Error: 429 Too Many Requests"
+  },
+  {
+    "profileUrl": "https://vdoto2.com/running-coach/joseph-gendy",
+    "slug": "joseph-gendy",
+    "name": "Joseph Gendy",
+    "location": "Raleigh, North Carolina, United States",
+    "status": "review",
+    "reason": "Error: 429 Too Many Requests"
+  }
+]

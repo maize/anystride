@@ -1,3 +1,5 @@
+import { VDOT_COACHES } from "./vdot-coaches.generated";
+
 export type CoachFormat = "online" | "in-person" | "hybrid";
 
 export type CoachFocus =
@@ -29,6 +31,10 @@ export interface Coach {
   link: string;
   /** Where this listing was compiled from. */
   source: { name: string; url: string };
+  /** Public directory that led us to the independently sourced coach profile. */
+  discoveredFrom?: { name: string; url: string };
+  /** Date the public source was last checked, in YYYY-MM-DD form. */
+  sourceCheckedAt?: string;
   /**
    * false = a public listing compiled from the web, not yet claimed or vetted by
    * anystride. true = the coach has claimed/verified their profile.
@@ -77,7 +83,7 @@ export const CITY_ORDER: string[] = [
  * `verified: false` — these are public listings, not yet claimed by the coaches.
  * Each links to the coach's own site; coaches can claim or remove their profile.
  */
-export const COACHES: Coach[] = [
+const CURATED_COACHES: Coach[] = [
   {
     slug: "city-coach-nyc",
     name: "City Coach",
@@ -444,4 +450,22 @@ export const COACHES: Coach[] = [
     source: { name: "trainwithmarc.com", url: "https://trainwithmarc.com/online-coaching" },
     verified: false,
   },
+];
+
+function coachIdentity(name: string): string {
+  return name
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+const curatedNames = new Set(CURATED_COACHES.map((coach) => coachIdentity(coach.name)));
+const importedCoaches: readonly Coach[] = VDOT_COACHES;
+
+/** Curated profiles take precedence when an imported public profile is the same coach. */
+export const COACHES: Coach[] = [
+  ...CURATED_COACHES,
+  ...importedCoaches.filter((coach) => !curatedNames.has(coachIdentity(coach.name))),
 ];

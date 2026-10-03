@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated September 26, 2026
+        Last updated October 3, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -94,6 +94,26 @@ export default function PrivacyPage() {
             Analytics records counts of submitted enquiries, coach-matching link
             clicks and clicks on coaches’ contact or booking links. It does not
             receive the contents of these enquiry forms.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">
+            Unclaimed public coach listings
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            We may discover coaches through public professional directories and
+            create an unclaimed listing using information published on the
+            coach&apos;s own public website. This can include the coach&apos;s name,
+            broad business location, advertised services and specialties,
+            website, and the public source URLs used to compile the listing. We
+            display source attribution on each unclaimed profile.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            We do not import profile photos, testimonials or reviews, personal
+            email addresses, phone numbers, or other personal contact details
+            for these listings. A coach can claim a profile or ask us to
+            correct or remove it by emailing hello@anystride.com.
           </p>
         </section>
 

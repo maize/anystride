@@ -13,7 +13,7 @@ export default function TermsPage() {
         Terms of use
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated July 26, 2026
+        Last updated October 3, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -48,10 +48,14 @@ export default function TermsPage() {
           </h2>
           <p className="mt-2 text-muted-foreground">
             Coach profiles describe independent coaches, not employees or
-            partners of anystride. We review applications before listing, but we
-            do not verify certifications, guarantee results, or take part in any
-            agreement you make with a coach. Vet any coach yourself before
-            paying for their services.
+            partners of anystride. Some profiles are published after we approve
+            a coach&apos;s application. Others are unclaimed public listings
+            compiled from public professional directories and coaches&apos; own
+            websites, with their sources disclosed on the profile. An unclaimed
+            listing is not an endorsement or verification. We do not verify
+            certifications, guarantee results, or take part in any agreement
+            you make with a coach. Vet any coach yourself before paying for
+            their services.
           </p>
         </section>
 

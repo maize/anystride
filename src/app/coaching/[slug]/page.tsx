@@ -152,7 +152,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
       {/* Listing disclosure */}
       {!coach.verified && (
         <div className="mt-6 rounded-xl border border-border bg-muted p-4 text-sm text-muted-foreground">
-          This is a public listing compiled from{" "}
+          This unclaimed public profile was compiled from{" "}
           <a
             href={coach.source.url}
             target="_blank"
@@ -161,8 +161,25 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
           >
             {coach.source.name}
           </a>
-          , not yet claimed or verified by the coach.{" "}
-          <Link href="/coaching/apply" className="font-medium text-brand hover:underline">
+          {coach.discoveredFrom ? (
+            <>
+              {" "}
+              and discovered through{" "}
+              <a
+                href={coach.discoveredFrom.url}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="font-medium text-brand hover:underline"
+              >
+                {coach.discoveredFrom.name}
+              </a>
+            </>
+          ) : null}
+          . It has not yet been claimed or verified by the coach.{" "}
+          <Link
+            href={`/coaching/apply?claim=${encodeURIComponent(coach.slug)}`}
+            className="font-medium text-brand hover:underline"
+          >
             Is this you? Claim or update this profile →
           </Link>
         </div>
