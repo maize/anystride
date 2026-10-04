@@ -143,3 +143,20 @@ body::before {
   body::before, body > header, body > footer { display: none; }
   .reveal.is-pending { opacity: 1; transform: none; }
 }
+
+/* A track-inspired monogram when a coach has not supplied a portrait. */
+.coach-track {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transform: rotate(-24deg) scale(1.7);
+}
+.coach-track::before, .coach-track::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+.coach-track::after { inset: 16%; }

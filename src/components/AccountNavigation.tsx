@@ -10,11 +10,13 @@ export function AccountNavigation({ admin }: { admin: boolean }) {
     ["/account/coaching", "My coaching"],
     ["/account/explore", "Find a service"],
     ["/account/services", "Coach workspace"],
+    ["/account/storefront", "My storefront"],
+    ["/account/orders", "Purchases & sales"],
     ...(admin ? [["/account/review", "Admin reviews"]] : []),
   ];
   return <nav aria-label="Account" className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-b border-border">
     {links.map(([href, label]) => {
-      const active = pathname === href || (href === "/account/review" && pathname.startsWith("/account/review/")) || (href === "/account/services" && pathname === "/account/enquiries") || (href === "/account/coaching" && pathname.startsWith("/account/workspaces/"));
+      const active = pathname === href || (["/account/review", "/account/storefront", "/account/orders"].includes(href) && pathname.startsWith(`${href}/`)) || (href === "/account/services" && pathname === "/account/enquiries") || (href === "/account/coaching" && pathname.startsWith("/account/workspaces/"));
       return <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`py-4 text-sm font-semibold transition-colors duration-300 ease-stride hover:text-brand ${active ? "text-brand underline decoration-2 underline-offset-8" : "text-muted-foreground"}`}>{label}</Link>;
     })}
   </nav>;

@@ -5,6 +5,7 @@ import { marketplaceReviews, type ReviewStatus } from "@/lib/marketplace-store";
 import { AccountEmpty, AccountHeading, AccountStatus, accountPrice } from "@/components/AccountUI";
 import { MarketplaceForm } from "@/components/MarketplaceForm";
 import { AdminReviewNavigation } from "@/components/AdminReviewNavigation";
+import { storefrontReviewOffers } from "@/lib/storefront-store";
 
 export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ type?: string; status?: string }> }) {
   const actor = await accountActor();
@@ -12,6 +13,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const data = await marketplaceReviews(actor);
   const params = await searchParams;
   const type = params.type === "services" ? "services" : "coaches";
+  const offers = type === "services" ? await storefrontReviewOffers(actor) : [];
   const statuses: ReviewStatus[] = ["pending", "approved", "rejected", "suspended"];
   const status = statuses.includes(params.status as ReviewStatus) ? params.status as ReviewStatus : "pending";
   const labels = { pending: "Awaiting review", approved: "Approved", rejected: "Changes needed", suspended: "Suspended" };
@@ -29,6 +31,11 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
       <div className="flex flex-wrap justify-between gap-4"><h3 className="text-xl font-semibold">{item.title}</h3><AccountStatus status={item.status} /></div>
       <p className="mt-4 max-w-2xl whitespace-pre-wrap break-words">{item.description}</p>
       <p className="mt-4 whitespace-pre-wrap break-words text-sm text-muted-foreground">{item.detail}</p>
+      {offers.filter((offer) => offer.service_id === item.id).map((offer) => <div key={offer.service_id} className="mt-6 rounded-xl border border-border p-5 text-sm">
+        <h4 className="font-semibold">Storefront offer · {offer.kind === "consultation" ? "Consultation" : "Coaching package"}</h4>
+        <ul className="mt-3 list-inside list-disc space-y-1">{offer.inclusions.map((line) => <li key={line}>{line}</li>)}</ul>
+        <dl className="mt-4 space-y-3">{[["Delivery",offer.delivery],["Cancellation & refunds",offer.cancellation],["After purchase (private)",offer.next_steps]].map(([label,text]) => <div key={label}><dt className="font-medium">{label}</dt><dd className="mt-1 whitespace-pre-wrap break-words text-muted-foreground">{text}</dd></div>)}</dl>
+      </div>)}
       {!item.canApprove && <p className="mt-4 text-sm text-muted-foreground">Approve the coach’s application before approving this service.</p>}
       <div className="mt-6 flex flex-wrap gap-4">{(["approved", "rejected", "suspended"] as const).filter((next) => next !== status && (next !== "approved" || item.canApprove) && (next !== "suspended" || status === "approved")).map((next) => <MarketplaceForm key={next} action="review" fields={{ id: item.id, version: item.version, target: item.target, status: next }} button={next === "approved" ? "Approve" : next === "rejected" ? "Request changes" : "Suspend"} success="Review saved." />)}</div>
     </article>)}</div>

@@ -8,7 +8,7 @@ import { Pool } from "pg";
 // Explicit local setup only: never falls back to Vercel or production credentials.
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const mode = process.argv[2];
-if (!["setup", "dev"].includes(mode)) throw new Error("Use: node scripts/local-marketplace.mjs setup|dev");
+if (!["setup", "dev", "demo"].includes(mode)) throw new Error("Use: node scripts/local-marketplace.mjs setup|dev|demo");
 const extraPilotEmails = (process.env.LOCAL_MARKETPLACE_TEST_EMAILS || "")
   .split(",")
   .map((email) => email.trim().toLowerCase())
@@ -45,7 +45,7 @@ if (database.protocol !== "postgresql:" || database.hostname !== "127.0.0.1" || 
   throw new Error("Refusing non-local Supabase endpoints.");
 }
 const databases = [
-  ["anystride_marketplace_test", ["002_marketplace.sql", "005_imported_coach_reviews.sql"]],
+  ["anystride_marketplace_test", ["002_marketplace.sql", "005_imported_coach_reviews.sql", "006_coach_storefronts.sql"]],
   ["anystride_payments_test", ["001_test_payments.sql", "004_test_workspaces.sql"]],
 ];
 const localUrl = (name) => { const url = new URL(database); url.pathname = `/${name}`; return url.toString(); };
@@ -62,6 +62,12 @@ try {
         console.log(`${name}: schema ready (local only).`);
       } finally { await pool.end(); }
     }
+  } else if (mode === "demo") {
+    const { seedStorefrontDemo } = await import("./storefront-demo.mjs");
+    const pool = new Pool({ connectionString: localUrl("anystride_marketplace_test"), max: 1, connectionTimeoutMillis: 5000 });
+    try { await seedStorefrontDemo(pool); }
+    finally { await pool.end(); }
+    console.log("Fictional storefront: http://localhost:3010/coaching/with/morgan-ellis-demo (local only; payments off).");
   } else {
     const reviewer = await authPool.query(
       "SELECT id FROM auth.users WHERE lower(email)=$1 AND email_confirmed_at IS NOT NULL AND is_anonymous=false",

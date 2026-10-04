@@ -137,6 +137,7 @@ test("guides, sitemap and redirect agree on the single canonical fueling page", 
   assert.equal(guide.sources.length, 3);
   const siteUrls = load("src/lib/site-urls.ts");
   const sitemap = await load("src/app/sitemap.ts", {
+    "@/lib/storefront-store": { publicStorefronts: async () => [{slug:"example-coach"}] },
     "@/lib/site-urls": {
       ...siteUrls,
       getAllSitePathsWithDiscovered: async () => siteUrls.getAllSitePaths(),
@@ -146,6 +147,7 @@ test("guides, sitemap and redirect agree on the single canonical fueling page", 
   assert.equal(sitemap.find((entry) => entry.url.endsWith(`/guides/${guide.slug}`)).lastModified, guide.updated);
   assert.equal(sitemap.find((entry) => entry.url === "https://anystride.com/calculator").lastModified, undefined);
   assert.equal(new Set(sitemap.map((entry) => entry.url)).size, sitemap.length);
+  assert.equal(sitemap.some((entry) => entry.url.endsWith("/coaching/with/example-coach")), true);
   const redirects = await load("next.config.ts").default.redirects();
   assert.equal(redirects[0].destination, `/guides/${guide.slug}`);
   assert.equal(redirects[0].permanent, true);

@@ -27,6 +27,11 @@ test("passwordless auth requires same-origin JSON and never accepts user roles o
   assert.equal(sent.email, "runner@example.test");
   assert.equal(sent.options.shouldCreateUser, false);
   assert.equal(sent.options.emailRedirectTo, `${origin}/account/callback`);
+  const next = "/account/checkout/dea00001-0000-4000-8000-000000000001";
+  const selected = await POST(request({ action: "sign-up", email: "runner@example.test", next }));
+  assert.equal(sent.options.emailRedirectTo, `${origin}/account/callback`);
+  assert.match(selected.headers.get("set-cookie"), /anystride-checkout-return=%2Faccount%2Fcheckout%2Fdea00001/);
+  assert.match(selected.headers.get("set-cookie"), /HttpOnly/);
   await POST(request({ action: "sign-up", email: "runner@example.test" }));
   assert.equal(sent.options.shouldCreateUser, true);
   assert.equal((await POST(request({ action: "sign-out" }))).status, 200);
@@ -65,6 +70,12 @@ test("callback exchanges one-time codes and uses a fixed redirect, never a suppl
   assert.equal(code, "test-one-time-code");
   assert.equal(ok.headers.get("location"), `${origin}/account`);
   assert.equal(ok.headers.get("referrer-policy"), "no-referrer");
+  const next = "/account/checkout/dea00001-0000-4000-8000-000000000001";
+  const selected = await GET(new Request(`${origin}/account/callback?code=selected`, {headers:{cookie:`anystride-checkout-return=${encodeURIComponent(next)}`}}));
+  assert.equal(selected.headers.get("location"), `${origin}${next}`);
+  assert.match(selected.headers.get("set-cookie"), /Max-Age=0/);
+  const injected = await GET(new Request(`${origin}/account/callback?code=selected`, {headers:{cookie:"anystride-checkout-return=https%3A%2F%2Fattacker.test"}}));
+  assert.equal(injected.headers.get("location"), `${origin}/account`);
   fail = true;
   const rejected = await GET(new Request(`${origin}/account/callback?code=private-one-time-code`));
   assert.equal(rejected.status, 400);

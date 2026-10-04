@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { accountAuthClient } from "@/lib/supabase-server";
 import { marketplaceOrigin } from "@/lib/marketplace-config";
+import { checkoutReturnCookie, checkoutReturnFromCookie } from "@/lib/account-return";
 
 export async function GET(request: Request) {
   try {
@@ -9,7 +10,11 @@ export async function GET(request: Request) {
     if (code && code.length <= 2048) {
       const supabase = await accountAuthClient(true);
       const { error } = await supabase.auth.exchangeCodeForSession(code);
-      if (!error) return NextResponse.redirect(`${origin}/account`, { headers: { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" } });
+      if (!error) {
+        const response = NextResponse.redirect(`${origin}${checkoutReturnFromCookie(request.headers.get("cookie"))}`, { headers: { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" } });
+        response.cookies.set(checkoutReturnCookie, "", { path: "/account", maxAge: 0, httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax" });
+        return response;
+      }
     }
   } catch { /* No provider error, token or redirect target is reflected. */ }
   return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Could not complete sign in · Anystride</title><main>

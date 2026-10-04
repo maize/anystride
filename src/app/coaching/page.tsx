@@ -9,6 +9,8 @@ import {
 import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import { marketplacePublicCatalog, type PublicMarketplaceService } from "@/lib/marketplace-store";
+import { publicStorefronts } from "@/lib/storefront-store";
+import { CoachPortrait } from "@/components/CoachPortrait";
 import {
   COACH_FOCUS_LABELS,
   COACH_FORMAT_LABELS,
@@ -66,14 +68,19 @@ export default async function CoachingPage({
   let services: PublicMarketplaceService[] = [];
   try { services = await marketplacePublicCatalog(); }
   catch { console.error("Public coaching service catalog could not be loaded."); }
+  const storefronts = await publicStorefronts().catch(() => []);
+  const storefrontServices = new Set(storefronts.flatMap((profile) => profile.service_ids));
+  services = services.filter((service) => !storefrontServices.has(service.id));
 
   return (
     <div className="mx-auto max-w-5xl px-5 pb-16">
       <section className="py-12">
         <h1 className="text-hero-gradient text-3xl font-bold tracking-tight sm:text-4xl">Find a running coach</h1>
-        <p className="mt-3 max-w-2xl text-lg text-muted-foreground">Browse running coaches by city, focus, and format, then connect with them directly.</p>
+        <p className="mt-3 max-w-2xl text-lg text-muted-foreground">Find your kind of coach. Explore their approach, compare services, and take your next step.</p>
         <Link href="/coaching/apply" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">Are you a coach? Claim or add your profile →</Link>
       </section>
+
+      {storefronts.length > 0 && <section aria-labelledby="storefronts-heading" className="mb-12"><div className="mb-6 flex flex-wrap items-end justify-between gap-4"><div><p className="eyebrow text-brand">Meet your next coach</p><h2 id="storefronts-heading" className="mt-3 text-3xl font-semibold tracking-tight">Their coaching. Your next chapter.</h2></div><a href="/account/storefront" className="action-link">Create your storefront ↗</a></div><div className="grid gap-6 md:grid-cols-2">{storefronts.map((profile) => <Link key={profile.slug} href={`/coaching/with/${profile.slug}`} className="group flex items-start gap-6 rounded-2xl bg-muted p-6 transition-colors duration-300 ease-stride hover:bg-border"><CoachPortrait compact name={profile.name} src={profile.photo_url} /><div className="min-w-0"><p className="text-xs text-muted-foreground">{profile.location}</p><h3 className="mt-2 text-xl font-semibold">{profile.name}</h3><p className="mt-3 text-sm text-muted-foreground">{profile.headline}</p><p className="mt-4 text-sm font-semibold text-brand">View profile & services ↗</p></div></Link>)}</div></section>}
 
       {services.length > 0 && <section aria-labelledby="services-heading" className="mb-12 border-t border-border pt-8">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">

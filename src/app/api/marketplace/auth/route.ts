@@ -3,6 +3,7 @@ import { accountAuthClient } from "@/lib/supabase-server";
 import { MarketplaceError, marketplaceInvited, marketplaceOrigin } from "@/lib/marketplace-config";
 import { paymentBody } from "@/lib/payment-http";
 import { PaymentError } from "@/lib/payment-config";
+import { checkoutReturnCookie, checkoutReturnPath } from "@/lib/account-return";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer", "X-Robots-Tag": "noindex" };
@@ -10,27 +11,35 @@ const headers = { "Cache-Control": "private, no-store", "Referrer-Policy": "no-r
 export async function POST(request: Request) {
   try {
     const origin = marketplaceOrigin();
+    const requested = (next: unknown) => {
+      const response = NextResponse.json({ requested: true }, { headers });
+      const path = checkoutReturnPath(next);
+      response.cookies.set(checkoutReturnCookie, path === "/account" ? "" : path, { httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax", path: "/account", maxAge: path === "/account" ? 0 : 3600 });
+      return response;
+    };
     if (request.headers.get("origin") !== origin) throw new MarketplaceError("Use the Anystride account page.", 403);
     if (request.headers.get("content-type")?.split(";")[0].trim() !== "application/json") throw new MarketplaceError("Use the Anystride account form.", 415);
     let body;
     try { body = JSON.parse(await paymentBody(request, 2048)); }
     catch (error) { if (error instanceof PaymentError) throw error; throw new MarketplaceError("Invalid account request.", 400); }
-    if (!body || typeof body !== "object" || Array.isArray(body) || !["sign-in", "sign-up", "sign-out"].includes(body.action) || Object.keys(body).some((key) => !["action", "email"].includes(key))) throw new MarketplaceError("Invalid account request.", 400);
+    if (!body || typeof body !== "object" || Array.isArray(body) || !["sign-in", "sign-up", "sign-out"].includes(body.action) || Object.keys(body).some((key) => !["action", "email", "next"].includes(key))) throw new MarketplaceError("Invalid account request.", 400);
     if (body.action !== "sign-out" && (typeof body.email !== "string" || body.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email))) throw new MarketplaceError("Enter a valid email address.", 400);
     // Same neutral acknowledgement: never expose an invitation list or send mail
     // for an uninvited address. Verified-session access is checked independently.
-    if (body.action !== "sign-out" && !marketplaceInvited(body.email)) return NextResponse.json({ requested: true }, { headers });
+    if (body.action !== "sign-out" && !marketplaceInvited(body.email)) return requested(body.next);
     const supabase = await accountAuthClient(true);
     if (body.action === "sign-out") {
       const { error } = await supabase.auth.signOut({ scope: "local" });
       if (error) throw new MarketplaceError("Could not sign out. Try again.");
     } else {
+      // Keep Supabase's allowlisted callback fixed. The selected service stays
+      // in a short-lived, same-browser cookie validated again after sign-in.
       const { error } = await supabase.auth.signInWithOtp({ email: body.email.toLowerCase(), options: { shouldCreateUser: body.action === "sign-up", emailRedirectTo: `${origin}/account/callback` } });
       // Do not reveal whether the address belongs to an existing user.
       const hiddenAccountFailure = error && (["user_not_found", "signup_disabled", "otp_disabled"].includes(error.code ?? "") || error.status === 400 || error.status === 422);
       if (error && !hiddenAccountFailure) throw new MarketplaceError("Could not request a sign in email. Try again shortly.", error.status === 429 ? 429 : 503);
     }
-    return NextResponse.json({ requested: true }, { headers });
+    return requested(body.action === "sign-out" ? undefined : body.next);
   } catch (error) {
     const known = error instanceof MarketplaceError || error instanceof PaymentError;
     return NextResponse.json({ error: known ? error.message : "Account service unavailable." }, { status: known ? error.status : 503, headers });
