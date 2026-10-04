@@ -57,11 +57,22 @@ export async function startSellerOnboarding(actor: MarketplaceActor) {
   let seller = await sellerRecord(actor.id);
   if (!seller?.stripe_account) {
     if (!seller || Date.now() - new Date(seller.created_at).getTime() > 23 * 60 * 60 * 1000) throw new MarketplaceError("Your payout setup needs a status check. Please contact Anystride before starting again.", 409);
-    const account = await stripe.accounts.create({ type: "express", country: platform.country, email: actor.email, capabilities: { card_payments: { requested: true }, transfers: { requested: true } }, metadata: { anystride_coach: actor.id } }, { idempotencyKey: `storefront-seller-${seller!.onboarding_id}` });
+    const account = await stripe.v2.core.accounts.create({
+      dashboard: "express", contact_email: actor.email, identity: { country: platform.country },
+      defaults: { responsibilities: { fees_collector: "application", losses_collector: "application" } },
+      configuration: {
+        merchant: { capabilities: { card_payments: { requested: true } } },
+        recipient: { capabilities: { stripe_balance: { stripe_transfers: { requested: true } } } },
+      },
+      metadata: { anystride_coach: actor.id },
+    }, { idempotencyKey: `storefront-seller-${seller!.onboarding_id}` });
     await marketplaceTransaction(async (db) => { await db.query("UPDATE marketplace_storefront_sellers SET stripe_account=$4 WHERE coach_id=$1 AND platform=$2 AND mode=$3 AND stripe_account IS NULL", [actor.id,config.platform,config.mode,account.id]); });
     seller = await sellerRecord(actor.id);
   }
-  const link = await stripe.accountLinks.create({ account: seller!.stripe_account!, type: "account_onboarding", return_url: `${config.origin}/account/storefront`, refresh_url: `${config.origin}/account/storefront?setup=retry` });
+  const link = await stripe.v2.core.accountLinks.create({ account: seller!.stripe_account!, use_case: {
+    type: "account_onboarding", account_onboarding: { configurations: ["merchant", "recipient"],
+      return_url: `${config.origin}/account/storefront`, refresh_url: `${config.origin}/account/storefront?setup=retry` },
+  } });
   if (new URL(link.url).origin !== "https://connect.stripe.com") throw new MarketplaceError("Could not open payout setup.");
   return { url: link.url };
 }

@@ -27,7 +27,9 @@ Open `http://localhost:3010/coaching/with/morgan-ellis-demo`. The fictional prof
 
 ## Database and configuration
 
-Apply `db/migrations/006_coach_storefronts.sql` after `002_marketplace.sql` to the explicitly selected marketplace database. This is an additive migration with RLS and no browser access policies. Applying it is an operator action; deployment does not apply it automatically. No production migration or payment configuration was changed during implementation.
+Apply `db/migrations/006_coach_storefronts.sql` after `002_marketplace.sql` to the explicitly selected marketplace database. This is an additive migration with RLS, explicit browser-role privilege revocation and no browser access policies. It runs in a transaction with bounded lock and statement timeouts. Applying it is an operator action; deployment does not apply it automatically.
+
+On October 4, 2026, migration 006 was applied to the production Anystride Supabase project `gwwsxrtmlcnisnbphrfq`. All five storefront tables were verified with RLS enabled and no SELECT/INSERT/UPDATE/DELETE/TRUNCATE privileges for either `anon` or `authenticated`. Production Vercel configuration explicitly sets `STOREFRONT_PAYMENTS_MODE=off` and binds live platform `acct_1UEsMU2kQ2CrOdug` (US; charges and payouts enabled). The existing live key and the dedicated storefront signing secret are stored as sensitive production environment variables. Webhook `we_1UMrsc2kQ2CrOdugzj8lJIxI` targets `https://anystride.com/api/stripe/storefront-webhook`, uses API version `2026-08-26.dahlia`, and is disabled pending launch. The pre-existing live webhook is unchanged. Commission selection and deployment remain pending; sales are not enabled.
 
 Storefront payments require the existing marketplace authentication configuration plus:
 
@@ -39,7 +41,7 @@ Storefront payments require the existing marketplace authentication configuratio
 | `STOREFRONT_STRIPE_WEBHOOK_SECRET` | Signing secret for the storefront endpoint |
 | `STOREFRONT_PLATFORM_FEE_BPS` | Commission in basis points, defaults to zero; range 0–5000 |
 
-The first payment implementation uses Stripe-hosted Checkout and Express connected accounts in the same country as the platform. It checks current charge/payout capabilities before checkout. Amounts are fixed one-time totals in USD, EUR or GBP, currently limited to 1–1,000 currency units by the existing service model. No automatic tax calculation or subscription billing is implemented.
+The first payment implementation uses Stripe-hosted Checkout and Express connected accounts in the same country as the platform. New accounts and onboarding links use Stripe Accounts v2, with merchant and recipient configurations. Readiness checks use Stripe's supported v1 account representation to check current charge/payout and transfer capabilities before checkout. Amounts are fixed one-time totals in USD, EUR or GBP, currently limited to 1–1,000 currency units by the existing service model. No automatic tax calculation or subscription billing is implemented.
 
 The auth callback stays exactly `/account/callback`; no new wildcard redirect is needed. A one-hour HttpOnly cookie stores the selected service and is validated and cleared after sign-in. The magic link must open in the same browser. This retains the existing [Supabase redirect allowlist](https://supabase.com/docs/guides/auth/redirect-urls).
 
@@ -70,4 +72,15 @@ If provider account/session creation has an ambiguous outcome for over 23 hours,
 
 Automated tests use real PostgreSQL-compatible SQL through PGlite and an isolated Stripe simulator. They cover publication/review, ownership, private data, API validation, checkout retries, changed-price conflicts, closed sessions, payout onboarding, payment verification, refunds, disputes and webhook replay. Authentication tests cover safe return-to-offer routing. The public profile and purchase page were checked in the browser at desktop and 390px mobile widths, including purchase links, disabled-payment messaging and horizontal fit.
 
-Actual Stripe-hosted onboarding, payment, refund and webhook delivery have **not** been exercised against a Stripe sandbox. Payments remain disabled locally. Before live activation, complete that sandbox flow with separate coach and buyer accounts, check failed-payment and interrupted-checkout paths, confirm return-to-offer sign-in in the target environment, and settle the platform’s commission, payout/refund operation, tax handling and applicable seller/buyer terms. These are launch dependencies, not behavior that the current UI claims is live.
+On October 4, 2026, the real Anystride Stripe sandbox was exercised against the application payment functions and webhook route, using an isolated PGlite database and fictional buyer/coach identities. No production order data was written. Verified:
+
+- A repeated checkout request reused the same Stripe Checkout session.
+- Stripe's insufficient-funds test card was rejected, leaving the order pending.
+- A $200 test-card purchase completed with a $20 application fee; a real signed `checkout.session.completed` delivery returned HTTP 200 and changed the database order to paid.
+- A $50 partial refund reversed $50 of the transfer and refunded $5 of the application fee; the real signed `charge.refunded` delivery returned HTTP 200 and changed the order to partially refunded.
+- Closing a separate unpaid checkout expired it both at Stripe and in the database.
+- Accounts v2 created a new Express test account and a hosted onboarding link. Fictional identity and test bank details were accepted; its final agreement step awaits operator confirmation. Checkout testing used a pre-existing, ready sandbox connected account.
+
+Sandbox payment reference: `pi_3UMrQn2jFbP5Yg4b1qYtAqPw` on sandbox platform `acct_1UEsMa2jFbP5Yg4b`. The 10% fee was a test value and a launch recommendation, not a confirmed production commission.
+
+Before live activation, finish the new-coach onboarding flow, confirm return-to-offer sign-in in the target environment, deploy the Accounts v2 update, select the commission, and settle the platform's payout/refund operation, tax handling and applicable seller/buyer terms. Credentials and the dedicated webhook are provisioned; set the chosen fee and live mode for the deployment, then enable the webhook and verify delivery. The sandbox exercise did not test a bank payout or replace a complete hosted-app authentication test.

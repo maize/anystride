@@ -21,8 +21,20 @@ async function fixture(t) {
   const state = { sessions:new Map(),created:0,paid:false,refunded:0,disputed:false,ready:true,expired:false,badRecipient:false,accountsCreated:0 };
   const account = { id:"acct_seller",country:"US",details_submitted:true,charges_enabled:true,payouts_enabled:true,capabilities:{transfers:"active"} };
   class Stripe {
-    accounts = { retrieve: async (id) => id ? { ...account,charges_enabled:state.ready } : { id:"acct_platform",country:"US" },create:async () => { state.accountsCreated++; return account; } };
-    accountLinks = { create:async () => ({ url:"https://connect.stripe.com/setup/test" }) };
+    accounts = { retrieve: async (id) => id ? { ...account,charges_enabled:state.ready } : { id:"acct_platform",country:"US" } };
+    v2 = { core: {
+      accounts: { create:async (params) => {
+        assert.equal(params.dashboard,"express");
+        assert.equal(params.identity.country,"US");
+        assert.equal(params.configuration.recipient.capabilities.stripe_balance.stripe_transfers.requested,true);
+        state.accountsCreated++; return account;
+      } },
+      accountLinks: { create:async (params) => {
+        assert.equal(params.use_case.type,"account_onboarding");
+        assert.deepEqual([...params.use_case.account_onboarding.configurations],["merchant","recipient"]);
+        return { url:"https://connect.stripe.com/setup/test" };
+      } },
+    } };
     checkout = { sessions:{
       expire:async (id) => { if (!state.sessions.has(id)) throw new Error("Unknown session"); state.expired=true; return {id,status:"expired"}; },
       create:async (params) => {

@@ -1,5 +1,7 @@
 -- Apply after 002 to the selected marketplace database, not the payments database.
 BEGIN;
+SET LOCAL lock_timeout = '5s';
+SET LOCAL statement_timeout = '30s';
 CREATE TABLE IF NOT EXISTS marketplace_storefronts (
   coach_id text PRIMARY KEY REFERENCES marketplace_coaches(user_id),
   slug text NOT NULL UNIQUE CHECK (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$' AND length(slug) BETWEEN 3 AND 70),
@@ -69,4 +71,18 @@ ALTER TABLE marketplace_storefront_offers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE marketplace_storefront_sellers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE marketplace_storefront_orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE marketplace_storefront_events ENABLE ROW LEVEL SECURITY;
+-- These records are server-only. Revoke inherited browser grants as well as
+-- relying on RLS, including privileges such as TRUNCATE that bypass RLS.
+REVOKE ALL PRIVILEGES ON marketplace_storefronts, marketplace_storefront_offers,
+  marketplace_storefront_sellers, marketplace_storefront_orders,
+  marketplace_storefront_events FROM PUBLIC;
+DO $$
+DECLARE browser_role text;
+BEGIN
+  FOREACH browser_role IN ARRAY ARRAY['anon', 'authenticated'] LOOP
+    IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname=browser_role) THEN
+      EXECUTE format('REVOKE ALL PRIVILEGES ON public.marketplace_storefronts, public.marketplace_storefront_offers, public.marketplace_storefront_sellers, public.marketplace_storefront_orders, public.marketplace_storefront_events FROM %I', browser_role);
+    END IF;
+  END LOOP;
+END $$;
 COMMIT;
