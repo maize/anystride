@@ -23,15 +23,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anystride.com"),
   title: {
-    default: "anystride — Find a running plan that fits",
+    default: "anystride — Running plans & personal coaching",
     template: "%s · anystride",
   },
   description:
-    "Compare trusted running methods, follow free training schedules, and find a plan that fits your current base. No login or paywall.",
+    "Find free running plans, discover independent coaches, and explore personal coaching services for your next running goal.",
   openGraph: {
-    title: "anystride — Find a running plan that fits",
+    title: "anystride — Running plans & personal coaching",
     description:
-      "Compare trusted running methods and follow free training schedules without a login or paywall.",
+      "Free training plans and independent running coaches. Find your plan, choose personal support, or build your coaching storefront.",
     url: "https://anystride.com",
     siteName: "anystride",
     type: "website",
@@ -49,7 +49,7 @@ function Footer() {
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Free training plans, sourced from the running community.
+              Free training plans. Independent coaches. Support for your next running goal.
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
@@ -123,7 +123,7 @@ export default function RootLayout({
             name: "anystride",
             url: "https://anystride.com",
             description:
-              "Compare trusted running methods and follow free training schedules without a login or paywall.",
+              "Free training plans and independent running coaches. Find your plan, choose personal support, or build your coaching storefront.",
             publisher: {
               "@type": "Organization",
               name: "anystride",

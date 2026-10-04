@@ -18,18 +18,19 @@ export default function Home() {
       <section className="py-16 sm:py-24">
         <Reveal>
           <p className="mb-3 text-sm font-medium text-brand">
-            Free · No login · No paywall
+            Free training plans · Independent running coaches
           </p>
         </Reveal>
         <Reveal delay={100}>
           <h1 className="text-hero-gradient max-w-2xl pb-1 text-5xl font-bold tracking-tighter sm:text-6xl">
-            Training plans for any distance, any runner.
+            Training plans and coaching for your next finish line.
           </h1>
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Compare trusted methods, match a plan to your current base and
-            schedule, then turn it into a week you can actually follow.
+            Find a free plan that fits your life, or work with an independent
+            coach for personal support. From your first 5K to your next marathon,
+            choose how you want to get there.
           </p>
         </Reveal>
         <Reveal delay={300}>
@@ -41,13 +42,14 @@ export default function Home() {
               Find my plan
             </Link>
             <Link
-              href="/plans"
+              href="/coaching"
               className="px-3 py-2 text-base font-medium text-muted-foreground transition-colors duration-300 ease-stride hover:text-foreground"
             >
-              Browse all plans →
+              Find my coach →
             </Link>
-            <Link href="#for-coaches" className="px-3 py-2 text-base font-semibold text-brand hover:underline underline-offset-4">For coaches ↗</Link>
+            <Link href="#for-coaches" className="px-3 py-2 text-base font-semibold text-brand hover:underline underline-offset-4">Sell your coaching ↗</Link>
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">Training plans are free, with no login. Coaching services are priced by each coach.</p>
         </Reveal>
       </section>
 
@@ -101,9 +103,9 @@ export default function Home() {
                 Coaching, when a plan is not enough.
               </h2>
               <p className="mt-4 max-w-xl text-base text-muted-foreground">
-                Browse independent running coaches by goal, location and
-                format. If you are unsure who fits, tell us what you need and
-                we will review your request before making an introduction.
+                Explore independent coaches by goal, location and format.
+                Discover consultations and coaching packages on their storefronts,
+                or ask us for help finding the right fit.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <Link href="/coaching" className="action-primary">
