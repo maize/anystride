@@ -46,6 +46,37 @@ export default function Home() {
             >
               Browse all plans →
             </Link>
+            <Link href="#for-coaches" className="px-3 py-2 text-base font-semibold text-brand hover:underline underline-offset-4">For coaches ↗</Link>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Coach storefront product */}
+      <section id="for-coaches" aria-labelledby="coach-product-heading" className="scroll-mt-24 border-t border-border py-12 sm:py-16">
+        <Reveal>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div>
+              <p className="eyebrow text-brand">Now for independent coaches</p>
+              <h2 id="coach-product-heading" className="mt-4 text-4xl font-semibold tracking-tighter sm:text-5xl">Your coaching.<br />Open for business.</h2>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">Give your next client one place to meet you, choose their support and buy your coaching. A public storefront you can share anywhere.</p>
+              <dl className="mt-8 space-y-6">
+                <div><dt className="font-semibold">A profile that feels like you</dt><dd className="mt-2 text-sm text-muted-foreground">Show your approach, experience and specialities on your own shareable page.</dd></div>
+                <div><dt className="font-semibold">Clear offers. Simple purchases.</dt><dd className="mt-2 text-sm text-muted-foreground">Sell consultations and coaching packages with prices, inclusions and secure Stripe checkout.</dd></div>
+                <div><dt className="font-semibold">Know what happens after the sale</dt><dd className="mt-2 text-sm text-muted-foreground">Keep sales in your account, give clients their next steps and manage payouts through Stripe.</dd></div>
+              </dl>
+              <div className="mt-8 flex flex-wrap items-center gap-6"><Link href="/account/sign-up" className="action-primary">Start my coach application ↗</Link><Link href="/account/sign-in?next=%2Faccount%2Fservices" className="action-link">Already a coach? Sign in →</Link></div>
+              <p className="mt-6 max-w-xl text-sm text-muted-foreground">Free to create an account. 10% commission per sale, including payment processing. Coach and service approval required; connect payouts before selling.</p>
+            </div>
+            <div className="rounded-2xl bg-brand p-6 text-brand-foreground sm:p-8" aria-label="Illustration of a coach storefront and example sale">
+              <div className="mb-6 flex items-center justify-between gap-4 text-sm"><p className="font-semibold">Your storefront, at a glance</p><span className="rounded-full border border-current px-3 py-1 text-xs">Illustration</span></div>
+              <div className="rounded-xl bg-background p-6 text-foreground sm:p-8">
+                <p className="break-all text-xs text-muted-foreground">anystride.com/coaching/with/your-name</p>
+                <div className="mt-6 flex items-center gap-4"><span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-muted text-xl font-semibold" aria-hidden="true">YOU</span><div><p className="text-2xl font-semibold tracking-tight">Your name. Your approach.</p><p className="mt-2 text-sm text-muted-foreground">Personal coaching · Online</p></div></div>
+                <div className="mt-8 border-t border-border pt-6"><p className="text-xs font-semibold uppercase tracking-widest text-brand">Example service</p><h3 className="mt-2 text-xl font-semibold">Four weeks, focused on you</h3><p className="mt-2 text-sm text-muted-foreground">A personal training plan, weekly check-ins and room for real life.</p><div className="mt-6 flex items-end justify-between gap-4"><p className="text-3xl font-semibold tabular-nums">$200<span className="ml-2 text-sm font-normal text-muted-foreground">USD</span></p><span className="text-sm text-muted-foreground">One payment</span></div></div>
+                <div className="mt-6 rounded-lg bg-muted p-4"><p className="text-sm font-semibold">A clear split on every sale</p><dl className="mt-4 space-y-2 text-sm"><div className="flex justify-between gap-4"><dt className="text-muted-foreground">Anystride · 10%</dt><dd className="tabular-nums">$20</dd></div><div className="flex justify-between gap-4 font-semibold"><dt>Your share</dt><dd className="tabular-nums">$180</dd></div></dl><p className="mt-4 text-xs text-muted-foreground">Illustrative amounts before refunds or disputes. Payout timing is shown in Stripe.</p></div>
+              </div>
+              <p className="mt-6 text-sm">One link for your website, social bio and running community.</p>
+            </div>
           </div>
         </Reveal>
       </section>
