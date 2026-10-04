@@ -40,6 +40,8 @@ export interface Coach {
    * anystride. true = the coach has claimed/verified their profile.
    */
   verified: boolean;
+  /** Editorial publication approval is not a claim or identity verification. */
+  editoriallyReviewed?: boolean;
 }
 
 export const COACH_FORMAT_LABELS: Record<CoachFormat, string> = {

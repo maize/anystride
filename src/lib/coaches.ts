@@ -38,14 +38,17 @@ function sourceKeys(coach: Coach): { url: string; domain: string } | null {
 }
 
 /** Merge validated discovered profiles while preserving static catalog precedence. */
-export function mergeCoachCatalog(discovered: Coach[]): Coach[] {
-  const merged = [...COACHES];
-  const slugs = new Set(COACHES.map((coach) => coach.slug.toLocaleLowerCase("en-US")));
-  const names = new Set(COACHES.map((coach) => normalizedName(coach.name)));
+export function mergeCoachCatalog(discovered: Coach[], base: Coach[] = COACHES): Coach[] {
+  const merged = [...base];
+  // Reserve original imported identities too, so another discovery source cannot
+  // resurrect an editorially hidden listing under a different slug.
+  const reserved = [...COACHES, ...base];
+  const slugs = new Set(reserved.map((coach) => coach.slug.toLocaleLowerCase("en-US")));
+  const names = new Set(reserved.map((coach) => normalizedName(coach.name)));
   const sourceUrls = new Set<string>();
   const sourceDomains = new Set<string>();
 
-  for (const coach of COACHES) {
+  for (const coach of reserved) {
     const source = sourceKeys(coach);
     if (source) {
       sourceUrls.add(source.url);
@@ -81,8 +84,11 @@ export function getAllCoaches(): Coach[] {
 
 /** Request-time catalog including private, reviewed discovery imports. */
 export async function getAllCoachesWithDiscovered(): Promise<Coach[]> {
-  const { loadDiscoveredCoaches } = await import("./discovered-coach-store");
-  return mergeCoachCatalog(await loadDiscoveredCoaches());
+  const [{ loadDiscoveredCoaches }, { publicImportedCoaches }] = await Promise.all([
+    import("./discovered-coach-store"), import("./imported-coach-store"),
+  ]);
+  const [discovered, imported] = await Promise.all([loadDiscoveredCoaches(), publicImportedCoaches()]);
+  return mergeCoachCatalog(discovered, [...COACHES.filter((coach) => !coach.discoveredFrom), ...imported]);
 }
 
 export function getCoachBySlug(slug: string): Coach | undefined {
@@ -90,8 +96,6 @@ export function getCoachBySlug(slug: string): Coach | undefined {
 }
 
 export async function getCoachBySlugWithDiscovered(slug: string): Promise<Coach | undefined> {
-  const staticCoach = getCoachBySlug(slug);
-  if (staticCoach) return staticCoach;
   return (await getAllCoachesWithDiscovered()).find((coach) => coach.slug === slug);
 }
 

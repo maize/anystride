@@ -154,6 +154,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
       {/* Listing disclosure */}
       {!coach.verified && (
         <div className="mt-6 rounded-xl border border-border bg-muted p-4 text-sm text-muted-foreground">
+          {coach.editoriallyReviewed && <>Reviewed by Anystride for directory publication, not verification of ownership or an endorsement. </>}
           This unclaimed public profile was compiled from{" "}
           <a
             href={coach.source.url}

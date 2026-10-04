@@ -20,6 +20,7 @@ export function load(file, mocks = {}, globals = {}, cache = new Map()) {
     if (name in mocks) return mocks[name];
     if (name.startsWith(".") || name.startsWith("@/")) {
       const target = name.startsWith("@/") ? resolve(root, "src", name.slice(2)) : resolve(dirname(filename), name);
+      if (target.endsWith(".json")) return { __esModule: true, default: JSON.parse(readFileSync(target, "utf8")) };
       return load(`${target}.ts`, mocks, globals, cache);
     }
     return require(name);

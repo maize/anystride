@@ -32,7 +32,7 @@ export function CoachCard({ coach }: { coach: Coach }) {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4 text-xs">
-        <span className="text-muted-foreground">{COACH_FORMAT_LABELS[coach.format]}</span>
+        <span className="text-muted-foreground">{COACH_FORMAT_LABELS[coach.format]}{!coach.verified ? " · Unclaimed" : ""}</span>
         <span className="font-semibold">View profile <span aria-hidden="true" className="ml-2 inline-block transition-transform duration-300 ease-stride group-hover:translate-x-1">↗</span></span>
       </div>
     </Link>

@@ -4,6 +4,7 @@ import { accountActor } from "@/lib/account-data";
 import { marketplaceReviews, type ReviewStatus } from "@/lib/marketplace-store";
 import { AccountEmpty, AccountHeading, AccountStatus, accountPrice } from "@/components/AccountUI";
 import { MarketplaceForm } from "@/components/MarketplaceForm";
+import { AdminReviewNavigation } from "@/components/AdminReviewNavigation";
 
 export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ type?: string; status?: string }> }) {
   const actor = await accountActor();
@@ -20,10 +21,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const filtered = items.filter((item) => item.status === status);
   return <>
     <AccountHeading title="Admin reviews">Review coach applications and service proposals separately. Every decision is recorded.</AccountHeading>
-    <nav aria-label="Review type" className="mb-6 flex flex-wrap gap-6 text-sm font-semibold">
-      <Link href={`/account/review?type=coaches&status=${status}`} aria-current={type === "coaches" ? "page" : undefined} className={type === "coaches" ? "text-brand underline underline-offset-8" : "text-muted-foreground hover:text-brand"}>Coach applications ({data.reviewCoaches.filter((c) => c.status === "pending").length} pending)</Link>
-      <Link href={`/account/review?type=services&status=${status}`} aria-current={type === "services" ? "page" : undefined} className={type === "services" ? "text-brand underline underline-offset-8" : "text-muted-foreground hover:text-brand"}>Service proposals ({data.reviewServices.filter((s) => s.status === "pending").length} pending)</Link>
-    </nav>
+    <AdminReviewNavigation active={type} coaches={data.reviewCoaches.filter((c) => c.status === "pending").length} services={data.reviewServices.filter((s) => s.status === "pending").length} />
     <nav aria-label="Review status" className="mb-8 flex flex-wrap gap-2">{statuses.map((value) => <Link key={value} href={`/account/review?type=${type}&status=${value}`} aria-current={value === status ? "page" : undefined} className={`rounded-lg px-3 py-2 text-sm transition-colors duration-300 ease-stride ${value === status ? "bg-foreground text-background" : "bg-muted text-muted-foreground hover:text-brand"}`}>{labels[value]}</Link>)}</nav>
     <h2 className="mb-6 text-2xl font-semibold">{labels[status]} <span className="text-muted-foreground">({filtered.length})</span></h2>
     {!filtered.length && <AccountEmpty title={status === "pending" ? "You’re up to date" : "No items in this view"}>{status === "pending" ? `There are no ${type === "coaches" ? "coach applications" : "service proposals"} awaiting review.` : "Choose another status to see earlier decisions."}</AccountEmpty>}

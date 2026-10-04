@@ -45,7 +45,7 @@ if (database.protocol !== "postgresql:" || database.hostname !== "127.0.0.1" || 
   throw new Error("Refusing non-local Supabase endpoints.");
 }
 const databases = [
-  ["anystride_marketplace_test", ["002_marketplace.sql"]],
+  ["anystride_marketplace_test", ["002_marketplace.sql", "005_imported_coach_reviews.sql"]],
   ["anystride_payments_test", ["001_test_payments.sql", "004_test_workspaces.sql"]],
 ];
 const localUrl = (name) => { const url = new URL(database); url.pathname = `/${name}`; return url.toString(); };
