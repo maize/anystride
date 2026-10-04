@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
+import { notifyVerifiedSignup } from "@/lib/signup-notifications";
 import { accountAuthClient } from "@/lib/supabase-server";
 import { marketplaceOrigin } from "@/lib/marketplace-config";
 import { checkoutReturnCookie, checkoutReturnFromCookie } from "@/lib/account-return";
@@ -9,8 +10,12 @@ export async function GET(request: Request) {
     const code = new URL(request.url).searchParams.get("code");
     if (code && code.length <= 2048) {
       const supabase = await accountAuthClient(true);
-      const { error } = await supabase.auth.exchangeCodeForSession(code);
+      const { data, error } = await supabase.auth.exchangeCodeForSession(code);
       if (!error) {
+        if (data?.user) {
+          const user = data.user;
+          try { after(() => notifyVerifiedSignup(user)); } catch { console.error("Signup notification could not be scheduled."); }
+        }
         const response = NextResponse.redirect(`${origin}${checkoutReturnFromCookie(request.headers.get("cookie"))}`, { headers: { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" } });
         response.cookies.set(checkoutReturnCookie, "", { path: "/account", maxAge: 0, httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax" });
         return response;

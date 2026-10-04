@@ -5,7 +5,7 @@ import { paymentBody } from "@/lib/payment-http";
 import { PaymentError } from "@/lib/payment-config";
 import { parseStorefrontAction } from "@/lib/storefront-input";
 import { saveStorefront } from "@/lib/storefront-store";
-import { startSellerOnboarding, startStorefrontCheckout, reconcileStorefrontOrder, cancelStorefrontCheckout } from "@/lib/storefront-payments";
+import { openSellerDashboard, startSellerOnboarding, startStorefrontCheckout, reconcileStorefrontOrder, cancelStorefrontCheckout } from "@/lib/storefront-payments";
 import { notifyMarketplaceReview } from "@/lib/marketplace-notifications";
 
 export const runtime = "nodejs";
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       if (result.notification) { const notification = result.notification; try { after(() => notifyMarketplaceReview(notification)); } catch { console.error("Storefront review notification could not be scheduled."); } }
       return NextResponse.json({ saved: true }, { headers });
     }
-    const result = input.action === "payouts" ? await startSellerOnboarding(actor) : input.action === "checkout" ? await startStorefrontCheckout(actor,input.serviceId,input.orderId,input.version) : input.action === "cancel" ? await cancelStorefrontCheckout(input.orderId, actor) : await reconcileStorefrontOrder(input.orderId, actor);
+    const result = input.action === "dashboard" ? await openSellerDashboard(actor) : input.action === "payouts" ? await startSellerOnboarding(actor) : input.action === "checkout" ? await startStorefrontCheckout(actor,input.serviceId,input.orderId,input.version) : input.action === "cancel" ? await cancelStorefrontCheckout(input.orderId, actor) : await reconcileStorefrontOrder(input.orderId, actor);
     return NextResponse.json(result, { headers });
   } catch (error) {
     const known = error instanceof MarketplaceError || error instanceof PaymentError;

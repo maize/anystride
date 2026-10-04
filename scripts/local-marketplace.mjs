@@ -16,6 +16,15 @@ const extraPilotEmails = (process.env.LOCAL_MARKETPLACE_TEST_EMAILS || "")
 if (extraPilotEmails.some((email) => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
   throw new Error("LOCAL_MARKETPLACE_TEST_EMAILS contains an invalid email address.");
 }
+const storefrontSandbox = process.env.LOCAL_STOREFRONT_SANDBOX === "on";
+const storefrontEnv = storefrontSandbox ? Object.fromEntries([
+  "STOREFRONT_STRIPE_SECRET_KEY", "STOREFRONT_STRIPE_PLATFORM_ACCOUNT_ID", "STOREFRONT_STRIPE_WEBHOOK_SECRET",
+].map((key) => [key, process.env[key] || ""])) : {};
+if (storefrontSandbox && (
+  !/^sk_test_[A-Za-z0-9]+$/.test(storefrontEnv.STOREFRONT_STRIPE_SECRET_KEY) ||
+  !/^acct_[A-Za-z0-9]+$/.test(storefrontEnv.STOREFRONT_STRIPE_PLATFORM_ACCOUNT_ID) ||
+  !/^whsec_[A-Za-z0-9]+$/.test(storefrontEnv.STOREFRONT_STRIPE_WEBHOOK_SECRET)
+)) throw new Error("Local storefront sandbox requires test-mode Stripe credentials.");
 const stripeSandbox = process.env.LOCAL_MARKETPLACE_STRIPE_SANDBOX === "on";
 const stripeSandboxEnv = stripeSandbox ? {
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
@@ -83,6 +92,9 @@ try {
       for (const match of readFileSync(path, "utf8").matchAll(/^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=/gm)) env[match[1]] = "";
     }
     Object.assign(env, {
+      ...storefrontEnv,
+      STOREFRONT_PAYMENTS_MODE: storefrontSandbox ? "test" : "off",
+      STOREFRONT_PLATFORM_FEE_BPS: "1000",
       NODE_ENV: "development", NEXT_TELEMETRY_DISABLED: "1",
       MARKETPLACE_MODE: "pilot", MARKETPLACE_APP_URL: "http://localhost:3010",
       MARKETPLACE_DATABASE_SOURCE: "MARKETPLACE_DATABASE_URL",
@@ -109,7 +121,8 @@ try {
     });
     if (!env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) throw new Error("Missing local auth key.");
     console.log(`Local marketplace: http://localhost:3010/account; reviewer ${reviewer.rowCount ? "configured" : "must sign in, then restart"}.`);
-    console.log(`Email stays in http://127.0.0.1:54324. Stripe sandbox ${stripeSandbox ? "is ON" : "and external notifications are OFF"}.`);
+    console.log(`Email stays in http://127.0.0.1:54324. Legacy payment workspace ${stripeSandbox ? "uses Stripe TEST mode" : "is OFF"}; external notifications are OFF.`);
+    console.log(`Storefront purchases: ${storefrontSandbox ? "Stripe TEST mode, 10% commission" : "OFF"}.`);
     const child = spawn(process.execPath, [join(root, "node_modules/next/dist/bin/next"), "dev", "--hostname", "127.0.0.1", "--port", "3010"], { cwd: root, env, stdio: "inherit" });
     for (const signal of ["SIGINT", "SIGTERM"]) process.on(signal, () => child.kill(signal));
     child.on("exit", (code) => { process.exitCode = code ?? 0; });

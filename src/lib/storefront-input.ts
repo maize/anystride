@@ -41,6 +41,7 @@ export function parseStorefrontAction(input: unknown) {
     offer: ["id", "version", "title", "description", "amount", "currency", "durationWeeks", "kind", "inclusions", "delivery", "nextSteps", "cancellation", "available"],
     checkout: ["serviceId", "orderId", "version"],
     payouts: [],
+    dashboard: [],
     reconcile: ["orderId"],
     cancel: ["orderId"],
   };
@@ -52,6 +53,7 @@ export function parseStorefrontAction(input: unknown) {
       return { action: "offer" as const, id: storefrontId(b.id), version: integer(b.version, 0, 2147483646), title: text(b.title, 5, 120), description: text(b.description, 40, 2000), amount: integer(b.amount, 100, 100000), currency: b.currency as "usd" | "eur" | "gbp", durationWeeks: integer(b.durationWeeks, 1, 52), kind: b.kind as "package" | "consultation", inclusions: lines(b.inclusions, 1, 8), delivery: text(b.delivery, 10, 500), nextSteps: text(b.nextSteps, 20, 2000), cancellation: text(b.cancellation, 20, 1000), available: boolean(b.available) };
     }
     case "checkout": return { action: "checkout" as const, serviceId: storefrontId(b.serviceId), orderId: storefrontId(b.orderId), version: integer(b.version, 1, 2147483646) };
+    case "dashboard": return { action: "dashboard" as const };
     case "payouts": return { action: "payouts" as const };
     case "reconcile": return { action: "reconcile" as const, orderId: storefrontId(b.orderId) };
     case "cancel": return { action: "cancel" as const, orderId: storefrontId(b.orderId) };

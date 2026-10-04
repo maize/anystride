@@ -18,10 +18,10 @@ async function fixture(t) {
   t.after(() => db.close());
   await db.query("INSERT INTO marketplace_coaches(user_id,name,bio,credentials,status) VALUES($1,'Demo Coach','This is a fictional coach for isolated storefront tests.','Example qualifications for testing only.','approved')",[coach.id]);
   class Pool { on() {} query = (sql,params) => db.query(sql,params); async connect() { return { query:this.query,release() {} }; } }
-  const state = { sessions:new Map(),created:0,paid:false,refunded:0,disputed:false,ready:true,expired:false,badRecipient:false,accountsCreated:0 };
+  const state = { sessions:new Map(),created:0,paid:false,refunded:0,disputed:false,ready:true,expired:false,badRecipient:false,accountsCreated:0,dashboardAccounts:[] };
   const account = { id:"acct_seller",country:"US",details_submitted:true,charges_enabled:true,payouts_enabled:true,capabilities:{transfers:"active"} };
   class Stripe {
-    accounts = { retrieve: async (id) => id ? { ...account,charges_enabled:state.ready } : { id:"acct_platform",country:"US" } };
+    accounts = { createLoginLink: async (id) => { state.dashboardAccounts.push(id); return { url:"https://connect.stripe.com/express/test" }; }, retrieve: async (id) => id ? { ...account,charges_enabled:state.ready } : { id:"acct_platform",country:"US" } };
     v2 = { core: {
       accounts: { create:async (params) => {
         assert.equal(params.dashboard,"express");
@@ -288,4 +288,23 @@ test("payment configuration keeps test and live keys and origins separate",() =>
     const payments=load("src/lib/storefront-payments.ts",{"server-only":{}},{process:{env:{...env,...overrides}}});
     assert.throws(()=>payments.storefrontPaymentConfig());
   }
+});
+
+
+test("payout dashboard is private to the authenticated seller and rejects account injection", async(t) => {
+  const f=await fixture(t); await f.publish();
+  await assert.rejects(f.payments.openSellerDashboard(buyer),e=>e.status===409);
+  await assert.rejects(f.payments.openSellerDashboard(other),e=>e.status===409);
+  const { parseStorefrontAction:parse } = load("src/lib/storefront-input.ts",{"server-only":{}});
+  assert.throws(()=>parse({action:"dashboard",stripeAccount:"acct_seller"}));
+  assert.equal(parse({action:"dashboard"}).action,"dashboard");
+  const { POST }=load("src/app/api/marketplace/storefront/route.ts",{...f.mocks,"@/lib/marketplace-auth":{requireMarketplaceActor:async()=>coach}},f.globals,f.cache);
+  const request=(origin)=>new Request(`${env.MARKETPLACE_APP_URL}/api/marketplace/storefront`,{method:"POST",headers:{origin,"content-type":"application/json"},body:JSON.stringify({action:"dashboard"})});
+  assert.equal((await POST(request("https://other.example"))).status,403);
+  const response=await POST(request(env.MARKETPLACE_APP_URL));
+  assert.equal(response.status,200);
+  assert.match(response.headers.get("cache-control"),/no-store/);
+  assert.equal((await response.json()).url,"https://connect.stripe.com/express/test");
+  assert.deepEqual(f.state.dashboardAccounts,["acct_seller"]);
+  assert.equal((await f.payments.storefrontSellerStatus(coach)).feeBps,500);
 });

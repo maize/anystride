@@ -62,6 +62,7 @@ test("callback exchanges one-time codes and uses a fixed redirect, never a suppl
   let code;
   let fail = false;
   const { GET } = load("src/app/account/callback/route.ts", {
+    "@/lib/signup-notifications": { notifyVerifiedSignup: async () => {} },
     "@/lib/marketplace-config": { marketplaceOrigin: () => origin },
     "@/lib/supabase-server": { accountAuthClient: async () => ({ auth: { exchangeCodeForSession: async (value) => { code = value; return { error: fail ? { message: "private provider failure" } : null }; } } }) },
   }, globals);
@@ -86,6 +87,7 @@ test("callback exchanges one-time codes and uses a fixed redirect, never a suppl
 test("callback failure explains browser mismatch without exposing tokens or changing authentication", async () => {
   let calls = 0;
   const { GET } = load("src/app/account/callback/route.ts", {
+    "@/lib/signup-notifications": { notifyVerifiedSignup: async () => {} },
     "@/lib/marketplace-config": { marketplaceOrigin: () => origin },
     "@/lib/supabase-server": { accountAuthClient: async (writable) => {
       assert.equal(writable, true);
@@ -116,4 +118,20 @@ test("server identity verification distinguishes provider outage from signed-out
     "server-only": {}, "./supabase-server": { accountAuthClient: async () => ({ auth: { getUser: async () => ({ data: { user: null }, error: { status: 503 } }) } }) },
   }, { process: { env } });
   await assert.rejects(requireMarketplaceActor(), (error) => error.status === 503);
+});
+
+
+test("coach onboarding keeps only the exact application return route", async () => {
+  const { checkoutReturnPath, checkoutReturnFromCookie } = load("src/lib/account-return.ts");
+  assert.equal(checkoutReturnPath("/account/services"),"/account/services");
+  assert.equal(checkoutReturnFromCookie("anystride-checkout-return=%2Faccount%2Fservices"),"/account/services");
+  for (const path of ["/account/services?admin=true","/account/services/../review","//evil.test/account/services","https://evil.test/account/services","/account/review"]) assert.equal(checkoutReturnPath(path),"/account");
+  const { GET } = load("src/app/account/callback/route.ts", {
+    "@/lib/signup-notifications": { notifyVerifiedSignup: async () => {} },
+    "@/lib/marketplace-config": { marketplaceOrigin: () => origin },
+    "@/lib/supabase-server": { accountAuthClient: async () => ({ auth: { exchangeCodeForSession: async () => ({ error:null }) } }) },
+  }, globals);
+  const response = await GET(new Request(`${origin}/account/callback?code=test`,{headers:{cookie:"anystride-checkout-return=%2Faccount%2Fservices"}}));
+  assert.equal(response.headers.get("location"),`${origin}/account/services`);
+  assert.match(response.headers.get("set-cookie"),/Max-Age=0/);
 });

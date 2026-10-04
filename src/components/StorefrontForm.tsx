@@ -42,7 +42,7 @@ export function StorefrontForm({ action, fields, children, button }: { action: "
   return <form onSubmit={submit} className="space-y-6"><fieldset disabled={!hydrated || pending || saved} className="space-y-6">{children}<button className={storefrontButton}>{pending ? "Saving…" : saved ? "Saved" : button}</button></fieldset><p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className="text-sm text-muted-foreground">{message}</p><noscript>Enable JavaScript to save your storefront.</noscript></form>;
 }
 
-export function StorefrontActionButton({ action, fields = {}, children }: { action: "checkout" | "payouts" | "reconcile" | "cancel"; fields?: Record<string,string|number>; children: ReactNode }) {
+export function StorefrontActionButton({ action, fields = {}, children }: { action: "checkout" | "payouts" | "dashboard" | "reconcile" | "cancel"; fields?: Record<string,string|number>; children: ReactNode }) {
   const router = useRouter();
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const busy = useRef(false);

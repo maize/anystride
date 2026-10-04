@@ -38,10 +38,21 @@ export async function storefrontSellerStatus(actor: MarketplaceActor) {
   const mode = storefrontPaymentMode();
   if (mode === "off") return { mode, ready: false, connected: false };
   const seller = await sellerRecord(actor.id);
-  if (!seller?.stripe_account) return { mode, ready: false, connected: false };
+  if (!seller?.stripe_account) return { mode, ready: false, connected: false, feeBps: storefrontPaymentConfig().feeBps };
   const stripe = provider();
   const [platform, account] = await Promise.all([platformAccount(stripe), stripe.accounts.retrieve(seller.stripe_account)]);
-  return { mode, ready: accountReady(account, platform), connected: true };
+  return { mode, ready: accountReady(account, platform), connected: true, feeBps: storefrontPaymentConfig().feeBps };
+}
+
+// Resolve the account from the authenticated owner, never from request input.
+export async function openSellerDashboard(actor: MarketplaceActor) {
+  const seller = await sellerRecord(actor.id);
+  if (!seller?.stripe_account) throw new MarketplaceError("Set up payouts before opening your Stripe dashboard.", 409);
+  const stripe = provider();
+  await platformAccount(stripe);
+  const link = await stripe.accounts.createLoginLink(seller.stripe_account);
+  if (new URL(link.url).origin !== "https://connect.stripe.com") throw new MarketplaceError("Could not open your Stripe dashboard.");
+  return { url: link.url };
 }
 
 export async function startSellerOnboarding(actor: MarketplaceActor) {
