@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-5">
       {/* Hero */}
-      <section className="py-16 sm:py-24">
+      <section className="py-12 sm:py-16">
         <Reveal>
           <p className="mb-3 text-sm font-medium text-brand">
             Free training plans · Independent running coaches
@@ -34,22 +34,23 @@ export default function Home() {
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="#plan-finder"
-              className="rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
-            >
-              Find my plan
-            </Link>
-            <Link
-              href="/coaching"
-              className="px-3 py-2 text-base font-medium text-muted-foreground transition-colors duration-300 ease-stride hover:text-foreground"
-            >
-              Find my coach →
-            </Link>
-            <Link href="#for-coaches" className="px-3 py-2 text-base font-semibold text-brand hover:underline underline-offset-4">Sell your coaching ↗</Link>
+          <div className="mt-8 grid gap-6 sm:grid-cols-[1.2fr_1fr] sm:gap-y-0">
+            <section aria-labelledby="hero-athletes-heading" className="rounded-2xl border border-transparent bg-muted p-6 sm:row-span-4 sm:grid sm:grid-rows-subgrid sm:p-8">
+              <h2 id="hero-athletes-heading" className="text-lg font-semibold">For athletes</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Train with a free plan or get personal support from a running coach.</p>
+              <div className="mt-6 flex flex-wrap items-start gap-4">
+                <Link href="#plan-finder" className="action-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">Find a free plan →</Link>
+                <Link href="/coaching" className="action-link focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">Find a coach →</Link>
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">No account needed for plans. Coaching is priced by each coach.</p>
+            </section>
+            <section aria-labelledby="hero-coaches-heading" className="rounded-2xl border border-border p-6 sm:row-span-4 sm:grid sm:grid-rows-subgrid sm:p-8">
+              <h2 id="hero-coaches-heading" className="text-lg font-semibold">For coaches</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Create a public profile, list your services and let athletes buy directly from you.</p>
+              <div className="mt-6"><Link href="#for-coaches" className="inline-flex items-center justify-center rounded-full bg-transparent px-6 py-3 text-base font-semibold text-foreground ring-1 ring-inset ring-foreground/25 transition-colors duration-300 ease-stride hover:bg-foreground/5 hover:ring-foreground/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">Sell your coaching</Link></div>
+              <p className="mt-4 text-xs text-muted-foreground">Free to join. Admin approval required. 10% commission per sale.</p>
+            </section>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Training plans are free, with no login. Coaching services are priced by each coach.</p>
         </Reveal>
       </section>
 
