@@ -1472,4 +1472,102 @@ export const GUIDES: Guide[] = [
       "higdon-marathon-novice-1",
     ],
   },
+  {
+    slug: "interval-training-for-runners",
+    title: "Interval Training for Runners: VO2max Workouts That Make You Faster",
+    description:
+      "How to do interval training as a runner — the right effort, recovery, and frequency to build VO2max without burnout or injury.",
+    targetQuery: "interval training for runners / VO2max workouts running",
+    updated: "2026-10-05",
+    intro: [
+      "Interval training is the highest-intensity tool in a runner's kit — short, fast repetitions separated by recovery that push your aerobic system harder than any other workout type. Done right, intervals raise your VO2max ceiling and translate into faster times at every distance.",
+      "Done wrong, they are the fastest way to accumulate fatigue and end up injured. The tool only works if you understand when and how to use it.",
+    ],
+    sections: [
+      {
+        heading: "What intervals train",
+        body: [
+          "Intervals target VO2max — the maximum rate at which your body can deliver and use oxygen during exercise. It is the ceiling on how fast you can run aerobically, and it is highly trainable. By repeatedly pushing your body close to that ceiling in short bursts — then recovering before going again — you stimulate the adaptations that raise it.",
+          "Those adaptations include a stronger heart that pumps more blood per beat, more efficient oxygen delivery to muscles, and a greater density of mitochondria in muscle cells. The cumulative result is a higher aerobic ceiling that makes every other pace feel easier.",
+        ],
+      },
+      {
+        heading: "The right effort level",
+        body: [
+          "Interval effort is roughly 3K to 5K race effort — hard enough that you cannot speak in sentences, but not so hard that you cannot hold the pace for the full rep. If you have raced a recent 5K, your interval pace sits just above that. The effort is uncomfortable but controlled; if you are gasping from the very start of each rep, you are going too fast.",
+          "The most reliable way to find your interval pace is from a recent race result. Enter it into the anystride pace calculator at /calculator and it returns your interval pace directly. Running by pace is more reliable than running by feel for this workout — effort can mislead you, especially early in a session when you feel strong.",
+        ],
+      },
+      {
+        heading: "The classic interval formats",
+        body: [
+          "Three formats work well for most runners:",
+        ],
+        bullets: [
+          "400-meter repeats (roughly 1 to 2 minutes each) — the classic format for developing leg speed. A set of 6 to 12 x 400m with 90 seconds to 2 minutes of easy jogging between each rep is a complete session. A good entry point for runners new to interval work.",
+          "800-meter or 1K repeats (3 to 5 minutes each) — the most common format in structured training plans. More aerobically demanding than 400s. Five to eight 800m repeats or four to six 1K repeats with roughly equal-time easy jogging recovery is the standard workout.",
+          "1200m to 1600m repeats (5 to 8 minutes each) — used in advanced marathon and half-marathon plans. They develop the ability to sustain hard effort for meaningful distances and build aerobic strength close to tempo intensity.",
+        ],
+      },
+      {
+        heading: "Recovery: how long and what kind",
+        body: [
+          "Recovery length is one of the most misunderstood parts of interval training. The goal of the recovery jog is to let your heart rate come down enough to run the next rep at full effort — not to fully recover as if you had just finished a race.",
+          "For most interval formats, a recovery roughly equal to the rep duration works well: a 3-minute 1K rep gets 2 to 3 minutes of easy jogging before the next. Always jog during recovery rather than stopping completely — standing still delays lactate clearance and stiffens the legs. If your heart rate is still high when the recovery period ends, take another minute before starting the next rep.",
+        ],
+      },
+      {
+        heading: "How to structure a session",
+        body: [
+          "Every interval session follows the same structure regardless of the specific format:",
+        ],
+        bullets: [
+          "Warmup: 10 to 15 minutes of easy jogging, finishing with 2 to 4 short strides at roughly interval effort. The strides prime your legs and nervous system so the first rep does not come as a shock.",
+          "Main set: your chosen interval format. Start at the lower end of the rep range in your first session and add reps gradually over weeks as fitness builds.",
+          "Cooldown: 10 minutes of easy jogging after the final rep. Never stop abruptly after the last hard effort — a brief cooldown aids lactate clearance and prevents the legs from stiffening.",
+        ],
+      },
+      {
+        heading: "How often to do intervals",
+        body: [
+          "One interval session per week is the right amount for most runners. Intervals are the most demanding workout in your weekly rotation; fitting two per week requires that all other sessions are genuinely easy, which is difficult to sustain consistently. Schedule your interval session on a day when your legs are fresh — never the day after a long run or another quality workout.",
+          "In a structured training plan, intervals appear most often in the middle phase — after the base-building weeks and before the final race-specific taper. Pfitzinger 18/55 and Higdon intermediate plans include interval sessions during this window, then shift toward race-pace work in the final weeks. Following that progression, rather than adding your own intervals on top, is the safest approach.",
+        ],
+      },
+      {
+        heading: "When to skip intervals",
+        body: [
+          "Skip intervals when your legs are not fresh, when heat or humidity makes target pace unsafe, or when you are in the final two to three weeks before a goal race. No single workout is worth a heat-related health risk or arriving at the start line with residual fatigue in your legs.",
+          "Also skip them in the first few weeks of a new training plan. Let your body adjust to the new mileage load before adding the most demanding workout type. Most plans build to intervals deliberately — trust that structure rather than front-loading hard sessions in week one.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How fast should I run intervals?",
+        a: "Roughly 3K to 5K race effort — hard but controlled, not an all-out sprint. For most runners that is about 15 to 30 seconds per mile faster than 5K race pace. Use the anystride pace calculator at /calculator to find your exact interval pace from a recent race result rather than estimating from feel.",
+      },
+      {
+        q: "How long should I rest between interval reps?",
+        a: "A rest roughly equal to the rep duration is a solid starting rule — a 3-minute rep gets roughly 2 to 3 minutes of easy jogging recovery. The goal is not full recovery; it is enough recovery to run the next rep at the same quality. Always jog rather than standing still.",
+      },
+      {
+        q: "How many interval sessions should I do per week?",
+        a: "One per week is standard for most runners. Two per week works only when all other sessions are genuinely easy. Stacking two quality sessions in a single week is the most common way runners accumulate fatigue without realizing it, leading to stalled fitness or injury.",
+      },
+      {
+        q: "Can beginners do interval training?",
+        a: "Not right away. Intervals belong after you have a solid aerobic base — typically after 2 to 3 months of consistent easy running. Starting with hill strides and then progressing to short 400-meter repeats is a sensible entry point. Jumping to hard intervals without a base raises injury risk significantly.",
+      },
+      {
+        q: "What is the difference between intervals and a tempo run?",
+        a: "Pace, duration, and structure. Interval reps are shorter (1 to 8 minutes) and faster (3K to 5K effort) with recovery jogs between them. A tempo run is a sustained 20 to 40 minute effort at a slightly lower intensity (threshold pace, roughly between 10K and half-marathon effort) with no rest mid-workout. Both are quality sessions and most training plans include both.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-10k-intermediate",
+      "higdon-half-intermediate-1",
+      "pfitzinger-18-55",
+    ],
+  },
 ];
