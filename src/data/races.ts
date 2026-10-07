@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-09-23";
+export const RACES_AS_OF = "2026-10-07";
 
 export const RACES: Race[] = [
   {
@@ -400,24 +400,24 @@ export const RACES: Race[] = [
     country: "Germany",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "Berlin's fast course hosts the 52nd edition on September 27. Two-time champion Kenenisa Bekele headlines the men's field; seven starters have sub-2:05 PRs. Tigst Assefa and Rosemary Wanjiru lead the women's field.",
+    why: "Guye Adola claimed his second Berlin title with a personal-best 2:02:50, pulling away late to beat Gemechu Dida Diriba (2:03:19) and Gabriel Geay (2:03:59). Tigst Assefa ran 2:11:04 — a Berlin course record and new personal best — despite developing a visible injury in the final kilometres; her margin of victory was over five minutes.",
     watchUrl: "https://www.bmw-berlin-marathon.com/en/",
-    coverage: "field",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-23",
-      sourceName: "BMW Berlin Marathon elite fields",
-      sourceUrl: "https://www.bmw-berlin-marathon.com/en/news-media/news/detail/top-stars-complete-the-bmw-berlin-marathon-field-for-thrilling-races",
+      checkedAt: "2026-10-07",
+      sourceName: "run247 / world-track.org race reports",
+      sourceUrl: "https://run247.com/running-news/marathon-news/berlin-marathon-2026-results-report",
     },
     men: [
-      { racer: "kenenisa-bekele" },
-      { racer: "gabriel-geay" },
-      { name: "Guye Adola", country: "Ethiopia" },
-      { name: "Getaneh Molla", country: "Ethiopia" },
+      { racer: "guye-adola", place: 1, time: "2:02:50" },
+      { name: "Gemechu Dida Diriba", country: "Ethiopia", place: 2, time: "2:03:19" },
+      { racer: "gabriel-geay", place: 3, time: "2:03:59" },
     ],
     women: [
-      { racer: "tigst-assefa" },
-      { racer: "rosemary-wanjiru" },
+      { racer: "tigst-assefa", place: 1, time: "2:11:04" },
+      { name: "Bedatu Hirpa", country: "Ethiopia", place: 2, time: "2:16:53" },
+      { name: "Dera Dida", country: "Ethiopia", place: 3, time: "2:16:55" },
     ],
   },
   {
@@ -437,10 +437,22 @@ export const RACES: Race[] = [
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-26",
+      checkedAt: "2026-10-07",
       sourceName: "NBC Chicago elite field",
       sourceUrl: "https://www.nbcchicago.com/news/sports/chicago-marathon/2026-chicago-marathon-elite-lineup-one-of-the-deepest-fields-in-race-history/3965200/",
     },
+    men: [
+      { racer: "jacob-kiplimo" },
+      { racer: "tadese-takele" },
+      { racer: "amos-kipruto" },
+      { racer: "alex-masai" },
+      { name: "Milkesa Mengesha", country: "Ethiopia" },
+    ],
+    women: [
+      { racer: "hawi-feysa" },
+      { racer: "brigid-kosgei" },
+      { racer: "sharon-lokedi" },
+    ],
   },
   {
     slug: "melbourne-marathon-2026",
