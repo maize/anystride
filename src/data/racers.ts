@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-09-23";
+export const RACERS_AS_OF = "2026-10-07";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -326,8 +326,20 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Tanzania",
     events: ["Marathon"],
-    prs: [],
-    honors: ["BMW Berlin Marathon 2026 elite entry"],
+    prs: [{ event: "Marathon", time: "2:03:59" }],
+    honors: ["Berlin Marathon 3rd place (2026, 2:03:59)"],
+  },
+  {
+    slug: "guye-adola",
+    name: "Guye Adola",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:02:50" }],
+    honors: [
+      "Berlin Marathon champion (2021, 2026)",
+      "Berlin Marathon personal best — 2:02:50 (2026)",
+    ],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -337,8 +349,9 @@ export const RACERS: Racer[] = [
     country: "Ethiopia",
     born: "1996-12-03",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:11:53" }],
+    prs: [{ event: "Marathon", time: "2:11:04" }],
     honors: [
+      "Berlin Marathon champion (2026, 2:11:04 Berlin course record)",
       "Women-only marathon world record — 2:15:41 (London 2026)",
       "Former outright marathon world record (2:11:53, Berlin 2023)",
       "Olympic marathon silver medalist (Paris 2024)",
@@ -506,7 +519,7 @@ export const RACERS: Racer[] = [
     country: "Ethiopia",
     events: ["Marathon"],
     prs: [],
-    honors: ["Berlin Marathon 2026 elite entry"],
+    honors: [],
   },
   {
     slug: "peres-jepchirchir",
