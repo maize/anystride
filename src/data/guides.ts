@@ -1472,4 +1472,106 @@ export const GUIDES: Guide[] = [
       "higdon-marathon-novice-1",
     ],
   },
+  {
+    slug: "running-in-cold-weather",
+    title: "How to Run in Cold Weather: Winter Running Tips That Actually Work",
+    description:
+      "How to dress for cold runs, adjust your warm-up and pacing, stay safe on ice, and keep training moving through winter without missing a beat.",
+    targetQuery: "running in cold weather / winter running tips / how to run in winter",
+    updated: "2026-10-12",
+    intro: [
+      "Cold weather does not have to stop your training. With a few adjustments to gear, warm-up routine, and pacing, running in winter is not only manageable -- it can be some of the most satisfying running of the year. The air is crisp, the paths are quieter, and your aerobic system actually runs more efficiently in cool temperatures than in summer heat.",
+      "Here is how to dress for cold runs, what to change in your warm-up and approach, and when conditions are genuinely too dangerous to go outside.",
+    ],
+    sections: [
+      {
+        heading: "What cold weather does to your body",
+        body: [
+          "In cold conditions, your body prioritizes keeping your core warm. Blood flow shifts toward your vital organs and away from your extremities and working muscles, which means your muscles are stiffer and slower to warm up than on a mild day. The first ten to fifteen minutes of a cold-weather run feel harder than the equivalent effort in comfortable temperatures -- not because you are unfit, but because your cardiovascular system is still routing blood to where it needs to go.",
+          "Once you are warmed up, the picture changes. Cool temperatures reduce the cardiovascular strain of heat dissipation, meaning your heart rate is lower at a given pace and you can sustain effort longer before heat becomes a limiting factor. Most runners set personal bests in the 40 to 55 degree Fahrenheit range. Cold weather training, done right, produces excellent results -- which is exactly why the major fall marathons are scheduled in it.",
+        ],
+      },
+      {
+        heading: "Dress for the last 15 minutes, not the first",
+        body: [
+          "The most common cold-weather dressing mistake is overdressing. If you feel perfectly comfortable standing at your front door, you will be overheating by mile 2. A useful rule: dress as if it is 15 to 20 degrees warmer than it actually is, because that is roughly what sustained running effort adds to your perceived temperature.",
+          "Build your outfit in layers, each doing a specific job:",
+        ],
+        bullets: [
+          "Base layer (directly on skin): moisture-wicking synthetic or merino wool. Never cotton -- it holds sweat against your skin and accelerates heat loss in wet, cold conditions.",
+          "Mid layer (below 30 degrees Fahrenheit): a lightweight thermal or fleece adds insulation without bulk. Often unnecessary above 35 to 40 degrees if you are running at effort.",
+          "Outer layer: a wind- and water-resistant shell blocks wind chill and light precipitation. Look for pit-zip vents or mesh panels that let heat escape on harder efforts.",
+          "Extremities: gloves and an ear cover or hat are the highest-value items in cold weather. Your hands and ears lose heat faster than any other part of your body. A buff or neck gaiter doubles as an ear cover and can be pulled over the mouth to warm cold air on very frigid days.",
+        ],
+      },
+      {
+        heading: "Warm up before heading outside",
+        body: [
+          "Cold muscles are less pliable and more injury-prone than warm ones. Skipping the warm-up on a winter run is a fast path to a calf strain or hamstring pull in the opening minutes. Spend five to ten minutes indoors doing leg swings, hip circles, high knees, and a few squats before you step outside.",
+          "Start the run at a genuinely easy pace -- even easier than your usual easy effort. Let the first mile be a moving warm-up. Most runners need fifteen to twenty minutes of running before their body temperature and stride feel normal on a cold day. Judging your effort by feel in the first ten minutes of a cold-weather run is unreliable; use the anystride pace calculator at /calculator to anchor your easy and quality session paces and trust the number rather than your early impression.",
+        ],
+      },
+      {
+        heading: "Pacing and breathing in the cold",
+        body: [
+          "Your training paces do not change in cold weather the way they do in heat. Below about 55 degrees Fahrenheit, the aerobic system performs at or near its best. The pace calculator paces for your easy, tempo, and interval efforts apply in cold conditions -- you do not need to add time per mile the way you would on a hot summer day.",
+          "Breathing cold dry air can irritate the airways, especially for runners prone to exercise-induced bronchoconstriction (a cold-air cough or tightening in the chest). Breathing through the nose warms and humidifies air before it reaches the lungs, which helps -- though at harder efforts most runners default to mouth breathing. Pulling a buff or gaiter over the mouth on very cold days traps humidity and reduces irritation without meaningfully restricting airflow.",
+        ],
+      },
+      {
+        heading: "Staying safe on ice and slippery surfaces",
+        body: [
+          "Ice is the genuine risk of winter running, not the cold itself. A fall on ice can cause serious injury regardless of fitness level -- and black ice is by definition invisible until you are on it. These adjustments reduce your risk without forcing you indoors:",
+        ],
+        bullets: [
+          "Shorten your stride and keep your feet directly under your hips. A shorter, more vertical stride reduces the force of a slip and makes it easier to catch yourself.",
+          "Slow down on any surface you cannot clearly read. Snow that has been packed and refrozen is far more slippery than fresh snow or a dry road.",
+          "Run on grass or dirt trail edges when visible -- they provide far more grip than pavement.",
+          "Consider screw-in traction devices that attach to the outsole of your running shoes. They add meaningful grip on hard-packed snow and light ice for a modest cost.",
+          "Never run on ice in the dark. The combination of low visibility and slippery surfaces is the scenario most likely to end a training cycle with a fracture.",
+        ],
+      },
+      {
+        heading: "When to move the run inside",
+        body: [
+          "Not every day is a viable outdoor running day in winter, and knowing when to move indoors is part of training well rather than training tough. Consider the treadmill when:",
+        ],
+        bullets: [
+          "Wind chill is below negative 10 to negative 20 degrees Fahrenheit. Exposed skin can develop frostbite within 30 minutes at those temperatures, and no training session is worth that risk.",
+          "Freezing rain or a mix of rain and ice is actively falling. The combination of wet cold and ice underfoot is harder to manage safely than dry cold alone.",
+          "You are running alone before sunrise or after dark on routes you do not know well. Poor visibility and potential ice in an unfamiliar area raises the risk significantly.",
+          "Your body is already fighting illness. Cold air and hard effort on a stressed immune system is a reliable way to extend being sick rather than train through it.",
+          "A treadmill run at appropriate effort on a dangerous day is still a quality training stimulus and keeps your cycle intact. The Higdon Novice and Pfitzinger plans do not adjust for weather -- when you need to move a session inside, the workout itself stays the same.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How should I dress for running in cold weather?",
+        a: "Dress as if it is 15 to 20 degrees warmer than the actual temperature, because running effort generates significant heat. Use moisture-wicking base layers rather than cotton, add a wind-resistant outer layer in windy or wet conditions, and prioritize gloves and an ear cover -- your extremities lose heat far faster than your core.",
+      },
+      {
+        q: "Is it safe to run in very cold temperatures?",
+        a: "Down to about negative 10 degrees Fahrenheit wind chill, running outside is manageable with proper layering and covered extremities. Below that threshold, frostbite risk on exposed skin rises significantly within 30 minutes. At those temperatures, or in freezing rain, a treadmill is the better call -- not weakness, just common sense.",
+      },
+      {
+        q: "Does cold weather affect running performance?",
+        a: "Positively, once warmed up. The optimal racing temperature for distance running is roughly 40 to 55 degrees Fahrenheit. Below that, performance stays good as long as muscles are warm and extremities are covered. The first 10 to 15 minutes of a cold run feel harder than they are -- give your body time to reach operating temperature before judging your effort.",
+      },
+      {
+        q: "How do I avoid slipping on ice while running?",
+        a: "Shorten your stride, keep your feet under your hips, and slow down on any surface you cannot clearly see. Running on grass or trail edges provides more grip than pavement. For regular winter running on icy routes, screw-in traction devices that attach to your shoe outsoles are a simple, inexpensive fix.",
+      },
+      {
+        q: "Should I run on a treadmill instead of outside in winter?",
+        a: "Both work. Outdoor winter running builds the terrain-specific adaptation and cold acclimatization that a treadmill cannot provide, and most experienced runners prefer it when conditions allow. Use the treadmill for genuinely dangerous days -- extreme cold, freezing rain, icy surfaces in the dark -- and get outside when conditions are reasonable. A mix of both over a winter training block is a practical default.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "higdon-half-novice-1",
+      "pfitzinger-18-55",
+    ],
+  },
 ];
