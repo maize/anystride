@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-09-23";
+export const RACERS_AS_OF = "2026-10-14";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -39,9 +39,11 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   Germany: "🇩🇪",
   "Great Britain": "🇬🇧",
   Hungary: "🇭🇺",
+  Ireland: "🇮🇪",
   Japan: "🇯🇵",
   Kenya: "🇰🇪",
   Netherlands: "🇳🇱",
+  "New Zealand": "🇳🇿",
   Norway: "🇳🇴",
   Poland: "🇵🇱",
   Rwanda: "🇷🇼",
@@ -109,6 +111,7 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:01:09" }],
     honors: [
+      "Melbourne Marathon champion (2026, 2:09:10 course record) — 17th career marathon win",
       "Two-time Olympic marathon champion (2016, 2020)",
       "Former marathon world record holder",
       "First to run a marathon under two hours (INEOS 1:59 Challenge, 2019, unofficial)",
@@ -133,6 +136,19 @@ export const RACERS: Racer[] = [
       "Five-time World Cross Country champion (long course)",
     ],
     links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/kenenisa-bekele-14208194" },
+  },
+  {
+    slug: "guye-adola",
+    name: "Guye Adola",
+    gender: "M",
+    country: "Ethiopia",
+    born: "1990-10-20",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:02:50" }],
+    honors: [
+      "Berlin Marathon champion (2021, 2026)",
+      "Berlin Marathon course record — 2:02:50 (2026)",
+    ],
   },
   {
     slug: "tadese-takele",
@@ -326,8 +342,8 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Tanzania",
     events: ["Marathon"],
-    prs: [],
-    honors: ["BMW Berlin Marathon 2026 elite entry"],
+    prs: [{ event: "Marathon", time: "2:03:59" }],
+    honors: ["Berlin Marathon 3rd place (2026, 2:03:59 PB)"],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
   {
@@ -337,8 +353,9 @@ export const RACERS: Racer[] = [
     country: "Ethiopia",
     born: "1996-12-03",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:11:53" }],
+    prs: [{ event: "Marathon", time: "2:11:04" }],
     honors: [
+      "Berlin Marathon champion (2026, 2:11:04 PB)",
       "Women-only marathon world record — 2:15:41 (London 2026)",
       "Former outright marathon world record (2:11:53, Berlin 2023)",
       "Olympic marathon silver medalist (Paris 2024)",
@@ -399,6 +416,7 @@ export const RACERS: Racer[] = [
     events: ["Marathon", "Half Marathon"],
     prs: [{ event: "Marathon", time: "2:14:04" }],
     honors: [
+      "Chicago Marathon 3rd place (2026)",
       "Former marathon world record holder (2:14:04, Chicago 2019)",
       "London Marathon champion (2018, 2019)",
       "Chicago Marathon champion (2018, 2019)",
@@ -412,8 +430,9 @@ export const RACERS: Racer[] = [
     country: "Kenya",
     born: "1996-09-28",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:18:51" }],
+    prs: [{ event: "Marathon", time: "2:14:07" }],
     honors: [
+      "Chicago Marathon runner-up (2026, 2:14:07 PB)",
       "Boston Marathon champion (2023, 2026)",
       "New York City Marathon champion (2022, 2023)",
     ],
@@ -451,8 +470,12 @@ export const RACERS: Racer[] = [
     gender: "F",
     country: "Ethiopia",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:17:39" }],
-    honors: ["Tokyo Marathon 3rd place (2026)"],
+    prs: [{ event: "Marathon", time: "2:13:33" }],
+    honors: [
+      "Chicago Marathon champion (2025, 2026)",
+      "Chicago Marathon personal best — 2:13:33 (2026)",
+      "Tokyo Marathon 3rd place (2026)",
+    ],
   },
   {
     slug: "faith-kipyegon",
@@ -645,8 +668,9 @@ export const RACERS: Racer[] = [
     country: "Kenya",
     born: "1992-09-16",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:01:39" }],
+    prs: [{ event: "Marathon", time: "2:01:09" }],
     honors: [
+      "Chicago Marathon champion (2026, 2:01:09 PB — fifth-fastest marathon in history)",
       "London Marathon champion (2022)",
       "2019 World Athletics Championships marathon bronze medalist",
     ],
