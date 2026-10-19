@@ -135,3 +135,11 @@ test("coach onboarding keeps only the exact application return route", async () 
   assert.equal(response.headers.get("location"),`${origin}/account/services`);
   assert.match(response.headers.get("set-cookie"),/Max-Age=0/);
 });
+
+test("coach claims survive verified email return paths without accepting arbitrary redirects", () => {
+  const { checkoutReturnPath, checkoutReturnFromCookie } = load("src/lib/account-return.ts");
+  const path = "/account/services?claim=running-coach";
+  assert.equal(checkoutReturnPath(path), path);
+  assert.equal(checkoutReturnFromCookie(`anystride-checkout-return=${encodeURIComponent(path)}`), path);
+  for (const suffix of ["../review", "coach&admin=true", "https://evil.test", "coach#review", "coach%26admin=true", "x".repeat(181)]) assert.equal(checkoutReturnPath(`/account/services?claim=${suffix}`), "/account");
+});

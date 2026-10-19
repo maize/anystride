@@ -19,6 +19,7 @@ export default async function StorefrontEditor() {
   const ready = steps.every((step) => step.done);
   return <>
     <AccountHeading title="Your coaching, your storefront">A public profile you can share. Services your next client can choose and buy.</AccountHeading>
+    <p className="mb-6 text-sm text-muted-foreground">Your approved coaching introduction is listed under Coaches. This storefront is optional. Taking it offline keeps your approved directory introduction visible.</p>
     <nav aria-label="Storefront editor" className="mb-8 flex flex-wrap gap-6 text-sm font-semibold"><a href="#profile" className="hover:text-brand">My profile</a><a href="#offers" className="hover:text-brand">Services</a><a href="#payments" className="hover:text-brand">Payments</a><Link href="/account/orders" className="hover:text-brand">Orders & earnings</Link>{profile && <a href="/account/storefront/preview" className="text-brand">Preview profile ↗</a>}</nav>
     <section aria-labelledby="launch-heading" className="mb-10 rounded-2xl border border-border bg-muted p-6 sm:p-8">
       <p className="text-xs font-semibold uppercase tracking-widest text-brand">{steps.filter((step) => step.done).length} of 3 steps complete</p>

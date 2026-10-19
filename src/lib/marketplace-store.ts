@@ -50,6 +50,11 @@ export async function marketplaceReviews(actor: MarketplaceActor) {
   return { reviewCoaches: coaches.rows, reviewServices: services.rows };
 }
 
+export async function marketplaceCoachSummary(actor: MarketplaceActor) {
+  const { rows } = await marketplacePool().query<CoachApplication>("SELECT name,bio,credentials,status FROM marketplace_coaches WHERE user_id=$1", [actor.id]);
+  return rows[0] ?? null;
+}
+
 export async function marketplaceDashboard(actor: MarketplaceActor, { includeReviews = true } = {}) {
   const client = marketplacePool();
   const [coach, services, requests, catalog, reviews] = await Promise.all([
@@ -98,6 +103,17 @@ export async function marketplacePublicCatalog(): Promise<PublicMarketplaceServi
     durationWeeks: service.duration_weeks,
     coachName: service.coach_name,
   }));
+}
+
+/** Only reviewed public fields; no email, account identifiers or private requests. */
+export async function publicApprovedCoaches() {
+  if (!marketplaceEnabled()) return [];
+  const { rows } = await marketplacePool().query<{ name: string; bio: string; credentials: string; slug: string | null }>(`
+    SELECT c.name,c.bio,c.credentials,p.slug
+    FROM marketplace_coaches c
+    LEFT JOIN marketplace_storefronts p ON p.coach_id=c.user_id AND p.published
+    WHERE c.status='approved' ORDER BY c.name,c.user_id LIMIT 100`);
+  return rows;
 }
 
 export async function actOnMarketplace(actor: MarketplaceActor, input: MarketplaceAction): Promise<{ saved: boolean; notification?: ReviewNotification }> {

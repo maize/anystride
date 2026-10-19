@@ -252,3 +252,20 @@ test("real SQL: audit failure rolls back the corresponding application", async (
   assert.equal((await f.db.query("SELECT count(*)::int AS n FROM marketplace_coaches")).rows[0].n, 0);
   assert.equal(f.released(), 1);
 });
+
+test("approved coaches are listed without services or a storefront; suspension removes them", async (t) => {
+  const f = await fixture(t);
+  await f.db.exec(readFileSync(new URL("../db/migrations/006_coach_storefronts.sql", import.meta.url), "utf8"));
+  await f.actOnMarketplace(coach, application);
+  assert.equal((await f.publicApprovedCoaches()).length, 0);
+  await assert.rejects(f.actOnMarketplace(runner, { action: "review", target: "coach", id: coach.id, version: 1, status: "approved" }), (e) => e.status === 403);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 1, status: "approved" });
+  const [listing] = await f.publicApprovedCoaches();
+  assert.equal(listing.name, application.name);
+  assert.equal(listing.bio, application.bio);
+  assert.equal(listing.credentials, application.credentials);
+  assert.equal(listing.slug, null);
+  assert.deepEqual(Object.keys(listing).sort(), ["bio", "credentials", "name", "slug"]);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 2, status: "suspended" });
+  assert.equal((await f.publicApprovedCoaches()).length, 0);
+});

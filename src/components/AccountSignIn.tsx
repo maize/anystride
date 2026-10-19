@@ -8,7 +8,7 @@ const subscribe = () => () => {};
 const button = "w-full rounded-lg bg-foreground px-4 py-4 text-base font-semibold text-background transition-colors duration-200 hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50";
 const textButton = "font-semibold underline underline-offset-4 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:opacity-50";
 
-export function AccountSignIn({ createAccount = false, next = "/account" }: { createAccount?: boolean; next?: string }) {
+export function AccountSignIn({ createAccount = false, next = "/account", unified = false }: { createAccount?: boolean; next?: string; unified?: boolean }) {
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const busy = useRef(false);
   const status = useRef<HTMLParagraphElement>(null);
@@ -36,7 +36,7 @@ export function AccountSignIn({ createAccount = false, next = "/account" }: { cr
     const address = email.trim();
     setEmail(address);
     try {
-      const response = await fetch("/api/marketplace/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: createAccount ? "sign-up" : "sign-in", email: address, ...(next !== "/account" ? { next } : {}) }), signal: AbortSignal.timeout(15000) });
+      const response = await fetch("/api/marketplace/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: createAccount || unified ? "sign-up" : "sign-in", email: address, ...(next !== "/account" ? { next } : {}) }), signal: AbortSignal.timeout(15000) });
       if (!response.ok) {
         if (response.status === 429) {
           setCooldown(60);
@@ -68,23 +68,23 @@ export function AccountSignIn({ createAccount = false, next = "/account" }: { cr
       <label className="block text-sm font-medium" htmlFor="account-email">Email address
         <input ref={emailInput} id="account-email" type="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" autoCapitalize="none" spellCheck={false} inputMode="email" required maxLength={254} aria-describedby="email-hint" className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-4 text-base focus:outline-2 focus:outline-brand" />
       </label>
-      <p id="email-hint" className="text-sm text-muted-foreground">{createAccount ? "Use an email address you can access on this device." : "Use the email address you signed up with."}</p>
-      {createAccount && <p className="text-sm text-muted-foreground">Read our <Link href="/privacy" className="underline">privacy policy</Link> and <Link href="/terms" className="underline">site terms</Link>. This creates an optional account, not a coaching contract or marketing subscription.</p>}
-      <button disabled={!hydrated || pending || cooldown > 0} className={button}>{pending ? "Requesting your link…" : cooldown > 0 ? `Try again in ${cooldown}s` : createAccount ? "Email my account link" : "Email my sign in link"}</button>
+      <p id="email-hint" className="text-sm text-muted-foreground">{createAccount || unified ? "Use an email address you can access on this device." : "Use the email address you signed up with."}</p>
+      {(createAccount || unified) && <p className="text-sm text-muted-foreground">Read our <Link href="/privacy" className="underline">privacy policy</Link> and <Link href="/terms" className="underline">site terms</Link>. This creates an optional account, not a coaching contract or marketing subscription.</p>}
+      <button disabled={!hydrated || pending || cooldown > 0} className={button}>{pending ? "Requesting your link…" : cooldown > 0 ? `Try again in ${cooldown}s` : createAccount || unified ? "Email my account link" : "Email my sign in link"}</button>
     </fieldset>}
     <p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className={`${message ? "rounded-lg bg-background p-4 " : ""}text-sm leading-relaxed ${failed ? "text-foreground" : "text-muted-foreground"}`}>{message}</p>
     {sent && <div className="space-y-6">
-      <p className="text-sm leading-relaxed text-muted-foreground">{next === "/account/services" ? "You’ll return to your coach application after verifying your email." : next.startsWith("/account/checkout/") ? "Your selected service is saved. You’ll return to it after signing in." : "The link will take you straight to your account."}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{next.startsWith("/account/services") ? "You’ll return to your coach application after verifying your email." : next.startsWith("/account/checkout/") ? "Your selected service is saved. You’ll return to it after signing in." : "The link will take you straight to your account."}</p>
       <div className="space-y-4 border-t border-border pt-6">
         <p className="text-sm text-muted-foreground">No email yet? Check your spam or junk folder.</p>
         <button type="button" disabled={pending || cooldown > 0} className={button} onClick={() => void requestLink()}>{pending ? "Requesting your link…" : cooldown > 0 ? `Resend available in ${cooldown}s` : "Resend email link"}</button>
         <button type="button" disabled={pending} className={`text-sm ${textButton}`} onClick={() => { setSent(false); setMessage(""); setFailed(false); setEditing(true); }}>Use a different email</button>
       </div>
     </div>}
-    <div className="border-t border-border pt-6 text-sm leading-relaxed">
+    {!unified && <div className="border-t border-border pt-6 text-sm leading-relaxed">
       <p className="text-muted-foreground">{createAccount ? "Already have an account?" : "New to Anystride?"}</p>
       <Link href={`${alternate}${next !== "/account" ? `?next=${encodeURIComponent(next)}` : ""}`} className={`mt-2 inline-block ${textButton}`}>{createAccount ? "Sign in" : "Create a free account"}</Link>
-    </div>
+    </div>}
     <noscript>Enable JavaScript to request a secure sign in link.</noscript>
   </form>;
 }
