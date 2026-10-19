@@ -1472,4 +1472,101 @@ export const GUIDES: Guide[] = [
       "higdon-marathon-novice-1",
     ],
   },
+  {
+    slug: "post-marathon-recovery",
+    title: "Post-Marathon Recovery: How to Bounce Back After Race Day",
+    description:
+      "How to recover well after a marathon — what your body needs in the first 72 hours, when to run again, and how to avoid the mistakes that set back your next cycle.",
+    targetQuery: "post-marathon recovery / how to recover after a marathon",
+    updated: "2026-10-19",
+    intro: [
+      "Finishing a marathon is a significant physical event. Your muscles are damaged, your immune system is temporarily suppressed, and your glycogen stores are depleted in ways that take longer to replenish than most runners expect. How you handle the days after the race determines how quickly you return to full fitness and how well your next training cycle goes.",
+      "The instinct after months of discipline is to either push back into training too soon or collapse entirely. Neither serves you. A structured approach gets you back to full fitness faster than either extreme.",
+    ],
+    sections: [
+      {
+        heading: "What actually happens to your body after a marathon",
+        body: [
+          "Running 26.2 miles at race effort creates widespread microscopic damage to muscle fibers, especially in the quads and calves. Research has found markers of muscle damage and inflammation that persist for 7 to 14 days after a marathon, even in well-trained runners. Your immune system responds to this damage the same way it would respond to an infection — temporarily diverting resources away from other functions.",
+          "This is why so many runners catch a cold in the week after a marathon. The brief immune suppression is real and makes you genuinely more vulnerable to illness. It is also why easy running in the first days after a marathon feels disproportionately hard: your muscles are still rebuilding at the cellular level, even when you feel fine walking around.",
+        ],
+      },
+      {
+        heading: "The first 72 hours: rest and refuel",
+        body: [
+          "The immediate priority after crossing the finish line is warmth, food, and fluids. Your core temperature drops quickly once you stop running — get a dry layer on as soon as possible. Start eating and drinking within 30 minutes of finishing; carbohydrates and protein are both important in the first few hours.",
+          "The first 72 hours should be walking and rest only. No running, no gym sessions. Easy walking is fine — it promotes circulation and reduces stiffness without adding impact stress to damaged tissue.",
+        ],
+        bullets: [
+          "Eat a carbohydrate- and protein-rich meal within 30 to 60 minutes of finishing.",
+          "Stay hydrated — urine should return to pale yellow within 24 hours.",
+          "Sleep is the highest-value recovery tool available. Prioritize it over everything else.",
+          "Avoid alcohol in the first 24 to 48 hours, which impairs both sleep quality and muscle repair.",
+        ],
+      },
+      {
+        heading: "Returning to running: a practical timeline",
+        body: [
+          "A widely used guideline is one easy recovery day for every mile raced — so about 26 days before attempting hard workouts or races. This does not mean 26 days of no running; it means 26 days before high-intensity efforts. Most runners can return to short, easy running within 1 to 2 weeks if they feel genuinely recovered.",
+          "A practical timeline for most runners:",
+        ],
+        bullets: [
+          "Days 1 to 3: complete rest and walking only.",
+          "Days 4 to 7: light walking or easy movement. No running.",
+          "Week 2: 2 to 3 short easy runs of 20 to 30 minutes if legs feel good. Stop if anything hurts.",
+          "Weeks 3 to 4: easy running 3 to 4 days per week, building gradually. Still no quality work.",
+          "Weeks 5 to 6: return to normal easy mileage. Add strides if energy allows.",
+          "After 4 weeks: light quality work only if the body feels genuinely recovered.",
+        ],
+      },
+      {
+        heading: "Signs you are not recovered yet",
+        body: [
+          "Your body will signal when it is not ready. The signs worth respecting:",
+        ],
+        bullets: [
+          "Easy runs feel like tempo efforts — heart rate is elevated at paces that used to feel comfortable.",
+          "Persistent soreness that does not improve after a few easy days.",
+          "Low mood, poor motivation, or disrupted sleep — all common signs of accumulated physiological stress.",
+          "Any new pain that was not present before the marathon. Pain that changes your gait deserves rest, not pushing through.",
+        ],
+      },
+      {
+        heading: "Planning the next training cycle",
+        body: [
+          "Most coaches recommend a minimum of two to three months between marathons, and many experienced runners plan only one or two per year. Racing another marathon six to eight weeks after the last one typically produces a worse result and a higher injury risk — the first race's damage is still resolving when the second build begins.",
+          "Use the recovery period to reflect: what went well, where the race fell apart, whether the plan was the right fit. The weeks after a marathon are the best time to make notes while the experience is fresh.",
+          "When you are ready to train again, a short base-building phase before jumping into a new race-specific plan is highly worthwhile. The anystride base-building-4-week plan is designed for exactly this window — reestablishing aerobic fitness and connective tissue resilience before harder work begins. Use the pace calculator at /calculator to confirm your easy pace has returned to its normal range before adding any intensity.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How long does it take to recover from a marathon?",
+        a: "Most runners need 2 to 4 weeks before returning to normal easy training and 4 to 6 weeks before quality workouts feel appropriate. The common guideline of one recovery day per mile raced puts the full window at about 26 days, which aligns with most runners' experience.",
+      },
+      {
+        q: "Can I run the day after a marathon?",
+        a: "Technically possible but not advisable. Muscle damage markers peak in the 24 to 48 hours after a marathon, and running on damaged tissue raises injury risk without producing useful fitness. Most coaches recommend at least three days of rest and walking before any running.",
+      },
+      {
+        q: "Why am I sore for so long after a marathon?",
+        a: "Most soreness comes from eccentric muscle damage — the quads work hard to control your landing on every step, and that repeated loading tears microscopic muscle fibers throughout the race. The inflammatory repair process takes 7 to 14 days to run its course, which is why marathon soreness can feel surprisingly persistent even after a well-trained race.",
+      },
+      {
+        q: "What should I eat after a marathon?",
+        a: "Prioritize carbohydrates to replenish glycogen and protein to support muscle repair in the first 24 hours. A mix of both — rice or pasta with meat, fish, eggs, or dairy — covers the main needs. Eat normally after that and let appetite guide you.",
+      },
+      {
+        q: "How soon can I run another marathon?",
+        a: "Most coaches recommend a minimum of three to four months between marathons. Racing another marathon in 6 to 8 weeks is possible but typically produces a slower time and higher injury risk — the physiological cost of the first race has not fully resolved when the second training block begins.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
