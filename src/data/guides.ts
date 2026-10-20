@@ -1472,4 +1472,107 @@ export const GUIDES: Guide[] = [
       "higdon-marathon-novice-1",
     ],
   },
+  {
+    slug: "injury-prevention-for-runners",
+    title: "How to Prevent Running Injuries: The Basics That Actually Work",
+    description:
+      "How to avoid the most common running injuries -- shin splints, IT band, plantar fasciitis -- by building load gradually, recovering properly, and training smart.",
+    targetQuery: "how to prevent running injuries / running injury prevention",
+    updated: "2026-09-28",
+    intro: [
+      "Most running injuries are not accidents. The vast majority are overuse injuries -- they come from doing too much, too soon, or without enough recovery. That makes them largely predictable and, with the right habits, largely preventable.",
+      "The steps that prevent most running injuries are the same steps that make training more effective: building load gradually, keeping easy days genuinely easy, scheduling rest, and addressing muscular weaknesses before they become problems. Here is what actually works.",
+    ],
+    sections: [
+      {
+        heading: "Why overuse injuries happen",
+        body: [
+          "Running creates repetitive stress on muscles, tendons, and bones. In modest, progressive doses that stress is the stimulus that makes you fitter and more durable. Too much of it, too fast, and the tissues break down faster than the body can repair them -- producing the overuse injuries that sideline the majority of runners at some point: shin splints, IT band syndrome, plantar fasciitis, patellofemoral pain, and stress fractures.",
+          "The most common trigger is a sudden spike in training load -- starting a new plan at too high a mileage, adding a second quality session mid-cycle, or returning from a rest week and immediately jumping back to full volume. Your cardiovascular fitness improves quickly; tendons, ligaments, and bones adapt more slowly. Closing the gap between those two timelines is where most injury prevention lives.",
+        ],
+      },
+      {
+        heading: "Build load gradually -- the 10 percent rule",
+        body: [
+          "The most widely cited guideline in running is the 10 percent rule: do not increase weekly mileage by more than 10 percent from one week to the next. It is a useful rough guardrail, but the underlying principle matters more than the specific number: avoid large, sudden jumps in training load.",
+          "This applies to more than just mileage. Adding a first tempo run, extending the long run by four miles in a single week, or introducing back-to-back quality days are all load spikes even if total weekly mileage barely changes. The well-designed training plans on anystride -- from Couch to 5K through Pfitzinger 18/55 -- build load gradually precisely for this reason. Following the plan as written, rather than improvising extra miles in weeks that feel good, is one of the most effective injury-prevention strategies available.",
+        ],
+      },
+      {
+        heading: "Keep easy days actually easy",
+        body: [
+          "One of the most common sources of overuse injury is not running too many miles -- it is running those miles too fast. When easy runs are run at moderate-to-hard effort instead of truly easy pace, the body never fully recovers between sessions. The cumulative fatigue accumulates week over week until something gives.",
+          "Easy should mean conversational -- you can speak in full sentences without gasping. For most runners that is 60 to 90 seconds per mile slower than 5K race pace. Use the anystride pace calculator at /calculator to find your specific easy pace range from a recent race time. Then hold it, even when it feels slower than you want to go. The purpose of easy runs is aerobic development and recovery -- not fitness that you can see in the splits.",
+        ],
+      },
+      {
+        heading: "Strength training as injury insurance",
+        body: [
+          "Weak hips, glutes, and core are a primary contributor to the most common running injuries. When those muscles are undertrained, the knee, IT band, shin, and plantar fascia compensate -- absorbing forces they were not designed to handle. Targeted strength work addresses those weaknesses before they manifest as injury.",
+          "You do not need hours in the gym. Two sessions per week of 20 to 30 minutes, focused on single-leg squats, hip thrusts, Romanian deadlifts, calf raises, and lateral band walks, covers the key areas. The base-building phase of your training cycle -- when running intensity is low -- is the ideal time to establish this habit. Strength built during base building carries forward into the higher-volume weeks that follow.",
+        ],
+        bullets: [
+          "Single-leg squats or split squats -- builds hip stability that protects the knee and IT band",
+          "Hip thrusts or glute bridges -- activates the glutes, reducing strain on the knee and shin",
+          "Single-leg calf raises -- strengthens the calf and Achilles complex for high-mileage weeks",
+          "Lateral band walks -- targets hip abductors that prevent IT band syndrome",
+        ],
+      },
+      {
+        heading: "Warning signs to take seriously",
+        body: [
+          "Not all discomfort during running is a warning worth stopping for. General muscle soreness from a long run, mild stiffness in the first five minutes that clears as you warm up, and fatigue late in a hard effort are all normal. These are not the same as injury signals.",
+          "Stop running and assess if you notice any of the following:",
+        ],
+        bullets: [
+          "Pain that does not fade within the first mile of a run -- or that gets worse as you continue",
+          "Pain that changes the way you run: a limp, a compensating lean, or a shortened stride on one side",
+          "Localized bone tenderness to touch, especially on the shin -- a potential stress fracture that needs immediate rest and medical evaluation",
+          "Sharp or stabbing pain in the heel first thing in the morning -- a classic sign of plantar fasciitis",
+          "Pain that returns at the same point in every run and prevents you from finishing your normal distance",
+        ],
+      },
+      {
+        heading: "Other habits that reduce injury risk",
+        body: [
+          "Beyond load management and strength, a few consistent habits make a meaningful difference over a full training cycle:",
+        ],
+        bullets: [
+          "Sleep seven to nine hours -- the majority of tissue repair happens during sleep, and chronic sleep debt measurably slows recovery and raises injury risk.",
+          "Do not skip rest days -- rest days in your plan are built-in adaptation time, not optional extras. Running on a scheduled rest day to bank extra miles is one of the fastest ways to accumulate the fatigue that precedes injury.",
+          "Vary your surfaces -- rotating between roads, trails, and grass distributes the repetitive stress across slightly different biomechanical patterns, reducing the load on any single tissue.",
+          "Replace shoes at roughly 300 to 500 miles -- midsole cushioning degrades well before the upper looks worn out. Running on dead shoes increases impact forces at the heel and forefoot.",
+          "Warm up before quality sessions -- 10 to 15 minutes of easy jogging before tempo runs or intervals prepares tendons and connective tissue for the higher forces that follow.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What are the most common running injuries?",
+        a: "Shin splints (medial tibial stress syndrome), IT band syndrome, plantar fasciitis, patellofemoral pain (runner's knee), and Achilles tendinopathy account for the majority of running injuries seen in recreational runners. All are overuse injuries caused by exceeding the body's current capacity to absorb training load.",
+      },
+      {
+        q: "How do I know if a running pain is serious?",
+        a: "Pain that does not fade in the first mile, that changes how you run, or that you can reproduce with direct pressure on a specific bony area warrants stopping and resting. Shin pain with pinpoint tenderness is particularly important to take seriously -- it can indicate a stress fracture that worsens significantly with continued running. When in doubt, a few days off is far less costly than running through something serious.",
+      },
+      {
+        q: "Can I run through muscle soreness?",
+        a: "General muscle soreness from a hard workout -- a dull, diffuse ache across the quads or calves -- is usually fine to run through at easy effort. It often clears within the first mile. Pain that is sharp, localized to a specific point, or that gets worse as you run is different and should not be pushed through.",
+      },
+      {
+        q: "How long should I rest for a minor running injury?",
+        a: "Most minor overuse niggles -- early-stage IT band tightness, mild shin soreness, slight Achilles stiffness -- respond well to two to five days of complete rest or cross-training followed by a gradual return at reduced mileage. Returning too soon to full training is the most common reason minor injuries become major ones. If pain persists beyond a week of rest, see a sports medicine professional.",
+      },
+      {
+        q: "Do running shoes prevent injuries?",
+        a: "No shoe prevents injury on its own, but running in shoes that are appropriate for your foot mechanics and that still have functional cushioning reduces unnecessary impact stress. The most important shoe decision is replacing them before the midsole is fully compressed -- typically every 300 to 500 miles -- rather than choosing between specific motion-control categories, where the research is less clear.",
+      },
+    ],
+    relatedPlans: [
+      "couch-to-5k",
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+    ],
+  },
 ];

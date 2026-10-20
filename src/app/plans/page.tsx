@@ -12,9 +12,9 @@ import {
 } from "@/data/types";
 
 export const metadata: Metadata = {
-  title: "Browse training plans",
+  title: "Free running training plans by distance and level",
   description:
-    "Browse free running training plans by distance and experience level.",
+    "Compare free running schedules and training-method overviews for 5K, 10K, half marathon and marathon races. Filter by distance and experience.",
   alternates: { canonical: "/plans" },
 };
 
@@ -68,15 +68,17 @@ export default async function PlansPage({
   const level = isLevel(rawLevel) ? rawLevel : undefined;
 
   const plans = filterPlans({ distance, level });
+  const availableDistances = new Set(filterPlans({}).map((plan) => plan.distance));
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
       <div className="flex flex-wrap items-end justify-between gap-8">
         <div>
-          <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Training plans</h1>
+          <h1 className="text-hero-gradient text-3xl font-bold tracking-tight">Free running training plans</h1>
           <p className="mt-2 max-w-xl text-muted-foreground">
-            Compare complete schedules and trusted training methods by distance
-            and experience level.
+            Compare complete schedules you can follow here and training-method
+            overviews that link to their official sources. Choose by distance,
+            experience and the days you can train each week.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -94,6 +96,15 @@ export default async function PlansPage({
           </Link>
         </div>
       </div>
+
+      <nav aria-label="Training plans by race distance" className="mt-8">
+        <p className="text-sm font-medium">Browse plans for your race</p>
+        <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+          {DISTANCE_ORDER.filter((d) => availableDistances.has(d)).map((d) => (
+            <li key={d}><Link href={`/training-plans/${d}`} className="inline-flex min-h-11 items-center text-sm font-medium text-brand underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">{DISTANCE_LABELS[d]} training plans</Link></li>
+          ))}
+        </ul>
+      </nav>
 
       {/* Filters */}
       <div className="mt-12 space-y-4 border-y border-border py-6">

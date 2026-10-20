@@ -147,7 +147,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Marathon", time: "2:02:50" }],
     honors: [
       "Berlin Marathon champion (2021, 2026)",
-      "Berlin Marathon course record — 2:02:50 (2026)",
+      "Berlin Marathon personal best — 2:02:50 (2026)",
     ],
   },
   {
@@ -232,6 +232,7 @@ export const RACERS: Racer[] = [
     honors: [
       "Olympic 1500m champion (Paris 2024), Olympic record holder (3:27.65)",
       "World 5000m champion (Tokyo 2025)",
+      "Weltklasse Zürich 1500m champion (2026, 3:31.71)",
     ],
   },
   {
@@ -276,6 +277,7 @@ export const RACERS: Racer[] = [
     honors: [
       "London Diamond League mile runner-up (2026, 3:45.69)",
       "Prefontaine Classic Bowerman Mile runner-up (2026)",
+      "Weltklasse Zürich 1500m 3rd place (2026, 3:31.85)",
       "Former indoor mile world record holder",
     ],
   },
@@ -355,7 +357,7 @@ export const RACERS: Racer[] = [
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:11:04" }],
     honors: [
-      "Berlin Marathon champion (2026, 2:11:04 PB)",
+      "Berlin Marathon champion (2022, 2023, 2026); Berlin course record 2:11:04 (2026)",
       "Women-only marathon world record — 2:15:41 (London 2026)",
       "Former outright marathon world record (2:11:53, Berlin 2023)",
       "Olympic marathon silver medalist (Paris 2024)",
@@ -523,13 +525,13 @@ export const RACERS: Racer[] = [
     honors: ["Berlin Marathon champion (2025)"],
   },
   {
-    slug: "amane-beriso",
-    name: "Amane Beriso",
+    slug: "bedatu-hirpa",
+    name: "Bedatu Hirpa",
     gender: "F",
     country: "Ethiopia",
     events: ["Marathon"],
-    prs: [],
-    honors: ["Berlin Marathon 2026 elite entry"],
+    prs: [{ event: "Marathon", time: "2:16:53" }],
+    honors: ["Berlin Marathon runner-up (2026)"],
   },
   {
     slug: "peres-jepchirchir",
@@ -673,6 +675,20 @@ export const RACERS: Racer[] = [
       "Chicago Marathon champion (2026, 2:01:09 PB — fifth-fastest marathon in history)",
       "London Marathon champion (2022)",
       "2019 World Athletics Championships marathon bronze medalist",
+    ],
+  },
+  {
+    slug: "bashir-abdi",
+    name: "Bashir Abdi",
+    gender: "M",
+    country: "Belgium",
+    born: "1989-02-10",
+    events: ["Marathon", "10,000m"],
+    prs: [{ event: "Marathon", time: "2:03:36" }],
+    honors: [
+      "European marathon record holder (2:03:36, Rotterdam 2022)",
+      "Olympic marathon bronze medalist (Paris 2024)",
+      "Olympic 10,000m bronze medalist (Tokyo 2020)",
     ],
   },
   {
