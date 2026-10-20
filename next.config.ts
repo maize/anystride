@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     ] }];
   },
   async redirects() {
-    return [{
+    return [{ source: "/coaching", destination: "/coaches", permanent: true }, {
       source: "/guides/fueling-long-runs",
       destination: "/guides/fueling-for-long-runs",
       permanent: true,

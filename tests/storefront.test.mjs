@@ -14,7 +14,7 @@ const newOffer = () => ({ action:"offer",id:randomUUID(),version:0,title:"Race p
 
 async function fixture(t) {
   const db = new PGlite();
-  for (const file of ["002_marketplace.sql","006_coach_storefronts.sql","006_coach_storefronts.sql"]) await db.exec(readFileSync(new URL(`../db/migrations/${file}`,import.meta.url),"utf8"));
+  for (const file of ["002_marketplace.sql", "016_service_deletion.sql","006_coach_storefronts.sql","006_coach_storefronts.sql"]) await db.exec(readFileSync(new URL(`../db/migrations/${file}`,import.meta.url),"utf8"));
   t.after(() => db.close());
   await db.query("INSERT INTO marketplace_coaches(user_id,name,bio,credentials,status) VALUES($1,'Demo Coach','This is a fictional coach for isolated storefront tests.','Example qualifications for testing only.','approved')",[coach.id]);
   class Pool { on() {} query = (sql,params) => db.query(sql,params); async connect() { return { query:this.query,release() {} }; } }
@@ -307,4 +307,26 @@ test("payout dashboard is private to the authenticated seller and rejects accoun
   assert.equal((await response.json()).url,"https://connect.stripe.com/express/test");
   assert.deepEqual(f.state.dashboardAccounts,["acct_seller"]);
   assert.equal((await f.payments.storefrontSellerStatus(coach)).feeBps,500);
+});
+
+
+test("deleted offers disappear everywhere and cannot be republished; existing checkout and purchase history survive", async (t) => {
+  const f = await fixture(t); await f.publish();
+  const orderId = randomUUID();
+  await f.payments.startStorefrontCheckout(buyer, f.offer.id, orderId, 2);
+  await f.market.actOnMarketplace(coach, { action: "delete-service", id: f.offer.id, version: 2 });
+  assert.equal((await f.store.publicStorefront(profile.slug)).offers.length, 0);
+  assert.equal((await f.store.ownStorefront(coach)).offers.length, 0);
+  assert.equal((await f.store.publicStorefronts())[0].service_ids.length, 0);
+  assert.equal(await f.store.checkoutOffer(f.offer.id), null);
+  assert.equal((await f.store.storefrontReviewOffers(other)).length, 0);
+  await assert.rejects(f.store.saveStorefront(coach, { ...f.offer, version: 3 }), (e) => e.status === 404);
+  await assert.rejects(f.payments.startStorefrontCheckout(buyer, f.offer.id, randomUUID(), 2), (e) => e.status === 409);
+  f.state.paid = true;
+  await f.payments.reconcileStorefrontOrder(orderId, buyer);
+  const [order] = await f.payments.storefrontOrders(buyer, orderId);
+  assert.equal(order.status, "paid");
+  assert.equal(order.snapshot.nextSteps, f.offer.nextSteps);
+  assert.equal(order.amount, f.offer.amount);
+  assert.equal((await f.payments.storefrontOrders(coach, orderId))[0].snapshot.title, f.offer.title);
 });

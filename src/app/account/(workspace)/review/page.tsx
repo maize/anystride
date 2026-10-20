@@ -22,7 +22,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     : data.reviewServices.map((service) => ({ id: service.id, version: service.version, status: service.status, title: service.title, description: service.description, detail: `${service.coach_name} · ${accountPrice(service.amount, service.currency)} · ${service.duration_weeks} weeks`, target: "service" as const, canApprove: service.coach_status === "approved" }));
   const filtered = items.filter((item) => item.status === status);
   return <>
-    <AccountHeading title="Admin reviews">Review coach applications and service proposals separately. Every decision is recorded.</AccountHeading>
+    <AccountHeading title="Admin reviews">Approving a coach lists their profile under Coaches. Suspending them hides it. Services have their own review. Every decision is recorded.</AccountHeading>
     <AdminReviewNavigation active={type} coaches={data.reviewCoaches.filter((c) => c.status === "pending").length} services={data.reviewServices.filter((s) => s.status === "pending").length} />
     <nav aria-label="Review status" className="mb-8 flex flex-wrap gap-2">{statuses.map((value) => <Link key={value} href={`/account/review?type=${type}&status=${value}`} aria-current={value === status ? "page" : undefined} className={`rounded-lg px-3 py-2 text-sm transition-colors duration-300 ease-stride ${value === status ? "bg-foreground text-background" : "bg-muted text-muted-foreground hover:text-brand"}`}>{labels[value]}</Link>)}</nav>
     <h2 className="mb-6 text-2xl font-semibold">{labels[status]} <span className="text-muted-foreground">({filtered.length})</span></h2>

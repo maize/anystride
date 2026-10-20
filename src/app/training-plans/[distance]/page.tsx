@@ -31,8 +31,10 @@ export async function generateMetadata({
   if (!isDistance(distance)) return { title: "Plans not found" };
   const label = DISTANCE_LABELS[distance];
   return {
-    title: `Free ${label} training plans`,
-    description: `Free ${label} training plans for every level, with week-by-week schedules. Pick a plan, get your training paces, and start — no login, no paywall.`,
+    title: distance === "5k" ? "Free 5K training plans: Couch to 5K and more" : `Free ${label} training plans`,
+    description: distance === "5k"
+      ? "Compare a 9-week Couch to 5K schedule, a 4-week base-building plan and a Hal Higdon 5K overview. Choose by experience and weekly commitment."
+      : `Compare ${label} training schedules and method overviews by experience, plan length and training days. See which plans you can follow here and find official sources.`,
     alternates: { canonical: `/training-plans/${distance}` },
   };
 }
@@ -68,9 +70,9 @@ export default async function DistanceHubPage({
         Free {label} training plans
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        Community-sourced {label} training plans for every level, laid out
-        week-by-week. Free to follow — no login, no paywall. Not sure which to
-        pick? Compare them, or get your paces from a recent time.
+        Compare {label} plans by your starting point, the number of weeks and
+        the days you can train. Complete schedules are free to follow here.
+        Method overviews explain a plan and link to its official source.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -87,6 +89,15 @@ export default async function DistanceHubPage({
           Find my paces
         </Link>
       </div>
+
+      {distance === "5k" && <section aria-labelledby="choose-5k-plan" className="mt-10 border-t border-border pt-8">
+        <h2 id="choose-5k-plan" className="text-xl font-semibold">Which 5K plan fits your starting point?</h2>
+        <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground">
+          <p><Link href="/plans/couch-to-5k" className="font-medium text-brand underline underline-offset-4">Couch to 5K</Link> has a complete nine-week run/walk schedule with three sessions a week. It starts with short running intervals and builds toward 30 minutes of continuous running; the distance you cover depends on your pace.</p>
+          <p><Link href="/plans/base-building-4-week" className="font-medium text-brand underline underline-offset-4">Base Building</Link> is a four-week block for runners who can already jog for 20–30 minutes. It focuses on a regular easy-running routine before a race-specific plan.</p>
+          <p><Link href="/plans/higdon-5k-intermediate" className="font-medium text-brand underline underline-offset-4">Hal Higdon’s 5K Intermediate overview</Link> describes an eight-week, five-day-a-week option for runners who can already finish a 5K. Read the method here, then use the linked official source for the full schedule.</p>
+        </div>
+      </section>}
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map((plan) => (

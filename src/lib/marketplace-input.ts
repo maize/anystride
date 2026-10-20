@@ -25,6 +25,7 @@ export function parseMarketplaceAction(input: unknown) {
   const allowed: Record<string, string[]> = {
     apply: ["name", "bio", "credentials"],
     service: ["id", "title", "description", "amount", "currency", "durationWeeks"],
+    "delete-service": ["id", "version"],
     "edit-service": ["id", "title", "description", "amount", "currency", "durationWeeks", "version"],
     inquire: ["id", "serviceId", "message", "shareWithCoach"],
     respond: ["id", "status"],
@@ -35,6 +36,7 @@ export function parseMarketplaceAction(input: unknown) {
   switch (b.action) {
     case "apply": return { action: "apply" as const, name: text(b.name, 2, 100), bio: text(b.bio, 40, 2000), credentials: text(b.credentials, 10, 1000) };
     case "service": return { action: "service" as const, id: id(b.id), title: text(b.title, 5, 120), description: text(b.description, 40, 2000), amount: integer(b.amount, 100, 100000), currency: choice(b.currency, ["usd", "eur", "gbp"] as const), durationWeeks: integer(b.durationWeeks, 1, 52) };
+    case "delete-service": return { action: "delete-service" as const, id: id(b.id), version: integer(b.version, 1, 2147483646) };
     case "edit-service": return { action: "edit-service" as const, id: id(b.id), version: integer(b.version, 1, 2147483646), title: text(b.title, 5, 120), description: text(b.description, 40, 2000), amount: integer(b.amount, 100, 100000), currency: choice(b.currency, ["usd", "eur", "gbp"] as const), durationWeeks: integer(b.durationWeeks, 1, 52) };
     case "inquire":
       if (b.shareWithCoach !== true) invalid("Confirm that this request may be shared with the coach.");

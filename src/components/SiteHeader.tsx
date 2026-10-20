@@ -9,10 +9,11 @@ const NAV_LINKS = [
   { href: "/guides", label: "Guides" },
   { href: "/races", label: "Races" },
   { href: "/calculator", label: "Paces" },
-  { href: "/coaching", label: "Coaching" },
+  { href: "/coaches", label: "Coaches" },
 ];
 
 function isActive(pathname: string, href: string): boolean {
+  if (href === "/coaches") return pathname === "/coaches" || pathname.startsWith("/coaching");
   if (href === "/plans") {
     return (
       pathname === "/plans" ||

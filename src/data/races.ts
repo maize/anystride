@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-09-23";
+export const RACES_AS_OF = "2026-09-30";
 
 export const RACES: Race[] = [
   {
@@ -400,24 +400,25 @@ export const RACES: Race[] = [
     country: "Germany",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "Berlin's fast course hosts the 52nd edition on September 27. Two-time champion Kenenisa Bekele headlines the men's field; seven starters have sub-2:05 PRs. Tigst Assefa and Rosemary Wanjiru lead the women's field.",
+    why: "Guye Adola claimed his second Berlin title in 2:02:50, overpowering compatriot Gemechu Dida (2:03:19) and Tanzania's Gabriel Geay (2:03:59). Tigst Assefa dominated from the front for her third Berlin crown, clocking a personal-best 2:11:04 course record before suffering a partial right Achilles tear in the closing kilometres that cut short a world-record bid on pace through 35km. Bedatu Hirpa edged Dera Dida 2:16:53 to 2:16:55 for a dramatic all-Ethiopian women's podium.",
     watchUrl: "https://www.bmw-berlin-marathon.com/en/",
-    coverage: "field",
+    resultsUrl: "https://www.letsrun.com/news/2026/09/2026-berlin-marathon-results-guye-adola-20250-and-tigst-assefa-21104-win/",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-23",
-      sourceName: "BMW Berlin Marathon elite fields",
-      sourceUrl: "https://www.bmw-berlin-marathon.com/en/news-media/news/detail/top-stars-complete-the-bmw-berlin-marathon-field-for-thrilling-races",
+      checkedAt: "2026-09-30",
+      sourceName: "LetsRun 2026 Berlin Marathon results",
+      sourceUrl: "https://www.letsrun.com/news/2026/09/2026-berlin-marathon-results-guye-adola-20250-and-tigst-assefa-21104-win/",
     },
     men: [
-      { racer: "kenenisa-bekele" },
-      { racer: "gabriel-geay" },
-      { name: "Guye Adola", country: "Ethiopia" },
-      { name: "Getaneh Molla", country: "Ethiopia" },
+      { racer: "guye-adola", place: 1, time: "2:02:50" },
+      { name: "Gemechu Dida", country: "Ethiopia", place: 2, time: "2:03:19" },
+      { racer: "gabriel-geay", place: 3, time: "2:03:59" },
     ],
     women: [
-      { racer: "tigst-assefa" },
-      { racer: "rosemary-wanjiru" },
+      { racer: "tigst-assefa", place: 1, time: "2:11:04" },
+      { racer: "bedatu-hirpa", place: 2, time: "2:16:53" },
+      { name: "Dera Dida", country: "Ethiopia", place: 3, time: "2:16:55" },
     ],
   },
   {
@@ -432,15 +433,28 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The 48th Bank of America Chicago Marathon features one of the deepest fields in race history. Jacob Kiplimo, whose 2:00:28 at London 2026 ranks as the third-fastest marathon ever run, returns to defend his 2025 Chicago title against Kenya's Amos Kipruto (2:01:39 PB) and rising HOKA NAZ Elite standout Alex Masai. In the women's race, defending champion Hawi Feysa faces former marathon world record holder Brigid Kosgei and two-time Boston champion Sharon Lokedi.",
+    why: "The 48th Bank of America Chicago Marathon features one of the deepest fields in race history. Jacob Kiplimo, whose 2:00:28 at London 2026 ranks as the third-fastest marathon ever run, returns to defend his 2025 Chicago title against Kenya's Amos Kipruto (2:01:39 PB) and Belgium's Bashir Abdi, who holds the European marathon record. In the women's race, defending champion Hawi Feysa faces former marathon world record holder Brigid Kosgei and two-time Boston champion Sharon Lokedi.",
     watchUrl: "https://www.chicagomarathon.com/",
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-26",
-      sourceName: "NBC Chicago elite field",
+      checkedAt: "2026-09-30",
+      sourceName: "NBC Chicago / Marathon Handbook elite field",
       sourceUrl: "https://www.nbcchicago.com/news/sports/chicago-marathon/2026-chicago-marathon-elite-lineup-one-of-the-deepest-fields-in-race-history/3965200/",
     },
+    men: [
+      { racer: "jacob-kiplimo" },
+      { racer: "amos-kipruto" },
+      { racer: "bashir-abdi" },
+      { name: "Sondre Moen", country: "Norway" },
+    ],
+    women: [
+      { racer: "hawi-feysa" },
+      { racer: "brigid-kosgei" },
+      { racer: "sharon-lokedi" },
+      { name: "Sutume Kebede", country: "Ethiopia" },
+      { name: "Megertu Alemu", country: "Ethiopia" },
+    ],
   },
   {
     slug: "melbourne-marathon-2026",
@@ -591,14 +605,14 @@ export const RACES: Race[] = [
     country: "Switzerland",
     distance: "Track",
     series: "Diamond League",
-    why: "The 51st Athletissima at Stade de la Pontaise is the penultimate Diamond League stop on European soil before Brussels, featuring a men's 5000m and women's 3000m steeplechase among 17 events as the season's stars sharpen up for the final.",
+    why: "Emmanuel Wanyonyi continued his record-breaking summer with a dominant 1:42.19 800m win at the 51st Athletissima, while Audrey Werro set a meeting record of 1:55.33 in the women's 800m on home soil. Mondo Duplantis cleared a meeting-record 6.21m as the Diamond League's penultimate European stop delivered world-class performances across 17 events at Stade de la Pontaise.",
     watchUrl: "https://lausanne.diamondleague.com/",
-    coverage: "schedule",
+    coverage: "results",
     verification: {
-      state: "review-needed",
-      checkedAt: "2026-09-26",
-      sourceName: "Official event site",
-      sourceUrl: "https://lausanne.diamondleague.com/",
+      state: "verified",
+      checkedAt: "2026-09-30",
+      sourceName: "LetsRun Lausanne Diamond League 2026 results",
+      sourceUrl: "https://www.letsrun.com/news/2026/08/full-lausanne-diamond-league-results-2026-athletissima-results/",
     },
   },
   {
@@ -613,17 +627,19 @@ export const RACES: Race[] = [
     country: "Switzerland",
     distance: "Track",
     series: "Diamond League",
-    why: "Weltklasse Zürich — founded in 1928 and one of the oldest and most prestigious athletics meetings on the planet — hosts the penultimate Diamond League meeting of 2026. Yared Nuguse headlines the distance programme at Letzigrund Stadium as the world's best gather for one last showcase before the Brussels season finale.",
+    why: "Cole Hocker nipped Kipkosgei Koech and Yared Nuguse in a breathless men's 1500m finish at Letzigrund — three Americans and Kenyans inside 3:32 (Hocker 3:31.71, Koech 3:31.84, Nuguse 3:31.85) — while two world records fell on the night as Masai Russell ran 12.09 in the women's 100m hurdles and Parker Wolfe clocked 7:27.43 in the men's 3000m.",
     watchUrl: "https://www.weltklassezuerich.ch/",
-    coverage: "field",
+    coverage: "results",
     verification: {
-      state: "review-needed",
-      checkedAt: "2026-09-26",
-      sourceName: "Official event site",
-      sourceUrl: "https://www.weltklassezuerich.ch/",
+      state: "verified",
+      checkedAt: "2026-09-30",
+      sourceName: "LetsRun Weltklasse Zurich 2026 results",
+      sourceUrl: "https://www.letsrun.com/news/2026/08/schedule-entries-results-for-2026-weltklasse-zurich-diamond-league/",
     },
     men: [
-      { racer: "yared-nuguse" },
+      { racer: "cole-hocker", place: 1, time: "3:31.71" },
+      { racer: "kipkosgei-koech", place: 2, time: "3:31.84" },
+      { racer: "yared-nuguse", place: 3, time: "3:31.85" },
     ],
   },
 ];
