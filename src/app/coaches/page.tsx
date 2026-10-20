@@ -10,6 +10,7 @@ import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import { marketplacePublicCatalog, publicApprovedCoaches, type PublicMarketplaceService } from "@/lib/marketplace-store";
 import { publicStorefronts } from "@/lib/storefront-store";
+import { CoachApprovalBadge } from "@/components/CoachApprovalBadge";
 import { CoachPortrait } from "@/components/CoachPortrait";
 import {
   COACH_FOCUS_LABELS,
@@ -68,9 +69,17 @@ export default async function CoachingPage({
   let services: PublicMarketplaceService[] = [];
   try { services = await marketplacePublicCatalog(); }
   catch { console.error("Public coaching service catalog could not be loaded."); }
-  const approvedCoaches = await publicApprovedCoaches().catch(() => []);
-  const basicProfiles = approvedCoaches.filter((coach) => !coach.slug);
-  const storefronts = await publicStorefronts().catch(() => []);
+  const [approvedCoaches, storefronts] = await Promise.all([
+    publicApprovedCoaches().catch(() => []), publicStorefronts().catch(() => []),
+  ]);
+  const storefrontSlugs = new Set(storefronts.map((profile) => profile.slug));
+  // An application has no structured location, focus or format. Do not invent filter matches.
+  const basicProfiles = hasFilters ? [] : approvedCoaches.filter((coach) => !coach.slug || !storefrontSlugs.has(coach.slug));
+  const matchingStorefronts = storefronts.filter((profile) =>
+    (!city || profile.location.toLowerCase().split(/[,·]/).some((part) => part.trim() === city.toLowerCase())) &&
+    (!focus || profile.specialties.some((specialty) => specialty.toLowerCase() === COACH_FOCUS_LABELS[focus].toLowerCase())) &&
+    (!format || (format === "online" && profile.location.toLowerCase() === "online")));
+  const profileCount = coaches.length + basicProfiles.length + matchingStorefronts.length;
   const storefrontServices = new Set(storefronts.flatMap((profile) => profile.service_ids));
   services = services.filter((service) => !storefrontServices.has(service.id));
 
@@ -81,18 +90,6 @@ export default async function CoachingPage({
         <p className="mt-3 max-w-2xl text-lg text-muted-foreground">Find your kind of coach. Explore their approach, compare services, and take your next step.</p>
         <Link href="/coaching/apply" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">Coach sign up or sign in →</Link>
       </section>
-
-      {basicProfiles.length > 0 && <section aria-labelledby="approved-coaches-heading" className="mb-12">
-        <h2 id="approved-coaches-heading" className="text-2xl font-semibold">Coaches on Anystride</h2>
-        <p className="mt-3 text-sm text-muted-foreground">Coaching profiles reviewed and approved by Anystride.</p>
-        <div className="mt-6 divide-y divide-border">{basicProfiles.map((coach, index) => <article key={index} className="py-6">
-          <h3 className="text-xl font-semibold">{coach.name}</h3>
-          <p className="mt-4 max-w-2xl whitespace-pre-wrap break-words text-muted-foreground">{coach.bio}</p>
-          <details className="mt-4 max-w-2xl"><summary className="cursor-pointer text-sm font-semibold hover:text-brand">Experience and qualifications</summary><p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted-foreground">{coach.credentials}</p></details>
-        </article>)}</div>
-      </section>}
-
-      {storefronts.length > 0 && <section aria-labelledby="storefronts-heading" className="mb-12"><div className="mb-6 flex flex-wrap items-end justify-between gap-4"><div><p className="eyebrow text-brand">Meet your next coach</p><h2 id="storefronts-heading" className="mt-3 text-3xl font-semibold tracking-tight">Their coaching. Your next chapter.</h2></div><Link href="/coaching/apply" className="action-link">Coach sign up or sign in ↗</Link></div><div className="grid gap-6 md:grid-cols-2">{storefronts.map((profile) => <Link key={profile.slug} href={`/coaching/with/${profile.slug}`} className="group flex items-start gap-6 rounded-2xl bg-muted p-6 transition-colors duration-300 ease-stride hover:bg-border"><CoachPortrait compact name={profile.name} src={profile.photo_url} /><div className="min-w-0"><p className="text-xs text-muted-foreground">{profile.location}</p><h3 className="mt-2 text-xl font-semibold">{profile.name}</h3><p className="mt-3 text-sm text-muted-foreground">{profile.headline}</p><p className="mt-4 text-sm font-semibold text-brand">View profile & services ↗</p></div></Link>)}</div></section>}
 
       {services.length > 0 && <section aria-labelledby="services-heading" className="mb-12 border-t border-border pt-8">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
@@ -160,10 +157,10 @@ export default async function CoachingPage({
 
         <section id="coaches" aria-labelledby="coach-results-heading" className="scroll-mt-8 lg:col-span-3">
           <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
-            <h2 id="coach-results-heading" className="text-xl font-semibold tracking-tight">{city ? `Coaches in ${city}` : "Meet the coaches"}</h2>
-            <p className="text-sm text-muted-foreground tabular-nums">{coaches.length} {coaches.length === 1 ? "profile" : "profiles"}{hasFilters ? (coaches.length === 1 ? " matches your filters" : " match your filters") : " to explore"}</p>
+            <h2 id="coach-results-heading" className="text-xl font-semibold tracking-tight">Meet the coaches</h2>
+            <p className="text-sm text-muted-foreground tabular-nums">{profileCount} {profileCount === 1 ? "profile" : "profiles"}{hasFilters ? (profileCount === 1 ? " matches your filters" : " match your filters") : " to explore"}</p>
           </div>
-        {coaches.length === 0 ? (
+        {profileCount === 0 ? (
           <div className="rounded-2xl bg-muted p-8 sm:p-12">
             <p className="eyebrow">Keep looking</p>
             <h3 className="mt-4 text-2xl font-semibold tracking-tight">No match for this combination yet.</h3>
@@ -174,6 +171,18 @@ export default async function CoachingPage({
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
+            {matchingStorefronts.map((profile) => <Link key={`storefront:${profile.slug}`} href={`/coaching/with/${profile.slug}`} className="group flex min-w-0 flex-col rounded-2xl bg-muted p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:ring-1 hover:ring-border">
+              <div className="flex items-start gap-4"><CoachPortrait compact name={profile.name} src={profile.photo_url} /><div className="min-w-0"><h3 className="break-words text-xl font-semibold tracking-tight group-hover:text-brand">{profile.name}</h3><p className="mt-2 text-sm text-muted-foreground">{profile.location}</p></div></div>
+              <div className="mt-4"><CoachApprovalBadge /></div>
+              <p className="mt-6 flex-1 text-sm leading-relaxed text-muted-foreground">{profile.headline}</p>
+              <p className="mt-6 text-sm font-semibold text-brand">View profile & services ↗</p>
+            </Link>)}
+            {basicProfiles.map((coach, index) => <article key={`approved:${index}`} className="min-w-0 rounded-2xl bg-muted p-6">
+              <h3 className="break-words text-xl font-semibold tracking-tight">{coach.name}</h3>
+              <div className="mt-4"><CoachApprovalBadge /></div>
+              <p className="mt-6 whitespace-pre-wrap break-words text-sm leading-relaxed text-muted-foreground">{coach.bio}</p>
+              <details className="mt-4"><summary className="cursor-pointer text-sm font-semibold hover:text-brand">Experience and qualifications</summary><p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted-foreground">{coach.credentials}</p></details>
+            </article>)}
             {coaches.map((coach) => (
               <CoachCard key={coach.slug} coach={coach} />
             ))}

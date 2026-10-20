@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DeleteServiceButton } from "@/components/DeleteServiceButton";
 import { accountData } from "@/lib/account-data";
 import { AccountEmpty, AccountHeading, AccountStatus, CoachNavigation, accountInput, accountPrice } from "@/components/AccountUI";
 import { MarketplaceForm } from "@/components/MarketplaceForm";
@@ -46,6 +47,7 @@ export default async function ServicesPage({ searchParams }: { searchParams: Pro
             <p className="mb-6 text-sm text-muted-foreground">Changes go back to Anystride for review. The listing is hidden until approved again. Existing requests keep the original service details and price.</p>
             <MarketplaceForm action="edit-service" fields={{ id: service.id, version: service.version }} button="Save and send for review" success="Changes saved and sent for review."><CoachServiceFields service={service} /></MarketplaceForm>
           </div></details>}
+          <DeleteServiceButton key={`${service.id}:${service.version}`} id={service.id} version={service.version} title={service.title} />
         </article>)}</div>
       </section>
       {data.coach.status === "approved" && <section id="new-service" className="mt-8 max-w-2xl scroll-mt-8 border-t border-border pt-8">

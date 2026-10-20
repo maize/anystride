@@ -23,6 +23,8 @@ async function fixture(t) {
   await db.exec(readFileSync(new URL("../db/migrations/002_marketplace.sql", import.meta.url), "utf8"));
   // Reapplying the same explicit migration is safe.
   await db.exec(readFileSync(new URL("../db/migrations/002_marketplace.sql", import.meta.url), "utf8"));
+  await db.exec(readFileSync(new URL("../db/migrations/016_service_deletion.sql", import.meta.url), "utf8"));
+  await db.exec(readFileSync(new URL("../db/migrations/016_service_deletion.sql", import.meta.url), "utf8"));
   t.after(() => db.close());
   let released = 0;
   const query = (sql, params) => db.query(sql, params);
@@ -268,4 +270,66 @@ test("approved coaches are listed without services or a storefront; suspension r
   assert.deepEqual(Object.keys(listing).sort(), ["bio", "credentials", "name", "slug"]);
   await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 2, status: "suspended" });
   assert.equal((await f.publicApprovedCoaches()).length, 0);
+});
+
+test("service deletion validates references, checks ownership even for admins, and rejects stale versions", async (t) => {
+  const f = await fixture(t);
+  const { parseMarketplaceAction: parse } = load("src/lib/marketplace-input.ts", { "server-only": {} });
+  const service = proposal();
+  const deletion = { action: "delete-service", id: service.id, version: 1 };
+  assert.equal(parse(deletion).id, service.id);
+  for (const extra of [{ coachId: coach.id }, { admin: true }, { deleted_at: null }, { version: 0 }, { version: "1" }, { id: "invalid" }]) assert.throws(() => parse({ ...deletion, ...extra }));
+  await f.actOnMarketplace(coach, application);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 1, status: "approved" });
+  await f.actOnMarketplace(coach, service);
+  for (const actor of [runner, admin]) await assert.rejects(f.actOnMarketplace(actor, deletion), (e) => e.status === 404);
+  await assert.rejects(f.actOnMarketplace(coach, { ...deletion, id: randomUUID() }), (e) => e.status === 404);
+  await assert.rejects(f.actOnMarketplace(coach, { ...deletion, version: 2 }), (e) => e.status === 409);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 2, status: "suspended" });
+  assert.equal((await f.actOnMarketplace(coach, deletion)).saved, true);
+  assert.equal((await f.actOnMarketplace(coach, deletion)).saved, true);
+  assert.equal((await f.marketplaceDashboard(coach)).services.length, 0);
+  assert.equal((await f.marketplaceReviews(admin)).reviewServices.length, 0);
+  const { rows: [audit] } = await f.db.query("SELECT count(*)::int AS n FROM marketplace_audit WHERE action='delete-service'");
+  assert.equal(audit.n, 1);
+});
+
+test("deleting a listed service hides it but preserves enquiries and prevents revival", async (t) => {
+  const f = await fixture(t);
+  await f.actOnMarketplace(coach, application);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 1, status: "approved" });
+  const service = proposal();
+  await f.actOnMarketplace(coach, service);
+  await f.actOnMarketplace(admin, { action: "review", target: "service", id: service.id, version: 1, status: "approved" });
+  const request = { action: "inquire", id: randomUUID(), serviceId: service.id, message: "I would like to discuss this running coaching service." };
+  await f.actOnMarketplace(runner, request);
+  await f.actOnMarketplace(coach, { action: "delete-service", id: service.id, version: 2 });
+  assert.equal((await f.marketplacePublicCatalog()).length, 0);
+  assert.equal((await f.marketplaceDashboard(runner)).catalog.length, 0);
+  assert.equal((await f.marketplaceDashboard(runner)).requests[0].service_snapshot.title, service.title);
+  await assert.rejects(f.actOnMarketplace(other, { ...request, id: randomUUID() }), (e) => e.status === 404);
+  await assert.rejects(f.actOnMarketplace(coach, { action: "respond", id: request.id, status: "accepted" }), (e) => e.status === 409);
+  await assert.rejects(f.actOnMarketplace(admin, { action: "review", target: "service", id: service.id, version: 3, status: "approved" }), (e) => e.status === 409);
+  const { action, ...fields } = service;
+  await assert.rejects(f.actOnMarketplace(coach, { ...fields, action: "edit-service", version: 3 }), (e) => e.status === 404);
+  await assert.rejects(f.actOnMarketplace(coach, service), (e) => e.status === 409);
+  await f.actOnMarketplace(runner, { action: "respond", id: request.id, status: "cancelled" });
+  assert.equal((await f.marketplaceDashboard(runner)).requests[0].status, "cancelled");
+});
+
+test("deletion frees a service slot and rolls back when audit recording fails", async (t) => {
+  const f = await fixture(t);
+  await f.actOnMarketplace(coach, application);
+  await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 1, status: "approved" });
+  const services = Array.from({ length: 10 }, proposal);
+  for (const service of services) await f.actOnMarketplace(coach, service);
+  await assert.rejects(f.actOnMarketplace(coach, proposal()), (e) => e.status === 429);
+  await f.db.exec(`CREATE FUNCTION fail_delete_audit() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.action='delete-service' THEN RAISE EXCEPTION 'test audit failure'; END IF; RETURN NEW; END $$; CREATE TRIGGER fail_delete_audit BEFORE INSERT ON marketplace_audit FOR EACH ROW EXECUTE FUNCTION fail_delete_audit();`);
+  const deletion = { action: "delete-service", id: services[0].id, version: 1 };
+  await assert.rejects(f.actOnMarketplace(coach, deletion), /test audit failure/);
+  assert.equal((await f.marketplaceDashboard(coach)).services.length, 10);
+  await f.db.exec("DROP TRIGGER fail_delete_audit ON marketplace_audit");
+  await f.actOnMarketplace(coach, deletion);
+  await f.actOnMarketplace(coach, proposal());
+  assert.equal((await f.marketplaceDashboard(coach)).services.length, 10);
 });

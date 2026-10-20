@@ -45,7 +45,7 @@ export async function marketplaceReviews(actor: MarketplaceActor) {
   const [coaches, services] = await Promise.all([
     client.query<CoachApplication & { id: string; version: number }>("SELECT user_id AS id,name,bio,credentials,status,version FROM marketplace_coaches ORDER BY (status='pending') DESC,created_at DESC LIMIT 100"),
     client.query<CoachingService & { coach_name: string; coach_status: ReviewStatus }>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,s.status,s.version,c.name AS coach_name,c.status AS coach_status
-      FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id ORDER BY (s.status='pending') DESC,s.created_at DESC LIMIT 100`),
+      FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id WHERE s.deleted_at IS NULL ORDER BY (s.status='pending') DESC,s.created_at DESC LIMIT 100`),
   ]);
   return { reviewCoaches: coaches.rows, reviewServices: services.rows };
 }
@@ -59,12 +59,12 @@ export async function marketplaceDashboard(actor: MarketplaceActor, { includeRev
   const client = marketplacePool();
   const [coach, services, requests, catalog, reviews] = await Promise.all([
     client.query<CoachApplication>("SELECT name,bio,credentials,status FROM marketplace_coaches WHERE user_id=$1", [actor.id]),
-    client.query<CoachingService>("SELECT id,title,description,amount,currency,duration_weeks,status,version FROM marketplace_services WHERE coach_id=$1 ORDER BY created_at DESC LIMIT 10", [actor.id]),
+    client.query<CoachingService>("SELECT id,title,description,amount,currency,duration_weeks,status,version FROM marketplace_services WHERE coach_id=$1 AND deleted_at IS NULL ORDER BY created_at DESC LIMIT 10", [actor.id]),
     client.query<CoachingRequest>(`SELECT id,service_id,message,service_snapshot,status,created_at,runner_id=$1 AS is_runner FROM marketplace_requests
       WHERE runner_id=$1 OR coach_id=$1 ORDER BY created_at DESC LIMIT 100`, [actor.id]),
     client.query<CatalogService>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,c.name AS coach_name
       FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id
-      WHERE s.status='approved' AND c.status='approved' AND c.user_id<>$1 ORDER BY s.created_at DESC LIMIT 100`, [actor.id]),
+      WHERE s.deleted_at IS NULL AND s.status='approved' AND c.status='approved' AND c.user_id<>$1 ORDER BY s.created_at DESC LIMIT 100`, [actor.id]),
     actor.admin && includeReviews ? marketplaceReviews(actor) : { reviewCoaches: [], reviewServices: [] },
   ]);
   return { coach: coach.rows[0] ?? null, services: services.rows, requests: requests.rows, catalog: catalog.rows, ...reviews };
@@ -92,7 +92,7 @@ export async function marketplacePublicCatalog(): Promise<PublicMarketplaceServi
     coach_name: string;
   }>(`SELECT s.id,s.title,s.description,s.amount,s.currency,s.duration_weeks,c.name AS coach_name
     FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id
-    WHERE s.status='approved' AND c.status='approved'
+    WHERE s.deleted_at IS NULL AND s.status='approved' AND c.status='approved'
     ORDER BY s.created_at DESC LIMIT 100`);
   return result.rows.map((service) => ({
     id: service.id,
@@ -134,21 +134,30 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       const existing = await client.query("SELECT * FROM marketplace_services WHERE id=$1", [input.id]);
       if (existing.rows[0]) {
         const s = existing.rows[0];
-        if (s.coach_id === actor.id && s.title === input.title && s.description === input.description && s.amount === input.amount && s.currency === input.currency && s.duration_weeks === input.durationWeeks) return { saved: true };
+        if (!s.deleted_at && s.coach_id === actor.id && s.title === input.title && s.description === input.description && s.amount === input.amount && s.currency === input.currency && s.duration_weeks === input.durationWeeks) return { saved: true };
         throw new MarketplaceError("This service reference is already in use.", 409);
       }
       const coach = await client.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [actor.id]);
       if (coach.rows[0]?.status !== "approved") throw new MarketplaceError("Your coach application must be approved first.", 403);
-      const count = await client.query("SELECT count(*)::int AS count FROM marketplace_services WHERE coach_id=$1", [actor.id]);
+      const count = await client.query("SELECT count(*)::int AS count FROM marketplace_services WHERE coach_id=$1 AND deleted_at IS NULL", [actor.id]);
       if (count.rows[0].count >= 10) throw new MarketplaceError("The pilot allows ten service proposals per coach. Contact Anystride for help.", 429);
       await client.query(`INSERT INTO marketplace_services (id,coach_id,title,description,amount,currency,duration_weeks)
         VALUES ($1,$2,$3,$4,$5,$6,$7)`, [input.id, actor.id, input.title, input.description, input.amount, input.currency, input.durationWeeks]);
+    } else if (input.action === "delete-service") {
+      target = input.id;
+      // Same lock order as review, editing and checkout. Deletion never removes history.
+      await client.query("SELECT user_id FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [actor.id]);
+      const { rows: [service] } = await client.query("SELECT coach_id,version,deleted_at FROM marketplace_services WHERE id=$1 FOR UPDATE", [input.id]);
+      if (!service || service.coach_id !== actor.id) throw new MarketplaceError("Service not found.", 404);
+      if (service.deleted_at) return { saved: true };
+      if (service.version !== input.version) throw new MarketplaceError("This service changed. Refresh before deleting it.", 409);
+      await client.query("UPDATE marketplace_services SET deleted_at=now(),version=version+1,updated_at=now() WHERE id=$1", [input.id]);
     } else if (input.action === "edit-service") {
       target = input.id;
       // Match review/inquiry lock order. Ownership is checked even for admins.
       const coach = await client.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [actor.id]);
       const { rows: [service] } = await client.query("SELECT * FROM marketplace_services WHERE id=$1 AND coach_id=$2 FOR UPDATE", [input.id, actor.id]);
-      if (!service) throw new MarketplaceError("Service not found.", 404);
+      if (!service || service.deleted_at) throw new MarketplaceError("Service not found.", 404);
       if (coach.rows[0]?.status !== "approved") throw new MarketplaceError("Your coach application must be approved before editing services.", 403);
       if (service.status === "suspended") throw new MarketplaceError("This service is suspended. Contact Anystride before making changes.", 403);
       const unchanged = service.title === input.title && service.description === input.description && service.amount === input.amount && service.currency === input.currency && service.duration_weeks === input.durationWeeks;
@@ -171,7 +180,7 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       const coach = await client.query("SELECT name,status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [owner.rows[0].coach_id]);
       const service = await client.query("SELECT * FROM marketplace_services WHERE id=$1 FOR UPDATE", [input.serviceId]);
       const s = service.rows[0];
-      if (s.status !== "approved" || coach.rows[0]?.status !== "approved") throw new MarketplaceError("This service is not available.", 404);
+      if (s.deleted_at || s.status !== "approved" || coach.rows[0]?.status !== "approved") throw new MarketplaceError("This service is not available.", 404);
       if (s.coach_id === actor.id) throw new MarketplaceError("You cannot request your own service.", 400);
       const duplicate = await client.query("SELECT id FROM marketplace_requests WHERE runner_id=$1 AND service_id=$2 AND status IN ('requested','accepted')", [actor.id, input.serviceId]);
       if (duplicate.rows.length) throw new MarketplaceError("You already have an open request for this service.", 409);
@@ -189,7 +198,7 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       if (input.status === "cancelled" ? !["requested", "accepted"].includes(r.status) : r.status !== "requested") throw new MarketplaceError("This request has already been answered.", 409);
       if (input.status === "accepted") {
         const availability = await client.query(`SELECT s.id FROM marketplace_services s JOIN marketplace_coaches c ON c.user_id=s.coach_id
-          WHERE s.id=$1 AND s.status='approved' AND c.status='approved' FOR SHARE OF c,s`, [r.service_id]);
+          WHERE s.id=$1 AND s.deleted_at IS NULL AND s.status='approved' AND c.status='approved' FOR SHARE OF c,s`, [r.service_id]);
         if (!availability.rows.length) throw new MarketplaceError("This service is no longer available.", 409);
       }
       await client.query("UPDATE marketplace_requests SET status=$2,updated_at=now() WHERE id=$1", [input.id, input.status]);
@@ -202,7 +211,7 @@ export async function actOnMarketplace(actor: MarketplaceActor, input: Marketpla
       if (!owner) throw new MarketplaceError("Review item not found.", 404);
       const coach = await client.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [owner]);
       if (input.target === "service" && input.status === "approved" && coach.rows[0]?.status !== "approved") throw new MarketplaceError("Approve the coach before approving their service.", 409);
-      const updated = await client.query(`UPDATE ${table} SET status=$2,version=version+1,updated_at=now() WHERE ${key}=$1 AND version=$3 RETURNING ${key}`, [input.id, input.status, input.version]);
+      const updated = await client.query(`UPDATE ${table} SET status=$2,version=version+1,updated_at=now() WHERE ${key}=$1 AND version=$3${input.target === "service" ? " AND deleted_at IS NULL" : ""} RETURNING ${key}`, [input.id, input.status, input.version]);
       if (!updated.rows.length) throw new MarketplaceError("This review changed. Refresh before trying again.", 409);
     }
     await client.query("INSERT INTO marketplace_audit (actor_id,action,target_id) VALUES ($1,$2,$3)", [actor.id, input.action === "review" || input.action === "respond" ? `${input.action}:${input.status}` : input.action, target]);
