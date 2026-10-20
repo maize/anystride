@@ -126,7 +126,7 @@ export async function startStorefrontCheckout(actor: MarketplaceActor, serviceId
     // Recheck eligibility under locks after the provider call, in the same order
     // as service moderation. An offer edit cannot race with this snapshot.
     const { rows: [coach] } = await db.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR SHARE", [offer.coach_id]);
-    const { rows: [current] } = await db.query("SELECT s.status,s.version,o.available,p.published FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id JOIN marketplace_storefronts p ON p.coach_id=s.coach_id WHERE s.id=$1 FOR SHARE OF s,o,p", [serviceId]);
+    const { rows: [current] } = await db.query("SELECT s.status,s.version,o.available,p.published FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id JOIN marketplace_storefronts p ON p.coach_id=s.coach_id WHERE s.id=$1 AND s.deleted_at IS NULL FOR SHARE OF s,o,p", [serviceId]);
     if (coach?.status !== "approved" || current?.status !== "approved" || current.version !== version || !current.available || !current.published) throw new MarketplaceError("This offer changed. Refresh before buying.", 409);
     const { rows: [count] } = await db.query("SELECT count(*)::int AS n FROM marketplace_storefront_orders WHERE buyer_id=$1 AND created_at > now() - interval '1 day'", [actor.id]);
     if (count.n >= 20) throw new MarketplaceError("You have reached today's checkout limit. Please try again tomorrow.", 429);

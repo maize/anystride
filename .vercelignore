@@ -8,3 +8,9 @@ LOCAL-TESTING.md
 node_modules/
 .next/
 .git/
+
+# Local growth notes contain aggregate reporting and publication records.
+docs/growth-monitoring.md
+docs/growth-scorecard.md
+docs/social-drafts.md
+docs/coach-discovery.md

@@ -21,20 +21,20 @@ export async function publicStorefront(slug: string): Promise<Storefront | null>
   return marketplaceTransaction(async (db) => {
     const { rows: [profile] } = await db.query<StorefrontProfile>(`SELECT ${profileColumns} FROM marketplace_storefronts p JOIN marketplace_coaches c ON c.user_id=p.coach_id WHERE p.slug=$1 AND p.published AND c.status='approved'`, [slug]);
     if (!profile) return null;
-    const { rows: offers } = await db.query<StorefrontOffer>(`SELECT ${offerColumns} FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id JOIN marketplace_storefronts p ON p.coach_id=s.coach_id WHERE p.slug=$1 AND s.status='approved' ORDER BY s.amount,s.id`, [slug]);
+    const { rows: offers } = await db.query<StorefrontOffer>(`SELECT ${offerColumns} FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id JOIN marketplace_storefronts p ON p.coach_id=s.coach_id WHERE p.slug=$1 AND s.deleted_at IS NULL AND s.status='approved' ORDER BY s.amount,s.id`, [slug]);
     return { profile, offers };
   });
 }
 
 export async function publicStorefronts() {
   if (!marketplaceEnabled()) return [];
-  return marketplaceTransaction(async (db) => (await db.query<StorefrontProfile & { service_ids: string[] }>(`SELECT ${profileColumns},ARRAY(SELECT s.id::text FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id WHERE s.coach_id=c.user_id AND s.status='approved') AS service_ids FROM marketplace_storefronts p JOIN marketplace_coaches c ON c.user_id=p.coach_id WHERE p.published AND c.status='approved' ORDER BY c.name LIMIT 100`)).rows);
+  return marketplaceTransaction(async (db) => (await db.query<StorefrontProfile & { service_ids: string[] }>(`SELECT ${profileColumns},ARRAY(SELECT s.id::text FROM marketplace_services s JOIN marketplace_storefront_offers o ON o.service_id=s.id WHERE s.coach_id=c.user_id AND s.deleted_at IS NULL AND s.status='approved') AS service_ids FROM marketplace_storefronts p JOIN marketplace_coaches c ON c.user_id=p.coach_id WHERE p.published AND c.status='approved' ORDER BY c.name LIMIT 100`)).rows);
 }
 
 export async function ownStorefront(actor: MarketplaceActor) {
   return marketplaceTransaction(async (db) => {
     const { rows: [profile] } = await db.query<StorefrontProfile>(`SELECT ${profileColumns} FROM marketplace_storefronts p JOIN marketplace_coaches c ON c.user_id=p.coach_id WHERE p.coach_id=$1`, [actor.id]);
-    const { rows: offers } = await db.query<OwnStorefrontOffer>(`SELECT ${offerColumns},o.next_steps FROM marketplace_services s LEFT JOIN marketplace_storefront_offers o ON o.service_id=s.id WHERE s.coach_id=$1 ORDER BY s.created_at DESC LIMIT 10`, [actor.id]);
+    const { rows: offers } = await db.query<OwnStorefrontOffer>(`SELECT ${offerColumns},o.next_steps FROM marketplace_services s LEFT JOIN marketplace_storefront_offers o ON o.service_id=s.id WHERE s.coach_id=$1 AND s.deleted_at IS NULL ORDER BY s.created_at DESC LIMIT 10`, [actor.id]);
     return { profile: profile ?? null, offers };
   });
 }
@@ -42,7 +42,7 @@ export async function ownStorefront(actor: MarketplaceActor) {
 export async function storefrontReviewOffers(actor: MarketplaceActor) {
   if (!actor.admin) throw new MarketplaceError("Review access required.", 403);
   return marketplaceTransaction(async (db) => (await db.query<OwnStorefrontOffer & { service_id: string }>(
-    "SELECT service_id,kind,inclusions,delivery,next_steps,cancellation,available FROM marketplace_storefront_offers WHERE service_id IN (SELECT id FROM marketplace_services ORDER BY (status='pending') DESC,created_at DESC LIMIT 100)",
+    "SELECT service_id,kind,inclusions,delivery,next_steps,cancellation,available FROM marketplace_storefront_offers WHERE service_id IN (SELECT id FROM marketplace_services WHERE deleted_at IS NULL ORDER BY (status='pending') DESC,created_at DESC LIMIT 100)",
   )).rows);
 }
 
@@ -65,12 +65,12 @@ export async function saveStorefront(actor: MarketplaceActor, input: Extract<Sto
         throw error;
       }
     } else {
-      const { rows: [existing] } = await db.query("SELECT coach_id,version,status FROM marketplace_services WHERE id=$1 FOR UPDATE", [input.id]);
-      if (existing && existing.coach_id !== actor.id) throw new MarketplaceError("Service not found.", 404);
+      const { rows: [existing] } = await db.query("SELECT coach_id,version,status,deleted_at FROM marketplace_services WHERE id=$1 FOR UPDATE", [input.id]);
+      if (existing && (existing.coach_id !== actor.id || existing.deleted_at)) throw new MarketplaceError("Service not found.", 404);
       if ((existing?.version ?? 0) !== input.version) throw new MarketplaceError("This service changed. Refresh before saving again.", 409);
       if (existing?.status === "suspended") throw new MarketplaceError("This service is suspended.", 403);
       if (!existing) {
-        const { rows: [count] } = await db.query("SELECT count(*)::int AS n FROM marketplace_services WHERE coach_id=$1", [actor.id]);
+        const { rows: [count] } = await db.query("SELECT count(*)::int AS n FROM marketplace_services WHERE coach_id=$1 AND deleted_at IS NULL", [actor.id]);
         if (count.n >= 10) throw new MarketplaceError("You can publish up to ten services.", 409);
         await db.query(`INSERT INTO marketplace_services(id,coach_id,title,description,amount,currency,duration_weeks) VALUES($1,$2,$3,$4,$5,$6,$7)`, [input.id,actor.id,input.title,input.description,input.amount,input.currency,input.durationWeeks]);
       } else {
@@ -88,7 +88,7 @@ export async function checkoutOffer(serviceId: string) {
   return marketplaceTransaction(async (db) => {
     const { rows: [offer] } = await db.query<StorefrontOffer & { coach_id: string; coach_name: string; slug: string; next_steps: string; contact_email: string }>(`SELECT ${offerColumns},s.coach_id,c.name AS coach_name,p.slug,o.next_steps,o.contact_email FROM marketplace_services s
       JOIN marketplace_storefront_offers o ON o.service_id=s.id JOIN marketplace_coaches c ON c.user_id=s.coach_id JOIN marketplace_storefronts p ON p.coach_id=s.coach_id
-      WHERE s.id=$1 AND s.status='approved' AND c.status='approved' AND p.published`, [serviceId]);
+      WHERE s.id=$1 AND s.deleted_at IS NULL AND s.status='approved' AND c.status='approved' AND p.published`, [serviceId]);
     return offer ?? null;
   });
 }

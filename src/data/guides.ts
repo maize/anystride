@@ -1473,6 +1473,309 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+    slug: "injury-prevention-for-runners",
+    title: "How to Prevent Running Injuries: The Basics That Actually Work",
+    description:
+      "How to avoid the most common running injuries -- shin splints, IT band, plantar fasciitis -- by building load gradually, recovering properly, and training smart.",
+    targetQuery: "how to prevent running injuries / running injury prevention",
+    updated: "2026-09-28",
+    intro: [
+      "Most running injuries are not accidents. The vast majority are overuse injuries -- they come from doing too much, too soon, or without enough recovery. That makes them largely predictable and, with the right habits, largely preventable.",
+      "The steps that prevent most running injuries are the same steps that make training more effective: building load gradually, keeping easy days genuinely easy, scheduling rest, and addressing muscular weaknesses before they become problems. Here is what actually works.",
+    ],
+    sections: [
+      {
+        heading: "Why overuse injuries happen",
+        body: [
+          "Running creates repetitive stress on muscles, tendons, and bones. In modest, progressive doses that stress is the stimulus that makes you fitter and more durable. Too much of it, too fast, and the tissues break down faster than the body can repair them -- producing the overuse injuries that sideline the majority of runners at some point: shin splints, IT band syndrome, plantar fasciitis, patellofemoral pain, and stress fractures.",
+          "The most common trigger is a sudden spike in training load -- starting a new plan at too high a mileage, adding a second quality session mid-cycle, or returning from a rest week and immediately jumping back to full volume. Your cardiovascular fitness improves quickly; tendons, ligaments, and bones adapt more slowly. Closing the gap between those two timelines is where most injury prevention lives.",
+        ],
+      },
+      {
+        heading: "Build load gradually -- the 10 percent rule",
+        body: [
+          "The most widely cited guideline in running is the 10 percent rule: do not increase weekly mileage by more than 10 percent from one week to the next. It is a useful rough guardrail, but the underlying principle matters more than the specific number: avoid large, sudden jumps in training load.",
+          "This applies to more than just mileage. Adding a first tempo run, extending the long run by four miles in a single week, or introducing back-to-back quality days are all load spikes even if total weekly mileage barely changes. The well-designed training plans on anystride -- from Couch to 5K through Pfitzinger 18/55 -- build load gradually precisely for this reason. Following the plan as written, rather than improvising extra miles in weeks that feel good, is one of the most effective injury-prevention strategies available.",
+        ],
+      },
+      {
+        heading: "Keep easy days actually easy",
+        body: [
+          "One of the most common sources of overuse injury is not running too many miles -- it is running those miles too fast. When easy runs are run at moderate-to-hard effort instead of truly easy pace, the body never fully recovers between sessions. The cumulative fatigue accumulates week over week until something gives.",
+          "Easy should mean conversational -- you can speak in full sentences without gasping. For most runners that is 60 to 90 seconds per mile slower than 5K race pace. Use the anystride pace calculator at /calculator to find your specific easy pace range from a recent race time. Then hold it, even when it feels slower than you want to go. The purpose of easy runs is aerobic development and recovery -- not fitness that you can see in the splits.",
+        ],
+      },
+      {
+        heading: "Strength training as injury insurance",
+        body: [
+          "Weak hips, glutes, and core are a primary contributor to the most common running injuries. When those muscles are undertrained, the knee, IT band, shin, and plantar fascia compensate -- absorbing forces they were not designed to handle. Targeted strength work addresses those weaknesses before they manifest as injury.",
+          "You do not need hours in the gym. Two sessions per week of 20 to 30 minutes, focused on single-leg squats, hip thrusts, Romanian deadlifts, calf raises, and lateral band walks, covers the key areas. The base-building phase of your training cycle -- when running intensity is low -- is the ideal time to establish this habit. Strength built during base building carries forward into the higher-volume weeks that follow.",
+        ],
+        bullets: [
+          "Single-leg squats or split squats -- builds hip stability that protects the knee and IT band",
+          "Hip thrusts or glute bridges -- activates the glutes, reducing strain on the knee and shin",
+          "Single-leg calf raises -- strengthens the calf and Achilles complex for high-mileage weeks",
+          "Lateral band walks -- targets hip abductors that prevent IT band syndrome",
+        ],
+      },
+      {
+        heading: "Warning signs to take seriously",
+        body: [
+          "Not all discomfort during running is a warning worth stopping for. General muscle soreness from a long run, mild stiffness in the first five minutes that clears as you warm up, and fatigue late in a hard effort are all normal. These are not the same as injury signals.",
+          "Stop running and assess if you notice any of the following:",
+        ],
+        bullets: [
+          "Pain that does not fade within the first mile of a run -- or that gets worse as you continue",
+          "Pain that changes the way you run: a limp, a compensating lean, or a shortened stride on one side",
+          "Localized bone tenderness to touch, especially on the shin -- a potential stress fracture that needs immediate rest and medical evaluation",
+          "Sharp or stabbing pain in the heel first thing in the morning -- a classic sign of plantar fasciitis",
+          "Pain that returns at the same point in every run and prevents you from finishing your normal distance",
+        ],
+      },
+      {
+        heading: "Other habits that reduce injury risk",
+        body: [
+          "Beyond load management and strength, a few consistent habits make a meaningful difference over a full training cycle:",
+        ],
+        bullets: [
+          "Sleep seven to nine hours -- the majority of tissue repair happens during sleep, and chronic sleep debt measurably slows recovery and raises injury risk.",
+          "Do not skip rest days -- rest days in your plan are built-in adaptation time, not optional extras. Running on a scheduled rest day to bank extra miles is one of the fastest ways to accumulate the fatigue that precedes injury.",
+          "Vary your surfaces -- rotating between roads, trails, and grass distributes the repetitive stress across slightly different biomechanical patterns, reducing the load on any single tissue.",
+          "Replace shoes at roughly 300 to 500 miles -- midsole cushioning degrades well before the upper looks worn out. Running on dead shoes increases impact forces at the heel and forefoot.",
+          "Warm up before quality sessions -- 10 to 15 minutes of easy jogging before tempo runs or intervals prepares tendons and connective tissue for the higher forces that follow.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What are the most common running injuries?",
+        a: "Shin splints (medial tibial stress syndrome), IT band syndrome, plantar fasciitis, patellofemoral pain (runner's knee), and Achilles tendinopathy account for the majority of running injuries seen in recreational runners. All are overuse injuries caused by exceeding the body's current capacity to absorb training load.",
+      },
+      {
+        q: "How do I know if a running pain is serious?",
+        a: "Pain that does not fade in the first mile, that changes how you run, or that you can reproduce with direct pressure on a specific bony area warrants stopping and resting. Shin pain with pinpoint tenderness is particularly important to take seriously -- it can indicate a stress fracture that worsens significantly with continued running. When in doubt, a few days off is far less costly than running through something serious.",
+      },
+      {
+        q: "Can I run through muscle soreness?",
+        a: "General muscle soreness from a hard workout -- a dull, diffuse ache across the quads or calves -- is usually fine to run through at easy effort. It often clears within the first mile. Pain that is sharp, localized to a specific point, or that gets worse as you run is different and should not be pushed through.",
+      },
+      {
+        q: "How long should I rest for a minor running injury?",
+        a: "Most minor overuse niggles -- early-stage IT band tightness, mild shin soreness, slight Achilles stiffness -- respond well to two to five days of complete rest or cross-training followed by a gradual return at reduced mileage. Returning too soon to full training is the most common reason minor injuries become major ones. If pain persists beyond a week of rest, see a sports medicine professional.",
+      },
+      {
+        q: "Do running shoes prevent injuries?",
+        a: "No shoe prevents injury on its own, but running in shoes that are appropriate for your foot mechanics and that still have functional cushioning reduces unnecessary impact stress. The most important shoe decision is replacing them before the midsole is fully compressed -- typically every 300 to 500 miles -- rather than choosing between specific motion-control categories, where the research is less clear.",
+      },
+    ],
+    relatedPlans: [
+      "couch-to-5k",
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+    ],
+  },
+  {
+    slug: "interval-training-for-runners",
+    title: "Interval Training for Runners: VO2max Workouts That Make You Faster",
+    description:
+      "How to do interval training as a runner — the right effort, recovery, and frequency to build VO2max without burnout or injury.",
+    targetQuery: "interval training for runners / VO2max workouts running",
+    updated: "2026-10-05",
+    intro: [
+      "Interval training is the highest-intensity tool in a runner's kit — short, fast repetitions separated by recovery that push your aerobic system harder than any other workout type. Done right, intervals raise your VO2max ceiling and translate into faster times at every distance.",
+      "Done wrong, they are the fastest way to accumulate fatigue and end up injured. The tool only works if you understand when and how to use it.",
+    ],
+    sections: [
+      {
+        heading: "What intervals train",
+        body: [
+          "Intervals target VO2max — the maximum rate at which your body can deliver and use oxygen during exercise. It is the ceiling on how fast you can run aerobically, and it is highly trainable. By repeatedly pushing your body close to that ceiling in short bursts — then recovering before going again — you stimulate the adaptations that raise it.",
+          "Those adaptations include a stronger heart that pumps more blood per beat, more efficient oxygen delivery to muscles, and a greater density of mitochondria in muscle cells. The cumulative result is a higher aerobic ceiling that makes every other pace feel easier.",
+        ],
+      },
+      {
+        heading: "The right effort level",
+        body: [
+          "Interval effort is roughly 3K to 5K race effort — hard enough that you cannot speak in sentences, but not so hard that you cannot hold the pace for the full rep. If you have raced a recent 5K, your interval pace sits just above that. The effort is uncomfortable but controlled; if you are gasping from the very start of each rep, you are going too fast.",
+          "The most reliable way to find your interval pace is from a recent race result. Enter it into the anystride pace calculator at /calculator and it returns your interval pace directly. Running by pace is more reliable than running by feel for this workout — effort can mislead you, especially early in a session when you feel strong.",
+        ],
+      },
+      {
+        heading: "The classic interval formats",
+        body: [
+          "Three formats work well for most runners:",
+        ],
+        bullets: [
+          "400-meter repeats (roughly 1 to 2 minutes each) — the classic format for developing leg speed. A set of 6 to 12 x 400m with 90 seconds to 2 minutes of easy jogging between each rep is a complete session. A good entry point for runners new to interval work.",
+          "800-meter or 1K repeats (3 to 5 minutes each) — the most common format in structured training plans. More aerobically demanding than 400s. Five to eight 800m repeats or four to six 1K repeats with roughly equal-time easy jogging recovery is the standard workout.",
+          "1200m to 1600m repeats (5 to 8 minutes each) — used in advanced marathon and half-marathon plans. They develop the ability to sustain hard effort for meaningful distances and build aerobic strength close to tempo intensity.",
+        ],
+      },
+      {
+        heading: "Recovery: how long and what kind",
+        body: [
+          "Recovery length is one of the most misunderstood parts of interval training. The goal of the recovery jog is to let your heart rate come down enough to run the next rep at full effort — not to fully recover as if you had just finished a race.",
+          "For most interval formats, a recovery roughly equal to the rep duration works well: a 3-minute 1K rep gets 2 to 3 minutes of easy jogging before the next. Always jog during recovery rather than stopping completely — standing still delays lactate clearance and stiffens the legs. If your heart rate is still high when the recovery period ends, take another minute before starting the next rep.",
+        ],
+      },
+      {
+        heading: "How to structure a session",
+        body: [
+          "Every interval session follows the same structure regardless of the specific format:",
+        ],
+        bullets: [
+          "Warmup: 10 to 15 minutes of easy jogging, finishing with 2 to 4 short strides at roughly interval effort. The strides prime your legs and nervous system so the first rep does not come as a shock.",
+          "Main set: your chosen interval format. Start at the lower end of the rep range in your first session and add reps gradually over weeks as fitness builds.",
+          "Cooldown: 10 minutes of easy jogging after the final rep. Never stop abruptly after the last hard effort — a brief cooldown aids lactate clearance and prevents the legs from stiffening.",
+        ],
+      },
+      {
+        heading: "How often to do intervals",
+        body: [
+          "One interval session per week is the right amount for most runners. Intervals are the most demanding workout in your weekly rotation; fitting two per week requires that all other sessions are genuinely easy, which is difficult to sustain consistently. Schedule your interval session on a day when your legs are fresh — never the day after a long run or another quality workout.",
+          "In a structured training plan, intervals appear most often in the middle phase — after the base-building weeks and before the final race-specific taper. Pfitzinger 18/55 and Higdon intermediate plans include interval sessions during this window, then shift toward race-pace work in the final weeks. Following that progression, rather than adding your own intervals on top, is the safest approach.",
+        ],
+      },
+      {
+        heading: "When to skip intervals",
+        body: [
+          "Skip intervals when your legs are not fresh, when heat or humidity makes target pace unsafe, or when you are in the final two to three weeks before a goal race. No single workout is worth a heat-related health risk or arriving at the start line with residual fatigue in your legs.",
+          "Also skip them in the first few weeks of a new training plan. Let your body adjust to the new mileage load before adding the most demanding workout type. Most plans build to intervals deliberately — trust that structure rather than front-loading hard sessions in week one.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How fast should I run intervals?",
+        a: "Roughly 3K to 5K race effort — hard but controlled, not an all-out sprint. For most runners that is about 15 to 30 seconds per mile faster than 5K race pace. Use the anystride pace calculator at /calculator to find your exact interval pace from a recent race result rather than estimating from feel.",
+      },
+      {
+        q: "How long should I rest between interval reps?",
+        a: "A rest roughly equal to the rep duration is a solid starting rule — a 3-minute rep gets roughly 2 to 3 minutes of easy jogging recovery. The goal is not full recovery; it is enough recovery to run the next rep at the same quality. Always jog rather than standing still.",
+      },
+      {
+        q: "How many interval sessions should I do per week?",
+        a: "One per week is standard for most runners. Two per week works only when all other sessions are genuinely easy. Stacking two quality sessions in a single week is the most common way runners accumulate fatigue without realizing it, leading to stalled fitness or injury.",
+      },
+      {
+        q: "Can beginners do interval training?",
+        a: "Not right away. Intervals belong after you have a solid aerobic base — typically after 2 to 3 months of consistent easy running. Starting with hill strides and then progressing to short 400-meter repeats is a sensible entry point. Jumping to hard intervals without a base raises injury risk significantly.",
+      },
+      {
+        q: "What is the difference between intervals and a tempo run?",
+        a: "Pace, duration, and structure. Interval reps are shorter (1 to 8 minutes) and faster (3K to 5K effort) with recovery jogs between them. A tempo run is a sustained 20 to 40 minute effort at a slightly lower intensity (threshold pace, roughly between 10K and half-marathon effort) with no rest mid-workout. Both are quality sessions and most training plans include both.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-10k-intermediate",
+      "higdon-half-intermediate-1",
+      "pfitzinger-18-55",
+    ],
+  },
+  {
+    slug: "running-in-cold-weather",
+    title: "How to Run in Cold Weather: Winter Running Tips That Actually Work",
+    description:
+      "How to dress for cold runs, adjust your warm-up and pacing, stay safe on ice, and keep training moving through winter without missing a beat.",
+    targetQuery: "running in cold weather / winter running tips / how to run in winter",
+    updated: "2026-10-12",
+    intro: [
+      "Cold weather does not have to stop your training. With a few adjustments to gear, warm-up routine, and pacing, running in winter is not only manageable -- it can be some of the most satisfying running of the year. The air is crisp, the paths are quieter, and your aerobic system actually runs more efficiently in cool temperatures than in summer heat.",
+      "Here is how to dress for cold runs, what to change in your warm-up and approach, and when conditions are genuinely too dangerous to go outside.",
+    ],
+    sections: [
+      {
+        heading: "What cold weather does to your body",
+        body: [
+          "In cold conditions, your body prioritizes keeping your core warm. Blood flow shifts toward your vital organs and away from your extremities and working muscles, which means your muscles are stiffer and slower to warm up than on a mild day. The first ten to fifteen minutes of a cold-weather run feel harder than the equivalent effort in comfortable temperatures -- not because you are unfit, but because your cardiovascular system is still routing blood to where it needs to go.",
+          "Once you are warmed up, the picture changes. Cool temperatures reduce the cardiovascular strain of heat dissipation, meaning your heart rate is lower at a given pace and you can sustain effort longer before heat becomes a limiting factor. Most runners set personal bests in the 40 to 55 degree Fahrenheit range. Cold weather training, done right, produces excellent results -- which is exactly why the major fall marathons are scheduled in it.",
+        ],
+      },
+      {
+        heading: "Dress for the last 15 minutes, not the first",
+        body: [
+          "The most common cold-weather dressing mistake is overdressing. If you feel perfectly comfortable standing at your front door, you will be overheating by mile 2. A useful rule: dress as if it is 15 to 20 degrees warmer than it actually is, because that is roughly what sustained running effort adds to your perceived temperature.",
+          "Build your outfit in layers, each doing a specific job:",
+        ],
+        bullets: [
+          "Base layer (directly on skin): moisture-wicking synthetic or merino wool. Never cotton -- it holds sweat against your skin and accelerates heat loss in wet, cold conditions.",
+          "Mid layer (below 30 degrees Fahrenheit): a lightweight thermal or fleece adds insulation without bulk. Often unnecessary above 35 to 40 degrees if you are running at effort.",
+          "Outer layer: a wind- and water-resistant shell blocks wind chill and light precipitation. Look for pit-zip vents or mesh panels that let heat escape on harder efforts.",
+          "Extremities: gloves and an ear cover or hat are the highest-value items in cold weather. Your hands and ears lose heat faster than any other part of your body. A buff or neck gaiter doubles as an ear cover and can be pulled over the mouth to warm cold air on very frigid days.",
+        ],
+      },
+      {
+        heading: "Warm up before heading outside",
+        body: [
+          "Cold muscles are less pliable and more injury-prone than warm ones. Skipping the warm-up on a winter run is a fast path to a calf strain or hamstring pull in the opening minutes. Spend five to ten minutes indoors doing leg swings, hip circles, high knees, and a few squats before you step outside.",
+          "Start the run at a genuinely easy pace -- even easier than your usual easy effort. Let the first mile be a moving warm-up. Most runners need fifteen to twenty minutes of running before their body temperature and stride feel normal on a cold day. Judging your effort by feel in the first ten minutes of a cold-weather run is unreliable; use the anystride pace calculator at /calculator to anchor your easy and quality session paces and trust the number rather than your early impression.",
+        ],
+      },
+      {
+        heading: "Pacing and breathing in the cold",
+        body: [
+          "Your training paces do not change in cold weather the way they do in heat. Below about 55 degrees Fahrenheit, the aerobic system performs at or near its best. The pace calculator paces for your easy, tempo, and interval efforts apply in cold conditions -- you do not need to add time per mile the way you would on a hot summer day.",
+          "Breathing cold dry air can irritate the airways, especially for runners prone to exercise-induced bronchoconstriction (a cold-air cough or tightening in the chest). Breathing through the nose warms and humidifies air before it reaches the lungs, which helps -- though at harder efforts most runners default to mouth breathing. Pulling a buff or gaiter over the mouth on very cold days traps humidity and reduces irritation without meaningfully restricting airflow.",
+        ],
+      },
+      {
+        heading: "Staying safe on ice and slippery surfaces",
+        body: [
+          "Ice is the genuine risk of winter running, not the cold itself. A fall on ice can cause serious injury regardless of fitness level -- and black ice is by definition invisible until you are on it. These adjustments reduce your risk without forcing you indoors:",
+        ],
+        bullets: [
+          "Shorten your stride and keep your feet directly under your hips. A shorter, more vertical stride reduces the force of a slip and makes it easier to catch yourself.",
+          "Slow down on any surface you cannot clearly read. Snow that has been packed and refrozen is far more slippery than fresh snow or a dry road.",
+          "Run on grass or dirt trail edges when visible -- they provide far more grip than pavement.",
+          "Consider screw-in traction devices that attach to the outsole of your running shoes. They add meaningful grip on hard-packed snow and light ice for a modest cost.",
+          "Never run on ice in the dark. The combination of low visibility and slippery surfaces is the scenario most likely to end a training cycle with a fracture.",
+        ],
+      },
+      {
+        heading: "When to move the run inside",
+        body: [
+          "Not every day is a viable outdoor running day in winter, and knowing when to move indoors is part of training well rather than training tough. Consider the treadmill when:",
+        ],
+        bullets: [
+          "Wind chill is below negative 10 to negative 20 degrees Fahrenheit. Exposed skin can develop frostbite within 30 minutes at those temperatures, and no training session is worth that risk.",
+          "Freezing rain or a mix of rain and ice is actively falling. The combination of wet cold and ice underfoot is harder to manage safely than dry cold alone.",
+          "You are running alone before sunrise or after dark on routes you do not know well. Poor visibility and potential ice in an unfamiliar area raises the risk significantly.",
+          "Your body is already fighting illness. Cold air and hard effort on a stressed immune system is a reliable way to extend being sick rather than train through it.",
+          "A treadmill run at appropriate effort on a dangerous day is still a quality training stimulus and keeps your cycle intact. The Higdon Novice and Pfitzinger plans do not adjust for weather -- when you need to move a session inside, the workout itself stays the same.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How should I dress for running in cold weather?",
+        a: "Dress as if it is 15 to 20 degrees warmer than the actual temperature, because running effort generates significant heat. Use moisture-wicking base layers rather than cotton, add a wind-resistant outer layer in windy or wet conditions, and prioritize gloves and an ear cover -- your extremities lose heat far faster than your core.",
+      },
+      {
+        q: "Is it safe to run in very cold temperatures?",
+        a: "Down to about negative 10 degrees Fahrenheit wind chill, running outside is manageable with proper layering and covered extremities. Below that threshold, frostbite risk on exposed skin rises significantly within 30 minutes. At those temperatures, or in freezing rain, a treadmill is the better call -- not weakness, just common sense.",
+      },
+      {
+        q: "Does cold weather affect running performance?",
+        a: "Positively, once warmed up. The optimal racing temperature for distance running is roughly 40 to 55 degrees Fahrenheit. Below that, performance stays good as long as muscles are warm and extremities are covered. The first 10 to 15 minutes of a cold run feel harder than they are -- give your body time to reach operating temperature before judging your effort.",
+      },
+      {
+        q: "How do I avoid slipping on ice while running?",
+        a: "Shorten your stride, keep your feet under your hips, and slow down on any surface you cannot clearly see. Running on grass or trail edges provides more grip than pavement. For regular winter running on icy routes, screw-in traction devices that attach to your shoe outsoles are a simple, inexpensive fix.",
+      },
+      {
+        q: "Should I run on a treadmill instead of outside in winter?",
+        a: "Both work. Outdoor winter running builds the terrain-specific adaptation and cold acclimatization that a treadmill cannot provide, and most experienced runners prefer it when conditions allow. Use the treadmill for genuinely dangerous days -- extreme cold, freezing rain, icy surfaces in the dark -- and get outside when conditions are reasonable. A mix of both over a winter training block is a practical default.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-marathon-novice-1",
+      "higdon-half-novice-1",
+      "pfitzinger-18-55",
+    ],
+  },
+  {
     slug: "post-marathon-recovery",
     title: "Post-Marathon Recovery: How to Bounce Back After Race Day",
     description:
