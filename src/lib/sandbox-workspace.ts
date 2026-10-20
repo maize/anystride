@@ -26,7 +26,7 @@ function requireSandbox() {
 }
 
 interface Snapshot { title: string; description: string; amount: number; currency: string; durationWeeks: number; coachName: string; serviceVersion: number }
-interface RequestRecord { id: string; runner_id: string; coach_id: string; service_id: string; status: string; service_snapshot: Snapshot; service_status: string; coach_status: string }
+interface RequestRecord { id: string; runner_id: string; coach_id: string; service_id: string; status: string; service_snapshot: Snapshot; service_status: string; coach_status: string; service_deleted_at: Date | null }
 
 export interface AccountPurchase {
   request_id: string; service_snapshot: Snapshot; status: TestBooking["status"];
@@ -50,7 +50,7 @@ async function ownedRequest(actor: MarketplaceActor, requestId: string) {
   const id = sandboxReference(requestId);
   return marketplaceTransaction(async (client) => {
     const { rows: [request] } = await client.query<RequestRecord>(`SELECT r.id,r.runner_id,r.coach_id,r.service_id,r.status,r.service_snapshot,
-      s.status AS service_status,c.status AS coach_status FROM marketplace_requests r
+      s.status AS service_status,c.status AS coach_status,s.deleted_at AS service_deleted_at FROM marketplace_requests r
       JOIN marketplace_services s ON s.id=r.service_id JOIN marketplace_coaches c ON c.user_id=r.coach_id
       WHERE r.id=$1 AND (r.runner_id=$2 OR r.coach_id=$2)`, [id, actor.id]);
     // Administrator status does not grant access to private conversations.
@@ -82,6 +82,7 @@ function mappedOffer(request: RequestRecord) {
 export async function startSandboxCheckout(actor: MarketplaceActor, requestId: string) {
   const request = await ownedRequest(actor, requestId);
   if (request.runner_id !== actor.id) throw new MarketplaceError("Only the requesting runner can open checkout.", 403);
+  if (request.service_deleted_at) throw new MarketplaceError("This service is no longer available for checkout.", 409);
   const config = paymentConfig();
   const offer = mappedOffer(request);
   const params = checkoutParameters(request.id, actor.email, offer, config.origin);

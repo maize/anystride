@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { AccountSignIn } from "@/components/AccountSignIn";
 import { marketplaceEnabled } from "@/lib/marketplace-config";
 import { AccountUnavailable } from "@/components/AccountUnavailable";
@@ -7,7 +8,8 @@ import { checkoutReturnPath } from "@/lib/account-return";
 export default async function SignInPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
   if (!marketplaceEnabled()) return <AccountUnavailable />;
   const next = checkoutReturnPath((await searchParams).next);
-  const applying = next === "/account/services";
+  const applying = next.startsWith("/account/services");
+  if (applying) redirect(`/coaching/apply${next.includes("?claim=") ? `?claim=${next.split("?claim=")[1]}` : ""}`);
   const purchasing = next.startsWith("/account/checkout/");
   return <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
     <section>

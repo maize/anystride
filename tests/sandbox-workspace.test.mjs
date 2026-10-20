@@ -21,7 +21,7 @@ const baseEnv = {
 async function fixture(t) {
   const db = new PGlite();
   t.after(() => db.close());
-  for (const file of ["001_test_payments.sql", "002_marketplace.sql", "004_test_workspaces.sql", "004_test_workspaces.sql"]) {
+  for (const file of ["001_test_payments.sql", "002_marketplace.sql", "016_service_deletion.sql", "004_test_workspaces.sql", "004_test_workspaces.sql"]) {
     await db.exec(readFileSync(new URL(`../db/migrations/${file}`, import.meta.url), "utf8"));
   }
   const requestId = randomUUID(), serviceId = randomUUID();
@@ -62,7 +62,7 @@ async function fixture(t) {
     canonical.payment_intent.latest_charge.refunded = true;
     await webhook.processTestEvent(stripe, { id: "evt_refund", type: "charge.refunded", livemode: false, data: { object: { payment_intent: "pi_test_fixture" } } });
   }
-  return { ...workspaces, db, env, requestId, serviceId, pay, refund, creates: () => creates, params: () => params };
+  return { ...workspaces, store, db, env, requestId, serviceId, pay, refund, creates: () => creates, params: () => params };
 }
 
 test("sandbox workspace is off by default, rejects live credentials, production and mismatched origins", () => {
@@ -180,4 +180,16 @@ test("account sandbox API rejects CSRF, role/price injection, non-JSON and unver
   assert.equal(response.status, 200);
   assert.match(response.headers.get("cache-control"), /no-store/);
   assert.equal(calls, 1);
+});
+
+
+test("deleted services prevent sandbox checkout while preserving paid workspaces", async (t) => {
+  const f = await fixture(t);
+  await f.startSandboxCheckout(runner, f.requestId);
+  await f.pay();
+  await f.store.actOnMarketplace(coach, { action: "delete-service", id: f.serviceId, version: 2 });
+  await assert.rejects(f.startSandboxCheckout(runner, f.requestId), (e) => e.status === 409);
+  assert.equal((await f.sandboxPurchaseHistory(runner))[0].status, "paid");
+  await f.writeSandboxMessage(coach, f.requestId, randomUUID(), "Support for this existing purchase continues.");
+  assert.equal((await f.readSandboxWorkspace(runner, f.requestId)).messages.length, 1);
 });

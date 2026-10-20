@@ -1,6 +1,6 @@
 /** Exact coach application route and validated checkout routes only. */
 export function checkoutReturnPath(value: unknown) {
-  if (value === "/account/services") return value;
+  if (typeof value === "string" && /^\/account\/services(?:\?claim=[a-z0-9]+(?:-[a-z0-9]+)*)?$/.test(value) && value.length <= 180) return value;
   return typeof value === "string" && /^\/account\/checkout\/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(value) ? value : "/account";
 }
 export const checkoutReturnCookie = "anystride-checkout-return";
