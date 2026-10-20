@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-09-30";
+export const RACES_AS_OF = "2026-10-07";
 
 export const RACES: Race[] = [
   {
@@ -438,13 +438,16 @@ export const RACES: Race[] = [
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-30",
-      sourceName: "NBC Chicago / Marathon Handbook elite field",
+      checkedAt: "2026-10-07",
+      sourceName: "NBC Chicago elite field",
       sourceUrl: "https://www.nbcchicago.com/news/sports/chicago-marathon/2026-chicago-marathon-elite-lineup-one-of-the-deepest-fields-in-race-history/3965200/",
     },
     men: [
       { racer: "jacob-kiplimo" },
+      { racer: "tadese-takele" },
       { racer: "amos-kipruto" },
+      { racer: "alex-masai" },
+      { name: "Milkesa Mengesha", country: "Ethiopia" },
       { racer: "bashir-abdi" },
       { name: "Sondre Moen", country: "Norway" },
     ],

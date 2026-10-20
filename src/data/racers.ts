@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-09-30";
+export const RACERS_AS_OF = "2026-10-07";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -340,7 +340,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Marathon", time: "2:02:50" }],
     honors: [
       "Berlin Marathon champion (2021, 2026)",
-      "Berlin Marathon course record — 2:02:50 (2026)",
+      "Berlin Marathon personal best — 2:02:50 (2026)",
     ],
   },
   // ── Women ────────────────────────────────────────────────────────────────────
