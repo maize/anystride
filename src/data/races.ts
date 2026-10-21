@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-10-14";
+export const RACES_AS_OF = "2026-10-21";
 
 export const RACES: Race[] = [
   {
@@ -485,6 +485,68 @@ export const RACES: Race[] = [
     ],
   },
   {
+    slug: "amsterdam-marathon-2026",
+    name: "TCS Amsterdam Marathon 2026",
+    date: "2026-10-18",
+    startsAt: "2026-10-18T09:15:00+02:00",
+    endsAt: "2026-10-18T18:00:00+02:00",
+    timeZone: "Europe/Amsterdam",
+    schedulePrecision: "time",
+    city: "Amsterdam",
+    country: "Netherlands",
+    distance: "Marathon",
+    why: "Racing into wind and rain on the Vondelpark course, Lemi Berhanu won in 2:03:33 as the first eleven finishers all broke 2:06. Buze Diriba was even more commanding: the Ethiopian shattered the women\'s course record by 40 seconds with a stunning 2:16:12, improving her personal best by more than three minutes despite the conditions.",
+    watchUrl: "https://www.tcsamsterdammarathon.nl/",
+    resultsUrl: "https://worldathletics.org/news/report/amsterdam-marathon-2026-diriba-berhanu",
+    coverage: "results",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-10-21",
+      sourceName: "World Athletics race report",
+      sourceUrl: "https://worldathletics.org/news/report/amsterdam-marathon-2026-diriba-berhanu",
+    },
+    men: [
+      { racer: "lemi-berhanu", place: 1, time: "2:03:33" },
+      { name: "Nicholas Kipkorir", country: "Kenya", place: 2, time: "2:03:39" },
+      { name: "Patrick Mosin", place: 3, time: "2:03:58" },
+    ],
+    women: [
+      { racer: "buze-diriba", place: 1, time: "2:16:12" },
+      { racer: "aynalem-desta", place: 2, time: "2:17:06" },
+      { racer: "meseret-belete", place: 3, time: "2:18:06" },
+    ],
+  },
+  {
+    slug: "frankfurt-marathon-2026",
+    name: "Mainova Frankfurt Marathon 2026",
+    date: "2026-10-25",
+    startsAt: "2026-10-25T09:30:00+01:00",
+    endsAt: "2026-10-25T18:00:00+01:00",
+    timeZone: "Europe/Berlin",
+    schedulePrecision: "time",
+    city: "Frankfurt",
+    country: "Germany",
+    distance: "Marathon",
+    why: "The 43rd Mainova Frankfurt Marathon assembles the fastest men\'s field in the event\'s history: European champion Amanal Petros hunts his own German record of 2:04:03, leading a start list where four athletes have personal bests under 2:05:00. Ethiopia\'s Zeineba Yimer heads a women\'s field with three starters under 2:20.",
+    watchUrl: "https://www.frankfurt-marathon.com/",
+    coverage: "field",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-10-21",
+      sourceName: "Frankfurt Marathon official elite announcement",
+      sourceUrl: "https://www.frankfurt-marathon.com/",
+    },
+    men: [
+      { racer: "amanal-petros" },
+      { name: "Benard Biwott", country: "Kenya" },
+      { name: "Richard Ringer", country: "Germany" },
+    ],
+    women: [
+      { name: "Zeineba Yimer", country: "Ethiopia" },
+      { name: "Blanka Dörfel", country: "Germany" },
+    ],
+  },
+  {
     slug: "new-york-city-marathon-2026",
     name: "New York City Marathon 2026",
     date: "2026-11-01",
@@ -496,12 +558,12 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The 50th anniversary of New York's five-borough course brings nearly 60,000 runners to the city. Defending champions Benson Kipruto and Hellen Obiri headline the professional field.",
+    why: "The 50th anniversary of New York\'s five-borough course brings nearly 60,000 runners to the city — and the deepest open field in event history: 40 Olympians, ten men who have run under the course record, and a women\'s battle headlined by defending champion Hellen Obiri against Olympic marathon champion Sifan Hassan.",
     watchUrl: "https://www.nyrr.org/tcsnycmarathon",
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-09-11",
+      checkedAt: "2026-10-21",
       sourceName: "New York Road Runners",
       sourceUrl: "https://www.nyrr.org/media-center/press-release/2026_0819_tcsnycmprofield",
     },

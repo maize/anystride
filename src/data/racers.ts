@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-10-14";
+export const RACERS_AS_OF = "2026-10-21";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -339,6 +339,17 @@ export const RACERS: Racer[] = [
     ],
   },
   {
+    slug: "lemi-berhanu",
+    name: "Lemi Berhanu",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:03:33" }],
+    honors: [
+      "Amsterdam Marathon champion (2026, 2:03:33)",
+    ],
+  },
+  {
     slug: "gabriel-geay",
     name: "Gabriel Geay",
     gender: "M",
@@ -514,6 +525,41 @@ export const RACERS: Racer[] = [
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "4:17.62" }],
     honors: ["Prefontaine Classic women's mile runner-up (2026, 4:17.62 PB)"],
+  },
+  {
+    slug: "buze-diriba",
+    name: "Buze Diriba",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon", "Half Marathon"],
+    prs: [{ event: "Marathon", time: "2:16:12" }],
+    honors: [
+      "Amsterdam Marathon champion (2026, 2:16:12 course record)",
+    ],
+  },
+  {
+    slug: "aynalem-desta",
+    name: "Aynalem Desta",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:17:06" }],
+    honors: [
+      "Amsterdam Marathon champion (2025)",
+      "Amsterdam Marathon runner-up (2026)",
+    ],
+  },
+  {
+    slug: "meseret-belete",
+    name: "Meseret Belete",
+    gender: "F",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:18:06" }],
+    honors: [
+      "Amsterdam Marathon champion (2023)",
+      "Amsterdam Marathon 3rd place (2026)",
+    ],
   },
   {
     slug: "rosemary-wanjiru",
