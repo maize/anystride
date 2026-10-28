@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-10-21";
+export const RACERS_AS_OF = "2026-10-28";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -834,9 +834,21 @@ export const RACERS: Racer[] = [
     gender: "M",
     country: "Germany",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:09:11" }],
+    prs: [{ event: "Marathon", time: "2:05:46" }],
     honors: [
+      "Frankfurt Marathon runner-up (2026, 2:05:46 German record) — first German man on Frankfurt podium in 25+ years",
       "European Athletics Championships marathon champion (Birmingham 2026, 2:09:11 championship record)",
+    ],
+  },
+  {
+    slug: "jirata-dinki",
+    name: "Jirata Dinki",
+    gender: "M",
+    country: "Ethiopia",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:05:26" }],
+    honors: [
+      "Frankfurt Marathon champion (2026, 2:05:26)",
     ],
   },
   {
