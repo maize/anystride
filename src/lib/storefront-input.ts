@@ -38,6 +38,7 @@ export function parseStorefrontAction(input: unknown) {
   const b = input as Record<string, unknown>;
   const fields: Record<string, string[]> = {
     profile: ["slug", "headline", "location", "photoUrl", "specialties", "approach", "published", "version"],
+    publication: ["published", "version"],
     offer: ["id", "version", "title", "description", "amount", "currency", "durationWeeks", "kind", "inclusions", "delivery", "nextSteps", "cancellation", "available"],
     checkout: ["serviceId", "orderId", "version"],
     payouts: [],
@@ -48,6 +49,7 @@ export function parseStorefrontAction(input: unknown) {
   if (typeof b.action !== "string" || !Object.hasOwn(fields, b.action) || Object.keys(b).some((k) => k !== "action" && !fields[b.action as string].includes(k))) invalid();
   switch (b.action) {
     case "profile": return { action: "profile" as const, slug: storefrontSlug(b.slug), headline: text(b.headline, 10, 140), location: text(b.location, 2, 100), photoUrl: photo(b.photoUrl), specialties: lines(b.specialties, 1, 6), approach: text(b.approach, 40, 3000), published: boolean(b.published), version: integer(b.version, 0, 2147483646) };
+    case "publication": return { action: "publication" as const, published: boolean(b.published), version: integer(b.version, 1, 2147483646) };
     case "offer": {
       if (!["usd", "eur", "gbp"].includes(b.currency as string) || !["package", "consultation"].includes(b.kind as string)) invalid();
       return { action: "offer" as const, id: storefrontId(b.id), version: integer(b.version, 0, 2147483646), title: text(b.title, 5, 120), description: text(b.description, 40, 2000), amount: integer(b.amount, 100, 100000), currency: b.currency as "usd" | "eur" | "gbp", durationWeeks: integer(b.durationWeeks, 1, 52), kind: b.kind as "package" | "consultation", inclusions: lines(b.inclusions, 1, 8), delivery: text(b.delivery, 10, 500), nextSteps: text(b.nextSteps, 20, 2000), cancellation: text(b.cancellation, 20, 1000), available: boolean(b.available) };

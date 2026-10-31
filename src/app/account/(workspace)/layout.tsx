@@ -1,7 +1,8 @@
-import { accountActor, accountData } from "@/lib/account-data";
+import { accountActor, accountCoach } from "@/lib/account-data";
 import { marketplaceEnabled, MarketplaceError } from "@/lib/marketplace-config";
 import { AccountSignOut } from "@/components/AccountSignIn";
 import { AccountUnavailable } from "@/components/AccountUnavailable";
+import { trainingEnabled } from "@/lib/training-store";
 import { AccountNavigation } from "@/components/AccountNavigation";
 
 export default async function WorkspaceLayout({ children }: { children: React.ReactNode }) {
@@ -13,14 +14,14 @@ export default async function WorkspaceLayout({ children }: { children: React.Re
     if (!(error instanceof MarketplaceError)) throw error;
     return <><h1 className="text-3xl font-semibold">Your account</h1><p role="alert" className="my-4">{error.message}</p><AccountSignOut /></>;
   }
-  const data = await accountData();
-  const role = data.coach?.status === "approved" ? "Athlete · Coach" : data.coach ? "Athlete · Coach applicant" : "Athlete";
+  const coach = await accountCoach();
+  const role = coach?.status === "approved" ? "Athlete · Coach" : coach ? "Athlete · Coach applicant" : "Athlete";
   return <>
     <header className="flex flex-wrap items-start justify-between gap-4">
       <div className="min-w-0"><p className="text-sm text-muted-foreground">Signed in as</p><p className="mt-1 break-all text-lg font-semibold">{actor.email}</p><p className="mt-2 text-sm text-muted-foreground">{role}{actor.admin ? " · Administrator" : ""}</p></div>
       <AccountSignOut />
     </header>
-    <AccountNavigation admin={actor.admin} />
+    <AccountNavigation training={trainingEnabled()} coach={coach?.status === "approved"} />
     <div className="pt-8 pb-4">{children}</div>
   </>;
 }

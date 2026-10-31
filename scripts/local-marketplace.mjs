@@ -8,6 +8,10 @@ import { Pool } from "pg";
 // Explicit local setup only: never falls back to Vercel or production credentials.
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const mode = process.argv[2];
+// Explicit opt-in only: local development never silently connects to a live provider.
+const localStrava = process.env.LOCAL_STRAVA === "on";
+if (localStrava && existsSync(join(root, ".env.strava.local"))) process.loadEnvFile(join(root, ".env.strava.local"));
+const stravaEnv = localStrava ? Object.fromEntries(["STRAVA_SYNC", "STRAVA_CLIENT_ID", "STRAVA_CLIENT_SECRET", "STRAVA_TOKEN_KEY", "STRAVA_WEBHOOK_SECRET", "STRAVA_VERIFY_TOKEN", "STRAVA_SUBSCRIPTION_ID", "CRON_SECRET"].map((key) => [key, process.env[key] || ""])) : {};
 if (!["setup", "dev", "demo"].includes(mode)) throw new Error("Use: node scripts/local-marketplace.mjs setup|dev|demo");
 const extraPilotEmails = (process.env.LOCAL_MARKETPLACE_TEST_EMAILS || "")
   .split(",")
@@ -54,7 +58,7 @@ if (database.protocol !== "postgresql:" || database.hostname !== "127.0.0.1" || 
   throw new Error("Refusing non-local Supabase endpoints.");
 }
 const databases = [
-  ["anystride_marketplace_test", ["002_marketplace.sql", "005_imported_coach_reviews.sql", "006_coach_storefronts.sql", "016_service_deletion.sql"]],
+  ["anystride_marketplace_test", ["002_marketplace.sql", "005_imported_coach_reviews.sql", "006_coach_storefronts.sql", "008_training_workspace.sql", "009_training_coaching.sql", "010_structured_training_plans.sql", "011_strava_sync.sql", "012_strava_history.sql", "013_strava_coach_sharing.sql", "014_strava_workout_matches.sql", "016_service_deletion.sql"]],
   ["anystride_payments_test", ["001_test_payments.sql", "004_test_workspaces.sql"]],
 ];
 const localUrl = (name) => { const url = new URL(database); url.pathname = `/${name}`; return url.toString(); };
@@ -93,10 +97,12 @@ try {
     }
     Object.assign(env, {
       ...storefrontEnv,
+      ...stravaEnv,
       STOREFRONT_PAYMENTS_MODE: storefrontSandbox ? "test" : "off",
       STOREFRONT_PLATFORM_FEE_BPS: "1000",
       NODE_ENV: "development", NEXT_TELEMETRY_DISABLED: "1",
-      MARKETPLACE_MODE: "pilot", MARKETPLACE_APP_URL: "http://localhost:3010",
+      MARKETPLACE_MODE: "pilot",
+      TRAINING_WORKSPACE: "on", MARKETPLACE_APP_URL: "http://localhost:3010",
       MARKETPLACE_DATABASE_SOURCE: "MARKETPLACE_DATABASE_URL",
       MARKETPLACE_DATABASE_URL: localUrl("anystride_marketplace_test"),
       PAYMENTS_DATABASE_URL: localUrl("anystride_payments_test"),

@@ -46,11 +46,18 @@ export async function storefrontReviewOffers(actor: MarketplaceActor) {
   )).rows);
 }
 
-export async function saveStorefront(actor: MarketplaceActor, input: Extract<StorefrontAction, { action: "profile" | "offer" }>) {
+export async function saveStorefront(actor: MarketplaceActor, input: Extract<StorefrontAction, { action: "profile" | "offer" | "publication" }>) {
   return marketplaceTransaction(async (db) => {
     await db.query("SELECT pg_advisory_xact_lock(hashtextextended($1,0))", [`marketplace:${actor.id}`]);
     const { rows: [coach] } = await db.query("SELECT status FROM marketplace_coaches WHERE user_id=$1 FOR UPDATE", [actor.id]);
-    if (coach?.status !== "approved") throw new MarketplaceError("Your coach application must be approved first.", 403);
+    const pendingDraft = coach?.status === "pending" && input.action === "profile" && !input.published;
+    if (coach?.status !== "approved" && !pendingDraft) throw new MarketplaceError("Your coach application must be approved first.", 403);
+    if (input.action === "publication") {
+      const { rows } = await db.query("UPDATE marketplace_storefronts SET published=$2,version=version+1,updated_at=now() WHERE coach_id=$1 AND version=$3 RETURNING coach_id", [actor.id,input.published,input.version]);
+      if (!rows.length) throw new MarketplaceError("Your profile changed. Refresh before publishing.", 409);
+      await db.query("INSERT INTO marketplace_audit(actor_id,action,target_id) VALUES($1,$2,$1)", [actor.id,input.published ? "storefront:publish" : "storefront:unpublish"]);
+      return { saved: true };
+    }
     if (input.action === "profile") {
       const { rows: [existing] } = await db.query("SELECT version,slug FROM marketplace_storefronts WHERE coach_id=$1 FOR UPDATE", [actor.id]);
       if ((existing?.version ?? 0) !== input.version) throw new MarketplaceError("Your profile changed. Refresh before saving again.", 409);

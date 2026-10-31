@@ -2,22 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { accountLinkActive, accountNavigation } from "@/lib/account-navigation";
 
-export function AccountNavigation({ admin }: { admin: boolean }) {
+export function AccountNavigation({ training = false, coach = false }: { training?: boolean; coach?: boolean }) {
   const pathname = usePathname();
-  const links = [
-    ["/account", "Overview"],
-    ["/account/coaching", "My coaching"],
-    ["/account/explore", "Find a service"],
-    ["/account/services", "Coach workspace"],
-    ["/account/storefront", "My storefront"],
-    ["/account/orders", "Purchases & sales"],
-    ...(admin ? [["/account/review", "Admin reviews"]] : []),
-  ];
-  return <nav aria-label="Account" className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-b border-border">
-    {links.map(([href, label]) => {
-      const active = pathname === href || (["/account/review", "/account/storefront", "/account/orders"].includes(href) && pathname.startsWith(`${href}/`)) || (href === "/account/services" && pathname === "/account/enquiries") || (href === "/account/coaching" && pathname.startsWith("/account/workspaces/"));
-      return <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`py-4 text-sm font-semibold transition-colors duration-300 ease-stride hover:text-brand ${active ? "text-brand underline decoration-2 underline-offset-8" : "text-muted-foreground"}`}>{label}</Link>;
-    })}
+  const primary = accountNavigation({ training, coach });
+  return <nav aria-label="Account" className="mt-8 border-b border-border">
+    <ul aria-label="Training and overview" className="flex flex-wrap gap-2 pb-4">
+      {primary.map(({ href, label }) => {
+        const active = accountLinkActive(pathname, href);
+        return <li key={href}><Link href={href} prefetch={false} aria-current={active ? "page" : undefined}
+          className={`inline-flex min-h-12 items-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-200 ease-stride focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${active ? "bg-foreground text-background" : "bg-muted hover:text-brand"}`}>
+          {label}
+        </Link></li>;
+      })}
+    </ul>
   </nav>;
 }

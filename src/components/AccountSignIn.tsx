@@ -74,7 +74,7 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
     </fieldset>}
     <p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className={`${message ? "rounded-lg bg-background p-4 " : ""}text-sm leading-relaxed ${failed ? "text-foreground" : "text-muted-foreground"}`}>{message}</p>
     {sent && <div className="space-y-6">
-      <p className="text-sm leading-relaxed text-muted-foreground">{next.startsWith("/account/services") ? "You’ll return to your coach application after verifying your email." : next.startsWith("/account/checkout/") ? "Your selected service is saved. You’ll return to it after signing in." : "The link will take you straight to your account."}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{next === "/account/athletes" ? "You’ll return to your coach invitation after verifying your email." : next.startsWith("/account/services") ? "You’ll return to your coach application after verifying your email." : next.startsWith("/account/checkout/") ? "Your selected service is saved. You’ll return to it after signing in." : "The link will take you straight to your account."}</p>
       <div className="space-y-4 border-t border-border pt-6">
         <p className="text-sm text-muted-foreground">No email yet? Check your spam or junk folder.</p>
         <button type="button" disabled={pending || cooldown > 0} className={button} onClick={() => void requestLink()}>{pending ? "Requesting your link…" : cooldown > 0 ? `Resend available in ${cooldown}s` : "Resend email link"}</button>

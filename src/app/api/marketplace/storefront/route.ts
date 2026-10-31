@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     let body;
     try { body = JSON.parse(await paymentBody(request, 16384)); } catch (error) { if (error instanceof PaymentError) throw error; throw new MarketplaceError("Invalid form data.", 400); }
     const input = parseStorefrontAction(body);
-    if (input.action === "profile" || input.action === "offer") {
+    if (input.action === "profile" || input.action === "offer" || input.action === "publication") {
       const result = await saveStorefront(actor, input);
       if (result.notification) { const notification = result.notification; try { after(() => notifyMarketplaceReview(notification)); } catch { console.error("Storefront review notification could not be scheduled."); } }
       return NextResponse.json({ saved: true }, { headers });

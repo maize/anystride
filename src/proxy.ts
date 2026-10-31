@@ -22,4 +22,4 @@ export default async function proxy(request: NextRequest) {
   return response;
 }
 
-export const config = { matcher: ["/account/:path*", "/api/marketplace/:path*"] };
+export const config = { matcher: ["/account/:path*", "/api/marketplace/:path*", "/api/strava/connect", "/api/strava/callback", "/api/strava/activities"] };

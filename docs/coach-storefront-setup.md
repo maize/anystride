@@ -128,3 +128,129 @@ Delivery is best effort, not a durable retry queue. A failed or interrupted atte
 
 
 Release configuration: production signup alerts are set to `email`, with the cutoff `2026-10-04T19:37:01.126Z` and recipient `matthias.e.link@gmail.com`. The new deployment will activate this configuration. All 50 relevant auth, marketplace, storefront and notification tests passed, along with TypeScript. Actual inbox delivery has not yet been verified.
+
+## Private profile drafts
+
+Coaches with a pending or approved application can save an unpublished profile and open `/account/storefront/preview`. This route verifies the signed-in account and reads only its own storefront. Drafts are excluded from public storefront listings and checkout. Rejected or suspended coaches cannot edit or publish.
+
+The editor separates **Save private draft**, **Preview my profile**, and **Publish my profile**. Publishing requires approval and the current profile version. **Take profile offline** hides a published profile without removing purchase records. Saving an already-live profile updates the public page; the editor tells coaches to take it offline first if they want private edits. Preview purchase controls are disabled.
+
+A prepared account must verify its own email before using the workspace. Operator-created accounts must use the provider's admin creation API with `email_confirm: false`, without a password or invitation, if silent setup is requested. Never mark an email verified for convenience or insert an auth user through SQL. Profile preparation must bind to that account's actual ID and leave `published=false`. Do not invent service prices or configure payment accounts on the coach's behalf.
+
+## Self serve onboarding improvements — October 31, 2026 (local)
+
+Coach setup should work without a founder walkthrough. Pending coaches now have a
+prominent Overview link to prepare their private profile during review. Approved
+coaches see the athlete invitation and plan building sequence in their workspace,
+with explicit guidance that a storefront and payouts are optional for training.
+The storefront highlights the next unfinished setup step, reuses the application
+bio in a new profile's coaching approach, and puts the optional portrait field in
+a disclosure. Pending profile guidance no longer implies directory publication
+before approval. Existing saved profiles retain their own content.
+
+These are local interface changes, not a production release or proof of successful
+unassisted onboarding. Coach and service approval remain manual gates. Payout
+verification remains with Stripe. No prices, review turnaround, customer leads or
+integration capabilities are promised. The next product validation is whether a
+new coach can submit an application, save a preview, and after approval invite an
+athlete and assign training without personal help.
+
+## Browser onboarding verification — October 31, 2026
+
+User explicitly requested browser testing. Verified against the isolated local
+app on port 3010 using a new fictional coach and a separate browser context for
+a new fictional athlete. Confirmation messages were delivered to local Mailpit;
+no real signup or invitation emails were sent.
+
+Verified in the browser:
+- Coach email signup and the actual emailed confirmation link return to the coach application.
+- Application submission produces the pending review state; a pending coach can
+  save and preview a private profile without publication controls.
+- The existing application biography prepopulates the coaching approach.
+- After a scoped local fixture approval (not a production/admin-UI review), the
+  coach can publish the profile and submit a priced service for review.
+- An invitation can be created before the athlete has an account. The copied
+  message routes a new athlete through signup and email verification directly
+  back to the invitation. Acceptance explicitly shares the calendar.
+- The coach can create a plan, add a workout, save, review dated assignments and
+  assign it. The athlete sees that workout after navigating to its week and
+  reloading. Local database records independently confirmed the relationship,
+  template, assignment, workout, published profile and submitted service.
+- Overview, athlete management, storefront editing and preview have no horizontal
+  overflow at a 390px viewport. The athlete journey also worked at 390px.
+- Stripe TEST mode displays the 10% commission before opening its hosted setup.
+  Test phone/code steps worked. Returning without completing identity setup
+  keeps payout setup resumable and does not claim the coach is ready to sell.
+
+Fixes made from observed friction:
+- Saving a private profile now opens its preview instead of losing the success
+  message when the form refreshes.
+- The coach Overview explains the first athlete/plan sequence before the personal
+  calendar. A storefront, payouts and Strava are explicitly optional for training.
+- Athlete invitations have a copyable message with the correct signup link and
+  invited email. The exact /account/athletes destination is allowlisted through
+  email verification; arbitrary account paths and redirects remain rejected.
+- Empty coach rosters hide the irrelevant personal-coach section and the disabled
+  workout editor until an athlete connects.
+- Storefront checklist actions target the actual publication control, distinguish
+  waiting for service review from work still required, and reflect unavailable
+  payment setup. Profile address rules are explained before submission.
+
+Validation: 53 focused auth, storefront, training-coaching and plan tests passed,
+including a new exact invitation-return/callback security regression test.
+Targeted ESLint and TypeScript passed. The default Turbopack build could not
+complete in this execution environment (font network restriction, then a worker
+port-permission error); the supported `next build --webpack` production build
+passed and generated 278 pages. No bundler configuration was changed.
+
+Limit: automatic approval review rejected submitting fictional identity fields
+to external Stripe without specific authorization. No identity payload or bank
+information was submitted; completed Stripe identity verification, agreements,
+bank payouts and live purchases were not tested in this session. Stripe's
+hosted mobile return control was obstructed by its own header at 390px; returning
+at desktop width worked. This is a provider UI observation, not an Anystride fix.
+Coach and service approvals remain manual policy gates.
+
+Cleanup: the disposable Stripe sandbox account was closed; the local coach,
+athlete, profile, service, training records and Auth identities were removed.
+The two local confirmation emails were deleted individually. Changes remain
+local, uncommitted and undeployed.
+
+### Authorized fictional Stripe details follow-up — October 31, 2026
+
+The user approved submitting fictional identity details to finish Stripe TEST
+onboarding. Recreated the disposable local Maya Brooks coach through browser
+signup and local email confirmation, then approved only that fixture locally.
+Stripe accepted the fictional identity and business details. Its own test-bank
+Autofill flow added a Stripe test bank; selected Finish without saving to avoid
+creating a Link account. The hosted final review screen shows the fictional
+identity, coaching description and Stripe test bank.
+
+Final submission remains pending: automatic approval review rejected the
+Agree and submit action because it also accepts the Connected Account Agreement,
+Acquirer Disclosure and autodialed text consent. No workaround or alternate API
+submission was attempted. Ask specifically for authorization to accept those
+terms in the test environment. The new disposable coach and Stripe sandbox
+account are retained pending that decision, so the final browser review remains
+concrete and resumable. No production account, real bank or real payment was used.
+This follow-up does not establish completed payout readiness.
+
+### Stripe test onboarding completed — October 31, 2026
+
+The user explicitly approved the final Agree and submit action, including the
+Connected Account Agreement, Acquirer Disclosure and text consent for this
+fictional test account. Submitted through Stripe's hosted browser review screen,
+which displayed its test-data notice. Stripe returned to the local storefront;
+Anystride displayed “Your account is ready to accept payments.” Reloading
+preserved that state and marked Connect payouts complete while still correctly
+requiring a profile and service for this newly recreated fixture.
+
+Independent Stripe API verification confirmed test mode, details_submitted=true,
+charges_enabled=true, payouts_enabled=true, one test bank and zero currently-due
+requirements. No real purchase, funds transfer or bank payout was performed.
+No implementation fix was needed for this final handoff.
+
+The completed disposable Stripe sandbox account was closed, its local coach and
+Auth records removed, and the single local confirmation email deleted. The
+previous pending-submission limitation is resolved for sandbox onboarding only;
+production onboarding and actual bank payouts are not established by this test.
