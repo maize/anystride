@@ -1872,4 +1872,90 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "heart-rate-training-for-runners",
+    title: "Heart Rate Training for Runners: Zones, Benefits, and How to Start",
+    description:
+      "How to use heart rate zones to pace your training, why most runners run too hard on easy days, and how a monitor improves every distance.",
+    targetQuery: "heart rate training for runners / running heart rate zones",
+    updated: "2026-10-26",
+    intro: [
+      "Heart rate training ties your effort to a number your body actually produces rather than a pace you hope to hit. It reveals when easy runs are too hard, ensures quality sessions are hard enough, and provides objective feedback as your fitness changes across a training cycle.",
+      "The concept is straightforward. The execution requires patience at first — easy runs will feel embarrassingly slow when you start — but runners who commit to it consistently run smarter, recover better, and arrive at goal races in better shape.",
+    ],
+    sections: [
+      {
+        heading: "Why heart rate over pace?",
+        body: [
+          "Pace tells you how fast you are moving; heart rate tells you how hard your body is working to do it. On a hot day, at altitude, or after a night of poor sleep, the same pace costs significantly more cardiovascular effort. A heart rate monitor accounts for those variables automatically — the easy-run zone stays the easy-run zone regardless of conditions.",
+          "The most common error heart rate training corrects is running easy days too hard. Studies of trained runners consistently find that the majority run their recovery and base miles at an intensity that is too high to be truly aerobic and too low to provide a real training stimulus. Heart rate keeps the easy work genuinely easy, which protects recovery and lets the hard workouts land with full force.",
+        ],
+      },
+      {
+        heading: "The five heart rate zones",
+        body: [
+          "Heart rate zones divide your training intensity from fully aerobic recovery to all-out sprint. Most zone systems use five levels based on a percentage of your maximum heart rate (HRmax). Your HRmax can be estimated with the formula 220 minus age, though direct measurement from a hard race or field test is more accurate.",
+        ],
+        bullets: [
+          "Zone 1 (50-60% HRmax): recovery effort — brisk walk or very easy jog.",
+          "Zone 2 (60-70% HRmax): aerobic base — easy runs, long runs, most of your weekly mileage.",
+          "Zone 3 (70-80% HRmax): tempo — comfortably hard, around marathon to half-marathon effort.",
+          "Zone 4 (80-90% HRmax): threshold — hard, around 10K effort, interval work.",
+          "Zone 5 (90-100% HRmax): maximum — all-out sprints, brief rep work.",
+        ],
+      },
+      {
+        heading: "Zone 2: the zone that matters most",
+        body: [
+          "Zone 2 is where the majority of distance running happens, and where the aerobic engine gets built. Running at 60 to 70 percent of HRmax stimulates mitochondrial density in muscle cells, improves fat oxidation, and raises the aerobic base that every faster effort depends on.",
+          "Zone 2 feels slow. For many runners starting heart rate training, a Zone 2 effort means slowing down by one to two minutes per mile compared to their usual easy pace. That is not a fitness problem — it is evidence that their usual easy pace was not easy at all. The adaptation is worth the patience: after several weeks of genuine Zone 2 work, pace at the same heart rate improves noticeably.",
+          "The anystride pace calculator at /calculator gives you training paces from a recent race time. Compare your computed easy pace to your Zone 2 ceiling — they should roughly match. If your easy-pace target is faster than what keeps you in Zone 2, use heart rate rather than pace on easy days.",
+        ],
+      },
+      {
+        heading: "How to build your training week around zones",
+        body: [
+          "A well-structured training week follows the 80/20 rule: roughly 80 percent of total mileage at Zone 1 and 2, and 20 percent at Zone 3 through 5. This distribution maximizes aerobic development while keeping accumulated fatigue manageable.",
+          "Easy days — recovery runs, base-building runs, and most of your long run — target Zone 2. Quality workouts — tempo runs, interval sessions, marathon-pace work — push into Zone 3 and 4. Reserve Zone 5 for brief strides and race efforts.",
+          "Plans built on progressive mileage — like base-building-4-week, higdon-half-novice-1, or pfitzinger-18-55 — naturally reflect this structure. The labeled easy days in those plans should genuinely stay easy, and heart rate gives you an objective check that they do.",
+        ],
+      },
+      {
+        heading: "Getting started with heart rate training",
+        body: [
+          "You need a heart rate monitor. Optical wrist-based monitors from most GPS watches are accurate enough for zone training, though chest straps give more reliable real-time data for interval work where heart rate responds with a lag.",
+          "Spend the first two weeks simply observing. Run your normal routes at your normal effort and note what zones you actually occupy. Most runners are surprised to find their easy runs sitting firmly in Zone 3. That observation alone is the case for changing how you train.",
+          "After the observation phase, set an alarm on your watch for your Zone 2 ceiling and commit to keeping easy runs below it for a full training block — at least six to eight weeks. Your pace in Zone 2 will improve. When it does, the tempo and interval sessions you layer on top will land on a stronger aerobic base, and the improvements at race pace will follow.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How do I find my maximum heart rate?",
+        a: "The formula 220 minus your age gives a rough estimate, but individual variation is large — some runners run 10 to 15 beats above or below their predicted max. A more reliable method: after a solid warmup, run the final stretch of a hard 5K all-out and note the highest reading your monitor captures. Use that number as your HRmax for zone calculations.",
+      },
+      {
+        q: "What heart rate should I run easy runs at?",
+        a: "Zone 2, which is roughly 60 to 70 percent of your maximum heart rate. For a runner with a 180 bpm max, that means keeping easy runs between 108 and 126 bpm. The pace that keeps you in that range will feel slower than you expect — that is normal and correct.",
+      },
+      {
+        q: "Does heart rate training work for beginners?",
+        a: "Especially well. New runners have no established pace reference for easy effort, and heart rate gives them an objective ceiling that prevents the most common new-runner mistake: running every session too hard, getting injured or burned out, and quitting. Starting with heart rate training builds the aerobic base that every other improvement depends on.",
+      },
+      {
+        q: "What is cardiac drift?",
+        a: "Cardiac drift is the gradual increase in heart rate during a long run even as pace stays constant. It happens because dehydration reduces plasma volume and the heart compensates by beating faster to maintain output. On runs over 90 minutes, some drift into a higher zone is normal. Stay hydrated and allow slight flexibility in your upper zone limit on long hot runs.",
+      },
+      {
+        q: "Should I use heart rate for all my workouts?",
+        a: "Heart rate is most useful for easy days, long runs, and tempo efforts. For short intervals at Zone 4 and 5, heart rate responds too slowly to be a reliable guide in real time — pace and perceived effort are better cues there. Use heart rate to govern the bulk of your training volume and reserve pace-based targets for quality sessions.",
+      },
+    ],
+    relatedPlans: [
+      "base-building-4-week",
+      "higdon-half-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+  },
 ];
