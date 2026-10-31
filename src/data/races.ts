@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-10-21";
+export const RACES_AS_OF = "2026-10-28";
 
 export const RACES: Race[] = [
   {
@@ -527,23 +527,25 @@ export const RACES: Race[] = [
     city: "Frankfurt",
     country: "Germany",
     distance: "Marathon",
-    why: "The 43rd Mainova Frankfurt Marathon assembles the fastest men\'s field in the event\'s history: European champion Amanal Petros hunts his own German record of 2:04:03, leading a start list where four athletes have personal bests under 2:05:00. Ethiopia\'s Zeineba Yimer heads a women\'s field with three starters under 2:20.",
+    why: "Ethiopia swept both Frankfurt titles on a wet October day. Jirata Dinki won the men\'s race in 2:05:26, with European champion Amanal Petros making history as the first German man on the Frankfurt podium in over 25 years (2:05:46). Zeineba Yimer won the women\'s race in 2:19:45, and Germany\'s Blanka Dörfel stunned with a 2:20:46 marathon debut.",
     watchUrl: "https://www.frankfurt-marathon.com/",
-    coverage: "field",
+    resultsUrl: "https://worldathletics.org/competitions/world-athletics-label-road-races/calendar-results/7246125/result",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-10-21",
-      sourceName: "Frankfurt Marathon official elite announcement",
-      sourceUrl: "https://www.frankfurt-marathon.com/",
+      checkedAt: "2026-10-28",
+      sourceName: "World Athletics results — Frankfurt Marathon 2026",
+      sourceUrl: "https://worldathletics.org/competitions/world-athletics-label-road-races/calendar-results/7246125/result",
     },
     men: [
-      { racer: "amanal-petros" },
-      { name: "Benard Biwott", country: "Kenya" },
-      { name: "Richard Ringer", country: "Germany" },
+      { racer: "jirata-dinki", place: 1, time: "2:05:26" },
+      { racer: "amanal-petros", place: 2, time: "2:05:46" },
+      { name: "Benard Biwott", country: "Kenya", place: 3, time: "2:06:23" },
     ],
     women: [
-      { name: "Zeineba Yimer", country: "Ethiopia" },
-      { name: "Blanka Dörfel", country: "Germany" },
+      { name: "Zeineba Yimer", country: "Ethiopia", place: 1, time: "2:19:45" },
+      { name: "Blanka Dörfel", country: "Germany", place: 2, time: "2:20:46" },
+      { name: "Beriha Gebreslasie", country: "Ethiopia", place: 3, time: "2:22:46" },
     ],
   },
   {
