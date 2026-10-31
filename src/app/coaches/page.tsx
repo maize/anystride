@@ -1,17 +1,16 @@
 import Link from "next/link";
+import { publicCoachProfileMerges } from "@/lib/coach-profile-merge-store";
 import type { Metadata } from "next";
 import {
   availableCitiesFor,
   availableFocusesFor,
-  filterCoachCatalog,
   getAllCoachesWithDiscovered,
 } from "@/lib/coaches";
+import { coachDirectoryCards } from "@/lib/coach-directory";
 import { citySlug } from "@/lib/slug";
 import { CoachCard } from "@/components/CoachCard";
 import { marketplacePublicCatalog, publicApprovedCoaches, type PublicMarketplaceService } from "@/lib/marketplace-store";
 import { publicStorefronts } from "@/lib/storefront-store";
-import { CoachApprovalBadge } from "@/components/CoachApprovalBadge";
-import { CoachPortrait } from "@/components/CoachPortrait";
 import {
   COACH_FOCUS_LABELS,
   COACH_FORMAT_LABELS,
@@ -54,7 +53,9 @@ export default async function CoachingPage({
   const pick = (v: string | string[] | undefined) =>
     Array.isArray(v) ? v[0] : v;
 
-  const catalog = await getAllCoachesWithDiscovered();
+  const [directory, merges] = await Promise.all([getAllCoachesWithDiscovered(), publicCoachProfileMerges()]);
+  const mergedSlugs = new Set(merges.filter((merge) => merge.status === "suspended").map((merge) => merge.directory_slug));
+  const catalog = directory.filter((coach) => !mergedSlugs.has(coach.slug));
   const cities = availableCitiesFor(catalog);
   const rawCity = pick(sp.city);
   const city = rawCity && cities.includes(rawCity) ? rawCity : undefined;
@@ -63,7 +64,6 @@ export default async function CoachingPage({
     ? (pick(sp.format) as CoachFormat)
     : undefined;
 
-  const coaches = filterCoachCatalog(catalog, { city, focus, format });
   const focuses = availableFocusesFor(catalog);
   const hasFilters = Boolean(city || focus || format);
   let services: PublicMarketplaceService[] = [];
@@ -72,14 +72,8 @@ export default async function CoachingPage({
   const [approvedCoaches, storefronts] = await Promise.all([
     publicApprovedCoaches().catch(() => []), publicStorefronts().catch(() => []),
   ]);
-  const storefrontSlugs = new Set(storefronts.map((profile) => profile.slug));
-  // An application has no structured location, focus or format. Do not invent filter matches.
-  const basicProfiles = hasFilters ? [] : approvedCoaches.filter((coach) => !coach.slug || !storefrontSlugs.has(coach.slug));
-  const matchingStorefronts = storefronts.filter((profile) =>
-    (!city || profile.location.toLowerCase().split(/[,·]/).some((part) => part.trim() === city.toLowerCase())) &&
-    (!focus || profile.specialties.some((specialty) => specialty.toLowerCase() === COACH_FOCUS_LABELS[focus].toLowerCase())) &&
-    (!format || (format === "online" && profile.location.toLowerCase() === "online")));
-  const profileCount = coaches.length + basicProfiles.length + matchingStorefronts.length;
+  const cards = coachDirectoryCards(directory, approvedCoaches, storefronts, merges, { city, focus, format });
+  const profileCount = cards.length;
   const storefrontServices = new Set(storefronts.flatMap((profile) => profile.service_ids));
   services = services.filter((service) => !storefrontServices.has(service.id));
 
@@ -171,21 +165,7 @@ export default async function CoachingPage({
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
-            {matchingStorefronts.map((profile) => <Link key={`storefront:${profile.slug}`} href={`/coaching/with/${profile.slug}`} className="group flex min-w-0 flex-col rounded-2xl bg-muted p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:ring-1 hover:ring-border">
-              <div className="flex items-start gap-4"><CoachPortrait compact name={profile.name} src={profile.photo_url} /><div className="min-w-0"><h3 className="break-words text-xl font-semibold tracking-tight group-hover:text-brand">{profile.name}</h3><p className="mt-2 text-sm text-muted-foreground">{profile.location}</p></div></div>
-              <div className="mt-4"><CoachApprovalBadge /></div>
-              <p className="mt-6 flex-1 text-sm leading-relaxed text-muted-foreground">{profile.headline}</p>
-              <p className="mt-6 text-sm font-semibold text-brand">View profile & services ↗</p>
-            </Link>)}
-            {basicProfiles.map((coach, index) => <article key={`approved:${index}`} className="min-w-0 rounded-2xl bg-muted p-6">
-              <h3 className="break-words text-xl font-semibold tracking-tight">{coach.name}</h3>
-              <div className="mt-4"><CoachApprovalBadge /></div>
-              <p className="mt-6 whitespace-pre-wrap break-words text-sm leading-relaxed text-muted-foreground">{coach.bio}</p>
-              <details className="mt-4"><summary className="cursor-pointer text-sm font-semibold hover:text-brand">Experience and qualifications</summary><p className="mt-3 whitespace-pre-wrap break-words text-sm text-muted-foreground">{coach.credentials}</p></details>
-            </article>)}
-            {coaches.map((coach) => (
-              <CoachCard key={coach.slug} coach={coach} />
-            ))}
+            {cards.map((card) => <CoachCard key={card.key} approved={card.approved} href={card.href} coach={card.coach} details={card.application && <><p className="whitespace-pre-wrap break-words">{card.application.bio}</p><h4 className="mt-4 font-semibold">Experience and qualifications</h4><p className="mt-2 whitespace-pre-wrap break-words text-muted-foreground">{card.application.credentials}</p></>} />)}
           </div>
         )}
         </section>

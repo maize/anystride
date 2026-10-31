@@ -108,8 +108,8 @@ export async function marketplacePublicCatalog(): Promise<PublicMarketplaceServi
 /** Only reviewed public fields; no email, account identifiers or private requests. */
 export async function publicApprovedCoaches() {
   if (!marketplaceEnabled()) return [];
-  const { rows } = await marketplacePool().query<{ name: string; bio: string; credentials: string; slug: string | null }>(`
-    SELECT c.name,c.bio,c.credentials,p.slug
+  const { rows } = await marketplacePool().query<{ name: string; bio: string; credentials: string; slug: string | null; directory_slug: string | null }>(`
+    SELECT c.name,c.bio,c.credentials,p.slug,(SELECT m.directory_slug FROM coach_profile_merges m WHERE m.coach_id=c.user_id ORDER BY m.created_at,m.directory_slug LIMIT 1) AS directory_slug
     FROM marketplace_coaches c
     LEFT JOIN marketplace_storefronts p ON p.coach_id=c.user_id AND p.published
     WHERE c.status='approved' ORDER BY c.name,c.user_id LIMIT 100`);

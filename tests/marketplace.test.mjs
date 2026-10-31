@@ -25,6 +25,7 @@ async function fixture(t) {
   await db.exec(readFileSync(new URL("../db/migrations/002_marketplace.sql", import.meta.url), "utf8"));
   await db.exec(readFileSync(new URL("../db/migrations/016_service_deletion.sql", import.meta.url), "utf8"));
   await db.exec(readFileSync(new URL("../db/migrations/016_service_deletion.sql", import.meta.url), "utf8"));
+  await db.exec(readFileSync(new URL("../db/migrations/017_coach_profile_merges.sql", import.meta.url), "utf8"));
   t.after(() => db.close());
   let released = 0;
   const query = (sql, params) => db.query(sql, params);
@@ -267,7 +268,7 @@ test("approved coaches are listed without services or a storefront; suspension r
   assert.equal(listing.bio, application.bio);
   assert.equal(listing.credentials, application.credentials);
   assert.equal(listing.slug, null);
-  assert.deepEqual(Object.keys(listing).sort(), ["bio", "credentials", "name", "slug"]);
+  assert.deepEqual(Object.keys(listing).sort(), ["bio", "credentials", "directory_slug", "name", "slug"]);
   await f.actOnMarketplace(admin, { action: "review", target: "coach", id: coach.id, version: 2, status: "suspended" });
   assert.equal((await f.publicApprovedCoaches()).length, 0);
 });

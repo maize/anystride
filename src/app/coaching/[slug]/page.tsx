@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getAllCoaches, getCoachBySlugWithDiscovered } from "@/lib/coaches";
 import { COACH_FOCUS_LABELS, COACH_FORMAT_LABELS } from "@/data/coaches";
+import { publicCoachProfileMerges } from "@/lib/coach-profile-merge-store";
+import { CoachApprovalBadge } from "@/components/CoachApprovalBadge";
 import { Avatar } from "@/components/Avatar";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -32,6 +34,10 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
   const { slug } = await params;
   const coach = await getCoachBySlugWithDiscovered(slug);
   if (!coach) notFound();
+
+  const merge = (await publicCoachProfileMerges()).find((entry) => entry.directory_slug === slug);
+  if (merge?.status === "suspended") notFound();
+  if (merge?.storefront_slug) redirect(`/coaching/with/${merge.storefront_slug}`);
 
   const url = `https://anystride.com/coaching/${coach.slug}`;
   const email = coach.link.startsWith("mailto:")
@@ -89,6 +95,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {coach.name}
           </h1>
+          {merge?.status === "approved" && <div className="mt-2"><CoachApprovalBadge /></div>}
           <p className="mt-1 text-sm text-muted-foreground">
             {coach.location} · {COACH_FORMAT_LABELS[coach.format]}
             {coach.experience ? ` · ${coach.experience}` : ""}
