@@ -1,3 +1,10 @@
-export default function LoadingAccount() {
-  return <div role="status" aria-label="Loading your account" className="space-y-8"><div className="h-8 w-48 rounded-lg bg-muted" /><div className="h-4 w-64 max-w-full rounded-lg bg-muted" /><div className="h-48 rounded-xl bg-muted" /><span className="sr-only">Loading your account…</span></div>;
+export default function WorkspaceLoading() {
+  return <div role="status" className="min-h-64 space-y-6">
+    <span className="sr-only">Loading your account page…</span>
+    <div aria-hidden="true" className="space-y-6 motion-safe:animate-pulse">
+      <div className="h-8 w-56 max-w-full rounded-lg bg-muted" />
+      <div className="h-4 w-96 max-w-full rounded-lg bg-muted" />
+      <div className="h-40 rounded-xl border border-border bg-muted/40" />
+    </div>
+  </div>;
 }

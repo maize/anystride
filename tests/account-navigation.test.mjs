@@ -27,3 +27,10 @@ test('Nested pages keep their parent selected without selecting Overview or simi
   }
   assert.equal(accountLinkActive('/account/plans-other','/account/plans'),false);assert.equal(accountLinkActive('/account','/account'),true);
 });
+
+test('Coach athlete calendars retain the Athletes parent while personal calendars select Training',()=>{
+  assert.equal(accountLinkActive('/account/training','/account/athletes',true),true);
+  assert.equal(accountLinkActive('/account/training','/account',true),false);
+  assert.equal(accountLinkActive('/account/training','/account/training',true),false);
+  assert.equal(accountLinkActive('/account/training','/account/training',false),true);
+});

@@ -16,7 +16,8 @@ export function accountNavigation({ training, coach, view = coach ? "coach" : "r
   return primary;
 }
 
-export function accountLinkActive(pathname: string, href: string) {
+export function accountLinkActive(pathname: string, href: string, athleteCalendar = false) {
+  if (pathname === "/account/training" && athleteCalendar) return href === "/account/athletes";
   if (href === "/account") return pathname === href;
   return pathname === href || pathname.startsWith(`${href}/`) ||
     (href === "/account/services" && pathname === "/account/enquiries") ||

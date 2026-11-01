@@ -1,3 +1,4 @@
+import { PageTransition } from "@/components/PageTransition";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
@@ -140,7 +141,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SiteHeader />
-        <main id="content" className="flex-1">{children}</main>
+        <main id="content" className="flex-1"><PageTransition>{children}</PageTransition></main>
         <Footer />
         <SiteAnalytics gaId={GA_ID} />
       </body>

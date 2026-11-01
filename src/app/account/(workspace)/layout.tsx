@@ -1,3 +1,4 @@
+import { PageTransition } from "@/components/PageTransition";
 import { accountActor, accountCoach, accountView } from "@/lib/account-data";
 import { marketplaceEnabled, MarketplaceError } from "@/lib/marketplace-config";
 import { AccountSignOut } from "@/components/AccountSignIn";
@@ -25,6 +26,6 @@ export default async function WorkspaceLayout({ children }: { children: React.Re
       </div>
     </header>
     <AccountNavigation training={trainingEnabled()} coach={coach?.status === "approved"} view={view} applicant={Boolean(coach && ["pending", "approved"].includes(coach.status))} />
-    <div className="pt-8 pb-4">{children}</div>
+    <div className="pt-8 pb-4"><PageTransition scope="account">{children}</PageTransition></div>
   </>;
 }
