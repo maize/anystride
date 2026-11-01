@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { JackAnsteyServicePreview } from "@/components/JackAnsteyServicePreview";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { publicCoachProfileMerges } from "@/lib/coach-profile-merge-store";
 import { getAllCoaches, getCoachBySlugWithDiscovered } from "@/lib/coaches";
 import { COACH_FOCUS_LABELS, COACH_FORMAT_LABELS } from "@/data/coaches";
-import { publicCoachProfileMerges } from "@/lib/coach-profile-merge-store";
 import { CoachApprovalBadge } from "@/components/CoachApprovalBadge";
 import { Avatar } from "@/components/Avatar";
 import { JsonLd } from "@/components/JsonLd";
@@ -15,9 +16,11 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params,
+  params, searchParams,
 }: PageProps<"/coaching/[slug]">): Promise<Metadata> {
   const { slug } = await params;
+  const query = await searchParams;
+  if (slug === "jack-anstey" && query.preview === "services") return { title: "Jack Anstey — Service layout preview", description: "Example coaching service layout. Offers and prices are unconfirmed and purchases are disabled.", robots: { index: false, follow: false }, alternates: { canonical: "/coaching/jack-anstey" } };
   const coach = await getCoachBySlugWithDiscovered(slug);
   if (!coach) return { title: "Coach not found" };
   return {
@@ -30,8 +33,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function CoachPage({ params }: PageProps<"/coaching/[slug]">) {
+export default async function CoachPage({ params, searchParams }: PageProps<"/coaching/[slug]">) {
   const { slug } = await params;
+  const query = await searchParams;
+  if (slug === "jack-anstey" && query.preview === "services") return <JackAnsteyServicePreview />;
   const coach = await getCoachBySlugWithDiscovered(slug);
   if (!coach) notFound();
 
@@ -159,7 +164,7 @@ export default async function CoachPage({ params }: PageProps<"/coaching/[slug]"
       </div>
 
       {/* Listing disclosure */}
-      {!coach.verified && (
+      {!coach.verified && !merge && (
         <div className="mt-6 rounded-xl border border-border bg-muted p-4 text-sm text-muted-foreground">
           {coach.editoriallyReviewed && <>Reviewed by Anystride for directory publication, not verification of ownership or an endorsement. </>}
           This unclaimed public profile was compiled from{" "}

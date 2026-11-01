@@ -15,6 +15,8 @@ interface ReviewRow {
 }
 export interface ImportedCoachReview extends ImportedCoachCandidate {
   status: "unreviewed" | "draft" | "published" | "hidden";
+  contactEmail?: string;
+  merged?: boolean;
   version: number; notes: string; reviewedAt: string | null; sourceChanged: boolean;
   visible: boolean;
 }
@@ -51,10 +53,14 @@ async function rows() {
 export async function importedCoachReviews(actor: MarketplaceActor): Promise<ImportedCoachReview[]> {
   requireAdmin(actor);
   const saved = new Map((await rows()).map((row) => [row.entry_key, row]));
+  const contacts = await marketplaceTransaction(async (db) => (await db.query<{ directory_slug: string; email: string }>("SELECT directory_slug,email FROM coach_profile_contacts")).rows);
+  const contactBySlug = new Map(contacts.map((contact) => [contact.directory_slug, contact.email]));
+  const merges = await marketplaceTransaction(async (db) => (await db.query<{ directory_slug: string }>("SELECT directory_slug FROM coach_profile_merges")).rows);
+  const mergedSlugs = new Set(merges.map((merge) => merge.directory_slug));
   return importedCoachCandidates.map((entry) => {
     const row = saved.get(entry.key);
     return {
-      ...entry, profile: row?.profile ?? entry.profile,
+      ...entry, merged: mergedSlugs.has(entry.slug), contactEmail: contactBySlug.get(entry.slug) ?? "", profile: row?.profile ?? entry.profile,
       status: row?.status ?? "unreviewed", version: row?.version ?? 0, notes: row?.notes ?? "",
       reviewedAt: row ? new Date(row.reviewed_at).toISOString() : null,
       sourceChanged: Boolean(row && row.source_revision !== entry.sourceRevision),
@@ -109,6 +115,12 @@ export async function reviewImportedCoach(actor: MarketplaceActor, input: Import
       version=EXCLUDED.version,source_revision=EXCLUDED.source_revision,last_request_hash=EXCLUDED.last_request_hash,
       reviewed_by=EXCLUDED.reviewed_by,reviewed_at=now()`,
     [input.key, input.status, profile ? JSON.stringify(profile) : null, input.notes, input.version + 1, input.sourceRevision, hash, actor.id]);
+    if (input.contactEmail !== undefined) {
+      await client.query("SELECT pg_advisory_xact_lock(hashtextextended($1,0))", [`coach-profile-merge:${entry.slug}`]);
+      if (input.contactEmail) await client.query(`INSERT INTO coach_profile_contacts(directory_slug,email,updated_by) VALUES($1,$2,$3)
+        ON CONFLICT(directory_slug) DO UPDATE SET email=EXCLUDED.email,updated_by=EXCLUDED.updated_by,updated_at=now()`, [entry.slug, input.contactEmail, actor.id]);
+      else await client.query("DELETE FROM coach_profile_contacts WHERE directory_slug=$1", [entry.slug]);
+    }
     await client.query("INSERT INTO marketplace_audit (actor_id,action,target_id) VALUES ($1,$2,$3)", [actor.id, `imported-coach:${input.status}`, input.key]);
     return { saved: true };
   });

@@ -1,12 +1,28 @@
 import { NextResponse } from "next/server";
 import { accountAuthClient } from "@/lib/supabase-server";
-import { MarketplaceError, marketplaceInvited, marketplaceOrigin } from "@/lib/marketplace-config";
+import { MarketplaceError, marketplaceEnabled, marketplaceInvited, marketplaceOrigin } from "@/lib/marketplace-config";
 import { paymentBody } from "@/lib/payment-http";
 import { PaymentError } from "@/lib/payment-config";
+import { accountViewCookie, accountViewCookieOptions } from "@/lib/account-view";
 import { checkoutReturnCookie, checkoutReturnPath } from "@/lib/account-return";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer", "X-Robots-Tag": "noindex" };
+
+// A boolean-only, uncached response keeps public pages static and credentials HttpOnly.
+export async function GET() {
+  if (!marketplaceEnabled()) return NextResponse.json({ signedIn: false }, { headers });
+  try {
+    const supabase = await accountAuthClient();
+    const { data: { user }, error } = await supabase.auth.getUser();
+    if (error && (!error.status || error.status >= 500)) {
+      return NextResponse.json({ error: "Account service unavailable." }, { status: 503, headers });
+    }
+    return NextResponse.json({ signedIn: Boolean(!error && user?.email_confirmed_at && !user.is_anonymous) }, { headers });
+  } catch {
+    return NextResponse.json({ error: "Account service unavailable." }, { status: 503, headers });
+  }
+}
 
 export async function POST(request: Request) {
   try {
@@ -15,6 +31,9 @@ export async function POST(request: Request) {
       const response = NextResponse.json({ requested: true }, { headers });
       const path = checkoutReturnPath(next);
       response.cookies.set(checkoutReturnCookie, path === "/account" ? "" : path, { httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax", path: "/account", maxAge: path === "/account" ? 0 : 3600 });
+      if (next === undefined) response.cookies.set(accountViewCookie, "", { ...accountViewCookieOptions(origin.startsWith("https:")), maxAge: 0 });
+      else if (path === "/account/runner" || path === "/account/athletes" || path.startsWith("/account/checkout/")) response.cookies.set(accountViewCookie, "runner", accountViewCookieOptions(origin.startsWith("https:")));
+      else if (path === "/account/coach" || path.startsWith("/account/services")) response.cookies.set(accountViewCookie, "coach", accountViewCookieOptions(origin.startsWith("https:")));
       return response;
     };
     if (request.headers.get("origin") !== origin) throw new MarketplaceError("Use the Anystride account page.", 403);

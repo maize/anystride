@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Your coaching account",
-  description: "Manage your Anystride coaching application, services and requests.",
+  title: "Your Anystride account",
+  description: "Manage your training calendar, coaching, plans and connected activities.",
   robots: { index: false, follow: false },
   referrer: "no-referrer",
 };

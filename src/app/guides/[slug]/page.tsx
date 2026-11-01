@@ -37,6 +37,8 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
     .filter((p) => p !== undefined);
 
   const url = `https://anystride.com/guides/${guide.slug}`;
+  const isPlanSelectionGuide = guide.slug === "how-to-choose-a-training-plan";
+  const isCadenceGuide = guide.slug === "running-cadence";
 
   return (
     <article className="mx-auto max-w-3xl px-5 py-12">
@@ -148,19 +150,33 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
         </section>
       )}
 
-      {/* Calculator CTA */}
+      {/* Next step */}
       <div className="mt-10 flex flex-col gap-3 rounded-xl border border-border bg-muted p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-semibold">Get your personal numbers</p>
+          <p className="font-semibold">
+            {isPlanSelectionGuide
+              ? "Compare the plans on your shortlist"
+              : isCadenceGuide
+                ? "Build a week that fits your running"
+                : "Get your personal numbers"}
+          </p>
           <p className="mt-0.5 text-sm text-muted-foreground">
-            Training paces, predicted times, and the plans that fit you.
+            {isPlanSelectionGuide
+              ? "Compare weekly time, running days and what each plan expects before you start."
+              : isCadenceGuide
+                ? "Browse plans by distance and starting point, then use cadence only if it helps answer a specific form question."
+                : "Training paces, predicted times, and the plans that fit you."}
           </p>
         </div>
         <Link
-          href="/calculator"
+          href={isPlanSelectionGuide ? "/compare" : isCadenceGuide ? "/plans" : "/calculator"}
           className="shrink-0 rounded-full bg-brand px-5 py-2 text-sm font-medium text-brand-foreground hover:opacity-90"
         >
-          Open the calculator →
+          {isPlanSelectionGuide
+            ? "Compare training plans →"
+            : isCadenceGuide
+              ? "Explore training plans →"
+              : "Open the calculator →"}
         </Link>
       </div>
 

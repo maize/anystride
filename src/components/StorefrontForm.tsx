@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const subscribe = () => () => {};
 export const storefrontButton = "action-primary disabled:cursor-not-allowed disabled:opacity-50";
 
-export function StorefrontForm({ action, fields, children, button }: { action: "profile" | "offer"; fields: Record<string,string|number>; children: ReactNode; button: string }) {
+export function StorefrontForm({ action, fields, children, button, previewAfterSave = false }: { action: "profile" | "offer"; fields: Record<string,string|number>; children: ReactNode; button: string; previewAfterSave?: boolean }) {
   const router = useRouter();
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const [pending, setPending] = useState(false);
@@ -35,6 +35,7 @@ export function StorefrontForm({ action, fields, children, button }: { action: "
       const response = await fetch("/api/marketplace/storefront", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(20000) });
       const result = await response.json();
       if (!response.ok || !result.saved) throw new Error(result.error || "We couldn’t save your changes.");
+      if (action === "profile" && previewAfterSave) { router.push("/account/storefront/preview"); router.refresh(); return; }
       setSaved(true); setMessage(action === "profile" ? "Profile saved." : "Service saved and sent for review."); router.refresh();
     } catch (error) { setFailed(true); setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "The request timed out. Refresh to check whether it was saved before trying again."); }
     finally { busy.current = false; setPending(false); status.current?.focus(); }
@@ -42,7 +43,7 @@ export function StorefrontForm({ action, fields, children, button }: { action: "
   return <form onSubmit={submit} className="space-y-6"><fieldset disabled={!hydrated || pending || saved} className="space-y-6">{children}<button className={storefrontButton}>{pending ? "Saving…" : saved ? "Saved" : button}</button></fieldset><p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className="text-sm text-muted-foreground">{message}</p><noscript>Enable JavaScript to save your storefront.</noscript></form>;
 }
 
-export function StorefrontActionButton({ action, fields = {}, children }: { action: "checkout" | "payouts" | "dashboard" | "reconcile" | "cancel"; fields?: Record<string,string|number>; children: ReactNode }) {
+export function StorefrontActionButton({ action, fields = {}, children }: { action: "checkout" | "payouts" | "dashboard" | "reconcile" | "cancel" | "publication"; fields?: Record<string,string|number|boolean>; children: ReactNode }) {
   const router = useRouter();
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const busy = useRef(false);
@@ -74,7 +75,7 @@ export function StorefrontActionButton({ action, fields = {}, children }: { acti
         const url = new URL(result.url, window.location.origin);
         if (!((url.origin === window.location.origin && url.pathname.startsWith("/account/orders/")) || ["https://checkout.stripe.com","https://connect.stripe.com"].includes(url.origin))) throw new Error("Could not open the payment page.");
         window.location.assign(url.href);
-      } else { setMessage("Payment status checked."); router.refresh(); }
+      } else { setMessage(action === "publication" ? fields.published ? "Profile published." : "Profile is now private." : "Payment status checked."); router.refresh(); }
     } catch (error) { setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "This is taking longer than expected. Try again; your checkout will be reused."); }
     finally { busy.current = false; setPending(false); }
   }

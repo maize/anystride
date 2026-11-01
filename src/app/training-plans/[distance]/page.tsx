@@ -24,6 +24,15 @@ function isDistance(v: string): v is Distance {
   return (DISTANCE_ORDER as string[]).includes(v);
 }
 
+const FIVE_K_GUIDE_ORDER = [
+  "couch-to-5k-guide",
+  "run-walk-method",
+  "how-long-to-train-for-a-race",
+  "base-building-for-runners",
+  "rest-days-for-runners",
+  "strength-training-for-runners",
+];
+
 export async function generateMetadata({
   params,
 }: PageProps<"/training-plans/[distance]">): Promise<Metadata> {
@@ -53,6 +62,9 @@ export default async function DistanceHubPage({
   const guides = getAllGuides().filter((g) =>
     (g.relatedPlans ?? []).some((s) => planSlugs.has(s)),
   );
+  const relevantGuides = distance === "5k"
+    ? FIVE_K_GUIDE_ORDER.flatMap((slug) => guides.filter((guide) => guide.slug === slug))
+    : guides;
   const url = `https://anystride.com/training-plans/${distance}`;
 
   return (
@@ -99,19 +111,31 @@ export default async function DistanceHubPage({
         </div>
       </section>}
 
+      {distance === "5k" && <section aria-labelledby="5k-plan-questions" className="mt-8 max-w-3xl space-y-4">
+        <h2 id="5k-plan-questions" className="text-xl font-semibold">Before choosing a free 5K training plan</h2>
+        <details>
+          <summary className="cursor-pointer font-medium">Which plan can I follow without an account?</summary>
+          <p className="mt-2 text-muted-foreground">The complete Couch to 5K and Base Building schedules are free to read here. Choose a plan card marked “Complete schedule” to see its sessions. Method overviews link to the original provider for the full schedule.</p>
+        </details>
+        <details>
+          <summary className="cursor-pointer font-medium">Does Couch to 5K guarantee a 5K in 30 minutes?</summary>
+          <p className="mt-2 text-muted-foreground">No. The nine-week schedule builds toward 30 minutes of continuous running. The distance covered in that time depends on your pace.</p>
+        </details>
+      </section>}
+
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map((plan) => (
           <PlanCard key={plan.slug} plan={plan} />
         ))}
       </div>
 
-      {guides.length > 0 && (
+      {relevantGuides.length > 0 && (
         <section className="mt-12 border-t border-border pt-8">
           <h2 className="text-xl font-semibold tracking-tight">
             {label} training guides
           </h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {guides.map((guide) => (
+            {relevantGuides.map((guide) => (
               <Link
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}

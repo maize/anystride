@@ -4,19 +4,47 @@ import type { Enquiry } from "./enquiries";
 let tableReady = false;
 async function ensureTable() {
   if (tableReady) return;
-  await getPool().query(`
-    CREATE TABLE IF NOT EXISTS commercial_enquiries (
-      id UUID PRIMARY KEY,
-      kind TEXT NOT NULL CHECK (kind IN ('coach_match', 'partnership')),
-      name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      details JSONB NOT NULL,
-      consent_version TEXT NOT NULL,
-      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-    )
-  `);
-  await getPool().query("CREATE INDEX IF NOT EXISTS commercial_enquiries_created_idx ON commercial_enquiries (created_at DESC)");
-  tableReady = true;
+  const client = await getPool().connect();
+  try {
+    await client.query("BEGIN");
+    await client.query("SET LOCAL lock_timeout = '3s'");
+    await client.query("SET LOCAL statement_timeout = '5s'");
+    await client.query("SELECT pg_advisory_xact_lock(7162032)");
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS public.commercial_enquiries (
+        id UUID PRIMARY KEY,
+        kind TEXT NOT NULL CHECK (kind IN ('coach_match', 'partnership')),
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        details JSONB NOT NULL,
+        consent_version TEXT NOT NULL,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      )
+    `);
+    await client.query("CREATE INDEX IF NOT EXISTS commercial_enquiries_created_idx ON public.commercial_enquiries (created_at DESC)");
+    // New tables must never commit with Supabase's default browser grants.
+    await client.query("ALTER TABLE public.commercial_enquiries ENABLE ROW LEVEL SECURITY");
+    await client.query("REVOKE ALL PRIVILEGES ON TABLE public.commercial_enquiries FROM PUBLIC");
+    // Plain PostgreSQL development databases may not have Supabase's roles.
+    await client.query(`
+      DO $$
+      DECLARE browser_role TEXT;
+      BEGIN
+        FOREACH browser_role IN ARRAY ARRAY['anon', 'authenticated'] LOOP
+          IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = browser_role) THEN
+            EXECUTE format('REVOKE ALL PRIVILEGES ON TABLE public.commercial_enquiries FROM %I', browser_role);
+          END IF;
+        END LOOP;
+      END $$
+    `);
+    await client.query("COMMIT");
+    tableReady = true;
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+  } finally {
+    client.release();
+  }
 }
 
 /** Durable deduplication and conservative pilot limits, shared across server instances. */

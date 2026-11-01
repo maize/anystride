@@ -149,8 +149,9 @@ test("guides, sitemap and redirect agree on the single canonical fueling page", 
   assert.equal(new Set(sitemap.map((entry) => entry.url)).size, sitemap.length);
   assert.equal(sitemap.some((entry) => entry.url.endsWith("/coaching/with/example-coach")), true);
   const redirects = await load("next.config.ts").default.redirects();
-  assert.equal(redirects[0].destination, `/guides/${guide.slug}`);
-  assert.equal(redirects[0].permanent, true);
+  const fuelingRedirect = redirects.find((redirect) => redirect.source === "/guides/fueling-long-runs");
+  assert.equal(fuelingRedirect.destination, `/guides/${guide.slug}`);
+  assert.equal(fuelingRedirect.permanent, true);
 });
 
 test("weekly report uses complete days and reports zero-count product events", async () => {

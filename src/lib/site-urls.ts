@@ -25,6 +25,8 @@ function distancesWithPlans(): string[] {
 function sitePaths(coachSlugs: string[], coachCities: string[]): string[] {
   const staticPaths = [
     "/",
+    "/for-coaches",
+    "/pricing",
     "/plans",
     "/guides",
     "/races",

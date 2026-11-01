@@ -1,6 +1,7 @@
 import "server-only";
 import { isIP } from "node:net";
 import { FOCUS_ORDER, type Coach, type CoachFormat } from "@/data/coaches";
+import { normalizeCoachEmail } from "./coach-profile-merge-input";
 import { MarketplaceError } from "./marketplace-config";
 
 function invalid(message = "Check the imported coach details and try again."): never { throw new MarketplaceError(message, 400); }
@@ -51,7 +52,7 @@ export function parseImportedCoachDetails(value: unknown): ImportedCoachDetails 
 
 export function parseImportedCoachAction(value: unknown) {
   const p = object(value);
-  fields(p, ["key", "version", "sourceRevision", "status", "profile", "notes", "confirmSource"]);
+  fields(p, ["key", "version", "sourceRevision", "status", "profile", "notes", "confirmSource", "contactEmail"]);
   const key = text(p.key, 110);
   if (!/^vdot:[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) invalid();
   if (!Number.isInteger(p.version) || Number(p.version) < 0 || Number(p.version) > 2147483646) invalid();
@@ -62,7 +63,10 @@ export function parseImportedCoachAction(value: unknown) {
   if (status === "published" && p.confirmSource !== true) invalid("Confirm that you checked the source before publishing.");
   if (p.confirmSource !== undefined && typeof p.confirmSource !== "boolean") invalid();
   if (status === "hidden" && p.profile !== undefined) invalid();
+  const contactEmail = p.contactEmail === undefined ? undefined : p.contactEmail === "" ? "" : normalizeCoachEmail(p.contactEmail);
+  if (contactEmail === null) invalid("Enter a valid private contact email.");
   return {
+    ...(contactEmail !== undefined ? { contactEmail } : {}),
     key, version: Number(p.version), sourceRevision, status, notes: text(p.notes ?? "", 1000, 0),
     profile: status === "hidden" ? undefined : parseImportedCoachDetails(p.profile),
   };

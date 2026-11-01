@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // OAuth codes and webhook verification secrets must stay out of dev logs.
+  logging: { incomingRequests: { ignore: [/\/api\/strava\/callback/, /\/api\/strava\/webhook\//] } },
   async headers() {
     return [{ source: "/account/:path*", headers: [
       { key: "Cache-Control", value: "private, no-store" },

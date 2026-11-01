@@ -80,6 +80,16 @@ export default async function PlansPage({
             overviews that link to their official sources. Choose by distance,
             experience and the days you can train each week.
           </p>
+          <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+            Unsure where to start? Our{" "}
+            <Link
+              href="/guides/how-to-choose-a-training-plan"
+              className="font-medium text-brand underline underline-offset-4"
+            >
+              guide to choosing a training plan
+            </Link>{" "}
+            helps you check the first week against your current running.
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Link

@@ -143,3 +143,18 @@ test("coach claims survive verified email return paths without accepting arbitra
   assert.equal(checkoutReturnFromCookie(`anystride-checkout-return=${encodeURIComponent(path)}`), path);
   for (const suffix of ["../review", "coach&admin=true", "https://evil.test", "coach#review", "coach%26admin=true", "x".repeat(181)]) assert.equal(checkoutReturnPath(`/account/services?claim=${suffix}`), "/account");
 });
+
+test("athlete invitations preserve the exact destination through email verification without allowing arbitrary account routes", async () => {
+  const { checkoutReturnPath, checkoutReturnFromCookie } = load("src/lib/account-return.ts");
+  assert.equal(checkoutReturnPath("/account/athletes"), "/account/athletes");
+  assert.equal(checkoutReturnFromCookie("anystride-checkout-return=%2Faccount%2Fathletes"), "/account/athletes");
+  for (const path of ["/account/athletes?admin=true", "/account/athletes/../review", "/account/athletes/other", "//evil.test/account/athletes", "https://evil.test/account/athletes", "/account/athletes#review"]) assert.equal(checkoutReturnPath(path), "/account");
+  const { GET } = load("src/app/account/callback/route.ts", {
+    "@/lib/signup-notifications": { notifyVerifiedSignup: async () => {} },
+    "@/lib/marketplace-config": { marketplaceOrigin: () => origin },
+    "@/lib/supabase-server": { accountAuthClient: async () => ({ auth: { exchangeCodeForSession: async () => ({ error: null }) } }) },
+  }, globals);
+  const response = await GET(new Request(`${origin}/account/callback?code=test`, { headers: { cookie: "anystride-checkout-return=%2Faccount%2Fathletes" } }));
+  assert.equal(response.headers.get("location"), `${origin}/account/athletes`);
+  assert.match(response.headers.get("set-cookie"), /Max-Age=0/);
+});

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { DeleteServiceButton } from "@/components/DeleteServiceButton";
-import { accountData } from "@/lib/account-data";
+import { CoachProfileMergeForm } from "@/components/CoachProfileMergeForm";
+import { coachProfileMergeMatches } from "@/lib/coach-profile-merge-store";
+import { accountActor, accountData } from "@/lib/account-data";
 import { AccountEmpty, AccountHeading, AccountStatus, CoachNavigation, accountInput, accountPrice } from "@/components/AccountUI";
 import { MarketplaceForm } from "@/components/MarketplaceForm";
+import { trainingEnabled } from "@/lib/training-access";
 import { CoachServiceFields } from "@/components/CoachServiceFields";
 
 const guidance = {
@@ -15,10 +18,16 @@ const guidance = {
 export default async function ServicesPage({ searchParams }: { searchParams: Promise<{ claim?: string }> }) {
   const { claim } = await searchParams;
   const claimSlug = typeof claim === "string" && claim.length <= 120 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(claim) ? claim : "";
-  const data = await accountData();
+  const [actor, data] = await Promise.all([accountActor(), accountData()]);
+  const mergeMatches = await coachProfileMergeMatches(actor);
   return <>
     <AccountHeading title="Coach workspace">Manage your coaching profile and services, and follow each submission through review.</AccountHeading>
     <CoachNavigation active="services" />
+    {mergeMatches.length > 0 && <section id="merge-profile" aria-labelledby="merge-profile-heading" className="mb-8 max-w-2xl rounded-xl bg-muted p-6">
+      <h2 id="merge-profile-heading" className="text-2xl font-semibold">Merge your existing coach profile</h2>
+      <p className="mt-3 text-sm text-muted-foreground">These imported profiles match your verified email. Confirm the right profile to connect it to this account. A merge keeps your existing services and purchases and does not grant coach approval.</p>
+      {mergeMatches.map((profile) => <details key={profile.slug} open={mergeMatches.length === 1} className="mt-6"><summary className="cursor-pointer font-semibold">{profile.name} · {profile.location}</summary><p className="mt-3 text-sm text-muted-foreground">{profile.blurb}</p><a href={`/coaching/${profile.slug}`} target="_blank" rel="noopener noreferrer" className="action-link mt-3">View imported profile ↗</a><CoachProfileMergeForm profile={{ slug: profile.slug, name: profile.name, bio: profile.bio, experience: profile.experience }} hasApplication={Boolean(data.coach)} /></details>)}
+    </section>}
     {!data.coach ? <section className="max-w-2xl">
       <p className="mb-2 text-sm font-semibold text-brand">Email verified</p><h2 className="text-3xl font-semibold">Tell us about your coaching</h2><p className="mt-2 mb-8 text-muted-foreground">A short introduction is all you need to apply. An admin reviews your experience before your profile appears under Coaches. You’ll add prices, services and payout details after approval.</p>
       <MarketplaceForm action="apply" button="Send coach application" success="Your application has been sent for review.">
@@ -34,6 +43,16 @@ export default async function ServicesPage({ searchParams }: { searchParams: Pro
         {["rejected", "suspended"].includes(data.coach.status) && <a href="mailto:hello@anystride.com" className="action-link mt-2">Contact Anystride <span aria-hidden="true">→</span></a>}
         <details className="mt-4"><summary className="cursor-pointer text-sm font-semibold hover:text-brand">View my application</summary><p className="mt-4 whitespace-pre-wrap break-words text-sm">{data.coach.bio}</p><h3 className="mt-4 text-sm font-semibold">Experience and qualifications</h3><p className="mt-2 whitespace-pre-wrap break-words text-sm text-muted-foreground">{data.coach.credentials}</p></details>
       </section>
+      {data.coach.status === "pending" && <section className="mt-8 rounded-xl bg-muted p-6"><h2 className="text-2xl font-semibold">Start your private profile</h2><p className="mt-4 text-muted-foreground">While we review your application, prepare your introduction and preview how your profile will look. It stays private until you choose to publish after approval.</p><Link href="/account/storefront" className="action-primary mt-6">Create my draft →</Link></section>}
+      {data.coach.status === "approved" && trainingEnabled() && <section aria-labelledby="start-coaching-heading" className="mt-8 rounded-xl bg-muted p-6">
+        <p className="text-sm font-semibold text-brand">Start coaching</p>
+        <h2 id="start-coaching-heading" className="mt-2 text-2xl font-semibold">Set up your first athlete</h2>
+        <p className="mt-4 max-w-xl text-sm text-muted-foreground">Invite an athlete by email. Once they accept, you can add workouts to their calendar or assign a training plan. You don’t need a storefront or payout account to use the training tools.</p>
+        <ol className="mt-6 space-y-4 text-sm">
+          <li><Link href="/account/athletes" prefetch={false} className="action-link">1. Invite an athlete →</Link><p className="mt-2 text-muted-foreground">They accept the invitation in their own account before you can manage their training.</p></li>
+          <li><Link href="/account/plans" prefetch={false} className="action-link">2. Build your first training plan →</Link><p className="mt-2 text-muted-foreground">Create reusable weeks of workouts, then assign the plan to an athlete.</p></li>
+        </ol>
+      </section>}
       {data.coach.status === "approved" && <section className="mt-8 rounded-xl border border-brand p-6"><p className="text-sm font-semibold text-brand">Optional storefront</p><h2 className="mt-2 text-2xl font-semibold">Make your storefront yours</h2><p className="mt-4 max-w-xl text-muted-foreground">Add your introduction, create your first service and connect Stripe. Your setup checklist will guide you through each step.</p><Link href="/account/storefront" className="action-primary mt-6">Set up my storefront →</Link></section>}
       <section className="mt-8" aria-labelledby="my-services-heading">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4"><h2 id="my-services-heading" className="text-2xl font-semibold">My services <span className="text-muted-foreground">({data.services.length})</span></h2>{data.coach.status === "approved" && data.services.length < 10 && <a href="#new-service" className="action-link">Create a service <span aria-hidden="true">↓</span></a>}</div>

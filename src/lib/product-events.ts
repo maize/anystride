@@ -8,6 +8,7 @@ export const PRODUCT_EVENTS = [
   "plan_print",
   "race_source_click",
   "guide_plan_click",
+  "coach_application_open",
   "coach_match_open",
   "coach_match_request",
   "coach_contact_click",

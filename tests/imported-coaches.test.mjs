@@ -30,7 +30,7 @@ const action = (entry = existing, overrides = {}) => inputModule.parseImportedCo
 
 async function fixture(t) {
   const db = new PGlite();
-  for (const name of ["002_marketplace.sql", "005_imported_coach_reviews.sql", "005_imported_coach_reviews.sql"]) {
+  for (const name of ["002_marketplace.sql", "017_coach_profile_merges.sql", "005_imported_coach_reviews.sql", "005_imported_coach_reviews.sql"]) {
     await db.exec(readFileSync(new URL(`../db/migrations/${name}`, import.meta.url), "utf8"));
   }
   t.after(() => db.close());
@@ -173,4 +173,19 @@ test("review endpoint rejects CSRF, oversized/forged data and non-admins; invali
   assert.deepEqual(await saved.json(), { saved: true });
   assert.equal(saved.headers.get("cache-control"), "private, no-store");
   assert.equal(writes, 1);
+});
+
+test("private merge contact emails are admin-only and never enter public coach data", async (t) => {
+  const f = await fixture(t);
+  const input = action(existing, { contactEmail: " Coach@Example.test " });
+  assert.equal(input.contactEmail, "coach@example.test");
+  await f.reviewImportedCoach(admin, input);
+  assert.equal((await f.importedCoachReviews(admin)).find((entry) => entry.key === existing.key).contactEmail, "coach@example.test");
+  const publicCoach = (await f.publicImportedCoaches()).find((coach) => coach.slug === existing.slug);
+  assert.equal("contactEmail" in publicCoach, false);
+  assert.doesNotMatch(JSON.stringify(publicCoach), /coach@example\.test/);
+  await assert.rejects(f.importedCoachReviews(athlete), (e) => e.status === 403);
+  assert.throws(() => action(existing, { contactEmail: "invalid" }));
+  await f.reviewImportedCoach(admin, action(existing, { version: 1, contactEmail: "" }));
+  assert.equal((await f.db.query("SELECT count(*)::int AS n FROM coach_profile_contacts")).rows[0].n, 0);
 });

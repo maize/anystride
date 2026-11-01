@@ -309,6 +309,44 @@ test("payout dashboard is private to the authenticated seller and rejects accoun
   assert.equal((await f.payments.storefrontSellerStatus(coach)).feeBps,500);
 });
 
+test("pending coaches can prepare private drafts but cannot publish or sell", async (t) => {
+  const f = await fixture(t);
+  await f.db.query("UPDATE marketplace_coaches SET status='pending' WHERE user_id=$1", [coach.id]);
+  await f.store.saveStorefront(coach, { ...profile, published: false });
+  assert.equal((await f.store.ownStorefront(coach)).profile.published, false);
+  assert.equal(await f.store.publicStorefront(profile.slug), null);
+  assert.equal((await f.store.publicStorefronts()).length, 0);
+  await assert.rejects(f.store.saveStorefront(coach, { ...profile, version: 1 }), e => e.status === 403);
+  await assert.rejects(f.store.saveStorefront(coach, { action: "publication", published: true, version: 1 }), e => e.status === 403);
+  await assert.rejects(f.store.saveStorefront(coach, f.offer), e => e.status === 403);
+});
+
+test("explicit publishing requires ownership, approval and the current profile version", async (t) => {
+  const f = await fixture(t);
+  await f.store.saveStorefront(coach, { ...profile, published: false });
+  assert.equal((await f.store.ownStorefront(other)).profile, null);
+  await f.db.query("INSERT INTO marketplace_coaches(user_id,name,bio,credentials,status) VALUES($1,'Another Coach','A different approved coach used to test private profile ownership.','Test qualifications only.','approved')", [other.id]);
+  await assert.rejects(f.store.saveStorefront(other, { action: "publication", published: true, version: 1 }), e => e.status === 409);
+  assert.equal(await f.store.publicStorefront(profile.slug), null);
+  await f.store.saveStorefront(coach, { action: "publication", published: true, version: 1 });
+  assert.equal((await f.store.publicStorefront(profile.slug)).profile.published, true);
+  await assert.rejects(f.store.saveStorefront(coach, { action: "publication", published: false, version: 1 }), e => e.status === 409);
+  await f.store.saveStorefront(coach, { action: "publication", published: false, version: 2 });
+  assert.equal(await f.store.publicStorefront(profile.slug), null);
+  assert.equal((await f.store.ownStorefront(coach)).profile.version, 3);
+});
+
+test("publication API rejects owner injection and cross-origin requests", async (t) => {
+  const f = await fixture(t);
+  await f.store.saveStorefront(coach, { ...profile, published: false });
+  const { POST } = load("src/app/api/marketplace/storefront/route.ts", { ...f.mocks, "@/lib/marketplace-auth": { requireMarketplaceActor: async () => coach } }, f.globals, f.cache);
+  const request = (body, origin = env.MARKETPLACE_APP_URL) => new Request(`${env.MARKETPLACE_APP_URL}/api/marketplace/storefront`, { method: "POST", headers: { origin, "content-type": "application/json" }, body: JSON.stringify(body) });
+  const payload = { action: "publication", published: true, version: 1 };
+  assert.equal((await POST(request(payload, "https://other.example"))).status, 403);
+  assert.equal((await POST(request({ ...payload, coachId: other.id }))).status, 400);
+  assert.equal((await POST(request(payload))).status, 200);
+  assert.equal((await f.store.publicStorefront(profile.slug)).profile.published, true);
+});
 
 test("deleted offers disappear everywhere and cannot be republished; existing checkout and purchase history survive", async (t) => {
   const f = await fixture(t); await f.publish();

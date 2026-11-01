@@ -9,8 +9,16 @@ node_modules/
 .next/
 .git/
 
+# Local agent instructions and test-only tooling.
+AGENT.MD
+scripts/verify-training-local.mjs
+scripts/strava-local-webhook.mjs
+
 # Local growth notes contain aggregate reporting and publication records.
 docs/growth-monitoring.md
 docs/growth-scorecard.md
 docs/social-drafts.md
 docs/coach-discovery.md
+
+# Browser verification captures can contain local account links.
+.playwright-mcp/

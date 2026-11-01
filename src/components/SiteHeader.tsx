@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { subscribeAccountSession } from "@/lib/account-session";
 
 const NAV_LINKS = [
   { href: "/plans", label: "Plans" },
@@ -26,6 +27,13 @@ function isActive(pathname: string, href: string): boolean {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const inWorkspace = pathname.startsWith("/account") && !["/account/sign-in", "/account/sign-up", "/account/callback"].some((path) => pathname.startsWith(path));
+  const navLinks = inWorkspace ? [{ href: "/", label: "Explore Anystride" }] : NAV_LINKS;
+  const [signedIn, setSignedIn] = useState(false);
+  const accountHref = signedIn ? "/account" : "/account/sign-in";
+  const accountLabel = signedIn ? "My account" : "Sign in";
+
+  useEffect(() => subscribeAccountSession(setSignedIn), [pathname]);
   const [openPath, setOpenPath] = useState<string | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -90,59 +98,70 @@ export function SiteHeader() {
           <span aria-hidden="true" className="h-2 w-2 -translate-y-px rounded-full bg-brand" />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-5 text-sm md:flex">
-          {NAV_LINKS.map(({ href, label }) => {
-            const active = isActive(pathname, href);
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-current={active ? "page" : undefined}
-                className={
-                  active
-                    ? "font-medium text-brand"
-                    : "text-muted-foreground transition-colors duration-300 ease-stride hover:text-foreground"
-                }
-              >
-                {label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/#plan-finder"
-            className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
-          >
-            Find my plan
-          </Link>
-        </nav>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <nav aria-label="Main navigation" className="hidden items-center gap-5 text-sm md:flex">
+            {navLinks.map(({ href, label }) => {
+              const active = isActive(pathname, href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={
+                    active
+                      ? "font-medium text-brand"
+                      : "text-muted-foreground transition-colors duration-300 ease-stride hover:text-foreground"
+                  }
+                >
+                  {label}
+                </Link>
+              );
+            })}
+            {!inWorkspace && <Link
+              href="/#plan-finder"
+              className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all duration-300 ease-stride hover:bg-brand/90 active:scale-[0.98]"
+            >
+              Find my plan
+            </Link>}
+          </nav>
 
-        <button
-          ref={triggerRef}
-          type="button"
-          onClick={() => setOpenPath(open ? null : pathname)}
-          aria-expanded={open}
-          aria-controls={open ? "mobile-navigation" : undefined}
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
-        >
-          <span className="relative block h-4 w-5">
-            <span
-              className={`absolute left-0 top-0 block h-0.5 w-5 bg-foreground transition-all duration-300 ease-stride ${
-                open ? "top-1/2 -translate-y-1/2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 bg-foreground transition-all duration-300 ease-stride ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`absolute bottom-0 left-0 block h-0.5 w-5 bg-foreground transition-all duration-300 ease-stride ${
-                open ? "bottom-1/2 translate-y-1/2 -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+          <Link
+            href={accountHref}
+            prefetch={false}
+            onClick={closeMenu}
+            className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-border px-4 text-sm font-semibold transition-colors hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          >
+            {accountLabel}
+          </Link>
+
+          <button
+            ref={triggerRef}
+            type="button"
+            onClick={() => setOpenPath(open ? null : pathname)}
+            aria-expanded={open}
+            aria-controls={open ? "mobile-navigation" : undefined}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
+          >
+            <span className="relative block h-4 w-5">
+              <span
+                className={`absolute left-0 top-0 block h-0.5 w-5 bg-foreground transition-all duration-300 ease-stride ${
+                  open ? "top-1/2 -translate-y-1/2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 bg-foreground transition-all duration-300 ease-stride ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 block h-0.5 w-5 bg-foreground transition-all duration-300 ease-stride ${
+                  open ? "bottom-1/2 translate-y-1/2 -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -155,7 +174,7 @@ export function SiteHeader() {
           className="fixed inset-0 z-40 flex flex-col bg-background/80 backdrop-blur-3xl md:hidden"
         >
           <nav className="mt-24 flex flex-col gap-2 px-8">
-            {NAV_LINKS.map(({ href, label }, i) => {
+            {navLinks.map(({ href, label }, i) => {
               const active = isActive(pathname, href);
               return (
                 <Link
@@ -173,15 +192,23 @@ export function SiteHeader() {
               );
             })}
             <Link
+              href={accountHref}
+              prefetch={false}
+              onClick={closeMenu}
+              className="mt-4 w-fit text-3xl font-semibold tracking-tight text-brand"
+            >
+              {accountLabel}
+            </Link>
+            {!inWorkspace && <Link
               href="/#plan-finder"
               onClick={closeMenu}
               style={{
-                transitionDelay: `${100 + NAV_LINKS.length * 50}ms`,
+                transitionDelay: `${100 + navLinks.length * 50}ms`,
               }}
               className="mt-6 w-max rounded-full bg-brand px-6 py-2 text-base font-semibold text-brand-foreground transition-all duration-700 ease-stride active:scale-[0.98]"
             >
               Find my plan
-            </Link>
+            </Link>}
           </nav>
         </div>
       )}

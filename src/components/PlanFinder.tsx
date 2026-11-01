@@ -133,11 +133,11 @@ export function PlanFinder({
       <div className="max-w-2xl">
         <p className="text-sm font-medium text-brand">Plan finder</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight">
-          A plan you can actually start
+          Find a plan for your race
         </h2>
         <p className="mt-3 text-muted-foreground">
-          Answer three questions. We&apos;ll compare your goal, current running
-          and real weekly availability with every plan in the library.
+          Choose your race distance, current weekly mileage and available running days.
+          We&apos;ll suggest plans from the free library that fit your answers.
         </p>
       </div>
 
@@ -186,7 +186,7 @@ export function PlanFinder({
 
           <Question
             number="03"
-            legend="How many days can you protect for running?"
+            legend="How many days a week can you run?"
             description="Pick a schedule you can repeat on busy weeks."
           >
             {AVAILABLE_DAYS.map((days) => (
@@ -224,11 +224,11 @@ export function PlanFinder({
                   id="plan-finder-result-title"
                   className="mt-3 text-2xl font-semibold tracking-tight"
                 >
-                  Three answers, one clear place to start
+                  Your suggested plan will appear here
                 </h3>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Pick your distance, tell us what a typical week looks like,
-                  and find a schedule you can make room for.
+                  Complete the three questions to compare plans by distance,
+                  starting mileage and running days per week.
                 </p>
               </div>
               <p className="mt-8 border-t border-border pt-4 text-xs text-muted-foreground">
@@ -253,7 +253,7 @@ export function PlanFinder({
               </p>
               <p className="mt-5 text-sm">{result.primary.plan.summary}</p>
 
-              <h4 className="mt-6 text-sm font-semibold">Why it fits</h4>
+              <h4 className="mt-6 text-sm font-semibold">How it matches your answers</h4>
               <ol className="mt-2">
                 {result.primary.reasons.map((reason, index) => (
                   <li

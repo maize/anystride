@@ -14,6 +14,7 @@ import { COUNTRY_FLAGS } from "@/data/racers";
 import type { FieldEntry } from "@/data/races";
 import { Avatar } from "@/components/Avatar";
 import { JsonLd } from "@/components/JsonLd";
+import { raceStructuredData } from "@/lib/race-structured-data";
 
 // Recompute live/date-relative state without requiring a new deployment.
 export const revalidate = 300;
@@ -135,33 +136,7 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "SportsEvent",
-          name: race.name,
-          description: race.why,
-          sport: "Running",
-          startDate: race.startsAt,
-          endDate: race.endsAt,
-          ...(status !== "completed"
-            ? { eventStatus: "https://schema.org/EventScheduled" }
-            : {}),
-          eventAttendanceMode:
-            "https://schema.org/OfflineEventAttendanceMode",
-          location: {
-            "@type": "Place",
-            name: `${race.city}, ${race.country}`,
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: race.city,
-              addressCountry: race.country,
-            },
-          },
-          url,
-          sameAs: race.verification.sourceUrl,
-        }}
-      />
+      <JsonLd data={raceStructuredData(race)} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

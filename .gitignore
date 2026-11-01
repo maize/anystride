@@ -11,6 +11,7 @@
 !.yarn/versions
 
 # testing
+/.playwright-mcp/
 /coverage
 
 # next.js

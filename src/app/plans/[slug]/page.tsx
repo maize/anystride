@@ -17,8 +17,12 @@ export async function generateMetadata({
   const plan = getPlanBySlug(slug);
   if (!plan) return { title: "Plan not found" };
   return {
-    title: plan.name,
-    description: plan.summary,
+    title: plan.slug === "pfitzinger-18-55"
+      ? "Pfitzinger 18/55 Marathon Plan: Mileage and Overview"
+      : plan.name,
+    description: plan.slug === "pfitzinger-18-55"
+      ? "Explore the Pfitz 18/55 marathon plan: 18 weeks, up to 55 miles a week, starting requirements and training structure. Read our overview and find the source."
+      : plan.summary,
     alternates: { canonical: `/plans/${plan.slug}` },
   };
 }
@@ -68,6 +72,20 @@ export default async function PlanPage({ params }: PageProps<"/plans/[slug]">) {
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
         {plan.summary}
       </p>
+
+      {plan.slug === "pfitzinger-18-55" && (
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
+          Before choosing 18/55, check whether its starting mileage and six-day
+          schedule fit the running week you can sustain. Our{" "}
+          <Link
+            href="/guides/how-to-choose-a-training-plan"
+            className="font-medium text-brand underline underline-offset-2"
+          >
+            guide to choosing a training plan
+          </Link>{" "}
+          walks through those trade-offs.
+        </p>
+      )}
 
       {/* At a glance */}
       <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 rounded-xl border border-border p-5 text-sm sm:grid-cols-4">

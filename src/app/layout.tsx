@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "anystride — Running plans & personal coaching",
     description:
-      "Free training plans and independent running coaches. Find your plan, choose personal support, or build your coaching storefront.",
+      "Find free running plans and independent coaches. Coaches can manage athletes, assign training and sell services.",
     url: "https://anystride.com",
     siteName: "anystride",
     type: "website",
@@ -49,7 +49,7 @@ function Footer() {
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Free training plans. Independent coaches. Support for your next running goal.
+              Free training plans, a running coach directory and tools for managing athletes.
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
@@ -81,6 +81,8 @@ function Footer() {
               Editorial standards
             </Link>
             <Link href="/partners" className="transition-colors duration-300 ease-stride hover:text-foreground">Partner with us</Link>
+            <Link href="/pricing" className="transition-colors duration-300 ease-stride hover:text-foreground">Pricing</Link>
+            <Link href="/for-coaches" className="transition-colors duration-300 ease-stride hover:text-foreground">For coaches</Link>
             <a href="/account" className="transition-colors duration-300 ease-stride hover:text-foreground">Coaching account</a>
             <Link
               href="/privacy"
@@ -123,7 +125,7 @@ export default function RootLayout({
             name: "anystride",
             url: "https://anystride.com",
             description:
-              "Free training plans and independent running coaches. Find your plan, choose personal support, or build your coaching storefront.",
+              "Find free running plans and independent coaches. Coaches can manage athletes, assign training and sell services.",
             publisher: {
               "@type": "Organization",
               name: "anystride",

@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated October 3, 2026
+        Last updated October 17, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -145,6 +145,56 @@ export default function PrivacyPage() {
             are visible to signed in participants. Account pages do not load our
             analytics trackers. Do not include medical history or identity documents.
             Contact hello@anystride.com about correcting or removing account data.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold tracking-tight">Saved training and coach access</h2>
+          <p className="mt-2 text-muted-foreground">
+            When the account training workspace is enabled, workouts, dates,
+            targets, structured workout steps, recorded results, effort and notes are stored with your
+            account in our database. Your workout library stays private to you.
+            This is separate from the public plans’ progress saved on this device.
+            You can export a selected week and delete individual workouts.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Coaches can create invitations using an athlete’s name and sign-in
+            email. Only after the athlete accepts can that coach view their
+            saved calendar, including historical results and notes, and assign
+            workouts. Either participant can end access in Athletes &amp; coaches.
+            Ending access keeps existing workouts in the athlete’s calendar.
+            Invitation and connection records remain in the account; contact
+            hello@anystride.com to request their removal.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Coaches’ reusable plan templates stay in their private library.
+            Assigning a plan copies its workout instructions and title to the
+            selected athletes’ calendars. Assignment records retain the plan
+            title, version, start date and participating account identifiers to
+            prevent duplicate assignments. Removing an assigned plan keeps
+            completed and skipped workouts. Deleting a template does not delete
+            athletes’ copies or assignment records; contact hello@anystride.com
+            to request removal of retained account records.
+          </p>
+          <p className="mt-3 text-muted-foreground">
+            Strava export files are read on your device. Only activity summaries
+            you select are sent to Anystride: the activity identifier, date,
+            title, sport, elapsed duration and distance. We do not upload the
+            original file or its routes. Imported results are visible to coaches
+            whose invitations you have accepted. This feature does not connect
+            to the Strava API or automatically synchronize your activities.
+            Optional automatic Strava sync is separate: when enabled and authorized,
+            it shows recent activity summaries only to the connected athlete. We
+            store encrypted access credentials and temporary activity identifiers,
+            names, sports, dates, durations, distances, elevation and device names.
+            Cached summaries expire after six days and are excluded immediately
+            after expiry; scheduled cleanup removes expired copies. They can appear alongside calendar workouts but are not copied into permanent workout records, exports, or AI processing. Athlete-selected matches store only a link to the cached activity and are removed when it is deleted. You can separately authorize each connected coach to view these temporary summaries. Only You activities are excluded from coach sharing. We store your sharing choice and its update time; you can stop sharing in Connections at any time. Ending the coaching relationship or disconnecting Strava removes access, and a new connection needs fresh permission. Disconnecting
+            deletes synced activities and queues access revocation; encrypted
+            credentials for that revocation are retained for at most six days.
+            You can also revoke access in Strava settings or request deletion at
+            hello@anystride.com. Strava may collect API usage data as described in
+            its API policy. We also store aggregate request counts to enforce usage allowances.
+            Account training data is not sent to product analytics.
           </p>
         </section>
 

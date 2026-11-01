@@ -7,11 +7,12 @@ export function servicePrice(amount: number, currency: string) {
   return new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: amount % 100 ? 2 : 0 }).format(amount / 100);
 }
 
-export function CoachStorefront({ storefront, preview = false }: { storefront: Storefront; preview?: boolean }) {
+export function CoachStorefront({ storefront, preview = false, example = false }: { storefront: Storefront; preview?: boolean; example?: boolean }) {
   const { profile, offers } = storefront;
+  const previewOnly = preview || example;
   const firstName = profile.name.split(" ")[0];
   return <div className="mx-auto max-w-6xl px-5 pb-24 sm:px-8">
-    {preview && <div role="status" className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-muted px-6 py-4 text-sm"><p><strong>Your profile preview.</strong> Only approved services appear on the published page.</p><Link href="/account/storefront" className="font-semibold underline">Back to editing</Link></div>}
+    {previewOnly && <div role="status" className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-muted px-6 py-4 text-sm"><p>{example ? <><strong>Example service layout.</strong> This shows how Jack’s coaching could appear when available to buy. The offer, price and terms below are illustrative and unconfirmed. Purchases are disabled.</> : <><strong>{profile.published ? "Preview of your live profile." : "Private draft preview."}</strong> Only you can see this preview. Purchases are disabled here. Only approved services appear on the published page.</>}</p><Link href={example ? "/coaching/jack-anstey" : "/account/storefront"} className="font-semibold underline">{example ? "Back to Jack’s current profile" : "Back to editing"}</Link></div>}
     <header className="pb-12 pt-8 sm:pb-16 sm:pt-12">
       <Link href="/coaching" className="action-link text-muted-foreground"><span aria-hidden="true">←</span> Find your coach</Link>
       <div className="mt-8 grid items-center gap-8 md:grid-cols-[1.5fr_1fr] md:gap-16">
@@ -38,9 +39,9 @@ export function CoachStorefront({ storefront, preview = false }: { storefront: S
           <div><p className="eyebrow text-brand">{offer.kind === "consultation" ? "Personal consultation" : `${offer.duration_weeks} weeks of coaching`}</p><h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{offer.title}</h3><p className="mt-4 max-w-xl whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{offer.description}</p>
             <ul className="mt-6 grid gap-3 text-sm sm:grid-cols-2">{offer.inclusions.map((item) => <li key={item} className="flex gap-3"><span aria-hidden="true" className="text-brand">↗</span><span>{item}</span></li>)}</ul>
           </div>
-          <div className="flex flex-col items-start border-t border-border pt-6 lg:border-t-0 lg:pt-0"><p className="text-4xl font-semibold tracking-tighter tabular-nums">{servicePrice(offer.amount, offer.currency)}</p><p className="mt-2 text-sm text-muted-foreground">{offer.currency.toUpperCase()} · one payment</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{offer.delivery}</p>
-            {offer.available ? <a href={preview ? "#getting-started" : `/account/checkout/${offer.id}`} className="action-primary mt-6 w-full lg:mt-auto">{preview ? "Purchase preview" : offer.kind === "consultation" ? "Book consultation" : "Buy package"}<span aria-hidden="true">↗</span></a> : <p className="mt-6 rounded-full border border-border px-6 py-3 text-sm font-medium">Currently unavailable</p>}
-            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">Review the full offer before payment.</p>
+          <div className="flex flex-col items-start border-t border-border pt-6 lg:border-t-0 lg:pt-0"><p className={`${example ? "text-2xl" : "text-4xl"} font-semibold tracking-tighter tabular-nums`}>{example ? "Pricing to be confirmed" : servicePrice(offer.amount, offer.currency)}</p>{!example && <p className="mt-2 text-sm text-muted-foreground">{offer.currency.toUpperCase()} · one payment</p>}<p className="mt-4 text-sm leading-relaxed text-muted-foreground">{offer.delivery}</p>
+            {previewOnly ? <button type="button" disabled className="action-primary mt-6 w-full cursor-not-allowed opacity-50 lg:mt-auto" title="Example only. This service is not available to purchase.">{offer.kind === "consultation" ? "Book consultation" : "Buy package"}<span aria-hidden="true">↗</span></button> : offer.available ? <a href={preview ? "#getting-started" : `/account/checkout/${offer.id}`} className="action-primary mt-6 w-full lg:mt-auto">{preview ? "Purchase preview" : offer.kind === "consultation" ? "Book consultation" : "Buy package"}<span aria-hidden="true">↗</span></a> : <p className="mt-6 rounded-full border border-border px-6 py-3 text-sm font-medium">Currently unavailable</p>}
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{previewOnly ? "Preview only. No purchase can be made." : "Review the full offer before payment."}</p>
           </div>
         </article>
       </Reveal>)}</div>}

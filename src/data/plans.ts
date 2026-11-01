@@ -34,11 +34,11 @@ const c25k: TrainingPlan = {
   durationWeeks: 9,
   daysPerWeek: 3,
   summary:
-    "The classic 9-week walk/run program that takes a non-runner from the couch to running 5K (30 minutes) continuously.",
+    "A nine-week run/walk program that builds from short jogging intervals to 30 minutes of continuous running. Your distance in 30 minutes will depend on your pace.",
   prerequisite: "You can walk briskly for 30 minutes",
   timePerWeek: "1.5–2 hrs",
   intensity: "low",
-  peakWorkout: "30-min continuous run (≈5K)",
+  peakWorkout: "30-min continuous run",
   kind: "full",
   weeklyVolume: { start: 5, peak: 10 },
   bestFor: [

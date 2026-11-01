@@ -84,6 +84,25 @@ export default async function CityCoachesPage({
           : `Looking for a running coach ${where}? Browse coaches below by focus and format, then connect with them directly. Each profile links to the coach's own site.`}
       </p>
 
+      {slug === "san-francisco" && (
+        <div className="mt-6 max-w-2xl space-y-3 text-sm text-muted-foreground">
+          <p>
+            These listings cover different parts of the Bay Area: San Francisco,
+            Marin, the East Bay and the Tri-Valley. Some coaches also work online.
+            Check each profile for its training focus and follow its source link
+            to confirm current service area, format and availability.
+          </p>
+          <p>
+            If you are weighing a local coach against remote coaching, start
+            with the kind of feedback and meeting schedule you want. You can also{" "}
+            <Link href="/coaching/match" className="font-medium text-brand underline underline-offset-2">
+              ask for help finding a coach
+            </Link>{" "}
+            whose format fits your needs.
+          </p>
+        </div>
+      )}
+
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {coaches.map((coach) => (
           <CoachCard key={coach.slug} coach={coach} />

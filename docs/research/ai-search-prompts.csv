@@ -1,0 +1,11 @@
+intent,prompt,owning_page,priority,measurement_status
+coach_tools,Running coach software for independent coaches,https://anystride.com/for-coaches,high,not_measured
+coach_workflow,How can I assign a running training plan to an athlete?,https://anystride.com/for-coaches,high,not_measured
+pricing,What does Anystride cost for a running coach?,https://anystride.com/pricing,high,not_measured
+runner_plans,Where can I get a free running plan without signing up?,https://anystride.com/plans,high,not_measured
+runner_marathon,Free marathon training plans without signup,https://anystride.com/training-plans/marathon,high,not_measured
+beginner,Does Couch to 5K mean running 5K in 30 minutes?,https://anystride.com/guides/couch-to-5k-guide,medium,not_measured
+coach_discovery,How do I find an online running coach?,https://anystride.com/coaches,high,not_measured
+integrations,Does Anystride support Strava Garmin or COROS?,https://anystride.com/for-coaches,high,not_measured
+account,Can I be a runner and a coach on Anystride?,https://anystride.com/for-coaches,medium,not_measured
+sales,How can I sell coaching services on Anystride?,https://anystride.com/for-coaches,high,not_measured

@@ -15,19 +15,20 @@ export async function CoachAccountEntry({ claim = "" }: { claim?: string }) {
   catch (error) { if (!(error instanceof MarketplaceError) || error.status !== 401) throw error; }
   if (actor) {
     const coach = await marketplaceCoachSummary(actor);
-    redirect(coach?.status === "approved" ? "/account" : next);
+    redirect(coach?.status === "approved" ? "/account/coach" : next);
   }
   return <div className="mx-auto max-w-5xl px-5 py-12">
     <Link href="/coaches" className="action-link">← Back to coaches</Link>
     <div className="mt-8 grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
       <section><p className="text-sm font-semibold text-brand">For running coaches</p>
-        <h1 className="text-hero-gradient mt-4 text-4xl font-semibold tracking-tight">Your coach account</h1>
+        <h1 className="text-hero-gradient mt-4 text-4xl font-semibold tracking-tight">Your coaching workspace</h1>
         <p className="mt-6 max-w-md text-lg text-muted-foreground">Sign up or sign in with your email. New coaches complete a short profile for review. Once approved by Anystride, you’ll be listed under Coaches.</p>
         {claim && <p className="mt-4 text-sm text-muted-foreground">Claiming an existing listing? We’ll include the profile reference in your application so we can verify ownership.</p>}
         <p className="mt-6 text-sm text-muted-foreground">Already a coach here? Use your existing email to open your account.</p>
+        <Link href="/account/sign-in?as=runner" className="mt-4 inline-flex min-h-12 items-center text-sm font-semibold text-brand underline underline-offset-4">Here for your own training? Use runner sign in →</Link>
       </section>
       <section aria-labelledby="coach-email-heading" className="rounded-2xl border border-border bg-muted p-6 sm:p-8">
-        <h2 id="coach-email-heading" className="mb-4 text-2xl font-semibold">Sign up or sign in</h2>
+        <h2 id="coach-email-heading" className="mb-4 text-2xl font-semibold">Continue with email</h2>
         <AccountSignIn unified next={next} />
       </section>
     </div>

@@ -54,6 +54,17 @@ export const COUNTRY_FLAGS: Record<string, string> = {
 };
 
 export const RACERS: Racer[] = [
+  {
+    slug: "amane-beriso",
+    name: "Amane Beriso",
+    gender: "F",
+    country: "Ethiopia",
+    born: "1991-10-13",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:14:58" }],
+    honors: ["World marathon champion (Budapest 2023)"],
+    links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/amane-beriso-14664871" },
+  },
   // ── Men ─────────────────────────────────────────────────────────────────────
   {
     slug: "sabastian-sawe",

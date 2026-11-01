@@ -34,11 +34,11 @@ export function ImportedCoachEditor({ entry }: { entry: ImportedCoachReview }) {
       const response = await fetch("/api/marketplace/imported-coaches", {
         method: "POST", headers: { "Content-Type": "application/json" }, signal: AbortSignal.timeout(15000),
         body: JSON.stringify({ key: entry.key, version: entry.version, sourceRevision: entry.sourceRevision, status,
-          ...(status !== "hidden" ? { profile: details } : {}), notes: data.get("notes"), confirmSource: data.get("confirmSource") === "on" }),
+          ...(status !== "hidden" ? { profile: details } : {}), notes: data.get("notes"), contactEmail: String(data.get("contactEmail") ?? "").trim(), confirmSource: data.get("confirmSource") === "on" }),
       });
       const result = await response.json();
       if (!response.ok || result.saved !== true) throw new Error(result.error || "This review could not be saved.");
-      setMessage(status === "published" ? "Profile approved and published. It is still unclaimed." : status === "hidden" ? "Profile hidden from the directory." : "Draft saved. This profile is not public.");
+      setMessage(status === "published" ? entry.merged ? "Imported details published. This profile is linked to a coach account." : "Profile approved and published. It is still unclaimed." : status === "hidden" ? "Profile hidden from the directory." : "Draft saved. This profile is not public.");
       router.refresh();
     } catch (cause) {
       setError(true); setMessage(cause instanceof Error && cause.name !== "TimeoutError" ? cause.message : "Saving timed out. Retry this form; duplicate saves are checked.");
@@ -56,6 +56,7 @@ export function ImportedCoachEditor({ entry }: { entry: ImportedCoachReview }) {
       <label className="block text-sm font-medium">Coach or business name<input name="name" defaultValue={profile?.name ?? entry.name} required minLength={2} maxLength={160} className={accountInput} /></label>
       <div className="grid gap-6 sm:grid-cols-2"><label className="block text-sm font-medium">City for directory filters<input name="city" defaultValue={profile?.city ?? ""} required maxLength={120} className={accountInput} /><span className="mt-2 block text-xs text-muted-foreground">Use the real city, including for coaches who also coach online.</span></label><label className="block text-sm font-medium">Display location<input name="location" defaultValue={profile?.location ?? entry.location} required maxLength={200} className={accountInput} /></label></div>
       <label className="block text-sm font-medium">Coach website / source<input name="link" type="url" defaultValue={profile?.link ?? ""} required maxLength={2048} className={accountInput} /><span className="mt-2 block text-xs text-muted-foreground">An independent coaching website. This is also the public contact link. No tracking parameters.</span></label>
+      <label className="block text-sm font-medium">Private contact email<input name="contactEmail" type="email" defaultValue={entry.contactEmail ?? ""} maxLength={254} className={accountInput} /><span className="mt-2 block text-xs text-muted-foreground">Record an email confirmed by the coach or an original source. This is private and enables a merge prompt only after that address is verified by the account owner. Leave blank if unknown.</span></label>
       <label className="block text-sm font-medium">Coaching format<select name="format" defaultValue={profile?.format ?? ""} required className={accountInput}><option value="" disabled>Choose a format</option>{Object.entries(COACH_FORMAT_LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
       <fieldset><legend className="text-sm font-medium">Training focus — select at least one supported by the source</legend><div className="mt-4 grid gap-4 sm:grid-cols-2">{FOCUS_ORDER.map((focus) => <label key={focus} className="flex items-center gap-2 text-sm"><input type="checkbox" name="focus" value={focus} defaultChecked={profile?.focus.includes(focus)} className="accent-brand" />{COACH_FOCUS_LABELS[focus]}</label>)}</div></fieldset>
       <label className="block text-sm font-medium">Specialties — one per line<textarea name="specialties" defaultValue={profile?.specialties.join("\n") ?? ""} required maxLength={1450} rows={4} className={accountInput} /></label>

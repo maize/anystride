@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "anystride — free running training plans for every distance";
+export const alt = "Anystride — training plans and coaching for runners";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,8 +15,8 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0b0d10",
-          color: "#eef1f5",
+          background: "#181818",
+          color: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
@@ -36,17 +36,17 @@ export default function Image() {
         <div
           style={{
             fontSize: 72,
-            fontWeight: 800,
+            fontWeight: 700,
             lineHeight: 1.05,
             marginTop: 28,
             maxWidth: 900,
             letterSpacing: -2,
           }}
         >
-          Free training plans for any distance, any runner.
+          Training plans and coaching for runners.
         </div>
-        <div style={{ fontSize: 32, color: "#9aa4b2", marginTop: 28 }}>
-          Community-sourced · No login · anystride.com
+        <div style={{ fontSize: 32, color: "#9b9b9b", marginTop: 28 }}>
+          Free training plans · Find a coach · Tools for coaches
         </div>
       </div>
     ),

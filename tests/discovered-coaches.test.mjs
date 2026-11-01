@@ -119,7 +119,7 @@ test("merged catalogs give static profiles precedence across slug, name, and web
 
 test("public coach surfaces load the request-time catalog", () => {
   const files = [
-    "src/app/coaching/page.tsx",
+    "src/app/coaches/page.tsx",
     "src/app/coaching/[slug]/page.tsx",
     "src/app/running-coaches/[city]/page.tsx",
     "src/app/sitemap.ts",
