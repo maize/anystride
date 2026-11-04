@@ -1973,4 +1973,103 @@ export const GUIDES: Guide[] = [
       "hansons-marathon-method",
     ],
   },
+  {
+    slug: "how-to-breathe-while-running",
+    title: "How to Breathe While Running: Rhythm, Technique, and the Side-Stitch Fix",
+    description:
+      "How to breathe efficiently while running — belly vs. chest breathing, the 2:2 and 3:2 rhythm patterns, nose vs. mouth, and how to stop a side stitch.",
+    targetQuery: "how to breathe while running / breathing while running",
+    updated: "2026-11-02",
+    intro: [
+      "Breathing while running feels automatic until it suddenly doesn't. You're gasping at a pace that should be comfortable, your side seizes up, or you can't string two sentences together on an easy jog. For most runners the issue isn't weak lungs — it's that your aerobic system is still adapting, and your breathing mechanics have never had to work this hard before.",
+      "A few simple ideas help: a technique for drawing in more air per breath, a rhythm to keep breathing efficient across different paces, and a reliable fix for the side stitch. None of this requires expensive gear or years of practice — just a little attention on your next run.",
+    ],
+    sections: [
+      {
+        heading: "Why breathing feels hard (and what it usually means)",
+        body: [
+          "If you are gasping at what should be an easy pace, you are almost certainly running too fast for your current aerobic fitness — not breathing incorrectly. The cardiovascular system needs months of consistent training to become efficient at delivering oxygen to working muscles. A brand-new runner who struggles to breathe at 10:00 per mile is not doing anything wrong; their system simply hasn't adapted yet.",
+          "The talk test is the simplest guide. Easy running should be comfortable enough to say full sentences. If you cannot, slow down until you can. That effort is where aerobic adaptation actually happens. Struggling through runs that are too hard just delays the fitness you are trying to build.",
+          "Breathing difficulty at hard effort — tempo runs, intervals, the final mile of a race — is normal and expected. Your body needs more oxygen than your respiratory system can comfortably supply, and that is the point. Difficulty at easy effort is a signal to slow down; difficulty at race effort is the race.",
+        ],
+      },
+      {
+        heading: "Belly breathing: how to get more air per breath",
+        body: [
+          "Most people breathe shallowly from the chest, which uses the upper lungs and draws in less air per breath. Diaphragmatic breathing — letting your belly expand as you inhale — uses the full depth of your lungs and is more efficient at the volumes running demands.",
+          "To feel the difference, stand still and place one hand on your chest and one on your stomach. Breathe in: if your chest rises and your stomach stays flat, you're chest-breathing. Now try to push your stomach out as you inhale, keeping the chest relatively still. That is belly breathing, and it lets you move more air with less effort.",
+          "Practise for a minute or two before a run or during a slow cooldown. Over a few weeks it starts to feel natural at easy running paces, and you'll notice less breathlessness for the same effort.",
+        ],
+      },
+      {
+        heading: "Breathing rhythms: the 2:2 and 3:2 patterns",
+        body: [
+          "A breathing rhythm ties your inhale and exhale to your footfalls. The two most practical patterns are the 2:2 (inhale for two steps, exhale for two steps) and the 3:2 (inhale for three, exhale for two).",
+          "At easy and moderate paces, most runners find the 3:2 pattern comfortable: it gives a slightly longer inhale, which suits relaxed aerobic effort. As pace rises — threshold runs, race pace — the 2:2 pattern matches the increased demand naturally. At very hard intervals, a 2:1 pattern or simply breathing as fast as your body demands is normal; don't fight it.",
+          "Coach Jack Daniels advocated for odd-total patterns (3:2 or 2:1) on the theory that alternating which foot strikes the ground on the exhale reduces repetitive diaphragm stress. The evidence for injury prevention is not conclusive, but many runners find an odd pattern feels slightly more balanced. Experiment on an easy run to see what feels natural, rather than forcing a fixed pattern from the start.",
+        ],
+        bullets: [
+          "Easy runs: 3:2 (inhale 3 steps, exhale 2) — relaxed, enough air, sustainable.",
+          "Tempo and marathon pace: 2:2 — slightly quicker, matches higher demand.",
+          "Hard intervals: 2:1 or whatever your body demands — don't restrict breathing to chase a pattern.",
+          "No pattern feels right? Try counting only your inhale for a few minutes to establish a rhythm, then add the exhale.",
+        ],
+      },
+      {
+        heading: "Nose vs. mouth: what actually works",
+        body: [
+          "Nasal breathing filters, warms, and humidifies air, and it produces slightly more nitric oxide, which helps dilate blood vessels. In theory, useful. In practice, most runners breathe through both nose and mouth simultaneously above an easy effort, and that is completely fine.",
+          "Nasal breathing alone limits the volume of air you can move, which matters at race effort. Do not restrict yourself to nose-only breathing during hard running — you need the airflow. If someone tells you to keep your mouth closed during a 5K, ignore it.",
+          "In cold weather, breathing through your nose or wearing a light buff or gaiter over your mouth reduces the chance of throat irritation from cold, dry air. For everyday easy runs below freezing, nasal breathing or covering the mouth is a practical comfort choice, not a performance requirement.",
+        ],
+      },
+      {
+        heading: "The side stitch: cause and fix",
+        body: [
+          "A side stitch is a sharp, cramping pain below the ribs — most often on the right side — that appears during running and fades when you stop or slow down. It is extremely common among beginners and still hits experienced runners occasionally.",
+          "The most supported explanation is stress on the ligaments connecting the diaphragm to surrounding organs, combined with shallow or uneven breathing that keeps the diaphragm from relaxing fully. Eating within 1 to 2 hours before a run is a reliable trigger, because the stomach and liver are heavier and pull harder on those ligaments.",
+          "The most reliable in-run fix: exhale forcefully when the foot on the opposite side from the stitch strikes the ground. If the stitch is on your right, exhale as your left foot hits. This shifts the downward force of the diaphragm to the less-affected side. You can also press firmly on the painful spot with two or three fingers while maintaining your pace. If neither works, slow to a walk, take slow deep belly breaths, and the stitch almost always passes within a minute.",
+        ],
+        bullets: [
+          "Prevent stitches: avoid eating 1 to 2 hours before running; start slowly and let breathing settle.",
+          "In-run fix: exhale as the foot opposite the stitch strikes the ground.",
+          "Also try: press firmly on the painful spot; slow to a walk and breathe deeply.",
+          "If stitches are persistent and severe, check with a doctor to rule out other causes.",
+        ],
+      },
+      {
+        heading: "What good breathing looks like at each effort level",
+        body: [
+          "Easy runs: full sentences without pausing. You notice your breathing but it does not dominate your attention. This is the effort where 80 percent of training should happen. If you can't talk, slow down.",
+          "Marathon and half-marathon pace: short phrases are possible. Breathing is purposeful but not laboured. This is the effort your body will hold for hours in a race — it should feel honest, not desperate.",
+          "Tempo runs: one or two words maximum. Comfortably hard. You can feel the effort in your breathing but you are in control. The anystride pace calculator at /calculator gives you the exact tempo pace for your current fitness so you can dial this effort in precisely.",
+          "Hard intervals: heavy breathing is unavoidable and correct. You are working near your aerobic ceiling. A few minutes of this is exactly what interval training is for — see the interval training guide for how to structure sessions.",
+          "The talk test matches these levels and is the simplest way to know you are training in the right zone without a heart rate monitor.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Should I breathe through my nose or my mouth while running?",
+        a: "Most runners breathe through both simultaneously once effort rises above easy pace, and that is fine. Nose-only breathing limits airflow at hard efforts, so don't force it. In cold weather, nasal breathing or covering your mouth reduces throat irritation — a comfort choice, not a performance requirement.",
+      },
+      {
+        q: "What is the 2:2 breathing pattern for running?",
+        a: "Inhale for two footstrikes, exhale for two footstrikes. It is a common rhythm at moderate to hard paces. At easier paces, the 3:2 pattern (inhale three steps, exhale two) gives a slightly longer breath. Neither is mandatory — treat them as starting points and adapt to what feels natural.",
+      },
+      {
+        q: "Why am I always out of breath when running?",
+        a: "Most likely you are running faster than your current aerobic fitness can support. The fix is to slow down until you can speak in full sentences, and keep running at that effort consistently over weeks. Aerobic capacity builds gradually. If breathlessness is severe, sudden, or comes with chest pain or dizziness, see a doctor.",
+      },
+      {
+        q: "How do I stop getting a side stitch when running?",
+        a: "In the moment: exhale as the foot opposite the stitch strikes the ground, or press firmly on the painful spot. To prevent them: avoid eating in the 1 to 2 hours before running, warm up gradually, and focus on full belly breaths rather than shallow chest breathing.",
+      },
+      {
+        q: "Does breathing technique actually affect running performance?",
+        a: "Diaphragmatic breathing helps you move more air per breath, which matters at any pace. Rhythm patterns help some runners stay relaxed and avoid shallow chest-breathing under fatigue. The bigger lever is aerobic fitness itself — consistent training at easy effort improves your body's ability to use oxygen far more than any breathing drill. Technique supports fitness; it does not replace it.",
+      },
+    ],
+    relatedPlans: ["couch-to-5k", "base-building-4-week", "bridge-to-10k"],
+  },
 ];
