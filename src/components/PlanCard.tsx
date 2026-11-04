@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { TrainingPlan } from "@/data/types";
 import { DISTANCE_LABELS, LEVEL_LABELS } from "@/data/types";
 
-export function PlanCard({ plan }: { plan: TrainingPlan }) {
+export function PlanCard({ plan, basePath = "/plans" }: { plan: TrainingPlan; basePath?: string }) {
   return (
     <Link
-      href={`/plans/${plan.slug}`}
+      href={`${basePath}/${plan.slug}`}
       className="group flex h-full flex-col rounded-2xl bg-muted p-6 transition-all duration-300 ease-stride hover:-translate-y-1 hover:ring-1 hover:ring-border"
     >
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">

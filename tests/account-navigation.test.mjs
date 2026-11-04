@@ -5,7 +5,7 @@ const {accountNavigation,accountLinkActive}=load('src/lib/account-navigation.ts'
 const paths=links=>Array.from(links,link=>link.href);
 test('Runners can reach training, coach invitations, free plans and Strava without coach-only tools',()=>{
   const links=accountNavigation({training:true,coach:false});
-  assert.deepEqual(paths(links),['/account','/account/training','/account/athletes','/plans','/account/connections']);
+  assert.deepEqual(paths(links),['/account','/account/training','/account/athletes','/account/free-plans','/account/connections']);
   assert.equal(links.find(l=>l.href==='/account/athletes').label,'My coaches');
   assert.ok(!paths(links).includes('/account/storefront'));assert.ok(!paths(links).includes('/account/review'));
 });

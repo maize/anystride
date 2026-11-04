@@ -10,7 +10,7 @@ export function accountNavigation({ training, coach, view = coach ? "coach" : "r
   } else if (training) primary.push(
     { href: "/account/training", label: "Training calendar" },
     { href: "/account/athletes", label: "My coaches" },
-    { href: "/plans", label: "Free plans" },
+    { href: "/account/free-plans", label: "Free plans" },
     { href: "/account/connections", label: "Strava connection" },
   );
   return primary;
