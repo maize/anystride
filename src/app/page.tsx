@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CoachingWorkspacePreview } from "@/components/CoachingWorkspacePreview";
 import { JsonLd } from "@/components/JsonLd";
 import { homeFaqs } from "@/lib/home-content";
 import Link from "next/link";
@@ -31,10 +32,12 @@ export default function Home() {
           <h1 id="home-heading" className="text-hero-gradient mt-4 max-w-2xl pb-2 text-5xl font-semibold tracking-tighter sm:text-7xl">Training plans and<br className="hidden sm:block" /> coaching for runners.</h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">Find a free training plan or a coach for your next race. Coaches can build plans and manage their athletes here, too.</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4"><Link href="#plan-finder" className="action-primary px-3 py-2">Find a training plan</Link><Link href="/coaching" className="action-link">Find a coach →</Link></div>
-          <p className="mt-5 text-sm"><Link href="#coaching-workspace" className="text-brand underline underline-offset-4">Tools for coaches →</Link></p>
+          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm"><Link href="#account-preview" className="text-brand underline underline-offset-4">Preview your account →</Link><Link href="#coaching-workspace" className="text-brand underline underline-offset-4">Tools for coaches →</Link></p>
           <p className="mt-4 max-w-xl text-sm text-muted-foreground">Free plans need no account. Coaching tools are in early access; coach applications are reviewed.</p>
         </Reveal>
       </section>
+
+      <CoachingWorkspacePreview />
 
       {/* Plan finder */}
       <section
@@ -133,15 +136,7 @@ export default function Home() {
         <Reveal><div className="grid gap-8 sm:grid-cols-[1fr_2fr]"><div><p className="text-sm font-semibold text-brand">For coaches and their athletes</p><h2 id="workspace-heading" className="mt-4 text-3xl font-semibold tracking-tight">Build plans and manage your athletes</h2></div><div className="space-y-8">
           {[["Build and assign training plans", "Create plans from 1 to 24 weeks with warmups, intervals, recovery and effort targets. Save workouts to your library and give each athlete a copy of the plan you can adjust."], ["Review completed workouts", "Runners record their time, distance and effort alongside the planned workout. Coaches can review those results when deciding what to schedule next."], ["Choose who can see your training", "Runners accept a coach’s invitation before sharing their calendar. They can end the coaching relationship and remove that access from their account."], ["Keep track of your athletes", "Open an athlete’s calendar from your roster, review their week and assign workouts. Each runner has their own calendar and training history."]].map(([title,body],i)=><article key={title} className="grid gap-3 sm:grid-cols-[32px_1fr]"><span className="text-sm tabular-nums text-brand">0{i+1}</span><div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-3 max-w-xl text-muted-foreground">{body}</p></div></article>)}
         </div></div></Reveal>
-        <Reveal delay={160}><figure className="mt-12 overflow-hidden rounded-2xl border border-border bg-muted p-4 sm:p-8">
-          <figcaption className="flex flex-wrap items-center justify-between gap-3"><div><p className="text-xs font-semibold uppercase tracking-widest text-brand">Example athlete calendar</p><p className="mt-2 text-xl font-semibold">Planned workouts and completed runs</p></div><span className="text-xs text-muted-foreground">Illustrative training week · sample data</span></figcaption>
-          <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_2fr]">
-            <div className="rounded-lg bg-background p-6"><p className="text-xs text-muted-foreground">Training plan</p><h3 className="mt-3 text-2xl font-semibold">12-week half marathon plan</h3><p className="mt-3 text-sm text-muted-foreground">Week 4 of 12</p><ol className="mt-6 space-y-4 text-sm"><li><span className="text-brand">01</span> Coach assigns the plan</li><li><span className="text-brand">02</span> Runner records each workout</li><li><span className="text-brand">03</span> Coach reviews the results</li></ol><p className="mt-8 text-xs text-muted-foreground">The coach can adjust upcoming workouts for this runner.</p></div>
-            <div className="space-y-4"><div className="rounded-lg bg-background p-6"><div className="flex flex-wrap justify-between gap-2"><p className="text-sm font-semibold">Tuesday · Easy run</p><span className="text-xs text-brand">Completed</span></div><div className="mt-4 grid grid-cols-2 gap-4"><div><p className="text-xs text-muted-foreground">Planned workout</p><p className="mt-2 text-2xl font-semibold tabular-nums">40 min</p><p className="mt-2 text-xs text-muted-foreground">Comfortable, conversational effort</p></div><div><p className="text-xs text-muted-foreground">Recorded by runner</p><p className="mt-2 text-2xl font-semibold tabular-nums">41.6 min</p><p className="mt-2 text-xs text-muted-foreground">6.3 km completed</p></div></div></div>
-              <div className="rounded-lg bg-background p-6"><div className="flex flex-wrap justify-between gap-2"><p className="text-sm font-semibold">Thursday · Controlled intervals</p><span className="text-xs text-muted-foreground">Planned</span></div><div className="mt-4 flex items-end gap-2" aria-hidden="true">{[8,16,8,16,8,16,8,16,8].map((height,i)=><span key={i} className={`flex-1 rounded-sm ${i%2?'bg-brand h-16':'bg-foreground/15 h-8'}`} />)}</div><p className="mt-3 text-sm text-muted-foreground">4 × 3 minutes work · 1 minute recovery</p></div>
-            </div>
-          </div><p className="mt-6 text-xs text-muted-foreground">Runners accept a coaching invitation before sharing their calendar. They can end that access at any time.</p>
-        </figure></Reveal>
+
       </section>
       {/* Coach storefront product */}
       <section id="for-coaches" aria-labelledby="coach-product-heading" className="scroll-mt-24 border-t border-border py-12 sm:py-16">

@@ -82,6 +82,7 @@ export default async function CoachingPage({
       <section className="py-12">
         <h1 className="text-hero-gradient text-3xl font-bold tracking-tight sm:text-4xl">Find a running coach</h1>
         <p className="mt-3 max-w-2xl text-lg text-muted-foreground">Find your kind of coach. Explore their approach, compare services, and take your next step.</p>
+        <Link href="/#account-preview" className="mt-4 mr-6 inline-block text-sm font-medium text-brand hover:underline">Preview runner & coach accounts →</Link>
         <Link href="/coaching/apply" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">Coach sign up or sign in →</Link>
       </section>
 

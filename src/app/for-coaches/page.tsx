@@ -29,6 +29,7 @@ export default function ForCoachesPage() {
         <h1 id="coach-page-title" className="mt-6 max-w-xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Your coaching.<br />One place to start.</h1>
         <p className="mt-6 max-w-xl text-lg text-pretty text-muted-foreground">Anystride gives independent running coaches a workspace to invite athletes, build training plans and assign workouts. Apply for review, then manage training and prepare a public profile for your coaching services.</p>
         <a href="/coaching/apply" className={`${action} mt-8`}>Start my coach application <span aria-hidden="true" className="ml-2">→</span></a>
+        <p className="mt-4"><Link href="/#account-preview" className="action-link">Preview the runner & coach workspace →</Link></p>
         <p className="mt-4 max-w-md text-sm text-muted-foreground">Free to create an account. Coach and service approval required. A commission applies to storefront sales.</p>
         <a href="/account/coach" className="mt-6 inline-block text-sm font-semibold underline underline-offset-4 hover:text-brand-text focus-visible:outline-2 focus-visible:outline-brand">Already a coach? Sign in</a>
       </div>
