@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { trackProductEvent } from "@/lib/analytics";
 import { useId, useState } from "react";
 
 type View = "runner" | "coach";
@@ -19,10 +20,10 @@ const athletes = [
   { name: "Jamie Lee", goal: "Build consistency", plan: "Base building · Week 1 of 6" },
 ];
 
-export function CoachingWorkspacePreview() {
+export function CoachingWorkspacePreview({ initialView = "runner" }: { initialView?: View }) {
   const id = useId();
-  const [view, setView] = useState<View>("runner");
-  const [screen, setScreen] = useState("calendar");
+  const [view, setView] = useState<View>(initialView);
+  const [screen, setScreen] = useState(initialView === "coach" ? "athletes" : "calendar");
   const [day, setDay] = useState(1);
   const [athlete, setAthlete] = useState(0);
   const workout = workouts[day];
@@ -30,6 +31,7 @@ export function CoachingWorkspacePreview() {
   const tabs = coach ? [["athletes", "Athletes"], ["calendar", "Athlete calendar"]] : [["calendar", "Training calendar"], ["coaches", "My coaches"]];
 
   function changeView(next: View) {
+    trackProductEvent("coaching_preview_interact", { preview_role: next, preview_action: "switch-role" });
     setView(next);
     setScreen(next === "coach" ? "athletes" : "calendar");
     setAthlete(0);
@@ -59,7 +61,7 @@ export function CoachingWorkspacePreview() {
           <span className="font-mono text-xs text-muted-foreground">DEMO / {coach ? "02" : "01"}</span>
         </div>
         <div role="group" aria-label="Preview screens" className="mt-6 flex flex-wrap gap-2 border-b border-border pb-4">
-          {tabs.map(([value, label]) => <button key={value} type="button" aria-pressed={screen === value} onClick={() => setScreen(value)} className={`min-h-12 rounded-lg px-4 py-2 text-sm font-semibold ${screen === value ? "bg-foreground text-background" : "bg-muted hover:text-brand"}`}>{label}</button>)}
+          {tabs.map(([value, label]) => <button key={value} type="button" aria-pressed={screen === value} onClick={() => { setScreen(value); trackProductEvent("coaching_preview_interact", { preview_role: view, preview_action: "screen" }); }} className={`min-h-12 rounded-lg px-4 py-2 text-sm font-semibold ${screen === value ? "bg-foreground text-background" : "bg-muted hover:text-brand"}`}>{label}</button>)}
         </div>
 
         {screen === "athletes" ? <div className="pt-6">
@@ -67,7 +69,7 @@ export function CoachingWorkspacePreview() {
           <ul className="mt-4 divide-y divide-border">
             {athletes.map((person, index) => <li key={person.name} className="flex flex-wrap items-center justify-between gap-4 py-5">
               <div><p className="font-semibold">{person.name}</p><p className="mt-1 text-sm text-muted-foreground">{person.goal}</p></div>
-              <button type="button" className="action-link" onClick={() => { setAthlete(index); setScreen("calendar"); }}>View calendar <span className="sr-only">for {person.name}</span> →</button>
+              <button type="button" className="action-link" onClick={() => { setAthlete(index); setScreen("calendar"); trackProductEvent("coaching_preview_interact", { preview_role: view, preview_action: "athlete-calendar" }); }}>View calendar <span className="sr-only">for {person.name}</span> →</button>
             </li>)}
           </ul>
           <p className="mt-4 rounded-lg bg-muted p-4 text-sm text-muted-foreground">Invite your athletes once your coach account is approved. They accept your invitation before you can access their calendars.</p>
@@ -80,7 +82,7 @@ export function CoachingWorkspacePreview() {
           <div className="flex flex-wrap items-center justify-between gap-2"><h4 className="font-semibold">{coach ? `${athletes[athlete].name}’s training` : "Your training calendar"}</h4><p className="text-sm text-muted-foreground">{athletes[coach ? athlete : 0].plan}</p></div>
           <p className="mt-2 text-xs text-muted-foreground">Illustrative week · Select a day to see the workout.</p>
           <div role="group" aria-label="Sample training week" className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
-            {workouts.map((entry, index) => <button key={entry.day} type="button" aria-pressed={day === index} aria-controls={`${id}-workout`} onClick={() => setDay(index)} className={`min-h-32 rounded-lg border p-3 text-left transition-colors ${day === index ? "border-brand bg-brand/5 ring-1 ring-brand" : "border-border bg-muted hover:border-brand/50"}`}>
+            {workouts.map((entry, index) => <button key={entry.day} type="button" aria-pressed={day === index} aria-controls={`${id}-workout`} onClick={() => { setDay(index); trackProductEvent("coaching_preview_interact", { preview_role: view, preview_action: "workout" }); }} className={`min-h-32 rounded-lg border p-3 text-left transition-colors ${day === index ? "border-brand bg-brand/5 ring-1 ring-brand" : "border-border bg-muted hover:border-brand/50"}`}>
               <span className="block text-xs text-muted-foreground">{entry.day}</span><span className="mt-3 block text-sm font-semibold">{entry.title}</span><span className="mt-2 block text-xs text-muted-foreground">{entry.result ? "Completed" : entry.duration}</span>
             </button>)}
           </div>
@@ -93,7 +95,7 @@ export function CoachingWorkspacePreview() {
       </div>
       <div className="flex flex-wrap items-center justify-between gap-5 border-t border-border bg-muted px-5 py-6 sm:px-8">
         <div className="max-w-lg"><p className="font-semibold">{coach ? "Bring your athletes to Anystride." : "Make room for your next goal."}</p><p className="mt-2 text-sm text-muted-foreground">{coach ? "Apply for a coach account. Athlete tools become available after approval." : "Create a runner account, then find a coach or accept your coach’s invitation. Coaching is arranged separately."}</p></div>
-        <Link href={coach ? "/account/sign-up?as=coach&next=%2Faccount%2Fservices" : "/account/sign-up?as=runner&next=%2Faccount%2Frunner"} prefetch={false} className="action-primary">{coach ? "Apply as a coach" : "Create my runner account"} →</Link>
+        <a onClick={() => trackProductEvent("coaching_preview_signup", { preview_role: view })} href={coach ? "/account/sign-up?as=coach&next=%2Faccount%2Fservices" : "/account/sign-up?as=runner&next=%2Faccount%2Frunner"} className="action-primary">{coach ? "Apply as a coach" : "Create my runner account"} →</a>
       </div>
     </div>
     <p className="mt-4 text-xs text-muted-foreground">A guided preview of account features, using fictional people and sample training. Nothing here is saved. Coaching tools are in early access; services and prices depend on the coach.</p>

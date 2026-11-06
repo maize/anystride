@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Account entry uses full document navigation to keep public analytics out of private account pages. */
+import { CoachingWorkspacePreview } from "@/components/CoachingWorkspacePreview";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { storefrontFeeDescription, workspacePricingDescription } from "@/lib/public-product";
@@ -51,6 +52,9 @@ export default function ForCoachesPage() {
       <p className="mt-4 text-muted-foreground">Strava syncing is a limited beta with capacity for ten connected athletes across Anystride. Athletes control sharing separately for each coach; Only You activities are not shared with coaches. Manual workout recording and Strava CSV import are also available. Direct Garmin and COROS syncing and sending workouts to watches are not available.</p>
       <p className="mt-6 text-muted-foreground">{workspacePricingDescription} <Link href="/pricing" className="underline underline-offset-4">Read the pricing details</Link>.</p>
     </section>
+
+    <CoachingWorkspacePreview initialView="coach" />
+    <section className="my-10 border-y border-border py-8" aria-labelledby="first-week-heading"><h2 id="first-week-heading" className="text-2xl font-semibold">Your first coaching week</h2><ol className="mt-5 grid gap-6 sm:grid-cols-3"><li><strong>1. Apply for review</strong><p className="mt-2 text-sm text-muted-foreground">Introduce your experience and approach. Athlete tools open after approval.</p></li><li><strong>2. Invite one athlete</strong><p className="mt-2 text-sm text-muted-foreground">Send your invitation message and wait for their consent to share a calendar.</p></li><li><strong>3. Assign and review training</strong><p className="mt-2 text-sm text-muted-foreground">Schedule a week, then review the results your athlete records.</p></li></ol><div className="mt-5 flex flex-wrap gap-6"><Link href="/for-coaches/switching" className="action-link">Follow the switching checklist →</Link><Link href="/alternatives" className="action-link">Compare V.O2 and Final Surge →</Link></div></section>
 
     <section aria-labelledby="coach-benefits" className="mt-16">
       <h2 id="coach-benefits" className="text-3xl font-semibold tracking-tight">Let runners understand the offer.</h2>

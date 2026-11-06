@@ -41,8 +41,8 @@ export default async function CityCoachesPage({
   const city = getCityBySlugFor(catalog, slug);
   if (!city) notFound();
 
-  const coaches = filterCoachCatalog(catalog, { city });
   const isOnline = city === "Online";
+  const coaches = isOnline ? catalog.filter(coach => coach.format === "online" || coach.format === "hybrid") : filterCoachCatalog(catalog, { city });
   const where = isOnline ? "online" : `in ${city}`;
   const url = `https://anystride.com/running-coaches/${slug}`;
 
@@ -83,6 +83,8 @@ export default async function CityCoachesPage({
           ? "Online running coaches who work with runners anywhere — from your first 5K to a marathon PR. Browse profiles and connect directly."
           : `Looking for a running coach ${where}? Browse coaches below by focus and format, then connect with them directly. Each profile links to the coach's own site.`}
       </p>
+
+      {isOnline && <section className="mt-8 rounded-xl bg-muted p-6" aria-labelledby="online-fit"><h2 id="online-fit" className="text-xl font-semibold">Compare the support, not just the location</h2><p className="mt-3 text-sm text-muted-foreground">These profiles list online or hybrid coaching, including coaches based in a city. Confirm whether they can work with you in your country and time zone. Directory listings do not establish current availability.</p><ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground"><li>Ask how often your coach reviews training and how you contact them.</li><li>Confirm the full price, minimum commitment and cancellation terms.</li><li>Check the required training app, equipment and feedback channels.</li></ul><div className="mt-4 flex flex-wrap gap-6"><Link href="/coaching/focus/beginners" className="action-link">New to running →</Link><Link href="/coaching/focus/half-marathon" className="action-link">Half marathon coaching →</Link><Link href="/coaching/focus/marathon" className="action-link">Marathon coaching →</Link><Link href="/#account-preview" className="action-link">Explore the account preview →</Link></div></section>}
 
       {slug === "san-francisco" && (
         <div className="mt-6 max-w-2xl space-y-3 text-sm text-muted-foreground">

@@ -9,6 +9,9 @@ export const PRODUCT_EVENTS = [
   "race_source_click",
   "guide_plan_click",
   "coach_application_open",
+  "coaching_preview_interact",
+  "coaching_preview_signup",
+  "coaching_category_open",
   "coach_match_open",
   "coach_match_request",
   "coach_contact_click",
@@ -34,5 +37,8 @@ export function productEventParameters(input: Record<string, unknown>) {
       safe[key] = value;
     }
   }
+  if (["runner", "coach"].includes(String(input.preview_role))) safe.preview_role = String(input.preview_role);
+  if (["switch-role", "screen", "workout", "athlete-calendar"].includes(String(input.preview_action))) safe.preview_action = String(input.preview_action);
+  if (["beginners", "half-marathon", "marathon"].includes(String(input.coaching_focus))) safe.coaching_focus = String(input.coaching_focus);
   return safe;
 }

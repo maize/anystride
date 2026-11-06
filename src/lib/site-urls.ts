@@ -26,6 +26,11 @@ function sitePaths(coachSlugs: string[], coachCities: string[]): string[] {
   const staticPaths = [
     "/",
     "/for-coaches",
+    "/for-coaches/switching",
+    "/alternatives",
+    "/alternatives/final-surge",
+    "/alternatives/vdot-coach",
+    "/compare/vdot-vs-final-surge",
     "/pricing",
     "/plans",
     "/guides",
@@ -68,10 +73,11 @@ export function getAllSitePaths(): string[] {
 /** Request-time paths, including reviewed profiles from the private view. */
 export async function getAllSitePathsWithDiscovered(): Promise<string[]> {
   const coaches = await getAllCoachesWithDiscovered();
-  return sitePaths(
+  const { indexableCoachingFocusPaths } = await import("./public-coaching-focus");
+  return [...sitePaths(
     coaches.map((coach) => coach.slug),
     availableCitiesFor(coaches),
-  );
+  ), ...await indexableCoachingFocusPaths()];
 }
 
 /** Same list as absolute URLs. */
@@ -83,6 +89,7 @@ export function getAllSiteUrls(): string[] {
 export function getSiteRevisions(): Map<string, string> {
   const revisions = new Map<string, string>([["/editorial", "2026-09-12"]]);
   for (const guide of getAllGuides()) revisions.set(`/guides/${guide.slug}`, guide.updated);
+  for (const path of ["/alternatives", "/alternatives/final-surge", "/alternatives/vdot-coach", "/compare/vdot-vs-final-surge", "/for-coaches/switching"]) revisions.set(path, "2026-11-05");
   const latestGuide = getAllGuides()[0]?.updated;
   if (latestGuide) revisions.set("/guides", latestGuide);
   // Verification dates are visible page content, not an automated refresh clock.

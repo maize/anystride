@@ -20,7 +20,7 @@ export default function PricingPage() {
     </section>)}</div>
     <section className="mt-12 rounded-2xl border border-border p-6">
       <h2 className="text-2xl font-semibold">Choose your next step</h2>
-      <div className="mt-4 flex flex-wrap gap-6"><Link href="/plans" className="action-link">Find a free plan →</Link><Link href="/coaches" className="action-link">Find a coach →</Link><Link href="/for-coaches" className="action-link">Explore coaching tools →</Link></div>
+      <div className="mt-4 flex flex-wrap gap-6"><Link href="/plans" className="action-link">Find a free plan →</Link><Link href="/coaches" className="action-link">Find a coach →</Link><Link href="/for-coaches" className="action-link">Explore coaching tools →</Link><p className="mt-8"><Link href="/alternatives" className="action-link">Compare coaching software and costs →</Link></p></div>
     </section>
     <p className="mt-8 text-sm text-muted-foreground">Read the <Link href="/terms" className="underline underline-offset-4">terms</Link> and each service’s conditions before purchasing. <a href="/pricing.txt" className="underline underline-offset-4">Plain text pricing</a> is available with the same information.</p>
   </article>;

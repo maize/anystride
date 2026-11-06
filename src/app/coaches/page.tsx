@@ -86,6 +86,8 @@ export default async function CoachingPage({
         <Link href="/coaching/apply" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">Coach sign up or sign in →</Link>
       </section>
 
+      <nav aria-label="Coaching by goal" className="mb-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><Link href="/coaching/focus/beginners" className="underline underline-offset-4">For beginners</Link><Link href="/coaching/focus/half-marathon" className="underline underline-offset-4">Half marathon coaching</Link><Link href="/coaching/focus/marathon" className="underline underline-offset-4">Marathon coaching</Link><Link href="/running-coaches/online" className="underline underline-offset-4">Online coaching</Link></nav>
+
       {services.length > 0 && <section aria-labelledby="services-heading" className="mb-12 border-t border-border pt-8">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>

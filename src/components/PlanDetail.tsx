@@ -231,6 +231,7 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
         methodologies, not medical or individualized coaching advice. Listen to
         your body, and consult a doctor before starting a new program.
       </p>
+      {basePath === "/plans" && <section className="mt-10 border-t border-border pt-8"><h2 className="text-2xl font-semibold">Want help adapting your training?</h2><p className="mt-3 max-w-2xl text-muted-foreground">A free plan gives you a schedule. If your availability or goals change, a coach can help you decide what to adjust. Ask what individual review and communication their service includes.</p><div className="mt-4 flex flex-wrap gap-6"><Link href={plan.distance === "half-marathon" ? "/coaching/focus/half-marathon" : plan.distance === "marathon" ? "/coaching/focus/marathon" : plan.level === "beginner" ? "/coaching/focus/beginners" : "/coaches"} className="action-link">Explore relevant coaches →</Link><Link href="/#account-preview" className="action-link">Preview coached training →</Link></div></section>}
     </div>
   );
 }
