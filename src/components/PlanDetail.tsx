@@ -53,7 +53,7 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
 
       {plan.slug === "pfitzinger-18-55" && (
         <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-          Before choosing 18/55, check whether its starting mileage and six-day
+          Before choosing 18/55, check whether its starting mileage and five-day
           schedule fit the running week you can sustain. Our{" "}
           <Link
             href="/guides/how-to-choose-a-training-plan"
@@ -218,7 +218,7 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
           </p>
           {plan.slug === "pfitzinger-18-55" && (
             <p className="mt-4 text-sm text-muted-foreground">
-              If the starting mileage or six-day week does not fit your current
+              If the starting mileage or five-day week does not fit your current
               training, <Link href="/training-plans/marathon" className="font-medium text-brand underline underline-offset-2">compare other marathon plans</Link> before choosing a schedule.
             </p>
           )}

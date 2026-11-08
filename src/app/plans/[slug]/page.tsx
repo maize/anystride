@@ -14,7 +14,7 @@ export async function generateMetadata({
   if (!plan) return { title: "Plan not found" };
   return {
     title: plan.slug === "pfitzinger-18-55"
-      ? "Pfitzinger 18/55 Marathon Plan: Mileage and Overview"
+      ? "Pfitz 18/55 Marathon Plan: Mileage & Overview"
       : plan.name,
     description: plan.slug === "pfitzinger-18-55"
       ? "Explore the Pfitz 18/55 marathon plan: 18 weeks, up to 55 miles a week, starting requirements and training structure. Read our overview and find the source."

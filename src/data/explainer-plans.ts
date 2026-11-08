@@ -205,9 +205,9 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
     distance: "marathon",
     level: "advanced",
     durationWeeks: 18,
-    daysPerWeek: 6,
+    daysPerWeek: 5,
     summary:
-      "The famous 'Pfitz' plan from Advanced Marathoning: 18 weeks peaking at 55 mpw, built on lactate-threshold runs and midweek medium-long runs.",
+      "Pfitz 18/55 is the Pfitzinger marathon plan from Advanced Marathoning: 18 weeks of training, peaking at 55 miles (89 km) per week. It combines long runs, tempo work and midweek medium-long runs.",
     prerequisite: "You're already running 30+ mpw with a 10+ mile long run",
     timePerWeek: "6–9 hrs",
     intensity: "high",
@@ -215,18 +215,18 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
     bestFor: [
       "Experienced marathoners chasing a big PR or BQ",
       "Runners who thrive on structure and mileage",
-      "Those with time for 6 days/week",
+      "Those with time for five running days and midweek longer runs",
     ],
     weeklyVolume: { start: 33, peak: 55 },
     source: {
-      name: "Pfitzinger & Douglas, 'Advanced Marathoning' (r/AdvancedRunning wiki)",
-      url: "https://www.reddit.com/r/AdvancedRunning/wiki/contents/",
+      name: "Pfitzinger & Douglas, Advanced Marathoning (Human Kinetics)",
+      url: "https://us.humankinetics.com/products/advanced-marathoning-4th-edition",
     },
     communityNote:
       "The most-discussed serious marathon plan on r/AdvancedRunning. The signature midweek medium-long runs build enormous endurance — runners swear by the results, and by how demanding it is.",
     kind: "explainer",
     outline: [
-      "5–6 running days, peaking around 55 mpw",
+      "Five running days per week, peaking at 55 miles (89 km)",
       "Lactate-threshold (tempo) runs of 4–7 mi at ~15K–half effort",
       "Midweek medium-long runs of 11–15 mi — the trademark element",
       "VO2max intervals in the sharpening phase",
