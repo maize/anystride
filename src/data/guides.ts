@@ -1999,4 +1999,108 @@ export const GUIDES: Guide[] = [
     ],
     relatedPlans: ["couch-to-5k", "base-building-4-week", "bridge-to-10k"],
   },
+  {
+    slug: "race-day-preparation",
+    title: "Race Day Preparation: What to Do the Week, Night and Morning Before",
+    description: "A practical race-day checklist covering the final week, pre-race meals, warm-up approach and pacing strategy for 5K through marathon.",
+    targetQuery: "race day tips / marathon race day preparation / what to do before a race",
+    updated: "2026-11-09",
+    intro: [
+      "Race day preparation begins well before the morning of the race. What you eat, how you sleep and what gear you check the night before matters as much as your warm-up routine. Most race-day problems — wrong shoes, an upset stomach, a too-fast opening mile — are predictable and preventable.",
+      "These are general guidelines, not a universal prescription. What works for one runner's marathon may not suit another runner's 5K. Use your training runs to test everything before race week.",
+    ],
+    sections: [
+      {
+        heading: "The final week: extend the taper, not the worry",
+        body: [
+          "In the final week of a training plan the volume drops sharply. That reduction feels uncomfortable — many runners feel sluggish, restless or suddenly unfit. This is a normal response to reducing training load, not evidence that fitness has disappeared.",
+          "Keep the few remaining easy runs genuinely easy. Avoid unfamiliar hard sessions, long hikes or standing for many hours in the days before the race. Sleep as much as your schedule allows. The night before the race is too late to make up for a sleep deficit earlier in the week — prioritise the two nights before race day, not just the last one.",
+        ],
+      },
+      {
+        heading: "What to eat the day before",
+        body: [
+          "Choose familiar foods that sit well. The day before a marathon or half marathon, most runners focus on carbohydrate-rich meals — pasta, rice, bread, potatoes — because glycogen stores take roughly 24 hours to fully top up. Avoid foods that reliably cause digestive discomfort: excessive fibre, very spicy dishes, alcohol or large amounts of fat close to bedtime.",
+          "There is no single pre-race meal that works for everyone. If pasta has caused problems before, choose something else you know agrees with you. The goal is to arrive at the start line with full fuel stores and a settled stomach.",
+        ],
+      },
+      {
+        heading: "Race morning nutrition",
+        body: [
+          "Eat a familiar, carbohydrate-based meal two to three hours before the start. Toast, porridge, bagels and bananas are common choices because they are easily digested and reliably tolerated. Larger meals need more time; a smaller snack one to two hours out is an option if the race starts early.",
+          "Avoid eating anything new on race morning. If you have not eaten a particular food before a long run, do not try it before a race. The same applies to gels, drinks or supplements offered at the expo or the start-line merchandise stands.",
+        ],
+        bullets: [
+          "Eat two to three hours before the start where possible.",
+          "Choose foods you have used before long training runs.",
+          "Drink fluids steadily in the hours before the start; do not force large amounts immediately before the gun.",
+          "Avoid caffeine if you have not tested its effect on your digestion during training.",
+        ],
+      },
+      {
+        heading: "Gear check the night before",
+        body: [
+          "Lay out everything you plan to wear and carry. Check the race information for bag-drop rules, what the course provides and what you need to carry yourself. Attach your bib to your race shirt and confirm your timing chip is in place if one was included.",
+        ],
+        bullets: [
+          "Shoes: worn-in shoes you have trained in, not a new pair.",
+          "Socks: the same socks you have used on long runs.",
+          "Bib and timing chip: attached and confirmed.",
+          "Fuel: gels, chews or food you practiced with in training.",
+          "Clothing appropriate for the forecast: check the morning temperature, not the afternoon.",
+          "Transport plan: allow time for travel, parking and queuing at gear check.",
+        ],
+      },
+      {
+        heading: "Warming up by race distance",
+        body: [
+          "For a 5K or 10K, a proper warm-up matters: racing starts fast, and cold muscles are less efficient and more prone to strain. Ten to fifteen minutes of easy jogging followed by two or three short strides at roughly race effort primes the cardiovascular system before the gun.",
+          "For a half marathon or marathon, a full warm-up is less important. The first kilometre or two of a long race serves as the warm-up. A short walk or light jog from the transport to the start area is enough. Avoid a full warm-up followed by 30 minutes in a crowded pen — you may be colder and stiffer at the gun than if you had not warmed up at all.",
+        ],
+      },
+      {
+        heading: "Pacing: start slower than feels right",
+        body: [
+          "The most common race mistake is going out too fast. Adrenaline, fresh legs and crowd energy make the opening pace feel easier than it is. A pace that feels comfortable in the first kilometre can represent several seconds per kilometre faster than your plan.",
+          "Use a recent race result or training run to set a realistic target. The Anystride calculator at /calculator gives pace estimates from a recent result, but those are projections rather than promises. Leave the first section slightly slower than goal pace rather than banking time. For longer races, see the negative-splits guide for a pacing approach.",
+        ],
+      },
+      {
+        heading: "Execute your practiced nutrition plan",
+        body: [
+          "Carry or arrange access to the fuel you practiced in training. Check what the aid stations provide — including gel brand and flavour — before race day, not at mile 15. If the course supplies a product you have not used, supplement with your own or take water only.",
+          "Start taking fuel early, before you feel depleted. For runs over 90 minutes, begin carbohydrate intake in the first 30 to 45 minutes. Use elapsed time rather than mile markers as your guide, since pace varies and markers can be hard to read in a crowd.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What should I eat the morning of a race?",
+        a: "A familiar carbohydrate-based meal two to three hours before the start: toast, porridge, a bagel or banana are common choices. Eat what you have used before long training runs. Avoid anything new, spicy, high in fibre or high in fat.",
+      },
+      {
+        q: "How early should I arrive at a race?",
+        a: "Allow time for travel delays, bag drop, toilet queues and reaching your starting corral. For large races, queues for toilets and gear check can be 20 to 30 minutes long. Arriving an hour before the start is a reasonable default for a half or full marathon.",
+      },
+      {
+        q: "Should I wear new shoes to a race?",
+        a: "No. Wear shoes you have trained in and broken in over at least several weeks. New shoes introduce unknown pressure points at exactly the moment you cannot stop to address them.",
+      },
+      {
+        q: "What if I cannot sleep the night before the race?",
+        a: "This is very common and less harmful than it feels. Sleep two nights before the race matters more than the night immediately before it. Rest in bed even if sleep is poor, avoid alcohol, and do not force a full meal if nerves affect your appetite.",
+      },
+      {
+        q: "How do I warm up for a marathon?",
+        a: "A formal warm-up is not required for a marathon. Walk from transport to the start area and use the opening kilometres as a gradual build. For a 5K or 10K, 10 to 15 minutes of easy jogging and a few short strides before the start is worthwhile.",
+      },
+    ],
+    relatedPlans: [
+      "couch-to-5k",
+      "bridge-to-10k",
+      "higdon-half-novice-1",
+      "higdon-marathon-novice-1",
+      "pfitzinger-18-55",
+    ],
+  },
 ];
