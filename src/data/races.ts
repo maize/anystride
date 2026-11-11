@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-10-28";
+export const RACES_AS_OF = "2026-11-11";
 
 export const RACES: Race[] = [
   {
@@ -378,7 +378,7 @@ export const RACES: Race[] = [
       sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/results",
     },
     men: [
-      { name: "Andreas Almgren", country: "Sweden", place: 1, time: "58:06" },
+      { racer: "andreas-almgren", place: 1, time: "58:06" },
       { name: "Nicholas Kipkorir", country: "Kenya", place: 2 },
       { name: "Joshua Cheptegei", country: "Uganda", place: 3, time: "58:26" },
     ],
@@ -560,24 +560,55 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The 50th anniversary of New York\'s five-borough course brings nearly 60,000 runners to the city — and the deepest open field in event history: 40 Olympians, ten men who have run under the course record, and a women\'s battle headlined by defending champion Hellen Obiri against Olympic marathon champion Sifan Hassan.",
+    why: "Sweden's Andreas Almgren announced himself as a world-class marathoner on debut, surging clear at 35K to win in 2:06:01 — the first Swede to win New York. Italy's Yemaneberhan Crippa ran 2:06:14 in second, with Lesotho's Kamohelo Mofolo third in 2:06:26. The women's race was decided in the final 150 metres: defending champion Sheila Chepkirui held off a stirring American challenge, with Jessica McClain becoming the first US woman on the NYC podium since 2018 (2:24:42) while Hellen Obiri finished one second back in third.",
     watchUrl: "https://www.nyrr.org/tcsnycmarathon",
+    resultsUrl: "https://en.wikipedia.org/wiki/2026_New_York_City_Marathon",
+    coverage: "results",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-11-11",
+      sourceName: "Wikipedia — 2026 New York City Marathon",
+      sourceUrl: "https://en.wikipedia.org/wiki/2026_New_York_City_Marathon",
+    },
+    men: [
+      { racer: "andreas-almgren", place: 1, time: "2:06:01" },
+      { name: "Yemaneberhan Crippa", country: "Italy", place: 2, time: "2:06:14" },
+      { name: "Kamohelo Mofolo", country: "Lesotho", place: 3, time: "2:06:26" },
+    ],
+    women: [
+      { racer: "sheila-chepkirui", place: 1, time: "2:24:36" },
+      { name: "Jessica McClain", country: "United States", place: 2, time: "2:24:42" },
+      { racer: "hellen-obiri", place: 3, time: "2:24:43" },
+    ],
+  },
+  {
+    slug: "valencia-marathon-2026",
+    name: "Valencia Trinidad Alfonso Marathon 2026",
+    date: "2026-12-06",
+    startsAt: "2026-12-06T08:30:00+01:00",
+    endsAt: "2026-12-06T18:00:00+01:00",
+    timeZone: "Europe/Madrid",
+    schedulePrecision: "time",
+    city: "Valencia",
+    country: "Spain",
+    distance: "Marathon",
+    why: "The world's fastest marathon course hosts a December blockbuster: defending champion John Korir meets marathon debutant Yomif Kejelcha and a men's field boasting five sub-2:04 runners on a flat, fast loop through Valencia's City of Arts and Sciences. Joyciline Jepkosgei defends her 2025 women's title against Ethiopia's in-form Fotyen Tesfay.",
+    watchUrl: "https://www.valenciaciudaddelrunning.com/en/marathon/",
     coverage: "field",
     verification: {
       state: "verified",
-      checkedAt: "2026-10-21",
-      sourceName: "New York Road Runners",
-      sourceUrl: "https://www.nyrr.org/media-center/press-release/2026_0819_tcsnycmprofield",
+      checkedAt: "2026-11-11",
+      sourceName: "Valencia Ciudad del Running official site",
+      sourceUrl: "https://www.valenciaciudaddelrunning.com/en/kejelcha-tesfay-lead-elite-lineup-big-ambitions-valencia-marathon-2026/",
     },
     men: [
-      { racer: "benson-kipruto" },
-      { name: "Geoffrey Kamworor", country: "Kenya" },
-      { name: "Abdi Nageeye", country: "Netherlands" },
+      { racer: "yomif-kejelcha" },
+      { racer: "john-korir" },
+      { racer: "alexander-mutiso" },
     ],
     women: [
-      { racer: "hellen-obiri" },
-      { racer: "sifan-hassan" },
-      { name: "Sheila Chepkirui", country: "Kenya" },
+      { racer: "joyciline-jepkosgei" },
+      { name: "Fotyen Tesfay", country: "Ethiopia" },
     ],
   },
   {
@@ -622,6 +653,28 @@ export const RACES: Race[] = [
       checkedAt: "2026-10-14",
       sourceName: "Marathon Handbook — London 2027 two-day announcement",
       sourceUrl: "https://marathonhandbook.com/london-marathon-2027-two-days/",
+    },
+  },
+  {
+    slug: "cape-town-marathon-2027",
+    name: "Sanlam Cape Town Marathon 2027",
+    date: "2027-05-23",
+    startsAt: "2027-05-23T00:00:00+02:00",
+    endsAt: "2027-05-23T23:59:59+02:00",
+    timeZone: "Africa/Johannesburg",
+    schedulePrecision: "date",
+    city: "Cape Town",
+    country: "South Africa",
+    distance: "Marathon",
+    series: "World Marathon Majors",
+    why: "History is made: the Sanlam Cape Town Marathon becomes the eighth Abbott World Marathon Major and the first on the African continent. Confirmed in June 2026 after a successful two-year assessment, the race through Cape Town's waterfront and under the shadow of Table Mountain marks a landmark moment for the sport. No elite field yet announced.",
+    watchUrl: "https://www.capetownmarathon.com/",
+    coverage: "schedule",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-11-11",
+      sourceName: "Abbott World Marathon Majors announcement",
+      sourceUrl: "https://www.abbott.com/en-us/corpnewsroom/nutrition-health-and-wellness/cape-town-marathon-is-the-8-abbott-world-marathon-major",
     },
   },
   {
