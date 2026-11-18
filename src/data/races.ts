@@ -46,7 +46,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-10-28";
+export const RACES_AS_OF = "2026-11-18";
 
 export const RACES: Race[] = [
   {
@@ -378,7 +378,7 @@ export const RACES: Race[] = [
       sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/results",
     },
     men: [
-      { name: "Andreas Almgren", country: "Sweden", place: 1, time: "58:06" },
+      { racer: "andreas-almgren", place: 1, time: "58:06" },
       { name: "Nicholas Kipkorir", country: "Kenya", place: 2 },
       { name: "Joshua Cheptegei", country: "Uganda", place: 3, time: "58:26" },
     ],
@@ -560,24 +560,25 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The 50th anniversary of New York\'s five-borough course brings nearly 60,000 runners to the city — and the deepest open field in event history: 40 Olympians, ten men who have run under the course record, and a women\'s battle headlined by defending champion Hellen Obiri against Olympic marathon champion Sifan Hassan.",
+    why: "Sweden\'s Andreas Almgren made the perfect marathon debut at the 50th running of the five-borough course, surging through the final mile to win in 2:06:01 — the third-fastest time in race history. Sheila Chepkirui defended her women\'s title in 2:24:36, with American Jessica McClain edging Hellen Obiri by one second in a photo-finish for second — the first U.S. woman on the NYC podium since 2018.",
     watchUrl: "https://www.nyrr.org/tcsnycmarathon",
-    coverage: "field",
+    resultsUrl: "https://www.nyrr.org/media-center/news/2026/11/01/andreas-almgren-sheila-chepkirui-marcel-hug-and-catherine-debrunner-win-2026-tcs-new-york-city-marathon",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-10-21",
-      sourceName: "New York Road Runners",
-      sourceUrl: "https://www.nyrr.org/media-center/press-release/2026_0819_tcsnycmprofield",
+      checkedAt: "2026-11-18",
+      sourceName: "NYRR official results",
+      sourceUrl: "https://www.nyrr.org/media-center/news/2026/11/01/andreas-almgren-sheila-chepkirui-marcel-hug-and-catherine-debrunner-win-2026-tcs-new-york-city-marathon",
     },
     men: [
-      { racer: "benson-kipruto" },
-      { name: "Geoffrey Kamworor", country: "Kenya" },
-      { name: "Abdi Nageeye", country: "Netherlands" },
+      { racer: "andreas-almgren", place: 1, time: "2:06:01" },
+      { name: "Yemaneberhan Crippa", country: "Italy", place: 2, time: "2:06:14" },
+      { name: "Kamohelo Mofolo", country: "Lesotho", place: 3, time: "2:06:26" },
     ],
     women: [
-      { racer: "hellen-obiri" },
-      { racer: "sifan-hassan" },
-      { name: "Sheila Chepkirui", country: "Kenya" },
+      { racer: "sheila-chepkirui", place: 1, time: "2:24:36" },
+      { name: "Jessica McClain", country: "United States", place: 2, time: "2:24:42" },
+      { racer: "hellen-obiri", place: 3, time: "2:24:43" },
     ],
   },
   {

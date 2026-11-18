@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-10-28";
+export const RACERS_AS_OF = "2026-11-18";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -395,6 +395,7 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Marathon", time: "2:15:53" }],
     honors: [
       "Boston & New York City Marathon champion",
+      "New York City Marathon 3rd place (2026, 2:24:43)",
       "Two-time world 5000m champion",
       "Multiple Olympic track medalist",
     ],
@@ -499,6 +500,18 @@ export const RACERS: Racer[] = [
       "Chicago Marathon champion (2025, 2026)",
       "Chicago Marathon personal best — 2:13:33 (2026)",
       "Tokyo Marathon 3rd place (2026)",
+    ],
+  },
+  {
+    slug: "sheila-chepkirui",
+    name: "Sheila Chepkirui",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:21:54" }],
+    honors: [
+      "New York City Marathon champion (2024, 2026)",
+      "Nagoya Women\'s Marathon champion (2025, 2026)",
     ],
   },
   {
@@ -860,6 +873,22 @@ export const RACERS: Racer[] = [
     prs: [{ event: "Marathon", time: "2:05:26" }],
     honors: [
       "Frankfurt Marathon champion (2026, 2:05:26)",
+    ],
+  },
+  {
+    slug: "andreas-almgren",
+    name: "Andreas Almgren",
+    gender: "M",
+    country: "Sweden",
+    born: "1995-06-12",
+    events: ["Marathon", "Half Marathon"],
+    prs: [
+      { event: "Marathon", time: "2:06:01" },
+      { event: "Half Marathon", time: "58:06" },
+    ],
+    honors: [
+      "New York City Marathon champion (2026, marathon debut — 2:06:01, third-fastest NYC time ever)",
+      "World Road Running Championships half marathon champion (2026, 58:06 European record)",
     ],
   },
   {
