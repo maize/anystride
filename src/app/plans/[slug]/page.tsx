@@ -1,5 +1,6 @@
 import { PlanDetail } from "@/components/PlanDetail";
 import type { Metadata } from "next";
+import { planRouteMetadata } from "@/lib/plan-page-metadata";
 import { getAllPlans, getPlanBySlug } from "@/lib/plans";
 
 export function generateStaticParams() {
@@ -12,15 +13,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const plan = getPlanBySlug(slug);
   if (!plan) return { title: "Plan not found" };
-  return {
-    title: plan.slug === "pfitzinger-18-55"
-      ? "Pfitz 18/55 Marathon Plan: Mileage & Overview"
-      : plan.name,
-    description: plan.slug === "pfitzinger-18-55"
-      ? "Explore the Pfitz 18/55 marathon plan: 18 weeks, up to 55 miles a week, starting requirements and training structure. Read our overview and find the source."
-      : plan.summary,
-    alternates: { canonical: `/plans/${plan.slug}` },
-  };
+  return planRouteMetadata(plan);
 }
 
 export default function PlanPage({ params }: PageProps<"/plans/[slug]">) {
