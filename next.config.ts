@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { PUBLISHED_DIACRITIC_CITIES, runningCoachLegacyRedirects } from "./src/lib/slug";
 
 const nextConfig: NextConfig = {
   // OAuth codes and webhook verification secrets must stay out of dev logs.
@@ -11,11 +12,19 @@ const nextConfig: NextConfig = {
     ] }];
   },
   async redirects() {
-    return [{ source: "/coaching", destination: "/coaches", permanent: true }, {
-      source: "/guides/fueling-long-runs",
-      destination: "/guides/fueling-for-long-runs",
-      permanent: true,
-    }];
+    return [
+      { source: "/coaching", destination: "/coaches", permanent: true },
+      {
+        source: "/guides/fueling-long-runs",
+        destination: "/guides/fueling-for-long-runs",
+        permanent: true,
+      },
+      ...runningCoachLegacyRedirects(PUBLISHED_DIACRITIC_CITIES).map((redirect) => ({
+        source: redirect.source,
+        destination: redirect.destination,
+        statusCode: 301,
+      })),
+    ];
   },
 };
 

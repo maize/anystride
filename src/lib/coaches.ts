@@ -6,7 +6,7 @@ import {
   type CoachFocus,
   type CoachFormat,
 } from "@/data/coaches";
-import { citySlug } from "./slug";
+import { citySlug, legacyCitySlug } from "./slug";
 
 function sortCoaches(coaches: Coach[]): Coach[] {
   return [...coaches].sort(
@@ -141,6 +141,15 @@ export function getCityBySlug(slug: string): string | undefined {
 
 export function getCityBySlugFor(coaches: Coach[], slug: string): string | undefined {
   return availableCitiesFor(coaches).find((city) => citySlug(city) === slug);
+}
+
+/** City whose old ASCII-stripping slug matches, when that slug is no longer canonical. */
+export function getCityByLegacySlugFor(coaches: Coach[], slug: string): string | undefined {
+  if (!slug) return undefined;
+  return availableCitiesFor(coaches).find((city) => {
+    const legacy = legacyCitySlug(city);
+    return legacy === slug && citySlug(city) !== legacy;
+  });
 }
 
 /** Cities with at least one coach, preferred order first then any extras. */

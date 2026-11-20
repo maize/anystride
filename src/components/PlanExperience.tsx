@@ -206,16 +206,6 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
     });
   }
 
-  function scrollToWeek() {
-    trackProductEvent("plan_resume", { plan_slug: plan.slug });
-    document
-      .getElementById(`week-${resumeWeek}`)
-      ?.scrollIntoView({
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-        block: "start",
-      });
-  }
-
   function printPlan() {
     trackProductEvent("plan_print", { plan_slug: plan.slug });
     window.print();
@@ -330,13 +320,13 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
 
         {planIsActive && (
           <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-border pt-5">
-            <button
-              type="button"
-              onClick={scrollToWeek}
+            <a
+              href={`#week-${resumeWeek}`}
+              onClick={() => trackProductEvent("plan_resume", { plan_slug: plan.slug })}
               className="rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-all duration-300 ease-stride hover:opacity-80 active:scale-[0.98]"
             >
               Go to week {resumeWeek}
-            </button>
+            </a>
             <a
               href={calendarHref}
               onClick={() => trackProductEvent("plan_calendar_download", { plan_slug: plan.slug })}

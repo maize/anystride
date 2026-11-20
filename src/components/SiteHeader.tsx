@@ -139,7 +139,7 @@ export function SiteHeader() {
             type="button"
             onClick={() => setOpenPath(open ? null : pathname)}
             aria-expanded={open}
-            aria-controls={open ? "mobile-navigation" : undefined}
+            aria-controls="mobile-navigation"
             aria-label={open ? "Close menu" : "Open menu"}
             className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
           >
@@ -164,15 +164,15 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {open && (
-        <div
-          ref={menuRef}
-          id="mobile-navigation"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site navigation"
-          className="fixed inset-0 z-40 flex flex-col bg-background/80 backdrop-blur-3xl md:hidden"
-        >
+      <div
+        ref={menuRef}
+        id="mobile-navigation"
+        role="dialog"
+        aria-modal={open ? true : undefined}
+        aria-hidden={open ? undefined : true}
+        aria-label="Site navigation"
+        className={open ? "fixed inset-0 z-40 flex flex-col bg-background/80 backdrop-blur-3xl md:hidden" : "hidden"}
+      >
           <nav className="mt-24 flex flex-col gap-2 px-8">
             {navLinks.map(({ href, label }, i) => {
               const active = isActive(pathname, href);
@@ -210,8 +210,7 @@ export function SiteHeader() {
               Find my plan
             </Link>}
           </nav>
-        </div>
-      )}
+      </div>
     </header>
   );
 }
