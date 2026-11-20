@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { cache } from "react";
+import { notFound, permanentRedirect } from "next/navigation";
 import {
   availableCities,
   availableCitiesFor,
   filterCoachCatalog,
   getAllCoachesWithDiscovered,
+  getCityByLegacySlugFor,
   getCityBySlugFor,
 } from "@/lib/coaches";
 import { citySlug } from "@/lib/slug";
@@ -13,6 +15,15 @@ import { CoachCard } from "@/components/CoachCard";
 import { JsonLd } from "@/components/JsonLd";
 
 export const dynamic = "force-dynamic";
+
+const loadCity = cache(async (slug: string) => {
+  const catalog = await getAllCoachesWithDiscovered();
+  const city = getCityBySlugFor(catalog, slug);
+  if (city) return { catalog, city };
+  const legacy = getCityByLegacySlugFor(catalog, slug);
+  if (legacy) permanentRedirect(`/running-coaches/${citySlug(legacy)}`);
+  return { catalog, city: undefined };
+});
 
 export function generateStaticParams() {
   return availableCities().map((city) => ({ city: citySlug(city) }));
@@ -22,14 +33,13 @@ export async function generateMetadata({
   params,
 }: PageProps<"/running-coaches/[city]">): Promise<Metadata> {
   const { city: slug } = await params;
-  const catalog = await getAllCoachesWithDiscovered();
-  const city = getCityBySlugFor(catalog, slug);
+  const { city } = await loadCity(slug);
   if (!city) return { title: "Coaches not found" };
   const where = city === "Online" ? "online" : `in ${city}`;
   return {
     title: `Running coaches ${where}`,
     description: `Find running coaches ${where} — browse profiles by focus and format, then connect with the coach directly. Free, community-built directory.`,
-    alternates: { canonical: `/running-coaches/${slug}` },
+    alternates: { canonical: `/running-coaches/${citySlug(city)}` },
   };
 }
 
@@ -37,14 +47,13 @@ export default async function CityCoachesPage({
   params,
 }: PageProps<"/running-coaches/[city]">) {
   const { city: slug } = await params;
-  const catalog = await getAllCoachesWithDiscovered();
-  const city = getCityBySlugFor(catalog, slug);
+  const { catalog, city } = await loadCity(slug);
   if (!city) notFound();
 
   const isOnline = city === "Online";
   const coaches = isOnline ? catalog.filter(coach => coach.format === "online" || coach.format === "hybrid") : filterCoachCatalog(catalog, { city });
   const where = isOnline ? "online" : `in ${city}`;
-  const url = `https://anystride.com/running-coaches/${slug}`;
+  const url = `https://anystride.com/running-coaches/${citySlug(city)}`;
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
@@ -86,7 +95,7 @@ export default async function CityCoachesPage({
 
       {isOnline && <section className="mt-8 rounded-xl bg-muted p-6" aria-labelledby="online-fit"><h2 id="online-fit" className="text-xl font-semibold">Compare the support, not just the location</h2><p className="mt-3 text-sm text-muted-foreground">These profiles list online or hybrid coaching, including coaches based in a city. Confirm whether they can work with you in your country and time zone. Directory listings do not establish current availability.</p><ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground"><li>Ask how often your coach reviews training and how you contact them.</li><li>Confirm the full price, minimum commitment and cancellation terms.</li><li>Check the required training app, equipment and feedback channels.</li></ul><div className="mt-4 flex flex-wrap gap-6"><Link href="/coaching/focus/beginners" className="action-link">New to running →</Link><Link href="/coaching/focus/half-marathon" className="action-link">Half marathon coaching →</Link><Link href="/coaching/focus/marathon" className="action-link">Marathon coaching →</Link><Link href="/#account-preview" className="action-link">Explore the account preview →</Link></div></section>}
 
-      {slug === "san-francisco" && (
+      {city === "San Francisco" && (
         <div className="mt-6 max-w-2xl space-y-3 text-sm text-muted-foreground">
           <p>
             These listings cover different parts of the Bay Area: San Francisco,

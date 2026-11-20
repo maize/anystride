@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Pace calculator & plan finder",
   description:
     "Enter a recent finish time or goal, plus your weekly mileage. Get your training paces, equivalent race times, and the plans that fit you.",
+  alternates: { canonical: "/calculator" },
 };
 
 export default function CalculatorPage() {

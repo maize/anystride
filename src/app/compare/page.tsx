@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Compare training plans",
   description:
     "Compare free running training plans side by side — distance, length, weekly time, intensity, and what each one builds up to.",
+  alternates: { canonical: "/compare" },
 };
 
 export default function ComparePage() {
