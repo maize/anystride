@@ -146,7 +146,7 @@ test("unavailable review storage fails closed, and catalog resolution cannot byp
   assert.equal(catalog.length, COACHES.filter((coach) => !coach.discoveredFrom).length);
   assert.equal(await core.getCoachBySlugWithDiscovered(existing.slug), undefined);
   assert.equal(catalog.some((coach) => coach.slug === "rediscovered-copy"), false);
-  const paths = load("src/lib/site-urls.ts", { "@/lib/coaches": core, "./coaches": core });
+  const paths = load("src/lib/site-urls.ts", { "@/lib/coaches": core, "./coaches": core, "server-only": {} });
   assert.equal((await paths.getAllSitePathsWithDiscovered()).includes(`/coaching/${existing.slug}`), false);
 });
 
