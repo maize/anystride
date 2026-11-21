@@ -24,6 +24,8 @@ interface PlanExperienceProps {
     durationWeeks: number;
     weeks: PlanWeek[];
   };
+  scheduleHeading: string;
+  scheduleIntro: string;
 }
 
 interface ProgressStore {
@@ -135,7 +137,7 @@ function formatDate(date: string) {
   }).format(parsed);
 }
 
-export function PlanExperience({ plan }: PlanExperienceProps) {
+export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExperienceProps) {
   const store = useMemo(() => getProgressStore(plan.slug), [plan.slug]);
   const progress = useSyncExternalStore(
     store.subscribe,
@@ -351,9 +353,12 @@ export function PlanExperience({ plan }: PlanExperienceProps) {
 
       <div className="mt-10 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-xl font-semibold tracking-tight">
-            The plan, week by week
+          <h2 id="plan-schedule" className="text-xl font-semibold tracking-tight">
+            {scheduleHeading}
           </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            {scheduleIntro}
+          </p>
           <p className="mt-1 text-sm text-muted-foreground">
             {progress.unit === "km"
               ? "Distances are shown in kilometers."
