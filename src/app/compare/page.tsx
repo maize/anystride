@@ -26,6 +26,19 @@ export default function ComparePage() {
         <ComparisonTable plans={plans} />
       </div>
 
+      <section className="mt-12 border-t border-border pt-8">
+        <h2 className="text-xl font-semibold tracking-tight">Head-to-head comparisons</h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          <Link
+            href="/compare/pfitz-18-55-vs-hansons"
+            className="font-medium text-brand underline underline-offset-4"
+          >
+            Pfitz 18/55 vs Hansons Marathon Method
+          </Link>{" "}
+          compares those two marathon plans on length, weekly mileage, the long run, and hard workouts. Each figure links to the published source.
+        </p>
+      </section>
+
       <div className="mt-8 flex flex-wrap gap-3 text-sm">
         <Link href="/plans" className="text-brand hover:underline">
           Browse as cards →

@@ -108,9 +108,9 @@ test("every plan page has question headings, a direct answer, and 4 to 6 FAQs", 
 
 test("priority pages answer from plan data and name their independence", () => {
   const expectations = {
-    "pfitzinger-18-55": [/18 weeks/, /55 miles/, /33 miles/, /20–22 miles/, /not affiliated with Pete Pfitzinger/, /no pace chart|does not list numeric paces/i],
-    "higdon-marathon-novice-1": [/18 weeks/, /40 miles/, /20-mile/, /no speedwork/i, /not affiliated with Hal Higdon/, /three 20-mile/i],
-    "hansons-marathon-method": [/18 weeks/, /50 miles/, /16 miles/, /6 running days/, /no pace chart/i, /not affiliated with the Hansons/],
+    "pfitzinger-18-55": [/18 weeks/, /55 miles/, /33 miles/, /20 miles/, /not affiliated with Pete Pfitzinger/, /no pace chart|does not list numeric paces/i],
+    "higdon-marathon-novice-1": [/18 weeks/, /40 miles/, /20-mile/, /no speedwork/i, /not affiliated with Hal Higdon/, /three 20-mile/i, /57\.5 miles/, /61\.5 miles/],
+    "hansons-marathon-method": [/18 weeks/, /57\.5 miles/, /61\.5 miles/, /12 miles in week 1/, /16 miles/, /6 running days/, /Beginner plan/, /no pace chart/i, /not affiliated with the Hansons/],
     "bridge-to-10k": [/6 weeks/, /18 miles/, /6 miles in week 5/, /4 miles in week 1/, /not affiliated with a named author/],
     "couch-to-5k": [/9 weeks/, /30-minute continuous run|30 minutes of continuous running/, /not a promise/, /not affiliated with the NHS/, /60 seconds of jogging/],
   };
@@ -130,6 +130,9 @@ test("priority pages answer from plan data and name their independence", () => {
   const hansons = textOf(planPageCopy(getPlanBySlug("hansons-marathon-method")));
   assert.match(hansons, /has no pace chart/);
   assert.doesNotMatch(hansons, /taper length of \d|3-week taper/);
+  assert.doesNotMatch(hansons, /50 miles|18 miles at the start/);
+  const pfitz = textOf(planPageCopy(getPlanBySlug("pfitzinger-18-55")));
+  assert.doesNotMatch(pfitz, /20–22|20-22/);
 });
 
 test("FAQ links point at real internal pages or the plan source", () => {
@@ -154,8 +157,15 @@ test("FAQ links point at real internal pages or the plan source", () => {
     assert.ok(hrefs.includes("/#plan-finder"), slug);
     assert.ok(hrefs.some((href) => href === "/coaches" || href.startsWith("/coaching/focus/")), slug);
     assert.ok(hrefs.some((href) => href.startsWith("/plans/") && href !== `/plans/${slug}`), slug);
+    const officialPdfs = new Set([
+      "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+      "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+    ]);
     for (const href of hrefs) {
-      assert.ok(internal.has(href) || href === plan.source.url, `${slug} unexpected ${href}`);
+      assert.ok(
+        internal.has(href) || href === plan.source.url || officialPdfs.has(href),
+        `${slug} unexpected ${href}`,
+      );
     }
   }
 });

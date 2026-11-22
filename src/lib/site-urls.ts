@@ -31,6 +31,7 @@ function sitePaths(coachSlugs: string[], coachCities: string[]): string[] {
     "/alternatives/final-surge",
     "/alternatives/vdot-coach",
     "/compare/vdot-vs-final-surge",
+    "/compare/pfitz-18-55-vs-hansons",
     "/pricing",
     "/plans",
     "/guides",
@@ -90,6 +91,7 @@ export function getSiteRevisions(): Map<string, string> {
   const revisions = new Map<string, string>([["/editorial", "2026-09-12"]]);
   for (const guide of getAllGuides()) revisions.set(`/guides/${guide.slug}`, guide.updated);
   for (const path of ["/alternatives", "/alternatives/final-surge", "/alternatives/vdot-coach", "/compare/vdot-vs-final-surge", "/for-coaches/switching"]) revisions.set(path, "2026-11-05");
+  revisions.set("/compare/pfitz-18-55-vs-hansons", "2026-11-22");
   const latestGuide = getAllGuides()[0]?.updated;
   if (latestGuide) revisions.set("/guides", latestGuide);
   // Verification dates are visible page content, not an automated refresh clock.
