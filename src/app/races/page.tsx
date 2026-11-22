@@ -65,6 +65,11 @@ export default function RacesPage() {
         one matters, and where to watch. Every schedule, field, and result links
         back to its official source.
       </p>
+      <p className="mt-4">
+        <Link href="/racers" className="text-sm font-medium text-brand hover:underline">
+          Browse all pro runners we track
+        </Link>
+      </p>
 
       {/* Next race highlight */}
       {next && (
