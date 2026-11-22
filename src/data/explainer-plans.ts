@@ -211,7 +211,7 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
     prerequisite: "You're already running 30+ mpw with a 10+ mile long run",
     timePerWeek: "6–9 hrs",
     intensity: "high",
-    peakWorkout: "20–22 mi long runs; 55 mpw peak weeks",
+    peakWorkout: "20 mi long run; 55 mpw peak weeks",
     bestFor: [
       "Experienced marathoners chasing a big PR or BQ",
       "Runners who thrive on structure and mileage",
@@ -230,7 +230,7 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
       "Lactate-threshold (tempo) runs of 4–7 mi at ~15K–half effort",
       "Midweek medium-long runs of 11–15 mi — the trademark element",
       "VO2max intervals in the sharpening phase",
-      "Long runs up to 20–22 mi at controlled effort",
+      "Long runs up to 20 mi at controlled effort",
       "A structured 3-week taper",
     ],
     pros: [
@@ -250,7 +250,7 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
     durationWeeks: 18,
     daysPerWeek: 6,
     summary:
-      "A high-frequency plan built on 'cumulative fatigue' — six runs a week, goal-pace tempo runs, and a deliberately capped 16-mile long run.",
+      "A high-frequency plan built on cumulative fatigue, with six running days from week 6 on the Beginner plan and every week on the Advanced plan, goal-pace tempo runs, and a 16-mile long run cap.",
     prerequisite: "You can run ~25 mpw and want a structured marathon build",
     timePerWeek: "6–8 hrs",
     intensity: "high",
@@ -260,7 +260,7 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
       "Marathoners with a specific pace goal",
       "Those nervous about 20-milers but able to run often",
     ],
-    weeklyVolume: { start: 18, peak: 50 },
+    weeklyVolume: { start: 12, peak: 57.5 },
     source: {
       name: "Hansons Marathon Method — Luke Humphrey Running",
       url: "https://lukehumphreyrunning.com/",
@@ -269,9 +269,9 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
       "A Reddit favorite and lightning rod: the 16-mile long-run cap is famous (and controversial). The idea is that running tired all week simulates the marathon's final miles better than one long run does.",
     kind: "explainer",
     outline: [
-      "6 running days per week — frequency is the point",
+      "6 running days a week from week 6 on the Beginner plan, and every week on the Advanced plan",
       "'Something of Substance' days: speed, strength, tempo, long",
-      "Tempo runs at goal marathon pace, building to 10 mi",
+      "Tempo runs at goal marathon pace: Beginner is 5 mi in week 6 and 9 mi by week 12, Advanced rises from 6 to 10 mi",
       "Cumulative fatigue: workouts done on tired legs all week",
       "Long run capped at 16 mi by design",
     ],

@@ -59,6 +59,7 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
       <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
         <PlanCopy parts={copy.affiliation} />
       </p>
+      <PlanComparisonLink slug={plan.slug} />
 
       <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 rounded-xl border border-border p-5 text-sm sm:grid-cols-4">
         <div>
@@ -257,6 +258,38 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
       </p>
     </div>
   );
+}
+
+function PlanComparisonLink({ slug }: { slug: string }) {
+  if (slug === "pfitzinger-18-55") {
+    return (
+      <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+        Comparing it with Hansons? See{" "}
+        <Link
+          href="/compare/pfitz-18-55-vs-hansons"
+          className="font-medium text-brand underline underline-offset-2"
+        >
+          Pfitz 18/55 vs Hansons
+        </Link>
+        .
+      </p>
+    );
+  }
+  if (slug === "hansons-marathon-method") {
+    return (
+      <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+        Comparing it with Pfitz 18/55? See{" "}
+        <Link
+          href="/compare/pfitz-18-55-vs-hansons"
+          className="font-medium text-brand underline underline-offset-2"
+        >
+          Hansons vs Pfitz 18/55
+        </Link>
+        .
+      </p>
+    );
+  }
+  return null;
 }
 
 function PlanCopy({ parts }: { parts: TextPart[] }) {

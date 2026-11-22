@@ -251,7 +251,7 @@ function customSections(plan: TrainingPlan, name: string): PlanIntentSection[] |
           id: "volume",
           heading: `How many miles a week does the ${name} plan peak at?`,
           answer: [
-            "Pfitz 18/55 peaks at 55 miles (89 km) a week. The plan records weekly volume of 33 miles at the start and 55 miles at the peak, and the longest runs listed are 20–22 miles.",
+            "Pfitz 18/55 peaks at 55 miles (89 km) a week. The plan records weekly volume of 33 miles at the start and 55 miles at the peak, and the longest run listed is 20 miles.",
           ],
         },
         {
@@ -332,14 +332,24 @@ function customSections(plan: TrainingPlan, name: string): PlanIntentSection[] |
           id: "duration",
           heading: `How long is the ${name} plan?`,
           answer: [
-            "The Hansons Marathon Method is 18 weeks, with 6 running days a week and about 6–8 hours of training.",
+            "The Hansons Marathon Method is 18 weeks, and listed training time is about 6-8 hours. The Beginner plan has 6 running days a week from week 6. The Advanced plan has 6 running days every week.",
           ],
         },
         {
           id: "volume",
           heading: `How many miles a week does the ${name} plan peak at?`,
           answer: [
-            "The plan records weekly volume of 18 miles at the start and 50 miles at the peak. The long run is capped at 16 miles, and tempo runs at goal marathon pace build to 10 miles.",
+            "The free ",
+            link(
+              "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+              "Hansons Beginner plan",
+            ),
+            " records 12 miles in week 1 and a peak of 57.5 miles. The free ",
+            link(
+              "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+              "Hansons Advanced plan",
+            ),
+            " peaks at 61.5 miles, and its tempo runs rise from 6 miles to 10 miles. Both plans cap the long run at 16 miles.",
           ],
         },
         {
@@ -455,7 +465,7 @@ function structureCopy(plan: TrainingPlan, questionName: string): { heading: str
       return {
         heading,
         answer: [
-          "This page summarizes the plan and does not reproduce the book's week-by-week schedule. The outline below lists five running days, lactate-threshold runs of 4–7 miles, midweek medium-long runs of 11–15 miles, VO2max intervals, long runs of 20–22 miles, and a 3-week taper.",
+          "This page summarizes the plan and does not reproduce the book's week-by-week schedule. The outline below lists five running days, lactate-threshold runs of 4–7 miles, midweek medium-long runs of 11–15 miles, VO2max intervals, long runs of 20 miles, and a 3-week taper.",
         ],
       };
     case "higdon-marathon-novice-1":
@@ -469,7 +479,7 @@ function structureCopy(plan: TrainingPlan, questionName: string): { heading: str
       return {
         heading,
         answer: [
-          "This page summarizes the method and does not reproduce a week-by-week schedule. The outline lists six running days, speed, strength, tempo, and long-run days, tempo runs building to 10 miles, cumulative fatigue, and a 16-mile long-run cap.",
+          "This page summarizes the method and does not reproduce a week-by-week schedule. The outline lists speed, strength, tempo, and long-run days, cumulative fatigue, and a 16-mile long-run cap. Beginner tempo runs are 5 miles in week 6 and reach 9 miles by week 12, and Advanced tempo runs rise from 6 miles to 10 miles.",
         ],
       };
     default:
@@ -539,7 +549,7 @@ function pfitzFaqs(plan: TrainingPlan): PlanFaq[] {
     {
       question: "What workouts does the Pfitz 18/55 overview include?",
       answer: [
-        "The outline describes lactate-threshold runs of 4–7 miles at about 15K to half-marathon effort, midweek medium-long runs of 11–15 miles, VO2max intervals in the sharpening phase, and long runs of 20–22 miles. This page does not list each day of the book.",
+        "The outline describes lactate-threshold runs of 4–7 miles at about 15K to half-marathon effort, midweek medium-long runs of 11–15 miles, VO2max intervals in the sharpening phase, and long runs of 20 miles. This page does not list each day of the book.",
       ],
     },
     {
@@ -618,7 +628,17 @@ function higdonFaqs(plan: TrainingPlan): PlanFaq[] {
         link("/plans/pfitzinger-18-55", "Pfitz 18/55"),
         " peaks at 55 miles on 5 days and lists a starting point of 30+ miles a week. The ",
         link("/plans/hansons-marathon-method", "Hansons Marathon Method"),
-        " uses 6 running days, records a peak of 50 miles, and caps the long run at 16 miles. The ",
+        " uses 6 running days and caps the long run at 16 miles. The free ",
+        link(
+          "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+          "Hansons Beginner plan",
+        ),
+        " peaks at 57.5 miles, and the free ",
+        link(
+          "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+          "Hansons Advanced plan",
+        ),
+        " peaks at 61.5 miles. The ",
         link("/#plan-finder", "plan finder"),
         " matches a plan to your mileage and days.",
       ],
@@ -645,13 +665,13 @@ function hansonsFaqs(plan: TrainingPlan): PlanFaq[] {
     {
       question: "How many days a week is the Hansons Marathon Method?",
       answer: [
-        "Six running days a week, about 6–8 hours. The outline lists speed, strength, tempo, and long-run days.",
+        "The Beginner plan has 6 running days a week from week 6. The Advanced plan has 6 running days every week. Listed training time is about 6-8 hours, and the outline lists speed, strength, tempo, and long-run days.",
       ],
     },
     {
       question: "Does this page include a Hansons Marathon Method pace chart?",
       answer: [
-        "No. Tempo runs are described at goal marathon pace and build to 10 miles, but this overview has no pace chart. The ",
+        "No. This overview has no pace chart. Beginner tempos at goal marathon pace are 5 miles in week 6 and reach 9 miles by week 12, and Advanced tempos rise from 6 miles to 10 miles. The ",
         link("/calculator", "pace calculator"),
         " estimates paces from a recent race result, and it is not a Hansons chart.",
       ],
@@ -659,7 +679,17 @@ function hansonsFaqs(plan: TrainingPlan): PlanFaq[] {
     {
       question: "What mileage do I need to start the Hansons Marathon Method?",
       answer: [
-        "The listed starting point is about 25 miles a week. The plan records weekly volume of 18 miles at the start and 50 miles at the peak. If six days a week does not fit, compare ",
+        "The listed starting point is about 25 miles a week. The free ",
+        link(
+          "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+          "Hansons Beginner plan",
+        ),
+        " records 12 miles in week 1 and a peak of 57.5 miles. The free ",
+        link(
+          "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+          "Hansons Advanced plan",
+        ),
+        " peaks at 61.5 miles. If six days a week does not fit, compare ",
         link("/plans/pfitzinger-18-55", "Pfitz 18/55"),
         " or ",
         link("/plans/higdon-marathon-novice-1", "Hal Higdon Marathon Novice 1"),

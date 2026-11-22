@@ -86,6 +86,17 @@ export default async function DistanceHubPage({
         the days you can train. Complete schedules are free to follow here.
         Method overviews explain a plan and link to its official source.
       </p>
+      {distance === "marathon" && (
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          <Link
+            href="/compare/pfitz-18-55-vs-hansons"
+            className="font-medium text-brand underline underline-offset-4"
+          >
+            Compare marathon plans
+          </Link>
+          : Pfitz 18/55 and the Hansons Marathon Method, on long runs, peak weeks, and running days.
+        </p>
+      )}
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
