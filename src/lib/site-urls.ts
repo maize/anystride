@@ -35,6 +35,7 @@ function sitePaths(coachSlugs: string[], coachCities: string[]): string[] {
     "/plans",
     "/guides",
     "/races",
+    "/racers",
     "/compare",
     "/calculator",
     "/coaches",

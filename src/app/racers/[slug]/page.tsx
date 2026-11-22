@@ -85,12 +85,20 @@ export default async function RacerPage({ params }: PageProps<"/racers/[slug]">)
         }}
       />
 
-      <Link
-        href="/races"
-        className="text-sm font-medium text-muted-foreground hover:text-brand"
-      >
-        ← Races to watch
-      </Link>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <Link
+          href="/races"
+          className="text-sm font-medium text-muted-foreground hover:text-brand"
+        >
+          ← Races to watch
+        </Link>
+        <Link
+          href="/racers"
+          className="text-sm font-medium text-muted-foreground hover:text-brand"
+        >
+          All pro runners
+        </Link>
+      </div>
 
       {/* Header */}
       <div className="mt-4 flex items-center gap-4">
