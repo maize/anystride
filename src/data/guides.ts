@@ -1999,4 +1999,99 @@ export const GUIDES: Guide[] = [
     ],
     relatedPlans: ["couch-to-5k", "base-building-4-week", "bridge-to-10k"],
   },
+  {
+    slug: "how-to-run-a-long-run",
+    title: "How to Run a Long Run: Effort, Distance and Recovery",
+    description: "What effort to run your long run at, how far to go, when to fuel and how to recover afterward so it supports your training rather than derailing it.",
+    targetQuery: "long run tips / how to do a long run / how fast should long runs be",
+    updated: "2026-11-23",
+    intro: [
+      "The long run is the cornerstone session of marathon and half-marathon training. It builds aerobic endurance, trains the body to use fat as fuel and prepares connective tissue for sustained effort over hours.",
+      "It is also the session most often run too fast. Keeping the long run at a genuinely easy effort is not a compromise; it is what makes the workout useful rather than damaging.",
+    ],
+    sections: [
+      {
+        heading: "Run it easy",
+        body: [
+          "The long run should be conversational. In Jack Daniels' training framework, most long runs fall in the easy category, which serves both recovery and endurance. Running at easy pace allows you to cover the distance, absorb training stress and still recover in time for the next session.",
+          "Anystride's calculator at /calculator gives an easy pace estimate from a recent race result. Use that as a guide rather than trying to preview marathon goal pace throughout. A long run done at a sustainable easy effort builds more useful fitness than the same distance run too hard and followed by several days of depleted recovery.",
+        ],
+      },
+      {
+        heading: "How far to run",
+        body: [
+          "Follow the distance your plan prescribes for each week. Hal Higdon's Novice 1 marathon plan peaks at 20 miles three weeks before race day; Pfitzinger's 18/55 plan builds to longer long runs. These are programme choices, not universal minimums.",
+          "Adding extra miles beyond the plan to bank fitness is a common and counterproductive habit. The long run's purpose is to accumulate the specific benefit of sustained easy running, not to reach a symbolic milestone. Extending a long run when you are fatigued or when recovery time before the next session is limited adds load without proportionate benefit.",
+        ],
+      },
+      {
+        heading: "Fuel and hydrate",
+        body: [
+          "For long runs lasting beyond roughly 60 to 90 minutes, carbohydrate intake during the run becomes relevant. The Australian Institute of Sport gives a target of 30 to 60 grams per hour for endurance exercise lasting one to two-and-a-half hours, and up to 90 grams per hour for longer events using mixed carbohydrate sources.",
+          "Use training long runs to practise whatever fueling strategy you plan to use on race day. Count carbohydrate from gels, sports drinks and any food together. Plan fluid access for the route, and drink to thirst rather than forcing a fixed volume.",
+        ],
+        bullets: [
+          "Start fueling early, before you feel depleted, to stay ahead of carbohydrate needs on runs over 90 minutes.",
+          "Test specific products during training long runs, not for the first time on race day.",
+          "Carry or plan access to fluids; do not rely on a single aid station at a fixed point.",
+        ],
+      },
+      {
+        heading: "Walk breaks are not failure",
+        body: [
+          "Walking during a long run is a valid strategy for managing effort, not a sign that the run went wrong. Some plans include planned walk breaks; others run continuously. If the effort becomes unmanageable mid-run, walking to lower heart rate and recover composure is preferable to continuing at a pace that leaves you depleted.",
+          "If you regularly need walk breaks to complete the prescribed distance, the pace may be too fast or the distance may be ahead of your current fitness. Adjust one at a time and check that your easy pace estimate matches your effort.",
+        ],
+      },
+      {
+        heading: "Recovery after the long run",
+        body: [
+          "Schedule easy movement or rest the day after a long run. Most training plans deliberately place the long run at the end of the weekly block so the following day can serve as recovery. Following that structure supports adaptation better than adding a moderate run the day after.",
+          "Eat a carbohydrate- and protein-containing meal within a reasonable window after finishing. Replenishing glycogen promptly matters more when another session follows within eight hours. Otherwise, the next regular meal is adequate; there is no universal 30-minute window that makes a later meal worthless.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How fast should my long runs be?",
+        a: "Easy enough to hold a conversation throughout. Use the easy pace from the Anystride calculator at /calculator as a starting point, not marathon goal pace. The long run is not a weekly race rehearsal.",
+      },
+      {
+        q: "How long should a long run be for marathon training?",
+        a: "Follow your plan's prescribed weekly long run distance. Hal Higdon Novice 1 peaks at 20 miles; other plans differ. Adding extra miles beyond the plan is rarely beneficial and often counterproductive.",
+      },
+      {
+        q: "Should I eat during a long run?",
+        a: "For runs lasting beyond 60 to 90 minutes, yes. Aim for 30 to 60 grams of carbohydrate per hour as a starting point. Use training runs to practise; do not test new products on race day.",
+      },
+      {
+        q: "Can I do my long run on a treadmill?",
+        a: "Yes, though outdoor running conditions can be useful to practise before an outdoor race. Plan for ventilation and fluid access. The same easy effort applies on a treadmill as outside.",
+      },
+      {
+        q: "What if I miss a long run?",
+        a: "Do not try to squeeze a missed long run into the following week alongside the scheduled one. Resume the next week's planned distance or repeat the previous week's distance. Missing one long run does not ruin a training cycle.",
+      },
+    ],
+    relatedPlans: [
+      "higdon-marathon-novice-1",
+      "higdon-half-novice-1",
+      "pfitzinger-18-55",
+      "hansons-marathon-method",
+    ],
+    sources: [
+      {
+        label: "Australian Institute of Sport — carbohydrate targets during exercise",
+        url: "https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/sports-drink/how-and-when-do-i-use-it",
+      },
+      {
+        label: "Jack Daniels / V.O2 — definitions of easy, marathon, threshold, interval and repetition training",
+        url: "https://vdoto2.com/learn-more/training-definitions",
+      },
+      {
+        label: "Hal Higdon — Novice 1 Marathon: 18-week plan and peak long run",
+        url: "https://www.halhigdon.com/training-programs/marathon-training/novice-1-marathon/",
+      },
+    ],
+  },
 ];
