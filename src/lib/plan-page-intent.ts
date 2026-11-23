@@ -9,10 +9,17 @@ import { getAllPlans, getPlanBySlug } from "@/lib/plans";
 
 export type TextPart = string | { href: string; label: string };
 
+export interface PlanIntentDetail {
+  heading: string;
+  answer: TextPart[];
+}
+
 export interface PlanIntentSection {
   id: string;
   heading: string;
   answer: TextPart[];
+  details?: PlanIntentDetail[];
+  sources?: TextPart[];
 }
 
 export interface PlanFaq {
@@ -79,6 +86,18 @@ export function faqPageSchema(faqs: PlanFaq[]) {
       acceptedAnswer: { "@type": "Answer", text: faqPlainText(faq.answer) },
     })),
   };
+}
+
+export function planPageFaqs(copy: PlanPageCopy): PlanFaq[] {
+  const extras: PlanFaq[] = [];
+  for (const section of copy.sections) {
+    if (!section.details?.length) continue;
+    extras.push({ question: section.heading, answer: section.answer });
+    for (const detail of section.details) {
+      extras.push({ question: detail.heading, answer: detail.answer });
+    }
+  }
+  return [...copy.faqs, ...extras];
 }
 
 export function planPageCopy(plan: TrainingPlan): PlanPageCopy {
@@ -325,7 +344,62 @@ function customSections(plan: TrainingPlan, name: string): PlanIntentSection[] |
           id: "who",
           heading: `Who is the ${name} plan for?`,
           answer: [
-            "The Hansons Marathon Method is an intermediate marathon plan. The listed starting point is being able to run about 25 miles a week. It is listed for runners who improve with frequency, want a specific pace goal, and can run often instead of relying on a 20-mile long run.",
+            "The Hansons Marathon Method is an intermediate marathon plan. Luke Humphrey suggests building to about 20 miles a week before the Beginner plan, which starts at 12 miles in week 1. It is listed for runners who improve with frequency, want a specific pace goal, and can run often instead of relying on a 20-mile long run.",
+          ],
+        },
+        {
+          id: "first-marathon",
+          heading: "Is the Hansons Marathon Method good for a first marathon?",
+          answer: [
+            "It can be, if you already run regularly. Luke Humphrey, co-author of the Hansons method, says the Beginner plan is not for brand-new runners and suggests building to about 20 comfortable miles a week first. He says to add running days before volume over about four to six weeks, and that a typical Beginner plan runner has run about 15 to 30 miles a week.",
+          ],
+          details: [
+            {
+              heading: "Is a 16-mile long run enough for a first marathon?",
+              answer: [
+                "Both free Hansons plans cap the long run at 16 miles by design, and the free Beginner plan schedules three of them in weeks 11, 13, and 15. The method relies on six running days a week so the long run comes on tired legs (cumulative fatigue).",
+              ],
+            },
+            {
+              heading: "How much time does the Hansons Marathon Method take each week?",
+              answer: [
+                "The Beginner plan builds from 12 miles in week 1 to 24 miles in week 5 on four to five running days. From week 6 it runs six days (40 miles) and peaks at 57.5 miles in week 15; Advanced runs six days from week 1 (38 miles) to a 61.5-mile peak.",
+              ],
+            },
+            {
+              heading: "Do I need the Hansons book, or are the free plans enough?",
+              answer: [
+                "Hansons Coaching Services publishes the free ",
+                link(
+                  "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+                  "Beginner schedule",
+                ),
+                " and the free ",
+                link(
+                  "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+                  "Advanced schedule",
+                ),
+                " as PDFs, and each PDF includes a pace key. The book Hansons Marathon Method explains the training philosophy and is sold separately by Luke Humphrey and book retailers.",
+              ],
+            },
+          ],
+          sources: [
+            "Sources checked Nov 23, 2026. Guidance from Luke Humphrey is in the Oct 20, 2025 podcast ",
+            link(
+              "https://lukehumphreyrunning.com/lhr-podcast-approaching-the-hansons-marathon-method-beginning-marathon-plan/",
+              "Approaching the Hansons Marathon Method Beginning Marathon Plan",
+            ),
+            ". Weekly miles are from the ",
+            link(
+              "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
+              "Beginner marathon PDF",
+            ),
+            " and the ",
+            link(
+              "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+              "Advanced marathon PDF",
+            ),
+            ".",
           ],
         },
         {
@@ -626,7 +700,7 @@ function higdonFaqs(plan: TrainingPlan): PlanFaq[] {
       answer: [
         "Novice 1 is 18 weeks and 4 running days, and it records a peak of 40 miles, for beginners. ",
         link("/plans/pfitzinger-18-55", "Pfitz 18/55"),
-        " peaks at 55 miles on 5 days and lists a starting point of 30+ miles a week. The ",
+        " peaks at 55 miles on 5 days and records 33 miles in its first week. The ",
         link("/plans/hansons-marathon-method", "Hansons Marathon Method"),
         " uses 6 running days and caps the long run at 16 miles. The free ",
         link(
@@ -679,7 +753,7 @@ function hansonsFaqs(plan: TrainingPlan): PlanFaq[] {
     {
       question: "What mileage do I need to start the Hansons Marathon Method?",
       answer: [
-        "The listed starting point is about 25 miles a week. The free ",
+        "Luke Humphrey suggests building to about 20 miles a week before the Beginner plan. The free ",
         link(
           "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
           "Hansons Beginner plan",
