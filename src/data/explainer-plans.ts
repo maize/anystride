@@ -251,7 +251,7 @@ export const EXPLAINER_PLANS: TrainingPlan[] = [
     daysPerWeek: 6,
     summary:
       "A high-frequency plan built on cumulative fatigue, with six running days from week 6 on the Beginner plan and every week on the Advanced plan, goal-pace tempo runs, and a 16-mile long run cap.",
-    prerequisite: "You can run ~25 mpw and want a structured marathon build",
+    prerequisite: "You run about 20 miles a week comfortably",
     timePerWeek: "6–8 hrs",
     intensity: "high",
     peakWorkout: "16-mile long run on cumulatively-tired legs",

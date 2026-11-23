@@ -28,7 +28,12 @@ function textOf(copy) {
   const chunks = [
     copy.heading,
     faqPlainText(copy.affiliation),
-    ...copy.sections.flatMap((section) => [section.heading, faqPlainText(section.answer)]),
+    ...copy.sections.flatMap((section) => [
+      section.heading,
+      faqPlainText(section.answer),
+      ...(section.details ?? []).flatMap((detail) => [detail.heading, faqPlainText(detail.answer)]),
+      section.sources ? faqPlainText(section.sources) : "",
+    ]),
     copy.structure ? faqPlainText(copy.structure.answer) : "",
     copy.schedule?.intro ?? "",
     ...copy.faqs.flatMap((faq) => [faq.question, faqPlainText(faq.answer)]),
@@ -46,7 +51,11 @@ function linksOf(parts, found = []) {
 function allLinks(copy) {
   const found = [];
   linksOf(copy.affiliation, found);
-  for (const section of copy.sections) linksOf(section.answer, found);
+  for (const section of copy.sections) {
+    linksOf(section.answer, found);
+    for (const detail of section.details ?? []) linksOf(detail.answer, found);
+    if (section.sources) linksOf(section.sources, found);
+  }
   if (copy.structure) linksOf(copy.structure.answer, found);
   for (const faq of copy.faqs) linksOf(faq.answer, found);
   return found;
@@ -77,7 +86,10 @@ test("search-intent copy does not change titles or meta descriptions", () => {
 test("every plan page has question headings, a direct answer, and 4 to 6 FAQs", () => {
   for (const plan of plans) {
     const copy = planPageCopy(plan);
-    assert.equal(copy.sections.map((section) => section.id).join(","), "who,duration,volume,paces,start");
+    const expectedIds = plan.slug === "hansons-marathon-method"
+      ? "who,first-marathon,duration,volume,paces,start"
+      : "who,duration,volume,paces,start";
+    assert.equal(copy.sections.map((section) => section.id).join(","), expectedIds);
     for (const section of copy.sections) {
       assert.match(section.heading, /\?$/);
       const answer = faqPlainText(section.answer).trim();
@@ -127,10 +139,23 @@ test("priority pages answer from plan data and name their independence", () => {
 
   const couch = textOf(planPageCopy(getPlanBySlug("couch-to-5k")));
   assert.doesNotMatch(couch, /will (finish|run) a 5K|guaranteed/i);
-  const hansons = textOf(planPageCopy(getPlanBySlug("hansons-marathon-method")));
+  const hansonsCopy = planPageCopy(getPlanBySlug("hansons-marathon-method"));
+  const hansons = textOf(hansonsCopy);
   assert.match(hansons, /has no pace chart/);
   assert.doesNotMatch(hansons, /taper length of \d|3-week taper/);
   assert.doesNotMatch(hansons, /50 miles|18 miles at the start/);
+  assert.doesNotMatch(hansons, /25 miles|25 mpw|~25/);
+  const firstMarathon = hansonsCopy.sections.find((section) => section.id === "first-marathon");
+  assert.equal(firstMarathon.heading, "Is the Hansons Marathon Method good for a first marathon?");
+  assert.equal(firstMarathon.details[0].heading, "Is a 16-mile long run enough for a first marathon?");
+  assert.equal(firstMarathon.details[1].heading, "How much time does the Hansons Marathon Method take each week?");
+  assert.equal(firstMarathon.details[2].heading, "Do I need the Hansons book, or are the free plans enough?");
+  assert.match(faqPlainText(firstMarathon.sources), /Sources checked Nov 23, 2026/);
+  assert.doesNotMatch(faqPlainText(firstMarathon.details[1].answer), /\bhours?\b/i);
+  assert.doesNotMatch(faqPlainText(firstMarathon.details[2].answer), /\benough\b/i);
+  const higdon = textOf(planPageCopy(getPlanBySlug("higdon-marathon-novice-1")));
+  assert.match(higdon, /records 33 miles in its first week/);
+  assert.doesNotMatch(higdon, /30\+ miles a week/);
   const pfitz = textOf(planPageCopy(getPlanBySlug("pfitzinger-18-55")));
   assert.doesNotMatch(pfitz, /20–22|20-22/);
 });
@@ -157,13 +182,14 @@ test("FAQ links point at real internal pages or the plan source", () => {
     assert.ok(hrefs.includes("/#plan-finder"), slug);
     assert.ok(hrefs.some((href) => href === "/coaches" || href.startsWith("/coaching/focus/")), slug);
     assert.ok(hrefs.some((href) => href.startsWith("/plans/") && href !== `/plans/${slug}`), slug);
-    const officialPdfs = new Set([
+    const officialSources = new Set([
       "https://s3.us-central-1.wasabisys.com/hansons/Beginner_Marathon_-_new.pdf",
       "https://s3.us-central-1.wasabisys.com/hansons/Advanced_Marathon_-_new.pdf",
+      "https://lukehumphreyrunning.com/lhr-podcast-approaching-the-hansons-marathon-method-beginning-marathon-plan/",
     ]);
     for (const href of hrefs) {
       assert.ok(
-        internal.has(href) || href === plan.source.url || officialPdfs.has(href),
+        internal.has(href) || href === plan.source.url || officialSources.has(href),
         `${slug} unexpected ${href}`,
       );
     }

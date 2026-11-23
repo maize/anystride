@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import {
   faqPageSchema,
   planPageCopy,
+  planPageFaqs,
   type TextPart,
 } from "@/lib/plan-page-intent";
 
@@ -38,7 +39,7 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
           ],
         }}
       />
-      <JsonLd data={faqPageSchema(copy.faqs)} />
+      <JsonLd data={faqPageSchema(planPageFaqs(copy))} />
       <Link
         href={basePath}
         className="text-sm font-medium text-muted-foreground hover:text-brand"
@@ -111,6 +112,19 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
           <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
             <PlanCopy parts={section.answer} />
           </p>
+          {section.details?.map((detail) => (
+            <div key={detail.heading} className="mt-4">
+              <h3 className="text-base font-semibold">{detail.heading}</h3>
+              <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
+                <PlanCopy parts={detail.answer} />
+              </p>
+            </div>
+          ))}
+          {section.sources ? (
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              <PlanCopy parts={section.sources} />
+            </p>
+          ) : null}
           {section.id === "who" && (
             <ul className="mt-3 grid gap-1.5 sm:grid-cols-3">
               {plan.bestFor.map((item) => (
