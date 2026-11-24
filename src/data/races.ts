@@ -42,6 +42,8 @@ export interface Race {
     sourceName: string;
     sourceUrl: string;
   };
+  /** Question-and-answer pairs shown on the race page, same shape as a guide FAQ. */
+  faq?: { q: string; a: string }[];
   men?: FieldEntry[];
   women?: FieldEntry[];
 }
@@ -618,11 +620,21 @@ export const RACES: Race[] = [
     watchUrl: "https://www.tcslondonmarathon.com/",
     coverage: "schedule",
     verification: {
-      state: "review-needed",
-      checkedAt: "2026-10-14",
-      sourceName: "Marathon Handbook — London 2027 two-day announcement",
-      sourceUrl: "https://marathonhandbook.com/london-marathon-2027-two-days/",
+      state: "verified",
+      checkedAt: "2026-11-24",
+      sourceName: "London Marathon Events: Announcing the 2027 Double TCS London Marathon",
+      sourceUrl: "https://www.londonmarathonevents.co.uk/london-marathon/article/announcing-2027-tcs-london-marathon-double-two-days-one-event-100000-people",
     },
+    faq: [
+      {
+        q: "When is the London Marathon 2027?",
+        a: "The 2027 TCS London Marathon is a one-off two-day event on Saturday, April 24 and Sunday, April 25, 2027, according to London Marathon Events (as of November 24, 2026).",
+      },
+      {
+        q: "When is the next London Marathon?",
+        a: "As of November 24, 2026, the next TCS London Marathon is the 2027 edition, held on Saturday, April 24 and Sunday, April 25, 2027. The 2026 race has already taken place. Check the official race site for any later change.",
+      },
+    ],
   },
   {
     slug: "tokyo-marathon-2027",

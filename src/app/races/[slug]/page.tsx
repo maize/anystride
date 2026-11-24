@@ -147,6 +147,19 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
           ],
         }}
       />
+      {race.faq && race.faq.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: race.faq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }}
+        />
+      )}
 
       <Link
         href="/races"
@@ -187,6 +200,17 @@ export default async function RacePage({ params }: PageProps<"/races/[slug]">) {
         {formatRaceDate(race, "long")} · {race.city}, {race.country}
         {startTime ? ` · starts ${startTime}` : ""}
       </p>
+
+      {race.faq && race.faq.length > 0 && (
+        <>
+          {race.faq.map((f) => (
+            <section key={f.q} className="mt-10">
+              <h2 className="text-xl font-semibold tracking-tight">{f.q}</h2>
+              <p className="mt-3 leading-relaxed">{f.a}</p>
+            </section>
+          ))}
+        </>
+      )}
 
       <p className="mt-6 text-lg leading-relaxed">{race.why}</p>
 
