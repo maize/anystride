@@ -1906,12 +1906,18 @@ export const GUIDES: Guide[] = [
     description:
       "How to breathe efficiently while running — belly vs. chest breathing, the 2:2 and 3:2 rhythm patterns, nose vs. mouth, and how to stop a side stitch.",
     targetQuery: "how to breathe while running / breathing while running",
-    updated: "2026-11-02",
+    updated: "2026-11-24",
     intro: [
-      "Breathing while running feels automatic until it suddenly doesn't. You're gasping at a pace that should be comfortable, your side seizes up, or you can't string two sentences together on an easy jog. For most runners the issue isn't weak lungs — it's that your aerobic system is still adapting, and your breathing mechanics have never had to work this hard before.",
-      "A few simple ideas help: a technique for drawing in more air per breath, a rhythm to keep breathing efficient across different paces, and a reliable fix for the side stitch. None of this requires expensive gear or years of practice — just a little attention on your next run.",
+      "To breathe while running, use belly (diaphragmatic) breathing and a simple footstrike rhythm. A common pattern is two steps in and two steps out at moderate effort, or three steps in and two out when you are running easy. Breathe through both nose and mouth once the pace gets harder. If you are gasping on an easy run, slow down until you can speak in full sentences.",
+      "The sections below cover belly breathing, breathing rhythms, and side stitches.",
     ],
     sections: [
+      {
+        heading: "How to breathe while running?",
+        body: [
+          "To breathe while running, use belly (diaphragmatic) breathing and a simple footstrike rhythm. A common pattern is two steps in and two steps out at moderate effort, or three steps in and two out when you are running easy. Breathe through both nose and mouth once the pace gets harder. If you are gasping on an easy run, slow down until you can speak in full sentences.",
+        ],
+      },
       {
         heading: "Why breathing feels hard (and what it usually means)",
         body: [
@@ -1977,6 +1983,10 @@ export const GUIDES: Guide[] = [
     ],
     faq: [
       {
+        q: "How to breathe while running?",
+        a: "To breathe while running, use belly (diaphragmatic) breathing and a simple footstrike rhythm: two steps in and two steps out at moderate effort, or three steps in and two out on an easy run. Breathe through both nose and mouth once the pace gets harder. If you are gasping on an easy run, slow down until you can speak in full sentences.",
+      },
+      {
         q: "Should I breathe through my nose or my mouth while running?",
         a: "Most runners breathe through both simultaneously once effort rises above easy pace, and that is fine. Nose-only breathing limits airflow at hard efforts, so don't force it. In cold weather, nasal breathing or covering your mouth reduces throat irritation — a comfort choice, not a performance requirement.",
       },
@@ -1998,5 +2008,19 @@ export const GUIDES: Guide[] = [
       },
     ],
     relatedPlans: ["couch-to-5k", "base-building-4-week", "bridge-to-10k"],
+    sources: [
+      {
+        label: "Jack Daniels, \"Breathing Rhythm For Runners\", VDOT",
+        url: "https://news.vdoto2.com/2018/10/breathing-rhythm-for-runners/",
+      },
+      {
+        label: "Harbour et al. (2022), \"Breath Tools: A Synthesis of Evidence-Based Breathing Strategies to Enhance Human Running\"",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967998/",
+      },
+      {
+        label: "Morton and Callister, \"Exercise-Related Transient Abdominal Pain (ETAP)\"",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4281377/",
+      },
+    ],
   },
 ];
