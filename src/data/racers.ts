@@ -19,7 +19,7 @@ export interface Racer {
 }
 
 /** When this dataset was last hand-verified (the weekly agent keeps it fresh). */
-export const RACERS_AS_OF = "2026-10-28";
+export const RACERS_AS_OF = "2026-11-25";
 
 /** Flag emoji for the countries currently in the dataset. */
 export const COUNTRY_FLAGS: Record<string, string> = {
@@ -47,6 +47,7 @@ export const COUNTRY_FLAGS: Record<string, string> = {
   Norway: "🇳🇴",
   Poland: "🇵🇱",
   Rwanda: "🇷🇼",
+  Spain: "🇪🇸",
   Sweden: "🇸🇪",
   Tanzania: "🇹🇿",
   Uganda: "🇺🇬",
@@ -1027,6 +1028,66 @@ export const RACERS: Racer[] = [
       "Brussels Diamond League 5000m champion (2026, 14:35.20)",
       "World Indoor 1500m champion (2024)",
       "World Indoor 3000m champion (2025)",
+    ],
+  },
+  {
+    slug: "andreas-almgren",
+    name: "Andreas Almgren",
+    gender: "M",
+    country: "Sweden",
+    events: ["Marathon", "Half Marathon"],
+    prs: [
+      { event: "Marathon", time: "2:06:01" },
+      { event: "Half Marathon", time: "58:06" },
+    ],
+    honors: [
+      "New York City Marathon champion (2026, 2:06:01 — first Swede to win New York, marathon debut)",
+      "World Road Running Championships half marathon champion (2026, 58:06 European record)",
+    ],
+  },
+  {
+    slug: "yemaneberhan-crippa",
+    name: "Yemaneberhan Crippa",
+    gender: "M",
+    country: "Italy",
+    born: "1996-02-15",
+    events: ["Marathon", "Half Marathon", "10,000m", "5000m"],
+    prs: [{ event: "Marathon", time: "2:06:14" }],
+    honors: [
+      "New York City Marathon runner-up (2026, 2:06:14)",
+      "Italian national record holder (10km road, half marathon)",
+      "Multiple European Athletics Championships medalist on the track",
+    ],
+  },
+  {
+    slug: "kamohelo-mofolo",
+    name: "Kamohelo Mofolo",
+    gender: "M",
+    country: "Lesotho",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:06:26" }],
+    honors: ["New York City Marathon 3rd place (2026, 2:06:26)"],
+  },
+  {
+    slug: "sheila-chepkirui",
+    name: "Sheila Chepkirui",
+    gender: "F",
+    country: "Kenya",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:24:36" }],
+    honors: [
+      "New York City Marathon champion (2026, 2:24:36 — second New York title)",
+    ],
+  },
+  {
+    slug: "jess-mcclain",
+    name: "Jess McClain",
+    gender: "F",
+    country: "United States",
+    events: ["Marathon"],
+    prs: [{ event: "Marathon", time: "2:24:42" }],
+    honors: [
+      "New York City Marathon runner-up (2026, 2:24:42 — first American woman on NYC podium since Shalane Flanagan, 2018)",
     ],
   },
   {

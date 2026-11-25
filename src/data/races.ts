@@ -48,7 +48,7 @@ export interface Race {
   women?: FieldEntry[];
 }
 
-export const RACES_AS_OF = "2026-10-28";
+export const RACES_AS_OF = "2026-11-25";
 
 export const RACES: Race[] = [
   {
@@ -380,7 +380,7 @@ export const RACES: Race[] = [
       sourceUrl: "https://worldathletics.org/competitions/world-athletics-road-running-championships/copenhagen26/results",
     },
     men: [
-      { name: "Andreas Almgren", country: "Sweden", place: 1, time: "58:06" },
+      { racer: "andreas-almgren", place: 1, time: "58:06" },
       { name: "Nicholas Kipkorir", country: "Kenya", place: 2 },
       { name: "Joshua Cheptegei", country: "Uganda", place: 3, time: "58:26" },
     ],
@@ -562,24 +562,25 @@ export const RACES: Race[] = [
     country: "United States",
     distance: "Marathon",
     series: "World Marathon Majors",
-    why: "The 50th anniversary of New York\'s five-borough course brings nearly 60,000 runners to the city — and the deepest open field in event history: 40 Olympians, ten men who have run under the course record, and a women\'s battle headlined by defending champion Hellen Obiri against Olympic marathon champion Sifan Hassan.",
+    why: "Sweden\'s Andreas Almgren won in 2:06:01 on his marathon debut — the first Swede to claim New York — with Yemaneberhan Crippa (2:06:14) and Kamohelo Mofolo (2:06:26) completing a podium that featured zero pre-race favourites. In the women\'s race Sheila Chepkirui claimed her second New York title in 2:24:36, holding off American Jess McClain (2:24:42) while defending champion Hellen Obiri finished third in 2:24:43 — the three women separated by just seven seconds.",
     watchUrl: "https://www.nyrr.org/tcsnycmarathon",
-    coverage: "field",
+    resultsUrl: "https://www.letsrun.com/news/2026/10/2026-new-york-city-marathon-tracking-and-results/",
+    coverage: "results",
     verification: {
       state: "verified",
-      checkedAt: "2026-10-21",
-      sourceName: "New York Road Runners",
-      sourceUrl: "https://www.nyrr.org/media-center/press-release/2026_0819_tcsnycmprofield",
+      checkedAt: "2026-11-25",
+      sourceName: "LetsRun — 2026 NYC Marathon results",
+      sourceUrl: "https://www.letsrun.com/news/2026/10/2026-new-york-city-marathon-tracking-and-results/",
     },
     men: [
-      { racer: "benson-kipruto" },
-      { name: "Geoffrey Kamworor", country: "Kenya" },
-      { name: "Abdi Nageeye", country: "Netherlands" },
+      { racer: "andreas-almgren", place: 1, time: "2:06:01" },
+      { racer: "yemaneberhan-crippa", place: 2, time: "2:06:14" },
+      { racer: "kamohelo-mofolo", place: 3, time: "2:06:26" },
     ],
     women: [
-      { racer: "hellen-obiri" },
-      { racer: "sifan-hassan" },
-      { name: "Sheila Chepkirui", country: "Kenya" },
+      { racer: "sheila-chepkirui", place: 1, time: "2:24:36" },
+      { racer: "jess-mcclain", place: 2, time: "2:24:42" },
+      { racer: "hellen-obiri", place: 3, time: "2:24:43" },
     ],
   },
   {
@@ -769,5 +770,68 @@ export const RACES: Race[] = [
       { name: "Graham Blanks", country: "United States", place: 2 },
       { racer: "cameron-myers", place: 3 },
     ],
+  },
+  {
+    slug: "fukuoka-international-marathon-2026",
+    name: "Fukuoka International Marathon 2026",
+    date: "2026-12-06",
+    startsAt: "2026-12-06T12:10:00+09:00",
+    endsAt: "2026-12-06T17:00:00+09:00",
+    timeZone: "Asia/Tokyo",
+    schedulePrecision: "time",
+    city: "Fukuoka",
+    country: "Japan",
+    distance: "Marathon",
+    why: "The 70th Fukuoka International Marathon — Japan\'s most prestigious men\'s selection race — doubles as a qualifying event for the Beijing 2027 World Athletics Championships and Los Angeles 2028 Olympics. The point-to-point course along Hakata Bay is known for its fast early downhill, and the race has produced sub-2:08 winning times in recent years.",
+    watchUrl: "https://www.fukuoka-international-marathon.jp/en/",
+    coverage: "schedule",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-11-25",
+      sourceName: "Fukuoka Prefecture press release",
+      sourceUrl: "https://www.pref.fukuoka.lg.jp/press-release/fukuoka-kokusai2026-1119kishakaiken.html",
+    },
+  },
+  {
+    slug: "valencia-marathon-2026",
+    name: "Valencia Trinidad Alfonso Zurich Marathon 2026",
+    date: "2026-12-06",
+    startsAt: "2026-12-06T08:30:00+01:00",
+    endsAt: "2026-12-06T18:00:00+01:00",
+    timeZone: "Europe/Madrid",
+    schedulePrecision: "time",
+    city: "Valencia",
+    country: "Spain",
+    distance: "Marathon",
+    why: "Europe\'s fastest marathon — the flat, sea-level course through Valencia\'s historic centre holds the World Athletics Platinum Label and has produced sub-2:03 men\'s and sub-2:14 women\'s winning times. The 46th edition on December 6, 2026 is the season-closing major for elites targeting qualifying marks ahead of the 2027 World Athletics Championships.",
+    watchUrl: "https://www.valenciaciudaddelrunning.com/en/",
+    coverage: "schedule",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-11-25",
+      sourceName: "Valencia Ciudad del Running official site",
+      sourceUrl: "https://www.valenciaciudaddelrunning.com/en/marathon/",
+    },
+  },
+  {
+    slug: "seville-marathon-2027",
+    name: "Zurich Maratón de Sevilla 2027",
+    date: "2027-02-21",
+    startsAt: "2027-02-21T08:30:00+01:00",
+    endsAt: "2027-02-21T18:00:00+01:00",
+    timeZone: "Europe/Madrid",
+    schedulePrecision: "time",
+    city: "Seville",
+    country: "Spain",
+    distance: "Marathon",
+    why: "Europe\'s flattest marathon — the Zurich Maratón de Sevilla on February 21, 2027 holds the World Athletics Elite Label and regularly features deep international fields chasing European and national records on the sea-level circuit through Seville\'s sun-drenched streets.",
+    watchUrl: "https://www.zurichmaratonsevilla.es/en/",
+    coverage: "schedule",
+    verification: {
+      state: "verified",
+      checkedAt: "2026-11-25",
+      sourceName: "fatmarathoner.com — Zurich Seville Marathon race guide",
+      sourceUrl: "https://fatmarathoner.com/zurich-seville-marathon-complete-race-guide-for-runners/",
+    },
   },
 ];
