@@ -83,7 +83,7 @@ function Footer() {
             </Link>
             <Link href="/partners" className="transition-colors duration-300 ease-stride hover:text-foreground">Partner with us</Link>
             <Link href="/pricing" className="transition-colors duration-300 ease-stride hover:text-foreground">Pricing</Link>
-            <Link href="/for-coaches" className="transition-colors duration-300 ease-stride hover:text-foreground">For coaches</Link>
+            <Link href="/for-coaches" className="transition-colors duration-300 ease-stride hover:text-foreground">Running coach software</Link>
             <a href="/account" className="transition-colors duration-300 ease-stride hover:text-foreground">Coaching account</a>
             <Link
               href="/privacy"
