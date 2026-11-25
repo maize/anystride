@@ -209,6 +209,9 @@ export default async function CoachingPage({
             List your coaching on anystride and reach runners who&apos;ve outgrown a
             plan. Free while we build out the directory.
           </p>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+            <Link href="/for-coaches" className="font-medium text-brand underline underline-offset-2">Anystride’s running coach software</Link> covers athlete invitations, training plans and storefront sales after approval.
+          </p>
         </div>
         <Link
           href="/coaching/apply"

@@ -73,7 +73,7 @@ Strava syncing is a limited beta with capacity for ten connected athletes across
 ## Product and costs
 - [Pricing](https://anystride.com/pricing): costs and selling requirements.
 - [Plain text pricing](https://anystride.com/pricing.txt): the same pricing information.
-- [Tools for coaches](https://anystride.com/for-coaches): capabilities, approval and limitations.
+- [Running coach software for independent coaches](https://anystride.com/for-coaches): invite athletes, build 1 to 24 week plans, assign workouts and review results. Storefront sales take a commission after coach approval. No direct Garmin or COROS sync or watch delivery.
 - [Running coaches](https://anystride.com/coaches): independent profiles and services.
 
 ## Training resources
