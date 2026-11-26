@@ -2,6 +2,12 @@ export interface GuideSection {
   heading: string;
   body: string[];
   bullets?: string[];
+  /** Render `bullets` as an ordered list. Unordered when omitted. */
+  ordered?: boolean;
+  /** Simple comparison table. `columns` is the header row; each `rows` entry is one body row. */
+  table?: { columns: string[]; rows: string[][] };
+  /** Paragraphs shown after the table or list. */
+  closing?: string[];
 }
 
 export interface GuideFaq {
@@ -17,6 +23,8 @@ export interface Guide {
   description: string;
   /** The main search phrase this guide targets (for our own reference). */
   targetQuery: string;
+  /** Short summary shown in a callout above the intro. */
+  tldr?: string;
   intro: string[];
   sections: GuideSection[];
   faq: GuideFaq[];
@@ -759,15 +767,16 @@ export const GUIDES: Guide[] = [
     description:
       "Learn how to count running cadence, why 180 steps per minute is not a universal target, and how to test a small change without overhauling your stride.",
     targetQuery: "running cadence / cadence running / steps per minute running",
-    updated: "2026-10-31",
+    updated: "2026-11-26",
     intro: [
       "Running cadence is the number of steps you take in a minute. It is easy to measure, but a number on your watch cannot tell you by itself whether your stride is efficient, whether you are overstriding, or whether you will get injured.",
       "Use cadence as a description of how you run at a particular pace. If you have a reason to explore a change, compare like with like and test a small adjustment rather than chasing the familiar 180-steps-per-minute number.",
     ],
     sections: [
       {
-        heading: "What is running cadence?",
+        heading: "What is cadence in running?",
         body: [
+          "Cadence in running is your step rate: the total number of times your feet hit the ground in one minute, counted as steps per minute (spm). A watch counts both feet; if you count one foot by hand, double it.",
           "Cadence is the total number of foot contacts per minute. A watch usually reports this as steps per minute; a manual count of one foot needs to be doubled to include both feet. If an app shows a number near half of what you expected, check whether it reports contacts from one foot or both.",
           "Cadence changes as you speed up, slow down, or run on a hill. A race reading and an easy-run reading are not interchangeable. Record the pace and terrain alongside the number if you want a useful comparison later.",
         ],
@@ -815,6 +824,10 @@ export const GUIDES: Guide[] = [
       },
     ],
     faq: [
+      {
+        q: "What is cadence in running?",
+        a: "Cadence in running is how many steps you take per minute, counting both feet. Count one foot's landings for 30 seconds and multiply by four. There is no single right number; it changes with pace and terrain.",
+      },
       {
         q: "What is a good running cadence?",
         a: "There is no single good number for every runner and pace. Record your own easy-run baseline, compare it at a similar speed and terrain, and do not treat 180 as a pass mark.",
@@ -1177,77 +1190,132 @@ export const GUIDES: Guide[] = [
   {
     slug: "treadmill-vs-outdoor-running",
     title: "Treadmill vs Outdoor Running: Which Is Better for Training?",
-    description: "The real differences between treadmill and outdoor running — effort, biomechanics, and when each option serves your training better.",
+    description:
+      "Treadmill vs outdoor running compared: effort at each pace, the 1% incline study, stride differences, and when each one fits your training plan.",
     targetQuery: "treadmill vs outdoor running / is treadmill running the same as outside",
-    updated: "2026-11-06",
+    updated: "2026-11-26",
+    tldr:
+      "Neither is better for every run. Pick the treadmill when you need a set pace, a safe place to run in the dark or on icy days, or a hill you don't have. Pick outdoor running when you are training for a road race, because only the road gives you its wind, turns and surfaces. Most runners in a plan do best with both.",
     intro: [
-      "Treadmills and outdoor routes both offer ways to train. The choice depends on the workout, conditions and access. A belt-speed setting is not a guarantee of the same effort or race performance outdoors.",
+      "**Short answer:** Treadmill vs outdoor running is closer than most people think. A 2020 review of 33 studies with 494 runners found most stride measures were the same on both. The main gap is effort at faster paces: with no air resistance, a treadmill at 0% incline cost less energy than the road at about 7:10 per mile and faster in one study.",
+      "Use the treadmill for control and the road for race practice. The rest of this guide shows when each one wins and how to set the belt so your effort matches.",
     ],
     sections: [
       {
-        heading: "What the 1% study actually tested",
+        heading: "Treadmill vs outdoor running at a glance",
+        body: [],
+        table: {
+          columns: ["", "Treadmill", "Outdoor"],
+          rows: [
+            ["Pace control", "Belt holds the pace you set", "You hold it yourself"],
+            ["Air resistance", "None, so slightly easier at faster paces", "Wind and air add cost"],
+            ["Surface and turns", "Flat, the same every step", "Hills, camber, turns, curbs"],
+            ["Weather and light", "Indoors, any hour", "Depends on conditions"],
+            ["Race practice for road events", "Limited", "Direct"],
+          ],
+        },
+      },
+      {
+        heading: "Is it easier to run outside or on a treadmill?",
         body: [
-          "Jones and Doust’s 1996 study tested nine trained male runners over short bouts at speeds from 2.92 to 5 metres per second. A 1% treadmill grade approximated the energetic cost of outdoor running under those study conditions. It did not establish a universal correction for all runners, treadmills, speeds or weather.",
+          "At easy paces, about the same. At faster paces, the treadmill is a little easier unless you add incline. In Jones and Doust's 1996 study, nine trained male runners ran 6-minute bouts. At 2.92 and 3.33 m/s (about 9:11 and 8:03 per mile), road running cost the same oxygen as the treadmill at 0% or 1%. At 3.75 m/s (about 7:09 per mile) only 1% matched the road. At the two faster speeds, 1% or 2% matched, and at 5.0 m/s (about 5:22 per mile) the road fell between 1% and 2%.",
+          "That is a small study of short bouts in one group of runners. Room heat, airflow and belt calibration can change how a pace feels, so check your effort as well as the display.",
         ],
       },
       {
-        heading: "Use effort as well as the display",
+        heading: "Treadmill pace vs road pace",
         body: [
-          "Ventilation, room temperature, treadmill calibration and incline can change how a given speed feels. Set an effort you can sustain for the intended session. A recent outdoor performance is more directly relevant to an outdoor race than assuming a treadmill time is interchangeable.",
-        ],
-      },
-      {
-        heading: "When a treadmill is useful",
-        body: [
-          "A treadmill can provide a repeatable setting and avoid poor outdoor conditions. Check the room’s temperature, use the safety features and allow time to become familiar with speed changes. A consistent surface is not proof of lower injury risk.",
+          "A treadmill pace and a road pace are not a promise of the same effort. Three things cause most of the gap:",
         ],
         bullets: [
-          "Useful when a suitable outdoor route is unavailable.",
-          "Convenient for sessions where controlling belt speed helps.",
-          "Requires a suitable machine, ventilation and safe operation.",
+          "**Incline.** For easy running, 0% to 1% is close to the road in the study above. For tempo and faster work, 1% gets you nearer.",
+          "**Calibration.** Belts vary. If your watch and the display disagree, run by feel and heart rate rather than either number.",
+          "**Heat.** Indoors there is less moving air to cool you. A fan and fluids help the same pace feel like the road.",
         ],
       },
       {
-        heading: "When outdoor running is useful",
+        heading: "Does your stride change on a treadmill?",
         body: [
-          "Outdoor sessions let you practice the turns, surfaces, hills and conditions of a target race. Include them when practical, but there is no evidence here for a rule that everyone must train mainly outdoors for the final six to eight weeks.",
+          "Less than most runners expect. Van Hooren and colleagues (2020) pooled 33 crossover studies and found most stride and force measures did not differ. A few did: on the treadmill, the foot landed about 10 degrees flatter, ground contact was about 5 milliseconds longer and push-off force was slightly lower. The authors rated the evidence for these differences low or very low quality.",
         ],
       },
       {
-        heading: "Moving between the two",
+        heading: "When the treadmill is the better choice",
+        body: [],
+        bullets: [
+          "Dark or icy days when the road is unsafe. If you do head out in winter, read our guide to [running in cold weather](/guides/running-in-cold-weather) first.",
+          "Intervals and tempo runs where holding an exact pace matters.",
+          "Hill sessions when you live somewhere flat.",
+          "Run/walk plans, where a set pace and a stop button make the walk breaks easy. A plan like [Couch to 5K](/plans/couch-to-5k) works on either.",
+        ],
+        closing: [
+          "Drawback: a belt can't teach you to pace yourself on a real course, and long runs indoors can feel hard to finish mentally.",
+        ],
+      },
+      {
+        heading: "When outdoor running is the better choice",
+        body: [],
+        bullets: [
+          "Building toward a road race, where you need practice with turns, camber, wind and hills.",
+          "Learning to hold a pace without a belt setting it for you.",
+          "Long runs for a marathon plan such as [Hal Higdon's Novice 1 marathon plan](/plans/higdon-marathon-novice-1) or the race-pace work in [Pfitz 18/55](/plans/pfitzinger-18-55), when conditions allow.",
+        ],
+        closing: [
+          "Drawback: weather, traffic and light decide when you can run, and stop-and-go routes make exact paces hard.",
+        ],
+      },
+      {
+        heading: "How to mix both in a training plan",
+        body: [],
+        ordered: true,
+        bullets: [
+          "Put your key race-specific runs outdoors when you can, especially in the last weeks before a road race.",
+          "Move intervals, tempo work or a bad-weather easy day to the treadmill.",
+          "On the belt, start at 0% to 1% for easy runs and 1% for faster work, then adjust by effort.",
+          "If you are stepping up from 5K, a structured [bridge to 10K plan](/plans/bridge-to-10k) tells you the session; you choose where to run it.",
+        ],
+      },
+      {
+        heading: "Bottom line",
         body: [
-          "Start with a manageable session when changing environments. Adjust pace to the actual effort rather than automatically adding 1% incline or assuming a fixed adjustment period. Use whichever setting supports the session and your circumstances.",
+          "Choose the setting that gets the session done well. Treadmill for control, safety and set paces. Outdoors for race-specific practice. If you want someone to plan that split around your week and your race, [find a running coach](/coaches).",
         ],
       },
     ],
     faq: [
       {
-        q: "Is treadmill running easier than running outside?",
-        a: "It can feel easier or harder depending on the machine, cooling, incline and outdoor conditions. Matching displayed pace does not guarantee matching effort.",
+        q: "Is it easier to run outside or on a treadmill?",
+        a: "At easy paces they cost about the same energy. At about 7:10 per mile and faster, a treadmill at 0% is slightly easier because there is no air resistance; about 1% incline brings it closer to the road.",
+      },
+      {
+        q: "Is treadmill pace the same as road pace?",
+        a: "Not exactly. Incline, belt calibration and indoor heat all change effort. Use 0% to 1% for easy runs, about 1% for faster work, and check how the effort feels.",
+      },
+      {
+        q: "Is running on a treadmill better than running outside?",
+        a: "Neither is better for every run. The treadmill wins for control and bad weather; outdoor running wins for road-race practice. Most plans work well with a mix.",
       },
       {
         q: "Should I always set the treadmill to 1% incline?",
-        a: "No. The familiar recommendation comes from a small study under specific conditions. Use incline deliberately for your session rather than treating it as a universal road-equivalence setting.",
-      },
-      {
-        q: "Can I do a long run on a treadmill?",
-        a: "Yes, if the setting and session suit you. Plan cooling, fluids and breaks as needed. For an outdoor race, some practice in relevant outdoor conditions can also be useful.",
-      },
-      {
-        q: "Will a treadmill race prediction match my road time?",
-        a: "Not necessarily. Treat calculator outputs as estimates and consider differences in calibration, conditions and endurance preparation.",
+        a: "No. In the 1996 study, 1% matched the road at faster paces, but at easy paces 0% and 1% both matched. Use incline for the session you are doing.",
       },
     ],
     relatedPlans: [
-      "base-building-4-week",
+      "couch-to-5k",
+      "bridge-to-10k",
       "higdon-marathon-novice-1",
       "pfitzinger-18-55",
-      "hansons-marathon-method",
     ],
     sources: [
       {
-        label: "Jones and Doust (1996) — treadmill grade and outdoor energetic cost: study conditions and limits",
+        label:
+          "Jones and Doust (1996), A 1% treadmill grade most accurately reflects the energetic cost of outdoor running",
         url: "https://pubmed.ncbi.nlm.nih.gov/8887211/",
+      },
+      {
+        label:
+          "Van Hooren et al. (2020), Is motorized treadmill running biomechanically comparable to overground running? Sports Medicine",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7069922/",
       },
     ],
   },
