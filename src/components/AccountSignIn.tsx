@@ -4,6 +4,9 @@ import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } fro
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { accountSessionChanged } from "@/lib/account-session";
+import { authEntry } from "@/lib/auth-analytics";
+import { trackProductEvent } from "@/lib/analytics";
+import { useFormAbandon } from "@/lib/form-abandon";
 
 const subscribe = () => () => {};
 const button = "w-full rounded-lg bg-foreground px-4 py-4 text-base font-semibold text-background transition-colors duration-200 hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50";
@@ -21,6 +24,12 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
   const [email, setEmail] = useState("");
   const [cooldown, setCooldown] = useState(0);
   const [editing, setEditing] = useState(false);
+  const entry = authEntry(next);
+  const abandon = useFormAbandon({
+    event: "sign_up_abandon",
+    fields: ["email"],
+    payload: () => ({ method: "email", entry, step_name: "email", step_number: 1 }),
+  });
 
   useEffect(() => {
     if (!cooldown) return;
@@ -32,6 +41,7 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
 
   async function requestLink() {
     if (busy.current || cooldown > 0) return;
+    if (abandon.noteStart("email")) trackProductEvent("sign_up_start", { method: "email", entry });
     busy.current = true;
     setPending(true); setFailed(false); setMessage("");
     const address = email.trim();
@@ -45,6 +55,7 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
         }
         throw new Error("We couldn’t request your email. Please try again. Your address has been kept.");
       }
+      abandon.markSubmitted();
       setSent(true); setEditing(false); setCooldown(60);
       setMessage("Link requested. If this address can receive an account link, it will arrive shortly.");
     } catch (error) {
@@ -57,7 +68,10 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
     void requestLink();
   }
   const alternate = createAccount ? "/account/sign-in" : "/account/sign-up";
-  return <form method="post" action="/api/marketplace/auth" onSubmit={submit} className="space-y-6" aria-busy={pending}>
+  return <form method="post" action="/api/marketplace/auth" onSubmit={submit} onFocus={(event) => {
+    const name = event.target instanceof Element ? event.target.getAttribute("name") : null;
+    if (name === "email" && abandon.noteStart("email")) trackProductEvent("sign_up_start", { method: "email", entry });
+  }} className="space-y-6" aria-busy={pending}>
     {sent ? <div>
       <p className="mb-2 text-sm font-semibold text-brand">One more step</p>
       <h3 className="text-2xl font-semibold">Check your inbox</h3>
@@ -79,7 +93,7 @@ export function AccountSignIn({ createAccount = false, next = "/account", unifie
       <div className="space-y-4 border-t border-border pt-6">
         <p className="text-sm text-muted-foreground">No email yet? Check your spam or junk folder.</p>
         <button type="button" disabled={pending || cooldown > 0} className={button} onClick={() => void requestLink()}>{pending ? "Requesting your link…" : cooldown > 0 ? `Resend available in ${cooldown}s` : "Resend email link"}</button>
-        <button type="button" disabled={pending} className={`text-sm ${textButton}`} onClick={() => { setSent(false); setMessage(""); setFailed(false); setEditing(true); }}>Use a different email</button>
+        <button type="button" disabled={pending} className={`text-sm ${textButton}`} onClick={() => { abandon.restart(); setSent(false); setMessage(""); setFailed(false); setEditing(true); }}>Use a different email</button>
       </div>
     </div>}
     {!unified && <div className="border-t border-border pt-6 text-sm leading-relaxed">

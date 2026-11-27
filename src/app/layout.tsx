@@ -5,11 +5,9 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteAnalytics } from "@/components/SiteAnalytics";
+import { ConfirmedAuthAnalytics } from "@/components/ConfirmedAuthAnalytics";
+import { GA_MEASUREMENT_ID } from "@/lib/ga-id";
 import "./globals.css";
-
-// GA4 Measurement ID. Public by nature (it ships in the page), so it's safe to
-// commit as the default; an env var can still override it per-environment.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-QHBHKRHCZJ";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -143,7 +141,8 @@ export default function RootLayout({
         <SiteHeader />
         <main id="content" className="flex-1"><PageTransition>{children}</PageTransition></main>
         <Footer />
-        <SiteAnalytics gaId={GA_ID} />
+        <SiteAnalytics gaId={GA_MEASUREMENT_ID} />
+        <ConfirmedAuthAnalytics />
       </body>
     </html>
   );

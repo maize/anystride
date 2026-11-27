@@ -234,7 +234,7 @@ export async function handleStorefrontWebhook(raw: string, signature: string) {
 
 export async function storefrontOrders(actor: MarketplaceActor, orderId?: string) {
   return marketplaceTransaction(async (db) => {
-    const { rows } = await db.query<Pick<StorefrontOrder,"id"|"status"|"amount"|"currency"|"refunded"|"fee"|"mode"|"snapshot"|"created_at"> & { is_buyer: boolean }>(`SELECT id,status,amount,currency,refunded,fee,mode,snapshot,created_at,buyer_id=$1 AS is_buyer FROM marketplace_storefront_orders
+    const { rows } = await db.query<Pick<StorefrontOrder,"id"|"service_id"|"status"|"amount"|"currency"|"refunded"|"fee"|"mode"|"snapshot"|"created_at"> & { is_buyer: boolean }>(`SELECT id,service_id,status,amount,currency,refunded,fee,mode,snapshot,created_at,buyer_id=$1 AS is_buyer FROM marketplace_storefront_orders
       WHERE (buyer_id=$1 OR coach_id=$1) ${orderId ? "AND id=$2" : ""} ORDER BY created_at DESC LIMIT 100`, orderId ? [actor.id,orderId] : [actor.id]);
     return rows.map((order) => ({ ...order, snapshot: { ...order.snapshot, ...(["paid","partially_refunded"].includes(order.status) ? {} : { nextSteps: "", contactEmail: "", buyerEmail: "" }) } }));
   });

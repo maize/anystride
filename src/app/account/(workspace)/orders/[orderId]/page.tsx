@@ -5,6 +5,7 @@ import { storefrontId } from "@/lib/storefront-input";
 import { storefrontOrders, storefrontPaymentMode } from "@/lib/storefront-payments";
 import { AccountHeading, accountPrice } from "@/components/AccountUI";
 import { StorefrontActionButton } from "@/components/StorefrontForm";
+import { PurchaseAnalytics } from "@/components/FunnelAnalytics";
 
 export default async function OrderPage({ params }: { params: Promise<{ orderId: string }> }) {
   const { orderId } = await params;
@@ -13,7 +14,7 @@ export default async function OrderPage({ params }: { params: Promise<{ orderId:
   if (!order) notFound();
   const paid = ["paid","partially_refunded"].includes(order.status);
   const status = { pending:"Awaiting payment confirmation", paid:"Payment confirmed", partially_refunded:"Partially refunded", refunded:"Refunded", disputed:"Payment under review", expired:"Checkout expired", failed:"Payment failed" }[order.status];
-  return <><Link href="/account/orders" className="action-link mb-4">← All purchases & sales</Link><AccountHeading title={order.snapshot.title}>With {order.snapshot.coachName}</AccountHeading>
+  return <><PurchaseAnalytics transactionId={order.id} itemId={order.service_id} itemCategory={order.snapshot.kind} valueCents={order.amount} currency={order.currency} status={order.status} mode={order.mode} isBuyer={order.is_buyer} /><Link href="/account/orders" className="action-link mb-4">← All purchases & sales</Link><AccountHeading title={order.snapshot.title}>With {order.snapshot.coachName}</AccountHeading>
     {order.mode === "test" && <p role="status" className="mb-6 rounded-xl bg-muted p-4 font-semibold text-brand">Test order. No real service has been purchased.</p>}
     <section className="rounded-2xl bg-muted p-8"><p className="text-sm font-semibold">{status}</p><p className="mt-3 text-4xl font-semibold tabular-nums">{accountPrice(order.amount,order.currency)}</p>{order.refunded > 0 && <p className="mt-3 text-sm">Refunded: {accountPrice(order.refunded,order.currency)}</p>}{!order.is_buyer && <p className="mt-4 text-sm text-muted-foreground">Platform fee: {accountPrice(order.fee,order.currency)}. This order total is not a bank payout; payment processing, refunds and transfers may affect settlement.</p>}
       {order.status === "pending" && <p className="mt-4 max-w-xl text-sm text-muted-foreground">Returning from checkout doesn’t confirm payment. Check the latest status below. If you left before paying, you can return to the same service to resume checkout.</p>}
