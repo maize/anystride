@@ -129,10 +129,10 @@ test("example racers lead with the personal best and birth year when it exists",
   assert.equal(racer("tebello-ramakongoana").born, undefined);
 
   const korir = racerSearchMetadata(racer("john-korir"));
-  assert.equal(korir.title, "John Korir: Marathon PB 2:01:52, Born 1993");
+  assert.equal(korir.title, "John Korir: Marathon PB 2:02:24, Born 1996");
   assert.match(
     korir.description,
-    /^Kenya marathoner John Korir \(age \d+, born 1993\): Marathon PB 2:01:52\. Personal bests and career highlights\./,
+    /^Kenya marathoner John Korir \(age \d+, born 1996\): Marathon PB 2:02:24\. Personal bests and career highlights\./,
   );
 });
 

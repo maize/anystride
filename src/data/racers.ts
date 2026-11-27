@@ -133,7 +133,7 @@ export const RACERS: Racer[] = [
     name: "Kenenisa Bekele",
     gender: "M",
     country: "Ethiopia",
-    born: "1982-09-13",
+    born: "1982-06-13",
     events: ["Marathon", "5000m", "10,000m", "Cross country"],
     prs: [
       { event: "Marathon", time: "2:01:41" },
@@ -142,9 +142,9 @@ export const RACERS: Racer[] = [
     ],
     honors: [
       "Berlin Marathon champion (2016, 2019)",
-      "5000m world record holder (12:37.35, 2004) & 10,000m world record holder (26:17.53, 2005)",
-      "Three-time Olympic champion (5000m & 10,000m, Athens 2004; 10,000m, Beijing 2008)",
-      "Five-time World Cross Country champion (long course)",
+      "Former 5000m (12:37.35, 2004) and 10,000m (26:17.53, 2005) world record holder; both stood until 2020",
+      "Three-time Olympic champion (10,000m, Athens 2004; 5000m & 10,000m, Beijing 2008)",
+      "Six-time World Cross Country long-course champion (plus five short-course titles)",
     ],
     links: { worldAthletics: "https://worldathletics.org/athletes/ethiopia/kenenisa-bekele-14208194" },
   },
@@ -166,7 +166,7 @@ export const RACERS: Racer[] = [
     name: "Tadese Takele",
     gender: "M",
     country: "Ethiopia",
-    born: "2003-02-06",
+    born: "2002-08-03",
     events: ["Marathon", "Half Marathon"],
     prs: [{ event: "Marathon", time: "2:03:37" }],
     honors: [
@@ -197,12 +197,14 @@ export const RACERS: Racer[] = [
     name: "John Korir",
     gender: "M",
     country: "Kenya",
-    born: "1993-01-11",
+    born: "1996-12-02",
     events: ["Marathon"],
-    prs: [{ event: "Marathon", time: "2:01:52" }],
+    prs: [{ event: "Marathon", time: "2:02:24" }],
     honors: [
-      "Boston Marathon champion (2022, 2024, 2026)",
-      "Boston Marathon course record — 2:01:52 (2026)",
+      "Boston Marathon champion (2025, 2026)",
+      "Boston Marathon course record 2:01:52 (2026; Boston is point-to-point, so it is not a record-eligible time)",
+      "Chicago Marathon champion (2024)",
+      "Valencia Marathon champion (2025)",
     ],
   },
   {
@@ -210,7 +212,7 @@ export const RACERS: Racer[] = [
     name: "Alphonce Felix Simbu",
     gender: "M",
     country: "Tanzania",
-    born: "1992-08-27",
+    born: "1992-02-14",
     events: ["Marathon", "Half Marathon"],
     prs: [{ event: "Marathon", time: "2:02:47" }],
     honors: [
@@ -223,7 +225,7 @@ export const RACERS: Racer[] = [
     name: "Benson Kipruto",
     gender: "M",
     country: "Kenya",
-    born: "1988-07-08",
+    born: "1991-03-17",
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:02:50" }],
     honors: [
@@ -452,13 +454,13 @@ export const RACERS: Racer[] = [
     name: "Sharon Lokedi",
     gender: "F",
     country: "Kenya",
-    born: "1996-09-28",
+    born: "1994-03-10",
     events: ["Marathon"],
     prs: [{ event: "Marathon", time: "2:14:07" }],
     honors: [
       "Chicago Marathon runner-up (2026, 2:14:07 PB)",
-      "Boston Marathon champion (2023, 2026)",
-      "New York City Marathon champion (2022, 2023)",
+      "Boston Marathon champion (2025, 2026)",
+      "New York City Marathon champion (2022)",
     ],
   },
   {
@@ -521,7 +523,7 @@ export const RACERS: Racer[] = [
     name: "Nikki Hiltz",
     gender: "F",
     country: "United States",
-    born: "1997-02-09",
+    born: "1994-10-23",
     events: ["1500m", "Mile"],
     prs: [{ event: "Mile", time: "4:17.49" }],
     honors: [
@@ -595,7 +597,7 @@ export const RACERS: Racer[] = [
     name: "Peres Jepchirchir",
     gender: "F",
     country: "Kenya",
-    born: "1993-10-22",
+    born: "1993-09-27",
     events: ["Marathon", "Half Marathon"],
     prs: [{ event: "Marathon", time: "2:18:31" }],
     honors: [
@@ -820,7 +822,7 @@ export const RACERS: Racer[] = [
     name: "Nadia Battocletti",
     gender: "F",
     country: "Italy",
-    born: "2000-06-12",
+    born: "2000-04-12",
     events: ["5000m", "10,000m", "Cross country"],
     prs: [],
     honors: [
