@@ -214,6 +214,10 @@ export default function PrivacyPage() {
             authentication cookies only when the optional coaching account pilot
             is enabled. Blocking those cookies prevents account sign in, but does
             not restrict access to public training plans, guides or tools.
+            On plan pages in a start-button experiment, we also store an anonymous
+            variant — control or treatment — in a first-party cookie named anystride_xv
+            and in local storage. That value is only the variant. It does not contain
+            your name, email, start date, or training data. Clearing site data resets it.
           </p>
         </section>
 

@@ -206,3 +206,47 @@ export function buildPlanCalendar(
     "",
   ].join("\r\n");
 }
+
+/**
+ * Week boundaries only. Explainer pages do not include a book's daily workouts,
+ * so this calendar must not invent mileage, paces or session names.
+ */
+export function buildWeekMarkerCalendar(
+  plan: { slug: string; name: string; durationWeeks: number },
+  startDate: string,
+) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(plan.slug)) return null;
+  if (!Number.isInteger(plan.durationWeeks) || plan.durationWeeks < 1 || plan.durationWeeks > 52) return null;
+  if (!parseLocalDate(startDate)) return null;
+
+  const generatedAt = formatCalendarTimestamp(new Date());
+  const events: string[] = [];
+  for (let week = 1; week <= plan.durationWeeks; week += 1) {
+    const date = getPlanDay(startDate, (week - 1) * 7);
+    if (!date) return null;
+    const endDate = new Date(date);
+    endDate.setDate(endDate.getDate() + 1);
+    events.push(
+      "BEGIN:VEVENT",
+      `UID:${plan.slug}-week-${week}@anystride.com`,
+      `DTSTAMP:${generatedAt}`,
+      `DTSTART;VALUE=DATE:${formatCalendarDate(date)}`,
+      `DTEND;VALUE=DATE:${formatCalendarDate(endDate)}`,
+      `SUMMARY:${escapeCalendarText(`${plan.name}: Week ${week} of ${plan.durationWeeks}`)}`,
+      "DESCRIPTION:Week marker only. Daily workouts are not included.",
+      "TRANSP:TRANSPARENT",
+      "END:VEVENT",
+    );
+  }
+
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//anystride//Training Plan//EN",
+    "CALSCALE:GREGORIAN",
+    `X-WR-CALNAME:${escapeCalendarText(`${plan.name} week markers`)}`,
+    ...events,
+    "END:VCALENDAR",
+    "",
+  ].join("\r\n");
+}

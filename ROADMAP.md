@@ -57,6 +57,10 @@ The GA weekly endpoint now returns `productEvents` with `eventCount` and `totalU
 | Event | Meaning |
 | --- | --- |
 | `plan_finder_complete` | Valid finder submission; excludes answers |
+| `plan_experiment_exposure` | Enrolled plan page assigned `control` or `treatment`; once per tab session |
+| `plan_activation_view` | Start module entered the viewport |
+| `plan_activation_start` | Start-date form focused; the date itself is not sent |
+| `plan_activation_abandon` | Start-date form left before a successful start |
 | `plan_activated` | Valid start date submitted to activate a plan |
 | `plan_resume` | “Go to week” clicked; not evidence of a separate return visit |
 | `workout_complete` | A previously unchecked workout was checked; rechecking can count again |
