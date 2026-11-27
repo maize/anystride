@@ -1,8 +1,10 @@
+import { randomBytes } from "node:crypto";
 import { after, NextResponse } from "next/server";
 import { notifyVerifiedSignup } from "@/lib/signup-notifications";
 import { accountAuthClient } from "@/lib/supabase-server";
 import { marketplaceOrigin } from "@/lib/marketplace-config";
 import { checkoutReturnCookie, checkoutReturnFromCookie } from "@/lib/account-return";
+import { AUTH_ANALYTICS_COOKIE, authAnalyticsCookie } from "@/lib/auth-analytics";
 
 export async function GET(request: Request) {
   try {
@@ -16,8 +18,18 @@ export async function GET(request: Request) {
           const user = data.user;
           try { after(() => notifyVerifiedSignup(user)); } catch { console.error("Signup notification could not be scheduled."); }
         }
-        const response = NextResponse.redirect(`${origin}${checkoutReturnFromCookie(request.headers.get("cookie"))}`, { headers: { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" } });
+        const redirectPath = checkoutReturnFromCookie(request.headers.get("cookie"));
+        const response = NextResponse.redirect(`${origin}${redirectPath}`, { headers: { "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer" } });
         response.cookies.set(checkoutReturnCookie, "", { path: "/account", maxAge: 0, httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax" });
+        const analytics = authAnalyticsCookie({
+          user: data?.user,
+          now: Date.now(),
+          host: new URL(request.url).hostname,
+          optOut: request.headers.get("dnt") === "1" || request.headers.get("sec-gpc") === "1",
+          redirectPath,
+          nonce: randomBytes(8).toString("hex"),
+        });
+        if (analytics) response.cookies.set(AUTH_ANALYTICS_COOKIE, analytics, { path: "/", maxAge: 300, httpOnly: false, secure: origin.startsWith("https:"), sameSite: "lax" });
         return response;
       }
     }

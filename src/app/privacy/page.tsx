@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated October 17, 2026
+        Last updated November 27, 2026
       </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed">
@@ -54,6 +54,10 @@ export default function PrivacyPage() {
             PostHog receives public page paths and the product events listed here,
             without query strings, form entries, training progress or session recordings.
             It does not store analytics cookies or browser data.
+            On public plan, guide, coaching and racer pages we also record how far
+            the page was scrolled and whether the tab stayed visible for at least
+            ten seconds. Each in-app page change records one page view, using the
+            path only and not the query string.
           </p>
         </section>
 
@@ -143,7 +147,12 @@ export default function PrivacyPage() {
             time and version of this sharing permission. Other runners cannot
             see your request. Approved service descriptions and coaching names
             are visible to signed in participants. Account pages do not load our
-            analytics trackers. Do not include medical history or identity documents.
+            analytics scripts. If you start or complete account sign-up, storefront
+            setup, or a live service purchase, we may send one allowlisted event
+            with a method, step, currency, amount, or an order or service id. That
+            event does not include your email, name, messages, training, or Strava
+            data, and it is not sent when your browser sends Do Not Track or Global
+            Privacy Control. Do not include medical history or identity documents.
             Contact hello@anystride.com about correcting or removing account data.
           </p>
         </section>

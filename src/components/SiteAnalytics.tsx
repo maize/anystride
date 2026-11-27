@@ -6,7 +6,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ProductAnalytics } from "./ProductAnalytics";
+import { EngagementAnalytics } from "./EngagementAnalytics";
 import { capturePostHogPageview } from "@/lib/posthog";
+import { isGaMeasurementId } from "@/lib/ga-id";
 
 export function SiteAnalytics({ gaId }: { gaId: string }) {
   const pathname = usePathname();
@@ -16,5 +18,11 @@ export function SiteAnalytics({ gaId }: { gaId: string }) {
   // Account entry links use full document navigation, so a public-page analytics
   // script cannot survive into the private account/authentication document.
   if (!pathname || pathname === "/account" || pathname.startsWith("/account/") || pathname === "/coaching/payment-return") return null;
-  return <><ProductAnalytics /><Analytics /><SpeedInsights />{gaId && <GoogleAnalytics gaId={gaId} />}</>;
+  return <>
+    {isGaMeasurementId(gaId) && <GoogleAnalytics gaId={gaId} />}
+    <ProductAnalytics />
+    <EngagementAnalytics />
+    <Analytics />
+    <SpeedInsights />
+  </>;
 }

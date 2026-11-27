@@ -2,13 +2,21 @@
 
 import { useRef, useState, useSyncExternalStore, type FormEvent, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { trackProductEvent, trackProductEventOnce } from "@/lib/analytics";
+import { useFormAbandon } from "@/lib/form-abandon";
+import { PROFILE_FIELDS, SERVICE_FIELDS, type ItemCategory } from "@/lib/product-events";
 
 const subscribe = () => () => {};
 export const storefrontButton = "action-primary disabled:cursor-not-allowed disabled:opacity-50";
 
-export function StorefrontForm({ action, fields, children, button, previewAfterSave = false }: { action: "profile" | "offer"; fields: Record<string,string|number>; children: ReactNode; button: string; previewAfterSave?: boolean }) {
+export function StorefrontForm({ action, fields, children, button, previewAfterSave = false, tracking }: { action: "profile" | "offer"; fields: Record<string,string|number>; children: ReactNode; button: string; previewAfterSave?: boolean; tracking?: { step_name: "profile" | "service"; step_number: 1 | 2 } }) {
   const router = useRouter();
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
+  const abandon = useFormAbandon({
+    event: "coach_storefront_abandon",
+    fields: tracking?.step_name === "service" ? SERVICE_FIELDS : PROFILE_FIELDS,
+    payload: () => tracking ? { step_name: tracking.step_name, step_number: tracking.step_number } : null,
+  });
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
   const [failed, setFailed] = useState(false);
@@ -35,15 +43,19 @@ export function StorefrontForm({ action, fields, children, button, previewAfterS
       const response = await fetch("/api/marketplace/storefront", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(20000) });
       const result = await response.json();
       if (!response.ok || !result.saved) throw new Error(result.error || "We couldn’t save your changes.");
+      if (tracking) {
+        abandon.markSubmitted();
+        trackProductEventOnce(`storefront-step:${tracking.step_name}`, "coach_storefront_step", { step_name: tracking.step_name, step_number: tracking.step_number });
+      }
       if (action === "profile" && previewAfterSave) { router.push("/account/storefront/preview"); router.refresh(); return; }
       setSaved(true); setMessage(action === "profile" ? "Profile saved." : "Service saved and sent for review."); router.refresh();
     } catch (error) { setFailed(true); setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "The request timed out. Refresh to check whether it was saved before trying again."); }
     finally { busy.current = false; setPending(false); status.current?.focus(); }
   }
-  return <form onSubmit={submit} className="space-y-6"><fieldset disabled={!hydrated || pending || saved} className="space-y-6">{children}<button className={storefrontButton}>{pending ? "Saving…" : saved ? "Saved" : button}</button></fieldset><p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className="text-sm text-muted-foreground">{message}</p><noscript>Enable JavaScript to save your storefront.</noscript></form>;
+  return <form onSubmit={submit} onFocus={tracking ? (event) => { abandon.onFocus(event); } : undefined} className="space-y-6"><fieldset disabled={!hydrated || pending || saved} className="space-y-6">{children}<button className={storefrontButton}>{pending ? "Saving…" : saved ? "Saved" : button}</button></fieldset><p ref={status} tabIndex={-1} role={failed ? "alert" : "status"} className="text-sm text-muted-foreground">{message}</p><noscript>Enable JavaScript to save your storefront.</noscript></form>;
 }
 
-export function StorefrontActionButton({ action, fields = {}, children }: { action: "checkout" | "payouts" | "dashboard" | "reconcile" | "cancel" | "publication"; fields?: Record<string,string|number|boolean>; children: ReactNode }) {
+export function StorefrontActionButton({ action, fields = {}, children, commerce }: { action: "checkout" | "payouts" | "dashboard" | "reconcile" | "cancel" | "publication"; fields?: Record<string,string|number|boolean>; children: ReactNode; commerce?: { item_id: string; item_category: ItemCategory; value: number; currency: string } }) {
   const router = useRouter();
   const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const busy = useRef(false);
@@ -74,8 +86,17 @@ export function StorefrontActionButton({ action, fields = {}, children }: { acti
       if (result.url) {
         const url = new URL(result.url, window.location.origin);
         if (!((url.origin === window.location.origin && url.pathname.startsWith("/account/orders/")) || ["https://checkout.stripe.com","https://connect.stripe.com"].includes(url.origin))) throw new Error("Could not open the payment page.");
+        if (action === "checkout" && url.origin === "https://checkout.stripe.com" && commerce) {
+          try { sessionStorage.setItem(`anystride:checkout-started:${commerce.item_id}`, "1"); } catch { /* The order id still dedupes the event. */ }
+          trackProductEventOnce(`begin:${String(body.orderId)}`, "begin_checkout", { ...commerce, transaction_id: body.orderId });
+        }
+        if (action === "payouts" && url.origin === "https://connect.stripe.com") trackProductEventOnce("storefront-step:payouts", "coach_storefront_step", { step_name: "payouts", step_number: 3 });
         window.location.assign(url.href);
-      } else { setMessage(action === "publication" ? fields.published ? "Profile published." : "Profile is now private." : "Payment status checked."); router.refresh(); }
+      } else {
+        if (action === "publication" && fields.published === true) trackProductEvent("coach_storefront_publish");
+        setMessage(action === "publication" ? fields.published ? "Profile published." : "Profile is now private." : "Payment status checked.");
+        router.refresh();
+      }
     } catch (error) { setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "This is taking longer than expected. Try again; your checkout will be reused."); }
     finally { busy.current = false; setPending(false); }
   }
