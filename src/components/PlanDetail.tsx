@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getPlanBySlug } from "@/lib/plans";
 import { DistanceBadge, LevelBadge, IntensityMeter } from "@/components/Badge";
 import { PlanExperience } from "@/components/PlanExperience";
+import { PlanStartExperiment } from "@/components/PlanStartExperiment";
 import { JsonLd } from "@/components/JsonLd";
 import {
   faqPageSchema,
@@ -10,6 +11,7 @@ import {
   planPageFaqs,
   type TextPart,
 } from "@/lib/plan-page-intent";
+import { planExperimentAlternatives, planExperimentEnabled } from "@/lib/plan-experiment";
 
 export async function PlanDetail({ params, basePath = "/plans" }: { params: Promise<{ slug: string }>; basePath?: string }) {
   const { slug } = await params;
@@ -61,6 +63,15 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
         <PlanCopy parts={copy.affiliation} />
       </p>
       <PlanComparisonLink slug={plan.slug} />
+      {planExperimentEnabled(plan.slug) && (
+        <PlanStartExperiment
+          slug={plan.slug}
+          name={plan.name}
+          durationWeeks={plan.durationWeeks}
+          kind={plan.kind}
+          alternatives={planExperimentAlternatives(plan.slug)}
+        />
+      )}
 
       <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 rounded-xl border border-border p-5 text-sm sm:grid-cols-4">
         <div>

@@ -1,6 +1,10 @@
 /** Stable event names shared by the browser and the weekly GA report. */
 export const PRODUCT_EVENTS = [
   "plan_finder_complete",
+  "plan_experiment_exposure",
+  "plan_activation_view",
+  "plan_activation_start",
+  "plan_activation_abandon",
   "plan_activated",
   "plan_resume",
   "workout_complete",
@@ -35,9 +39,9 @@ export type ProductEvent = (typeof PRODUCT_EVENTS)[number];
 
 export const PROFILE_FIELDS = ["slug", "location", "headline", "photoUrl", "specialties", "approach"] as const;
 export const SERVICE_FIELDS = ["title", "description", "kind", "price", "currency", "durationWeeks", "inclusions", "delivery", "cancellation", "nextSteps", "available"] as const;
-const LAST_FIELDS = ["email", ...PROFILE_FIELDS, ...SERVICE_FIELDS] as const;
+const LAST_FIELDS = ["email", "start_date", "distance_unit", ...PROFILE_FIELDS, ...SERVICE_FIELDS] as const;
 
-const STEPS = { profile: 1, service: 2, payouts: 3, offer: 1, email: 1 } as const;
+const STEPS = { profile: 1, service: 2, payouts: 3, offer: 1, email: 1, start_date: 1 } as const;
 export type AnalyticsStepName = keyof typeof STEPS;
 export type AuthEntry = "coach" | "runner" | "checkout" | "invite";
 export type ItemCategory = "package" | "consultation";
@@ -131,6 +135,8 @@ export function productEventParameters(input: Record<string, unknown>) {
   if (input.coaching_focus === "beginners" || input.coaching_focus === "half-marathon" || input.coaching_focus === "marathon") safe.coaching_focus = input.coaching_focus;
   if (input.method === "email") safe.method = "email";
   if (input.entry === "coach" || input.entry === "runner" || input.entry === "checkout" || input.entry === "invite") safe.entry = input.entry;
+  if (input.experiment === "plan_start_cta") safe.experiment = "plan_start_cta";
+  if (safe.experiment === "plan_start_cta" && (input.variant === "control" || input.variant === "treatment")) safe.variant = input.variant;
   if (typeof input.last_field === "string" && (LAST_FIELDS as readonly string[]).includes(input.last_field)) safe.last_field = input.last_field;
   if (typeof input.step_name === "string" && Object.hasOwn(STEPS, input.step_name)) {
     const step = input.step_name as AnalyticsStepName;

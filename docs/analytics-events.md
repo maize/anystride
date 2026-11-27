@@ -73,6 +73,44 @@ Scroll depth and engaged time run on `/plans`, `/guides`, `/racers`, `/coaches`,
 
 GA4 enhanced measurement may also record its own `scroll` event at 90 percent. Use `scroll_depth` for the four thresholds. This code does not change enhanced measurement. If the property’s “page changes based on browser history events” option is on, a client navigation can receive that automatic page view as well as the one sent here. Turn that history option off in GA4 if the page-view count looks doubled.
 
+## Free plan activation
+
+Full schedules already start from the date form on the plan page (`plan_activated`). These events measure that form. Parameters are the public plan slug and, on an enrolled experiment page, the experiment id and variant. The start date, distance units’ selected value, mileage, names, email and Strava fields are dropped.
+
+| Event | When it fires | Params |
+| --- | --- | --- |
+| `plan_experiment_exposure` | An enrolled plan page assigned a variant. Once per browser tab session | `plan_slug`, `experiment`, `variant` |
+| `plan_activation_view` | Any part of the start module entered the viewport. Once per tab session | `plan_slug`, and `experiment` + `variant` when enrolled |
+| `plan_activation_start` | The visitor first focuses the date or the distance-unit control, before a successful start | `plan_slug`, `step_name` = `start_date`, `step_number` = `1`, `last_field` |
+| `plan_activation_abandon` | That form was started and left before a successful start | `plan_slug`, `step_name`, `step_number`, `last_field` |
+| `plan_activated` | A valid start date was submitted. Unchanged event | `plan_slug`, plus `experiment` and `variant` on an enrolled page |
+| `plan_calendar_download` | Calendar download requested after a start | `plan_slug`, plus `experiment` and `variant` on an enrolled page |
+
+`last_field` is `start_date` or `distance_unit`. It is the control name, not the date or the unit the visitor picked. `experiment` is `plan_start_cta`. `variant` is `control` or `treatment`. A variant is kept only when the experiment id is present.
+
+Enrolled pages are listed in `PLAN_START_EXPERIMENT_SLUGS`. Today that is `/plans/pfitzinger-18-55`. Other plan slugs can be added there. The assignment is a 50/50 draw stored in the `anystride_xv` cookie and in local storage under `anystride:experiment:plan_start_cta`. Nothing else is stored. The same browser keeps the same variant. Control is the current page. Treatment adds an above-the-fold start path; on an explainer page that path saves a start date and downloads week markers only, not the book’s daily workouts.
+
+`plan_experiment_exposure` is the denominator for a landing-session comparison. It is one hit per tab session on the enrolled page, which is close to a landing session and is not GA4’s own session count. `plan_activation_view` does not fire for control on an explainer page, because that page has no start module.
+
+Read the Pfitzinger result in Explore → Free form:
+
+1. Register event-scoped custom dimensions for `experiment`, `variant` and `plan_slug` if they are not already dimensions.
+2. Rows: `variant`. Columns or a filter breakdown: Event name.
+3. Filter `experiment` exactly `plan_start_cta` and `plan_slug` exactly `pfitzinger-18-55`.
+4. Values: Event count.
+5. Keep `plan_experiment_exposure`, `plan_activation_view`, `plan_activation_start`, `plan_activation_abandon`, `plan_activated` and `plan_calendar_download`.
+
+Primary metric: `plan_activated` event count ÷ `plan_experiment_exposure` event count, compared by `variant`.
+
+Secondary metrics, same filters:
+
+- `plan_activation_view` ÷ `plan_experiment_exposure` (module reach; control on this explainer stays at zero views)
+- `plan_activation_start` ÷ `plan_experiment_exposure`
+- `plan_activation_abandon` ÷ `plan_activation_start`
+- `plan_calendar_download` ÷ `plan_activated`
+
+Do not mark the abandon, view or exposure events as key events.
+
 ## Events already on the site
 
 These were already sent from public pages. Their parameters stay limited to public slugs and the enumerated preview values.
@@ -80,10 +118,10 @@ These were already sent from public pages. Their parameters stay limited to publ
 | Event | When it fires | Params |
 | --- | --- | --- |
 | `plan_finder_complete` | The plan finder finishes | none |
-| `plan_activated` | A free plan is started | `plan_slug` |
+| `plan_activated` | A free plan is started | `plan_slug` (see Free plan activation for the experiment params) |
 | `plan_resume` | A saved plan is resumed | `plan_slug` |
 | `workout_complete` | A workout is marked complete | `plan_slug` |
-| `plan_calendar_download` | A plan calendar is downloaded | `plan_slug` |
+| `plan_calendar_download` | A plan calendar is downloaded | `plan_slug` (see Free plan activation for the experiment params) |
 | `plan_print` | A plan is printed | `plan_slug` |
 | `race_source_click` | A race source link is clicked | `race_slug`, `link_kind` |
 | `guide_plan_click` | A plan link inside a guide is clicked | `guide_slug`, `plan_slug` |
@@ -99,7 +137,7 @@ These were already sent from public pages. Their parameters stay limited to publ
 
 ## Not instrumented
 
-- Free training plans have no checkout. Starting one remains `plan_activated`.
+- Free training plans have no checkout. Starting one remains `plan_activated`. The funnel around that form is the Free plan activation section above.
 - The coach application on `/account/services` is the review form that gates the storefront. It is not one of the three storefront steps. Opening the public apply link remains `coach_application_open`.
 - Stripe-hosted checkout and Stripe payout onboarding do not report the last field on those sites.
 - Test-mode storefront checkouts and the sandbox coaching checkout are not purchases.

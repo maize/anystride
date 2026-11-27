@@ -4,18 +4,22 @@ import { trackProductEvent } from "@/lib/analytics";
 import {
   type FormEvent,
   useMemo,
+  useRef,
   useState,
   useSyncExternalStore,
 } from "react";
 import type { PlanWeek } from "@/data/types";
 import { WeekTable } from "@/components/WeekTable";
+import { planActivationParameters } from "@/lib/plan-experiment";
 import {
   buildPlanCalendar,
-  EMPTY_PLAN_PROGRESS,
   getPlanPhase,
   parseLocalDate,
   type SavedPlanProgress,
 } from "@/lib/plan-progress";
+import { getProgressStore } from "@/lib/plan-progress-store";
+import { usePlanActivationFunnel, usePlanActivationView } from "@/lib/use-plan-activation";
+import { usePlanExperiment } from "@/lib/use-plan-experiment";
 
 interface PlanExperienceProps {
   plan: {
@@ -26,105 +30,6 @@ interface PlanExperienceProps {
   };
   scheduleHeading: string;
   scheduleIntro: string;
-}
-
-interface ProgressStore {
-  getSnapshot: () => SavedPlanProgress;
-  getServerSnapshot: () => SavedPlanProgress;
-  subscribe: (listener: () => void) => () => void;
-  update: (
-    updateProgress: (current: SavedPlanProgress) => SavedPlanProgress,
-  ) => void;
-}
-
-const progressStores = new Map<string, ProgressStore>();
-
-function readSavedProgress(value: string | null): SavedPlanProgress {
-  if (!value) return EMPTY_PLAN_PROGRESS;
-
-  try {
-    const parsed = JSON.parse(value) as Partial<SavedPlanProgress>;
-    if (
-      typeof parsed.active !== "boolean" ||
-      typeof parsed.startDate !== "string" ||
-      (parsed.unit !== "mi" && parsed.unit !== "km") ||
-      !Array.isArray(parsed.completedWorkoutIds)
-    ) {
-      return EMPTY_PLAN_PROGRESS;
-    }
-
-    return {
-      active: parsed.active,
-      startDate: parsed.startDate,
-      unit: parsed.unit,
-      completedWorkoutIds: parsed.completedWorkoutIds.filter(
-        (id): id is string => typeof id === "string",
-      ),
-      updatedAt:
-        typeof parsed.updatedAt === "string" ? parsed.updatedAt : "",
-    };
-  } catch {
-    return EMPTY_PLAN_PROGRESS;
-  }
-}
-
-function getProgressStore(slug: string): ProgressStore {
-  const existingStore = progressStores.get(slug);
-  if (existingStore) return existingStore;
-
-  const storageKey = `anystride:plan:${slug}:v1`;
-  const listeners = new Set<() => void>();
-  let current = EMPTY_PLAN_PROGRESS;
-  let initialized = false;
-
-  function getSnapshot() {
-    if (!initialized && typeof window !== "undefined") {
-      try {
-        current = readSavedProgress(window.localStorage.getItem(storageKey));
-      } catch {
-        current = EMPTY_PLAN_PROGRESS;
-      }
-      initialized = true;
-    }
-    return current;
-  }
-
-  function subscribe(listener: () => void) {
-    listeners.add(listener);
-
-    function handleStorage(event: StorageEvent) {
-      if (event.key !== storageKey) return;
-      current = readSavedProgress(event.newValue);
-      initialized = true;
-      listeners.forEach((notify) => notify());
-    }
-
-    window.addEventListener("storage", handleStorage);
-    return () => {
-      listeners.delete(listener);
-      window.removeEventListener("storage", handleStorage);
-    };
-  }
-
-  const store: ProgressStore = {
-    getSnapshot,
-    getServerSnapshot: () => EMPTY_PLAN_PROGRESS,
-    subscribe,
-    update(updateProgress) {
-      const next = updateProgress(getSnapshot());
-      current = next;
-      initialized = true;
-      try {
-        window.localStorage.setItem(storageKey, JSON.stringify(next));
-      } catch {
-        // The plan still works for this visit when storage is unavailable.
-      }
-      listeners.forEach((listener) => listener());
-    },
-  };
-
-  progressStores.set(slug, store);
-  return store;
 }
 
 function formatDate(date: string) {
@@ -161,6 +66,10 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
   );
   const resumeWeek = phase.week;
   const planIsActive = progress.active && phase.kind !== "not-started";
+  const variant = usePlanExperiment(plan.slug);
+  const activationRef = useRef<HTMLElement>(null);
+  const activation = usePlanActivationFunnel(plan.slug, variant, planIsActive);
+  usePlanActivationView(activationRef, plan.slug, variant);
   const calendarHref = planIsActive
     ? `data:text/calendar;charset=utf-8,${encodeURIComponent(
         buildPlanCalendar(plan, progress.startDate, progress.unit),
@@ -188,7 +97,8 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
 
     setFormError("");
     updateProgress({ active: true, startDate });
-    trackProductEvent("plan_activated", { plan_slug: plan.slug });
+    activation.markActivated();
+    trackProductEvent("plan_activated", planActivationParameters(plan.slug, variant));
   }
 
   function toggleWorkout(id: string, checked: boolean) {
@@ -235,8 +145,10 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
   return (
     <>
       <section
+        id="plan-setup"
+        ref={activationRef}
         aria-labelledby="plan-setup-heading"
-        className="mt-10 rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6"
+        className="mt-10 scroll-mt-6 rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.8fr)] lg:items-end">
           <div>
@@ -259,11 +171,14 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
             <label className="text-sm font-medium">
               Plan starts
               <input
+                id="plan-start-date"
                 type="date"
                 name="startDate"
                 value={progress.startDate}
+                onFocus={() => activation.begin("start_date")}
                 onChange={(event) => {
                   setFormError("");
+                  activation.begin("start_date");
                   updateProgress({
                     startDate: event.target.value,
                     active: event.target.value ? progress.active : false,
@@ -286,7 +201,10 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
                     key={unit}
                     type="button"
                     aria-pressed={progress.unit === unit}
-                    onClick={() => updateProgress({ unit })}
+                    onClick={() => {
+                      activation.begin("distance_unit");
+                      updateProgress({ unit });
+                    }}
                     className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-300 ease-stride active:scale-[0.98] ${
                       progress.unit === unit
                         ? "bg-foreground text-background"
@@ -331,7 +249,7 @@ export function PlanExperience({ plan, scheduleHeading, scheduleIntro }: PlanExp
             </a>
             <a
               href={calendarHref}
-              onClick={() => trackProductEvent("plan_calendar_download", { plan_slug: plan.slug })}
+              onClick={() => trackProductEvent("plan_calendar_download", planActivationParameters(plan.slug, variant))}
               download={`${plan.slug}-training-plan.ics`}
               className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold transition-all duration-300 ease-stride hover:border-foreground active:scale-[0.98]"
             >
