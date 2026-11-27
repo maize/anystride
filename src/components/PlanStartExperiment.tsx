@@ -161,7 +161,7 @@ function ExplainerStart({
         id="plan-setup"
         ref={sectionRef}
         aria-labelledby="plan-setup-heading"
-        className="mt-6 scroll-mt-6 rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6"
+        className="scroll-mt-6 rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.85fr)] lg:items-end">
           <div>
@@ -241,7 +241,7 @@ function FullPlanPrompt({ durationWeeks, alternatives }: { durationWeeks: number
 
   return (
     <>
-      <section ref={promptRef} aria-labelledby="plan-start-prompt" className="mt-6 rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6">
+      <section ref={promptRef} aria-labelledby="plan-start-prompt" className="rounded-xl border border-border bg-muted p-5 print:hidden sm:p-6">
         <p className="text-sm font-medium text-muted-foreground">Free on this device</p>
         <p id="plan-start-prompt" className="mt-1 text-2xl font-semibold tracking-tight">Start this plan</p>
         <p className="mt-2 max-w-xl text-sm text-muted-foreground">{planStartModuleCopy("full", durationWeeks)}</p>

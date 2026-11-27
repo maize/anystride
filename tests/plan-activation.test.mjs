@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { runInNewContext } from "node:vm";
 import { load } from "./support/load-module.mjs";
 
 function memoryStorage(initial = {}) {
@@ -210,6 +211,44 @@ test("experiment assignment is stable, anonymous and limited to enrolled plans",
   assert.equal(assigned, "treatment");
   assert.equal(garbage.values.local, "treatment");
   assert.equal(garbage.values.cookie, "plan_start_cta.treatment");
+});
+
+test("the boot script assigns a variant before paint and stores no visitor data", () => {
+  const { PLAN_START_BOOT_SCRIPT } = load("src/lib/plan-experiment.ts");
+  assert.equal(PLAN_START_BOOT_SCRIPT.includes("Start this plan"), false);
+  assert.equal(PLAN_START_BOOT_SCRIPT.includes("week marker"), false);
+  assert.equal(PLAN_START_BOOT_SCRIPT.includes("@"), false);
+  assert.equal(PLAN_START_BOOT_SCRIPT.includes("anystride:experiment:plan_start_cta"), true);
+
+  function execute(local, cookie, randomUnit) {
+    const store = { value: local };
+    let jar = cookie;
+    const html = { dataset: {} };
+    runInNewContext(PLAN_START_BOOT_SCRIPT, {
+      localStorage: {
+        getItem: () => store.value,
+        setItem: (_key, value) => { store.value = value; },
+      },
+      document: {
+        get cookie() { return jar; },
+        set cookie(value) { jar = value; },
+        documentElement: html,
+      },
+      location: { protocol: "https:" },
+      crypto: { getRandomValues: (buffer) => { buffer[0] = Math.floor(randomUnit * 4294967296); } },
+      decodeURIComponent,
+      Uint32Array,
+    });
+    return { stored: store.value, cookie: jar, variant: html.dataset.planStart };
+  }
+  assert.deepEqual(execute(null, "", 0.1), { stored: "control", cookie: "anystride_xv=plan_start_cta.control; Path=/; Max-Age=15552000; SameSite=Lax; Secure", variant: "control" });
+  assert.deepEqual(execute(null, "", 0.8), { stored: "treatment", cookie: "anystride_xv=plan_start_cta.treatment; Path=/; Max-Age=15552000; SameSite=Lax; Secure", variant: "treatment" });
+  assert.equal(execute("treatment", "anystride_xv=plan_start_cta.control", 0.1).variant, "treatment");
+  assert.equal(execute("runner@example.com", "anystride_xv=plan_start_cta.treatment", 0.1).stored, "treatment");
+  assert.equal(execute("2026-04-12", "", 0.2).stored, "control");
+  const replaced = JSON.stringify(execute("runner@example.com", "anystride_xv=2026-04-12", 0.9));
+  assert.equal(replaced.includes("example.com"), false);
+  assert.equal(replaced.includes("2026"), false);
 });
 
 test("explainer week-marker calendars omit daily workouts and personal fields", () => {

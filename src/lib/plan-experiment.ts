@@ -7,6 +7,13 @@ export const PLAN_EXPERIMENT_STORAGE_KEY = "anystride:experiment:plan_start_cta"
 export const PLAN_EXPERIMENT_COOKIE = "anystride_xv";
 export const PLAN_EXPERIMENT_MAX_AGE = 15_552_000;
 
+/**
+ * Runs before paint on enrolled plan pages. It only writes the anonymous
+ * variant so the reserved slot can collapse for control without a jump.
+ * Keep this free of plan copy, dates, and visitor data.
+ */
+export const PLAN_START_BOOT_SCRIPT = `(function(){try{var key=${JSON.stringify(PLAN_EXPERIMENT_STORAGE_KEY)};var variant=null;try{variant=localStorage.getItem(key);}catch(e){variant=null;}if(variant!=="control"&&variant!=="treatment"){var parts=document.cookie?document.cookie.split("; "):[];var raw="";for(var i=0;i<parts.length;i++){if(parts[i].indexOf(${JSON.stringify(`${PLAN_EXPERIMENT_COOKIE}=`)})===0)raw=parts[i].slice(${PLAN_EXPERIMENT_COOKIE.length + 1});}if(raw){try{raw=decodeURIComponent(raw);}catch(e){raw="";}}if(raw==="treatment"||raw==="plan_start_cta.treatment")variant="treatment";else if(raw==="control"||raw==="plan_start_cta.control")variant="control";else variant="";}if(variant!=="control"&&variant!=="treatment"){var unit=Math.random();try{var buf=new Uint32Array(1);crypto.getRandomValues(buf);unit=buf[0]/4294967296;}catch(e){}variant=unit<0.5?"control":"treatment";}try{localStorage.setItem(key,variant);}catch(e){}var secure=location.protocol==="https:"?"; Secure":"";document.cookie=${JSON.stringify(`${PLAN_EXPERIMENT_COOKIE}=`)}+(variant==="treatment"?"plan_start_cta.treatment":"plan_start_cta.control")+"; Path=/; Max-Age=${PLAN_EXPERIMENT_MAX_AGE}; SameSite=Lax"+secure;document.documentElement.dataset.planStart=variant;}catch(e){}})();`;
+
 export const PLAN_START_EXPERIMENT_SLUGS = ["pfitzinger-18-55"] as const;
 
 export const PLAN_EXPERIMENT_VARIANTS = ["control", "treatment"] as const;

@@ -139,8 +139,37 @@ body::before {
   }
 }
 
+/* Reserved before paint on enrolled plan pages. Heights match the idle start card, plus 8px, so it can mount without moving the stats. */
+.plan-start-slot {
+  min-height: 518px;
+}
+@media (min-width: 330px) {
+  .plan-start-slot { min-height: 498px; }
+}
+@media (min-width: 370px) {
+  .plan-start-slot { min-height: 478px; }
+}
+@media (min-width: 479px) {
+  .plan-start-slot { min-height: 458px; }
+}
+@media (min-width: 635px) {
+  .plan-start-slot { min-height: 438px; }
+}
+@media (min-width: 640px) {
+  .plan-start-slot { min-height: 446px; }
+}
+@media (min-width: 1024px) {
+  .plan-start-slot { min-height: 310px; }
+}
+html[data-plan-start="control"] .plan-start-slot {
+  height: 0;
+  min-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
 @media print {
-  body::before, body > header, body > footer { display: none; }
+  body::before, body > header, body > footer, .plan-start-slot { display: none; }
   .reveal.is-pending { opacity: 1; transform: none; }
 }
 

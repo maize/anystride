@@ -11,7 +11,7 @@ import {
   planPageFaqs,
   type TextPart,
 } from "@/lib/plan-page-intent";
-import { planExperimentAlternatives, planExperimentEnabled } from "@/lib/plan-experiment";
+import { PLAN_START_BOOT_SCRIPT, planExperimentAlternatives, planExperimentEnabled } from "@/lib/plan-experiment";
 
 export async function PlanDetail({ params, basePath = "/plans" }: { params: Promise<{ slug: string }>; basePath?: string }) {
   const { slug } = await params;
@@ -63,15 +63,20 @@ export async function PlanDetail({ params, basePath = "/plans" }: { params: Prom
         <PlanCopy parts={copy.affiliation} />
       </p>
       <PlanComparisonLink slug={plan.slug} />
-      {planExperimentEnabled(plan.slug) && (
-        <PlanStartExperiment
-          slug={plan.slug}
-          name={plan.name}
-          durationWeeks={plan.durationWeeks}
-          kind={plan.kind}
-          alternatives={planExperimentAlternatives(plan.slug)}
-        />
-      )}
+      {planExperimentEnabled(plan.slug) ? (
+        <>
+          <script dangerouslySetInnerHTML={{ __html: PLAN_START_BOOT_SCRIPT }} />
+          <div className="plan-start-slot mt-6" data-plan-start-slot="">
+            <PlanStartExperiment
+              slug={plan.slug}
+              name={plan.name}
+              durationWeeks={plan.durationWeeks}
+              kind={plan.kind}
+              alternatives={planExperimentAlternatives(plan.slug)}
+            />
+          </div>
+        </>
+      ) : null}
 
       <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 rounded-xl border border-border p-5 text-sm sm:grid-cols-4">
         <div>
